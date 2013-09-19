@@ -1,0 +1,14 @@
+
+#barra-promos
+{
+	background: #55c6f2;
+	height: 60px;
+	width: 100%;
+}
+
+#content-promos
+{
+	height: 500px; 
+	margin: 0 auto;
+	width: 1280px;
+}

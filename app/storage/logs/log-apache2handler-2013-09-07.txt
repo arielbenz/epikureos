@@ -1,0 +1,525 @@
+[2013-09-07 17:37:50] log.ERROR: exception 'ErrorException' with message 'require_once(D:/Dev/workspace//blog/wp-config.php): failed to open stream: No such file or directory' in D:\Dev\workspace\epikureos\app\views\header.php:5
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(5): Illuminate\Exception\Handler->handleError(2, 'require_once(D:...', 'D:\Dev\workspac...', 5, Array)
+#1 D:\Dev\workspace\epikureos\app\views\header.php(5): require_once()
+#2 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#11 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#12 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#13 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#20 {main} [] []
+[2013-09-07 17:38:21] log.ERROR: exception 'ErrorException' with message 'require_once(D:/Dev/workspace//blog/wp-config.php): failed to open stream: No such file or directory' in D:\Dev\workspace\epikureos\app\views\header.php:5
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(5): Illuminate\Exception\Handler->handleError(2, 'require_once(D:...', 'D:\Dev\workspac...', 5, Array)
+#1 D:\Dev\workspace\epikureos\app\views\header.php(5): require_once()
+#2 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#11 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#12 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#13 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#20 {main} [] []
+[2013-09-07 17:38:22] log.ERROR: exception 'ErrorException' with message 'require_once(D:/Dev/workspace//blog/wp-config.php): failed to open stream: No such file or directory' in D:\Dev\workspace\epikureos\app\views\header.php:5
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(5): Illuminate\Exception\Handler->handleError(2, 'require_once(D:...', 'D:\Dev\workspac...', 5, Array)
+#1 D:\Dev\workspace\epikureos\app\views\header.php(5): require_once()
+#2 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#11 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#12 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#13 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#20 {main} [] []
+[2013-09-07 17:38:22] log.ERROR: exception 'ErrorException' with message 'require_once(D:/Dev/workspace//blog/wp-config.php): failed to open stream: No such file or directory' in D:\Dev\workspace\epikureos\app\views\header.php:5
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(5): Illuminate\Exception\Handler->handleError(2, 'require_once(D:...', 'D:\Dev\workspac...', 5, Array)
+#1 D:\Dev\workspace\epikureos\app\views\header.php(5): require_once()
+#2 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#11 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#12 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#13 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#20 {main} [] []
+[2013-09-07 17:38:22] log.ERROR: exception 'ErrorException' with message 'require_once(D:/Dev/workspace//blog/wp-config.php): failed to open stream: No such file or directory' in D:\Dev\workspace\epikureos\app\views\header.php:5
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(5): Illuminate\Exception\Handler->handleError(2, 'require_once(D:...', 'D:\Dev\workspac...', 5, Array)
+#1 D:\Dev\workspace\epikureos\app\views\header.php(5): require_once()
+#2 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#11 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#12 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#13 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#20 {main} [] []
+[2013-09-07 17:41:03] log.ERROR: exception 'ErrorException' with message 'Object of class WP_Query could not be converted to string' in D:\Dev\workspace\epikureos\app\views\header.php:7
+Stack trace:
+#0 D:\Dev\workspace\epikureos\app\views\header.php(7): Illuminate\Exception\Handler->handleError(4096, 'Object of class...', 'D:\Dev\workspac...', 7, Array)
+#1 D:\Dev\workspace\epikureos\app\views\home\index.php(22): include('D:\Dev\workspac...')
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9050): include('D:\Dev\workspac...')
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9043): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\Dev\workspac...', Array)
+#4 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8943): Illuminate\View\Engines\PhpEngine->get('D:\Dev\workspac...', Array)
+#5 D:\Dev\workspace\epikureos\bootstrap\compiled.php(8934): Illuminate\View\View->getContents()
+#6 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9528): Illuminate\View\View->render()
+#7 D:\Dev\workspace\epikureos\bootstrap\compiled.php(9076): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4938): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#10 D:\Dev\workspace\epikureos\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'get_index', Object(Illuminate\View\View))
+#11 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4768): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'get_index', Array)
+#12 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#13 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7838): call_user_func_array(Object(Closure), Array)
+#14 D:\Dev\workspace\epikureos\bootstrap\compiled.php(7825): Illuminate\Routing\Route->callCallable()
+#15 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4779): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#16 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2013-09-07 17:42:51] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 17:44:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 17:54:25] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:54:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 17:59:33] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:01:28] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:03:17] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:03:20] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:05:58] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:07:41] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:07:43] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:07:43] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:07:43] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:08:59] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:09:00] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:09:54] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:09:57] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:11:28] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:11:35] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:11:44] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:15:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:17:20] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:20:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:24:35] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method WP_Query::the_posts()' in D:\Dev\workspace\epikureos\app\views\novedades\index.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:25:27] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function have_posts() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:743
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:28:00] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:28:19] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:28:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:29:51] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:33:09] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function get() on a non-object' in D:\Dev\workspace\epikureos\blog\wp-includes\query.php:27
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:38:13] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:47:27] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:52:25] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:54:00] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:54:57] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:56:30] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function add_filter()' in D:\Dev\workspace\epikureos\blog\wp-includes\functions.php:4048
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:56:53] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function add_filter()' in D:\Dev\workspace\epikureos\blog\wp-includes\functions.php:47
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-09-07 18:56:59] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:59:06] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 18:59:32] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:00:04] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:01:21] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:01:35] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:03:09] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:03:10] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:06:15] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:06:32] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:07:30] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:08:35] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:08:43] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:09:57] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-09-07 19:11:37] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []

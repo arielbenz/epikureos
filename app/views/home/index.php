@@ -1,0 +1,118 @@
+
+	<!-- HEADER -->
+	
+	<?php
+		include "app/views/header.php";
+		$my_query = new WP_Query('showposts=2');
+		$my_query_posta = new WP_Query('showposts=1');
+	?>
+
+	<!-- HOME -->	
+	
+	<section id="home-search">
+		<article id="search">
+
+			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
+				<input type="text" name="lugar" placeholder="Ingresá tu lugar o comida favorita..." required></input>
+				<button type="submit">Buscar</button>
+			</form>	
+
+		</article>
+		<nav id="nav-search">
+			<ul>
+				<li><a href="<?php echo $url?>/busqueda/resto">RESTOBAR</a></li>
+				<li><a href="<?php echo $url?>/busqueda/restaurant">RESTAURANT</a></li>
+				<li><a href="<?php echo $url?>/busqueda/bares">CAFÉS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/vinosydelicatessen">VINOTECAS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/heladerias">HELADERÍAS</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<section id="home-promo">
+		<article id="promo"></article>
+		<article id="lugar"></article>
+	</section>
+
+	<section id="home-info">
+		<section id="laposta">
+
+			<?php query_posts('category_name=laposta&showposts=1'); ?>
+
+			<?php if (have_posts()) : ?>
+
+				<?php while (have_posts()) : the_post(); ?>
+					<div class="posta">
+
+						<!--imagen-->
+						<div class="imagen-laposta">
+							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
+								if ($postaimagen) { ?>
+								<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
+								<?php } else { ?> 
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+							<?php } ?>
+						</div>
+
+					</div>
+				<?php endwhile; ?>
+
+			<?php else : ?>
+				<h1>Lo que buscas no se encuentra</h1>			
+			<?php endif; ?>
+			<!--fin loop-->
+
+		</section>
+		
+		<section id="noticias">
+			
+			<h3>ÚLTIMAS NOTICIAS</h3>
+
+			<?php query_posts('category_name=novedades&showposts=2'); ?>
+
+			<?php if (have_posts()) : ?>
+
+				<?php while (have_posts()) : the_post(); ?>
+					<div class="noticia">
+
+						<!--imagen-->
+						<div class="imagen-noticia">
+							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
+								if ($postimageurl) { ?>
+								<img src="<?php echo $postimageurl; ?>" alt="alt"/> 
+								<?php } else { ?> 
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+							<?php } ?>
+						</div>
+
+						<!--titulo-->
+				 		<div class="title-noticia">
+							<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				 		</div>
+
+						<!-- <h3><?php the_time('j F Y') ?></h3> -->
+					</div>
+				<?php endwhile; ?>
+
+			<?php else : ?>
+				<h1>Lo que buscas no se encuentra</h1>			
+			<?php endif; ?>
+			<!--fin loop-->
+
+			<article id="masnoticias">
+				<h4>MÁS NOTICIAS</h4>
+			</article>
+		</section>
+	</section>
+
+	<section id="home-publicidad">
+		<article id="publicidad1" class="class-publi"></article>
+		<article id="publicidad2" class="class-publi"></article>
+		<article id="publicidad3" class="class-publi"></article>
+		<article id="publicidad4" class="class-publi"></article>
+	</section>
+
+
+	<!-- FOOTER -->
+
+	<?php include "app/views/footer.php";?>

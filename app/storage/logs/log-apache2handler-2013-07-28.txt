@@ -1,0 +1,52 @@
+[2013-07-28 17:42:26] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\laravelpruebas\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-07-28 17:42:27] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\laravelpruebas\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-07-28 17:43:19] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\laravelpruebas\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-07-28 17:54:06] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php:4945
+Stack trace:
+#0 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\laravelpruebas\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-07-28 18:21:13] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in D:\Dev\workspace\laravelpruebas\app\routes.php:24
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-07-28 18:21:13] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in D:\Dev\workspace\laravelpruebas\app\routes.php:24
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-07-28 18:21:17] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in D:\Dev\workspace\laravelpruebas\app\routes.php:24
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-07-28 18:21:45] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php:4948
+Stack trace:
+#0 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 D:\Dev\workspace\laravelpruebas\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Dev\workspace\laravelpruebas\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []

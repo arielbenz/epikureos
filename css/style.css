@@ -1,0 +1,672 @@
+*
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+article, footer, header, nav, section
+{
+	display: block;
+}
+
+body 
+{
+	background: #EEE;
+	color: #000;
+	font-family: "Titillium Web", sans-serif;
+	font-size: 16px;
+	text-align: center;
+}
+
+header
+{
+	background: #252525;
+	height: 70px;
+	width: 100%;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+img
+{
+	border: none;
+}
+
+header nav
+{
+	padding-top: 0px;
+}
+
+nav ul
+{
+	list-style: none;
+}
+
+header nav ul li
+{
+	display: inline-block;
+}
+
+header nav ul li a
+{
+	border-top: 5px solid #252525;
+	color: #dfdfdf;
+	display: inline-block;
+	font-size: 16px;
+	font-style: bold;
+	margin: 0 2px 0 0 ;
+	padding: 20.5px 0;
+	width: 120px;
+	transition: all 0.5s ease;
+}
+
+header #menu
+{
+	display: inline-block;
+	margin-right: 80px;
+}
+
+header #ciudad
+{
+	display: inline-block;
+	float: right;
+	height: 70px;
+	position: relative;
+	right: 30px;
+}
+
+header #ciudad select
+{
+	background: transparent;
+	border: 0;
+	color: #dfdfdf;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-style: normal;
+	height: 29px;
+	line-height: 1;
+	margin-top: 23px;
+	width: 120px;
+	-webkit-appearance: none;
+}
+
+
+header #ciudad label {position: relative}
+header #ciudad label:after
+{
+	content:'>';
+	font: 22px "Consolas", monospace;
+    color: #dfdfdf;
+    right: 8px; top: 0px;
+    position: absolute;
+    pointer-events: none;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+header #ciudad #logo-dia
+{
+	margin-left: 10px;
+	display: inline-block;
+	position: relative;
+	top: 10px;
+}
+
+header nav ul li a:hover
+{
+	background: #343031;
+	border-top: 5px solid #343031;
+}
+
+header nav #menu-laposta a
+{
+	background: #343031;
+	border-top: 5px solid #58ba48;
+}
+
+header nav #menu-contacto a
+{
+	background: #343031;
+	border-top: 5px solid #24a8aa;
+}
+
+header nav #menu-promos a
+{
+	background: #343031;
+	border-top: 5px solid #55c6f2;
+}
+
+header nav #menu-novedades a
+{
+	background: #343031;
+	border-top: 5px solid #df3726;
+}
+
+header nav #menu-quees a
+{
+	background: #343031;
+	border-top: 5px solid #f28422;
+}
+
+header #header-nav
+{
+	margin: 0 auto;
+	width: 1280px;
+}
+
+header #logo
+{
+	display: inline-block;
+	float: left;
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+#barra-back
+{
+	background: rgba(0,0,0,0.1);
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+.barra-content #barra
+{
+	height: 60px; 
+	margin: 0 auto;
+	width: 1280px;
+}
+
+.barra-content #barra #barra-titulo
+{
+	float: right;
+	position: relative;
+	right: 30px;
+}
+
+.barra-content #barra #barra-titulo h2
+{
+	color: white;
+	display: inline-block;
+	font-size: 40px;
+	font-weight: bold;
+	position: relative;
+	bottom: 15px;
+	right: 10px;
+	padding: 0;
+}
+
+
+
+/* ----------------- BUSQUEDA --------------*/
+/*------------------------------------------*/
+
+.font-bold
+{
+	font-weight: bold;
+}
+
+.font-normal
+{
+	font-weight: normal;
+}
+
+#home-search
+{
+	background: url("http://localhost/epikureos/img/fondo66.jpg") repeat 100% center;
+	height: 400px;
+	width: 100%;
+}
+
+#home-search #search
+{
+	height: 150px;
+	margin: 0 auto;
+	position: relative;
+	top: 120px;
+	width: 990px;
+}
+
+#home-search #nav-search
+{
+	height: 40px;
+	margin: 0 auto;
+	position: relative;
+	top: 50px;
+	width: 1000px;
+}
+
+#home-search #nav-search ul li
+{
+	display: inline-block;
+}
+
+#home-search #nav-search ul li a 
+{
+	background: #474747;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-radius: 5px;
+	color: #FFF;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0 0 10px 10px;
+	padding: 7px 0;
+	width: 180px;
+}
+
+#home-search #nav-search ul li a:hover
+{
+	background: #f28422;
+	transition: all 0.2s ease;
+}
+
+#form-search {
+    margin: 0 auto;
+    padding: 15px;
+    width: 490px;
+}
+
+#home-search #search button
+{
+    background-color: #f28422;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    font-family: Tahoma;
+    font-size: 15px;
+    font-weight: bold;
+    height: 50px;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+    width: 110px;
+}
+
+#home-search #search button:hover{ background: #df3726; } 
+#home-search #search button:active, #home-search #search button:focus{ background: #df3726; }
+#home-search #search button:before { /* el detalle del triángulo izquierdo */
+    content: "";
+    border-color: transparent #f28422 transparent;
+    border-style: solid solid solid none;
+    border-width: 8px 8px 8px 0;
+    left: -6px;
+    position: absolute;
+    top: 17px;
+  }
+#home-search #search button:hover:before { border-right-color: #df3726; }
+#home-search #search button:focus:before { border-right-color: #df3726; }    
+
+#home-search #search input
+{
+    box-shadow: 0 0 5px #5cd053;
+	border-radius: 5px 0 0 5px;
+    border: none;
+    color: #888;
+    float: left;
+    font-size: 20px;
+	font-style: oblique;
+    height: 30px;
+    padding:10px 5px;
+    width: 370px;
+    
+}
+
+#home-search #search input:focus
+{
+    outline: 0;
+    background: #FFF;
+    box-shadow: 0 0 0 rgba(0,0,0,.8);
+}
+
+#home-search #search input:required
+{
+	/*box-shadow: none;*/
+	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+}
+
+/* ----------------  PROMOS ----------------*/
+/*------------------------------------------*/
+
+#home-promo
+{
+	height: 350px;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#home-promo #promo
+{
+	background: url("http://localhost/epikureos/img/fondo.jpg") repeat 100% center;
+	/*background: #AAA;*/
+	border: 8px solid #FFF;
+	display: inline-block;
+	height: 234px;
+	margin-top: 60px;
+	margin-right: 40px;
+	width: 564px;
+}
+
+#home-promo #lugar
+{
+	background: url("http://localhost/epikureos/img/fondo2.jpg") repeat 100% center;
+	/*background: #AAA;*/
+	border: 8px solid #FFF;
+	display: inline-block;
+	height: 234px;
+	width: 564px;
+}
+
+
+/* ----------------  INFO ----------------*/
+/*----------------------------------------*/
+
+#home-info
+{
+	height: 590px;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#home-info #laposta
+{
+	background: #BBB;
+	display: inline-block;
+	height: 500px;
+	margin-right: 40px;
+	position: relative;
+	top: 50px;
+	width: 730px;
+}
+
+#home-info #laposta .imagen-laposta
+{
+	
+}
+
+#home-info #noticias
+{
+	display: inline-block;
+	height: 500px;
+	position: relative;
+	top: 50px;
+	vertical-align: top;
+	width: 430px;
+}
+
+#home-info #noticias h3
+{
+	color: #7a7675;
+	font-size: 26px;
+	font-weight: normal;
+	margin: 0 0 22px 0;
+	text-align: left;
+}
+
+#home-info #noticias .noticia
+{
+	margin: 0 0 0 0 ;
+	width: 430px;
+}
+
+#home-info #noticias .imagen-noticia
+{
+	background: #AAA;
+	height: 125px;
+}
+
+#home-info #noticias .imagen-noticia img
+{
+	-webkit-transition: -webkit-filter 1s;
+    -webkit-filter: grayscale(1);  /* Chrome */
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+}
+
+#home-info #noticias .imagen-noticia img:hover
+{
+	-webkit-filter: grayscale(0); /* Chrome */
+    filter: none; /* Applies to FF + IE */
+}
+
+#home-info #noticias .title-noticia
+{
+	height: 75px;
+	margin-left: 5px;
+	text-align: left;
+}
+
+#home-info #noticias .title-noticia a
+{
+	color: #333333;
+	font-size: 22px;
+	font-weight: normal;
+	margin: 0;
+}
+
+#home-info #noticias #masnoticias {
+	background: #9ea9ad;
+	color: #eff0f0;
+	height: 40px;
+}
+
+#home-info #noticias #masnoticias h4 {
+	font-size: 26px;
+	font-weight: normal;
+	margin-left: 10px;
+	position: relative;
+	text-align: left;
+}
+
+/* ----------------  PUBLICIDAD ----------------*/
+/*----------------------------------------------*/
+
+#home-publicidad
+{
+	display: inline-block;
+	height: 290px;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#home-publicidad .class-publi
+{
+	background: #BBB;
+	display: inline-block;
+	height: 190px;
+	margin-left: 12px;
+	margin-right: 12px;
+	position: relative;
+	top: 50px;
+	width: 280px;
+}
+
+/* ----------------  FOOTER ----------------*/
+/*------------------------------------------*/
+
+footer
+{
+	background: #292728;
+	color: #FFF;
+	max-width: 100%;
+}
+
+#partner
+{
+	border-top: 1.5px solid #CCC;
+	height: 200px;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#home-footer
+{
+	background: #292728;
+	height: 225px;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#home-footer .footer-info
+{
+	display: inline-block;
+	height: 140px;
+	position: relative;
+	top: 30px;
+	vertical-align: top;
+	width: 400px;
+}
+
+#home-footer #footer-links h3
+{
+	font-size: 26px;
+	margin: 10px 0 10px 0;
+	text-align: left;
+}
+
+#home-footer #footer-links ul li
+{
+	text-align: left;
+}
+
+#home-footer #footer-links ul li a
+{
+	color: white;
+}
+
+#home-footer #footer-links #about
+{
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+}
+
+#home-footer #footer-links #contact
+{
+	display: inline-block;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+#home-footer #footer-redes h3
+{
+	font-size: 26px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+#footer-redes ul
+{
+	list-style: none;
+	margin-top: 16px;
+}
+
+#footer-redes ul li
+{
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#footer-redes ul li a
+{
+	height:30px;
+    margin: 0;
+    width:30px;
+}
+
+#footer-redes ul li a
+{
+    display: block;
+}
+
+.link-face
+{
+	background: url("../img/facebookoff.png") no-repeat;
+}
+
+.link-face:hover
+{
+	background: url("../img/facebookon.png") no-repeat;
+}
+
+.link-twitter
+{
+	background: url("../img/twitteroff.png") no-repeat;
+}
+
+.link-twitter:hover
+{
+	background: url("../img/twitteron.png") no-repeat;
+}
+
+.link-rss
+{
+	background: url("../img/rssoff.png") no-repeat;
+}
+
+.link-rss:hover
+{
+	background: url("../img/rsson.png") no-repeat;
+}
+
+.link-plus
+{
+	background: url("../img/googleoff.png") no-repeat;
+}
+
+.link-plus:hover
+{
+	background: url("../img/googleon.png") no-repeat;
+}
+
+
+#home-footer #footer-news h3
+{
+	font-size: 26px;
+	margin: 10px 0 10px 0;
+	text-align: right;
+}
+
+#home-footer #footer-news input
+{
+	color: #000;
+	font-style: oblique;
+	float: right;
+	margin-top: 5px;
+	width: 205px;
+}
+
+#home-footer #footer-terminos
+{
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	height: 20px;
+	margin-left: 35px;
+	position: relative;
+	top: 40px;
+}
+
+#home-footer #footer-design
+{
+	display: inline-block;
+	float: right;
+	font-size: 14px;
+	height: 20px;
+	margin-right: 35px;
+	position: relative;
+	top: 40px;
+}

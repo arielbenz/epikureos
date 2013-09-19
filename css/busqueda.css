@@ -1,0 +1,73 @@
+
+#barra-busqueda
+{
+	background: #fbb714;
+	height: 60px;
+	width: 100%;
+}
+
+#content-busqueda
+{
+	background: #FFF;
+	margin: 0 auto;
+	width: 1280px;
+}
+
+#mapa
+{
+	height: 380px;
+	overflow: hidden;
+	width: 100%;
+}
+
+#content-busqueda h3
+{
+	color: #474747;
+	margin: 0;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+#content-busqueda #data-result
+{
+	
+}
+
+#content-busqueda #data-result #search-header
+{
+	display: inline-block;
+	text-align: left;
+	position: relative;
+}
+
+#content-busqueda #data-result #search-header h4
+{
+	color: #474747;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0;
+}
+
+#content-busqueda #data-result #search-combo
+{
+	display: inline-block;
+	position: relative;
+}
+
+#content-busqueda #data-result #search-combo input
+{
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	font-size: 20px;
+	font-style: oblique;
+	height: 40px;
+	width: 280px;
+}
+
+#content-busqueda #results
+{
+	border-top: 1.5px solid #DDD;
+	border-bottom: 1.5px solid #DDD;
+	height: 400px;
+
+}

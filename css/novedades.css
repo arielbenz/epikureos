@@ -1,0 +1,14 @@
+
+#barra-novedades
+{
+	background: #df3726;
+	height: 60px;
+	width: 100%;
+}
+
+#content-novedades
+{
+	height: 500px; 
+	margin: 0 auto;
+	width: 1280px;
+}

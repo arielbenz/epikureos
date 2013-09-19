@@ -1,0 +1,14 @@
+
+#barra-laposta
+{
+	background: #58ba48;
+	height: 60px;
+	width: 100%;
+}
+
+#content-laposta
+{
+	height: 500px; 
+	margin: 0 auto;
+	width: 1280px;
+}
