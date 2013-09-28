@@ -4,15 +4,16 @@
 			<?php
 				$hora = date("H") - 3;
 				
-
-				if ($hora >= 20 && $hora < 6) 
-					$dia = "noche.png";
+				if ($hora >= 0 && $hora < 6) 
+					$dia = "noche.png";	
 				else if ($hora >= 6 && $hora < 12) 
 					$dia = "amanecer.png";
 				else if ($hora >= 12 && $hora < 17)
 					$dia = "dia.png";
 				else if ($hora >= 17 && $hora < 20)
 					$dia = "atardecer.png";
+				else
+					$dia = "noche.png";
 			?>
 
 			<div id="logo">

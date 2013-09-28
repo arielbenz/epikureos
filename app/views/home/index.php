@@ -35,32 +35,40 @@
 	</section>
 
 	<section id="home-info">
+
 		<section id="laposta">
 
-			<?php query_posts('category_name=laposta&showposts=1'); ?>
+			<div id="etiqueta-laposta">
+				<img src="<?php echo $url?>/img/laposta.png">
+			</div>
 
-			<?php if (have_posts()) : ?>
+			<div id="laposta-container">
 
-				<?php while (have_posts()) : the_post(); ?>
-					<div class="posta">
+				<?php query_posts('category_name=laposta&showposts=1'); ?>
 
-						<!--imagen-->
-						<div class="imagen-laposta">
-							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
-								if ($postaimagen) { ?>
-								<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
-								<?php } else { ?> 
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-							<?php } ?>
+				<?php if (have_posts()) : ?>
+
+					<?php while (have_posts()) : the_post(); ?>
+						<div class="posta">
+
+							<!--imagen-->
+							<div class="imagen-laposta">
+								<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
+									if ($postaimagen) { ?>
+									<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
+									<?php } else { ?> 
+									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+								<?php } ?>
+							</div>
+
 						</div>
+					<?php endwhile; ?>
 
-					</div>
-				<?php endwhile; ?>
-
-			<?php else : ?>
-				<h1>Lo que buscas no se encuentra</h1>			
-			<?php endif; ?>
-			<!--fin loop-->
+				<?php else : ?>
+					<h1>Lo que buscas no se encuentra</h1>			
+				<?php endif; ?>
+				<!--fin loop-->
+			</div>
 
 		</section>
 		
@@ -79,7 +87,7 @@
 						<div class="imagen-noticia">
 							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
 								if ($postimageurl) { ?>
-								<img src="<?php echo $postimageurl; ?>" alt="alt"/> 
+								<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
 								<?php } else { ?> 
 								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
 							<?php } ?>
