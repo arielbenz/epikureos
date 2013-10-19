@@ -49,7 +49,7 @@
 
 		<div id="data-result">
 			<div id="search-header">
-				<h3>50 RESULTADOS PARA "BARES"</h3>
+				<h3>50 RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
 				<h4>Mostrando 6 de 50 resultados</h4>
 			</div>
 
@@ -60,6 +60,16 @@
 
 		<article id="results">
 
+			<?php 
+				if (count($lugares) > 0) {
+					foreach ($lugares as $lugar) { 
+					   echo "Lugar: $lugar->nombre"; 
+					   echo "<br>";
+					} 
+				} else {
+					echo "No se encontraron resultados para la búsqueda realizada.";
+				}
+			?>
 		</article>
 	</section>
 

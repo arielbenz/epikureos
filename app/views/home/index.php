@@ -20,10 +20,10 @@
 		</article>
 		<nav id="nav-search">
 			<ul>
-				<li><a href="<?php echo $url?>/busqueda/resto">RESTOBAR</a></li>
+				<li><a href="<?php echo $url?>/busqueda/restobar">RESTOBAR</a></li>
 				<li><a href="<?php echo $url?>/busqueda/restaurant">RESTAURANT</a></li>
-				<li><a href="<?php echo $url?>/busqueda/bares">CAFÉS</a></li>
-				<li><a href="<?php echo $url?>/busqueda/vinosydelicatessen">VINOTECAS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/cafe">CAFÉS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/vinotecas">VINOTECAS</a></li>
 				<li><a href="<?php echo $url?>/busqueda/heladerias">HELADERÍAS</a></li>
 			</ul>
 		</nav>

@@ -26,8 +26,12 @@ class HomeController extends BaseController {
 		return View::make('contacto.index');
 	}
 
-	public function get_busqueda($lugar) {
-		return View::make('busqueda.index')->with('lugar', $lugar);
+	public function get_busqueda($busqueda) {
+
+		$categoria = Categoria::where('slug', '=', $busqueda)->first();
+		
+		// 	$lugares = Lugar::where('estado', '=', 1)->paginate(3);
+		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $categoria->lugares);
 	}
 
 	public function post_busqueda() {

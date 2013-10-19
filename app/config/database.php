@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'laravel_login',
+			'database'  => 'epikureos_db',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
