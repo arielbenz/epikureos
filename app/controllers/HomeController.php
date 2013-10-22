@@ -30,8 +30,11 @@ class HomeController extends BaseController {
 
 		$categoria = Categoria::where('slug', '=', $busqueda)->first();
 		
-		// 	$lugares = Lugar::where('estado', '=', 1)->paginate(3);
-		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $categoria->lugares);
+		$lugares = $categoria->lugares;
+
+		echo $lugares->toJson();
+
+		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares);
 	}
 
 	public function post_busqueda() {

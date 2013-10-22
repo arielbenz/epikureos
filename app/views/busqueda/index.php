@@ -47,29 +47,61 @@
 
 	<section id="content-busqueda">
 
-		<div id="data-result">
-			<div id="search-header">
-				<h3>50 RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
-				<h4>Mostrando 6 de 50 resultados</h4>
-			</div>
-
-			<div id="search-combo">
-				<input id="input-search" type="text" name="search" placeholder="Buscar..." required></input>
-			</div>
+		<div id="search-header">
+			<h3>50 RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
+			<h4>Mostrando 6 de 50 resultados</h4>
 		</div>
 
+		<div id="search-combo">
+			<input id="input-search" type="text" name="search" placeholder="Buscar..." required></input>
+		</div>
+
+		<div id="result-bar">
+
+		</div>
+	
 		<article id="results">
 
 			<?php 
 				if (count($lugares) > 0) {
-					foreach ($lugares as $lugar) { 
-					   echo "Lugar: $lugar->nombre"; 
-					   echo "<br>";
-					} 
+					foreach ($lugares as $lugar) {	?>
+
+						<div class="box-result">
+
+							<div class="box-result-image">
+
+							</div>
+
+							<div class="box-result-data">
+								<?php  
+									echo "$lugar->nombre";
+								?>
+							</div>
+						</div>
+				<?php 
+					}
 				} else {
 					echo "No se encontraron resultados para la búsqueda realizada.";
 				}
+		
+				$pagination = '';
+				$pages = ceil(count($lugares)/4);
+				if($pages > 1)
+				{
+				    $pagination .= '<ul class="paginate">';
+				    for($i = 0; $i<$pages; $i++)
+				    {
+				        $pagination .= '<li><a href="#" class="paginate_click" id="'.$i.'-page">'.$i.'</a></li>';
+				    }
+				    $pagination .= '</ul>';
+
+				    echo $pagination;
+				}
+
 			?>
+
+			
+
 		</article>
 	</section>
 

@@ -28,19 +28,15 @@
 	font-weight: normal;
 }
 
-#content-busqueda #data-result
-{
-	
-}
-
-#content-busqueda #data-result #search-header
+#content-busqueda #search-header
 {
 	display: inline-block;
+	height: 80px;
 	text-align: left;
-	position: relative;
+	width: 590px;
 }
 
-#content-busqueda #data-result #search-header h4
+#content-busqueda #search-header h4
 {
 	color: #474747;
 	font-size: 20px;
@@ -48,13 +44,17 @@
 	margin: 0;
 }
 
-#content-busqueda #data-result #search-combo
+#content-busqueda #search-combo
 {
 	display: inline-block;
+	height: 80px;
+	text-align: right;
 	position: relative;
+	vertical-align: top;
+	width: 590px;
 }
 
-#content-busqueda #data-result #search-combo input
+#content-busqueda #search-combo input
 {
 	border: 1px solid #DDD;
 	border-radius: 5px;
@@ -64,10 +64,99 @@
 	width: 280px;
 }
 
+#content-busqueda #result-bar
+{
+	background-color: #DDD;
+	height: 40px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	margin-top: 10px;
+	width: 1186px;
+}
+
 #content-busqueda #results
 {
-	border-top: 1.5px solid #DDD;
 	border-bottom: 1.5px solid #DDD;
-	height: 400px;
+}
 
+#content-busqueda .box-result
+{
+	background-color: #DDD;
+	display: inline-block;
+	height: 150px;
+	margin-bottom: 25px;
+	margin-left: 12px;
+	margin-right: 12px;
+	width: 580px;
+}
+
+#content-busqueda .box-result .box-result-image
+{
+	background-color: #AAA;
+	display: inline-block;
+	height: 125px;
+	margin-left: 10px;
+	margin-top: 12.5px;
+	width: 200px;
+}
+
+#content-busqueda .box-result .box-result-data
+{
+	background-color: #AAA;
+	display: inline-block;
+	float: right;
+	height: 150px;
+	vertical-align: top;
+	width: 365px;
+}
+
+
+
+
+
+.paginate {
+	padding: 0px;
+	margin: 0px;
+	height: 30px;
+	display: block;
+	text-align: center;
+}
+.paginate li {
+	display: inline-block;
+	list-style: none;
+	padding: 0px;
+	margin-right: 1px;
+	width: 30px;
+	text-align: center;
+	background: #4CC2AF;
+	line-height: 25px;
+}
+.paginate .active {
+	display: inline-block;
+	list-style: none;
+	padding: 0px;
+	margin-right: 1px;
+	width: 30px;
+	text-align: center;
+	line-height: 25px;
+	background-color: #666666;
+}
+.paginate li a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.page_result{
+	padding: 0px;
+}
+.page_result li{
+	background: #E4E4E4;
+	margin-bottom: 5px;
+	padding: 10px;
+	font-size: 12px;
+	list-style: none;
+}
+.page_result .page_name {
+font-size: 14px;
+font-weight: bold;
+margin-right: 5px;
 }
