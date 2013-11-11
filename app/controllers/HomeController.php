@@ -32,9 +32,9 @@ class HomeController extends BaseController {
 		
 		$lugares = $categoria->lugares;
 
-		echo $lugares->toJson();
+		$lugaresJson = $lugares->toJson();
 
-		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares);
+		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares)->with('lugaresJson', $lugaresJson);
 	}
 
 	public function post_busqueda() {

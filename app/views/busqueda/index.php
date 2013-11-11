@@ -15,12 +15,12 @@
 	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </head>
 
 <body>
+
+
+	
 
 	<!-- HEADER -->
 	
@@ -49,7 +49,7 @@
 
 		<div id="search-header">
 			<h3>50 RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
-			<h4>Mostrando 6 de 50 resultados</h4>
+			<h4>Mostrando 4 de 50 resultados</h4>
 		</div>
 
 		<div id="search-combo">
@@ -60,49 +60,17 @@
 
 		</div>
 	
-		<article id="results">
-
-			<?php 
-				if (count($lugares) > 0) {
-					foreach ($lugares as $lugar) {	?>
-
-						<div class="box-result">
-
-							<div class="box-result-image">
-
-							</div>
-
-							<div class="box-result-data">
-								<?php  
-									echo "$lugar->nombre";
-								?>
-							</div>
-						</div>
-				<?php 
-					}
-				} else {
-					echo "No se encontraron resultados para la búsqueda realizada.";
-				}
-		
-				$pagination = '';
-				$pages = ceil(count($lugares)/4);
-				if($pages > 1)
-				{
-				    $pagination .= '<ul class="paginate">';
-				    for($i = 0; $i<$pages; $i++)
-				    {
-				        $pagination .= '<li><a href="#" class="paginate_click" id="'.$i.'-page">'.$i.'</a></li>';
-				    }
-				    $pagination .= '</ul>';
-
-				    echo $pagination;
-				}
-
-			?>
-
+		<div id="results">
 			
+		</div>
 
-		</article>
+		<div id="result-footer">
+			<div id="Pagination" class="pagination">
+
+			</div>
+		</div>
+		
+
 	</section>
 
 	<section id="home-publicidad">
@@ -112,30 +80,91 @@
 		<article id="publicidad4" class="class-publi"></article>
 	</section>
 
+	<script src="<?php echo $url;?>/js/jquery.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="<?php echo $url;?>/js/jquery.pagination.js"></script>
 
+	<script src="<?php echo $url;?>/js/underscore.js"></script>
+	<script src="<?php echo $url;?>/js/backbone.js"></script>
+	
 	<script>
 
 		$(document).on("ready", inicio);
-			function inicio () 
-			{
-				var latlon = new google.maps.LatLng(-31.632389, -60.699459);
-	            var myOptions = {
-	                zoom: 15,
-	                center: latlon,
-	                mapTypeId: google.maps.MapTypeId.ROADMAP
-	            };
-	            map = new google.maps.Map($("#mapa").get(0), myOptions);
-	            
-	            var coorMarcador = new google.maps.LatLng(-31.632389, -60.699459);
-	                
-	            var marcador = new google.maps.Marker({
-	                position: coorMarcador,
-	                map: map,
-	                title: "Dónde estoy?"
-	            });
-			}
+		
+		var puntos = [];
+		var map;
+		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
+
+		function inicio () 
+		{ 
+            //Carga de lugares
+            var optInit = getOptionsFromForm();
+            $("#Pagination").pagination(lugares.length, optInit);
+		}
+
+		function initializeMap() {  
+			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
+	        var myOptions = {
+	            zoom: 15,
+	            center: latlon,
+	            mapTypeId: google.maps.MapTypeId.ROADMAP
+	        };
+        	map = new google.maps.Map($("#mapa").get(0), myOptions);
+		}
+
+
+		function getOptionsFromForm() {
+            var opt = {callback: pageselectCallback};
+            $("input:text").each(function(){
+                opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+            });
+            var htmlspecialchars ={ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"}
+            return opt;
+        }
+
+        function pageselectCallback(page_index, jq) {
+            var items_per_page = '4';
+            var max_elem = Math.min((page_index + 1) * items_per_page, lugares.length);
+            var newcontent = '';
+
+            initializeMap();
+
+            for (p in puntos) {
+            	puntos[p].setMap(null);
+        	}       
+           
+            for(var i = page_index * items_per_page; i < max_elem; i++)
+            {
+               	newcontent += '<div class="box-result">';
+                newcontent += '<div class="box-result-image"></div>';
+                newcontent += '<div class="box-result-data">';
+                newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
+                newcontent += '<div class="box-result-desc">' + lugares[i].descripcion + '</div>';
+                newcontent += '</div>';
+                newcontent += '</div>';
+
+                var coorMarcador = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
+               
+	            addMark(coorMarcador, lugares[i].nombre);
+            }
+            
+            $('#results').html(newcontent);
+            
+	        return false;
+        }
+
+         function addMark(location, title) {
+            marcador = new google.maps.Marker({
+	            position: location,
+	            map: map,
+	            title: title
+	        });                          
+            puntos.push(marcador);
+        }
 
 	</script>
+
+	<script src="<?php echo $url;?>/js/search.js"></script>
 
 	<!-- FOOTER -->
 

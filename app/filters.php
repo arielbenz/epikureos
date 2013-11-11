@@ -33,15 +33,21 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
-{
-	if (Auth::guest()) return Redirect::guest('login');
-});
+// Route::filter('auth', function()
+// {
+// 	if (Auth::guest()) return Redirect::guest('login');
+// });
 
 
-Route::filter('auth.basic', function()
+// Route::filter('auth.basic', function()
+// {
+// 	return Auth::basic();
+// });
+
+
+Route::filter('admin', function()
 {
-	return Auth::basic();
+	if (!User::isLogged() OR !User::isAdmin()) return Redirect::to('/');
 });
 
 /*
