@@ -10,9 +10,9 @@
 jQuery.fn.pagination = function(maxentries, opts){
 	opts = jQuery.extend({
 		items_per_page:4,
-		num_display_entries:4,
+		num_display_entries:2,
 		current_page:0,
-		num_edge_entries:0,
+		num_edge_entries:2,
 		link_to:"#",
 		prev_text:" < ",
 		next_text:" > ",

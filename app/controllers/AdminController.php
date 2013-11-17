@@ -17,13 +17,15 @@ class AdminController extends BaseController {
 	{
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias);
+		$ciudades = Ciudad::all()->lists('descripcion', 'id');
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('ciudades', $ciudades);
 	}
 
 	public function get_add()
 	{
 		$categorias = Categoria::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias);
+		$ciudades = Ciudad::all()->lists('descripcion', 'id');
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('ciudades', $ciudades);
 	}
 
 	public function post_add()

@@ -18,10 +18,6 @@
 </head>
 
 <body>
-
-
-	
-
 	<!-- HEADER -->
 	
 	<?php include "app/views/menu.php";?>
@@ -57,17 +53,13 @@
 		</div>
 
 		<div id="result-bar">
-
+			<!-- <div id="Pagination" class="pagination"></div> -->
 		</div>
 	
-		<div id="results">
-			
-		</div>
+		<div id="results"></div>
 
 		<div id="result-footer">
-			<div id="Pagination" class="pagination">
-
-			</div>
+			<div id="Pagination" class="pagination"></div>
 		</div>
 		
 
@@ -91,7 +83,6 @@
 
 		$(document).on("ready", inicio);
 		
-		var puntos = [];
 		var map;
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 
@@ -107,6 +98,7 @@
 	        var myOptions = {
 	            zoom: 15,
 	            center: latlon,
+	            scrollwheel: false,
 	            mapTypeId: google.maps.MapTypeId.ROADMAP
 	        };
         	map = new google.maps.Map($("#mapa").get(0), myOptions);
@@ -129,9 +121,7 @@
 
             initializeMap();
 
-            for (p in puntos) {
-            	puntos[p].setMap(null);
-        	}       
+        	var bounds = new google.maps.LatLngBounds();
            
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
@@ -143,23 +133,27 @@
                 newcontent += '</div>';
                 newcontent += '</div>';
 
-                var coorMarcador = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
-               
-	            addMark(coorMarcador, lugares[i].nombre);
+                var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
+
+	            addMark(marker, lugares[i].nombre, bounds);
             }
+
+            map.fitBounds(bounds);
+			map.setCenter(bounds.getCenter());
             
             $('#results').html(newcontent);
             
 	        return false;
         }
 
-         function addMark(location, title) {
+         function addMark(location, title, bounds) {
             marcador = new google.maps.Marker({
 	            position: location,
 	            map: map,
 	            title: title
-	        });                          
-            puntos.push(marcador);
+	        });
+
+	        bounds.extend(marcador.position);
         }
 
 	</script>

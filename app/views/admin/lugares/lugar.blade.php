@@ -68,6 +68,11 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Ciudad')}}
+					{{Form::select('ciudades[]', $ciudades, $lugar->zona, array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, Lugar::enCategorias($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
@@ -132,6 +137,11 @@
 					{{Form::label('facebook')}}
 					{{Form::text('facebook', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('facebook') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Ciudad')}}
+					{{Form::select('ciudades[]', $ciudades, array(1), array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

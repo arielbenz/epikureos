@@ -15,9 +15,12 @@
 
 #mapa
 {
+	margin: 0;
+	padding: 0;
 	height: 380px;
-	overflow: hidden;
+	position: relative;
 	width: 100%;
+	display: block;
 }
 
 #content-busqueda h3
