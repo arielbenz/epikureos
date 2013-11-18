@@ -98,7 +98,6 @@
 	background-color: #AAA;
 	display: inline-block;
 	height: 125px;
-	margin-left: 10px;
 	margin-top: 12.5px;
 	width: 200px;
 }
@@ -110,7 +109,15 @@
 	float: right;
 	height: 150px;
 	vertical-align: top;
-	width: 365px;
+	width: 358px;
+}
+
+#content-busqueda .box-result .box-result-data .box-result-title
+{
+	font-size: 19px;
+	font-weight: bold;
+	margin-top: 7px;
+	text-align: left;
 }
 
 
@@ -127,7 +134,7 @@
 	display: inline-block;
 	margin: 0 auto;
 }
-        
+
 #content-busqueda .pagination a {
     text-decoration: none;
 	color: #000;

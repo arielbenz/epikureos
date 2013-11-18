@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('content')
-	
+
 	<div class="row">
 		<div class="col-lg-7">
 			@if(isset($lugar))
@@ -69,14 +69,19 @@
 
 				<div class="form-group">
 					{{Form::label('Ciudad')}}
-					{{Form::select('ciudades[]', $ciudades, $lugar->zona, array('single' => 'single', 'class' => 'form-control'))}}
+					{{Form::select('ciudad', $ciudades, $lugar->ciudad, array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Zona')}}
+					{{Form::select('zona', $zonas, $lugar->zona, array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, Lugar::enCategorias($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
-				
+
 				<div class="form-group">
 					<p>{{Form::submit('Modificar lugar', array('class' => 'btn btn-default'))}}</p>
 				</div>
@@ -141,7 +146,12 @@
 
 				<div class="form-group">
 					{{Form::label('Ciudad')}}
-					{{Form::select('ciudades[]', $ciudades, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+					{{Form::select('ciudad', $ciudades, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Zona')}}
+					{{Form::select('zona', $zonas, array(1), array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
@@ -155,9 +165,9 @@
 
 				{{Form::close()}}
 			@endif
-			
+
 		</div>
 	</div>
-		
+
 
 @stop

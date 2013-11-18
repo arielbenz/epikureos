@@ -18,14 +18,16 @@ class AdminController extends BaseController {
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::all()->lists('descripcion', 'id');
 		$ciudades = Ciudad::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('ciudades', $ciudades);
+		$zonas = Zona::all()->lists('descripcion', 'id');
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('ciudades', $ciudades)->with('zonas', $zonas);
 	}
 
 	public function get_add()
 	{
 		$categorias = Categoria::all()->lists('descripcion', 'id');
 		$ciudades = Ciudad::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('ciudades', $ciudades);
+		$zonas = Zona::all()->lists('descripcion', 'id');
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('ciudades', $ciudades)->with('zonas', $zonas);
 	}
 
 	public function post_add()
@@ -55,10 +57,11 @@ class AdminController extends BaseController {
 				$lugar->web = Input::get('web');
 				$lugar->twitter = Input::get('twitter');
 				$lugar->facebook = Input::get('facebook');
+				$lugar->ciudad = Input::get('ciudad');
+				$lugar->zona = Input::get('zona');
 			$lugar->save();
 
 			$categorias = Input::get('categorias');
-
 			foreach($categorias as $categoria)
 			{
 				$relation = new CategoriaLugar;
@@ -98,6 +101,8 @@ class AdminController extends BaseController {
 				$lugar->web = Input::get('web');
 				$lugar->twitter = Input::get('twitter');
 				$lugar->facebook = Input::get('facebook');
+				$lugar->ciudad = Input::get('ciudad');
+				$lugar->zona = Input::get('zona');
 			$lugar->save();
 
 			$categorias = Input::get('categorias');
