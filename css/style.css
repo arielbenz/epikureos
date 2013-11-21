@@ -12,7 +12,8 @@ article, footer, header, nav, section
 
 body 
 {
-	background: #EEE;
+	background-image: url("http://localhost/epikureos/img/fondo.png");
+  	background-repeat: repeat;
 	color: #000;
 	font-family: "Titillium Web", sans-serif;
 	font-size: 16px;
@@ -38,7 +39,7 @@ img
 
 header nav
 {
-	padding-top: 0px;
+	padding-top: 0;
 }
 
 nav ul
@@ -96,6 +97,7 @@ header #ciudad select
 
 
 header #ciudad label {position: relative}
+
 header #ciudad label:after
 {
 	content:'>';
@@ -265,7 +267,7 @@ header #logo
 #home-search #nav-search ul li a:hover
 {
 	background: #f08421;
-	transition: all 0.2s ease;
+	transition: all 0.3s ease;
 }
 
 #form-search {

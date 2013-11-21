@@ -16,4 +16,15 @@ class Lugar extends Eloquent {
 		$categorias = Lugar::find($id)->categorias()->lists('id');
 		return $categorias;
 	}
+
+	public function fotos()
+	{
+		return $this->hasMany('Foto', 'id_lugar');
+	}
+
+	public static function getThumb($id)
+	{
+		$foto = Foto::where('id_lugar','=', $id)->where('estado','=',1)->first();
+		return $foto;
+	}
 }

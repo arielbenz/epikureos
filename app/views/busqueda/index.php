@@ -44,8 +44,7 @@
 	<section id="content-busqueda">
 
 		<div id="search-header">
-			<h3>50 RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
-			<h4>Mostrando 4 de 50 resultados</h4>
+			<h3>RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
 		</div>
 
 		<div id="search-combo">
@@ -53,7 +52,12 @@
 		</div>
 
 		<div id="result-bar">
-			<!-- <div id="Pagination" class="pagination"></div> -->
+			<div id="result-bar-etiquetas">
+				<p>Etiquetas</p>				
+			</div>
+			<div id="result-bar-filter">
+				<p>Ordenar por</p>
+			</div>
 		</div>
 	
 		<div id="results"></div>
@@ -85,6 +89,7 @@
 		
 		var map;
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
+		var thumbs = $.parseJSON('<?php echo $thumbs?>');
 
 		function inicio () 
 		{ 
@@ -126,12 +131,15 @@
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
                	newcontent += '<div class="box-result">';
-                newcontent += '<div class="box-result-image"></div>';
+                newcontent += '<div class="box-result-image"><img src="' + thumbs[i] + '"/></div>';
                 newcontent += '<div class="box-result-data">';
+                newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
                 newcontent += '<div class="box-result-desc">' + lugares[i].descripcion + '</div>';
                 newcontent += '</div>';
                 newcontent += '</div>';
+
+                console.log(lugares[i]);
 
                 var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
 
@@ -142,6 +150,8 @@
 			map.setCenter(bounds.getCenter());
             
             $('#results').html(newcontent);
+
+            $('#search-header').html('<h3>Mostrando ' + page_index * items_per_page + ' de ' + lugares.length + ' resultados</h3>');
             
 	        return false;
         }

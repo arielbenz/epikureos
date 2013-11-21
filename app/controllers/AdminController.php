@@ -15,6 +15,9 @@ class AdminController extends BaseController {
 
 	public function lugar($id)
 	{
+		$foto = Lugar::getThumb($id);
+		echo $foto[0];
+
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::all()->lists('descripcion', 'id');
 		$ciudades = Ciudad::all()->lists('descripcion', 'id');

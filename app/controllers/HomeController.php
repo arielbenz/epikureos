@@ -32,9 +32,18 @@ class HomeController extends BaseController {
 		
 		$lugares = $categoria->lugares;
 
+		$thumbs = array();
+		$i = 0;
+
+		foreach ($lugares as $lugar) {
+			$foto = Lugar::getThumb($lugar->id);
+			$thumbs[$i] = $foto->url;
+			$i = $i + 1;
+		}
+
 		$lugaresJson = $lugares->toJson();
 
-		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares)->with('lugaresJson', $lugaresJson);
+		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
 	}
 
 	public function post_busqueda() {

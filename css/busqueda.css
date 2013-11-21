@@ -8,19 +8,18 @@
 
 #content-busqueda
 {
-	background: #FFF;
+	/*background: #DDD;*/
 	margin: 0 auto;
+	margin-top: 15px;
 	width: 1280px;
 }
 
 #mapa
 {
-	margin: 0;
-	padding: 0;
 	height: 380px;
-	position: relative;
+	overflow: inherit !important;
+	top: 0;
 	width: 100%;
-	display: block;
 }
 
 #content-busqueda h3
@@ -64,6 +63,8 @@
 	font-size: 20px;
 	font-style: oblique;
 	height: 40px;
+	position: relative;
+	top: 20px;
 	width: 280px;
 }
 
@@ -77,6 +78,20 @@
 	width: 1186px;
 }
 
+#content-busqueda #result-bar #result-bar-etiquetas
+{
+	display: inline-block;
+	height: 40px;
+	width: 49.5%;
+}
+
+#content-busqueda #result-bar #result-bar-filter
+{
+	display: inline-block;
+	height: 40px;
+	width: 49.5%;
+}
+
 #content-busqueda #results
 {
 	border-bottom: 1.5px solid #DDD;
@@ -84,7 +99,8 @@
 
 #content-busqueda .box-result
 {
-	background-color: #DDD;
+	background-color: #FFF;
+	border: 1.5px solid #DDD;	
 	display: inline-block;
 	height: 150px;
 	margin-bottom: 25px;
@@ -95,7 +111,7 @@
 
 #content-busqueda .box-result .box-result-image
 {
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	display: inline-block;
 	height: 125px;
 	margin-top: 12.5px;
@@ -104,7 +120,7 @@
 
 #content-busqueda .box-result .box-result-data
 {
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	display: inline-block;
 	float: right;
 	height: 150px;
@@ -139,6 +155,12 @@
     text-decoration: none;
 	color: #000;
 	background: #d6d6d6;
+
+	-webkit-transition: background .3s ease;
+	   -moz-transition: background .3s ease;
+	    -ms-transition: background .3s ease;
+	     -o-transition: background .3s ease;
+	        transition: background .3s ease;
 }
 
 #content-busqueda .pagination a, #content-busqueda .pagination span {
@@ -149,8 +171,13 @@
 	margin-bottom: 5px;
 }
 
+#content-busqueda .pagination a:hover {
+	background: #fbb714;
+}
+
+
 #content-busqueda .pagination .current {
-    background: #af5920;
+    background: #fbb714;
     color: #fff;
 }
 
