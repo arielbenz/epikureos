@@ -4,7 +4,7 @@
 <?php
 	$cad = $_SERVER['REQUEST_URI'];
 	$actual = explode("/", $cad)[2];
-	$url = "http://localhost/epikureos";
+	$url = URL::to('/');
 ?>
 
 <head>
@@ -19,7 +19,7 @@
 
 <body>
 	<!-- HEADER -->
-	
+
 	<?php include "app/views/menu.php";?>
 
 	<!-- BODY -->
@@ -53,19 +53,19 @@
 
 		<div id="result-bar">
 			<div id="result-bar-etiquetas">
-				<p>Etiquetas</p>				
+				<p>Etiquetas</p>
 			</div>
 			<div id="result-bar-filter">
 				<p>Ordenar por</p>
 			</div>
 		</div>
-	
+
 		<div id="results"></div>
 
 		<div id="result-footer">
 			<div id="Pagination" class="pagination"></div>
 		</div>
-		
+
 
 	</section>
 
@@ -82,23 +82,24 @@
 
 	<script src="<?php echo $url;?>/js/underscore.js"></script>
 	<script src="<?php echo $url;?>/js/backbone.js"></script>
-	
+
 	<script>
 
 		$(document).on("ready", inicio);
-		
+
 		var map;
+		var url = '<?php echo $url?>';
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 		var thumbs = $.parseJSON('<?php echo $thumbs?>');
 
-		function inicio () 
-		{ 
+		function inicio ()
+		{
             //Carga de lugares
             var optInit = getOptionsFromForm();
             $("#Pagination").pagination(lugares.length, optInit);
 		}
 
-		function initializeMap() {  
+		function initializeMap() {
 			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
 	        var myOptions = {
 	            zoom: 15,
@@ -127,11 +128,11 @@
             initializeMap();
 
         	var bounds = new google.maps.LatLngBounds();
-           
+
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
                	newcontent += '<div class="box-result">';
-                newcontent += '<div class="box-result-image"><img src="' + thumbs[i] + '"/></div>';
+                newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/slug-lugar"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
@@ -148,11 +149,11 @@
 
             map.fitBounds(bounds);
 			map.setCenter(bounds.getCenter());
-            
+
             $('#results').html(newcontent);
 
             $('#search-header').html('<h3>Mostrando ' + page_index * items_per_page + ' de ' + lugares.length + ' resultados</h3>');
-            
+
 	        return false;
         }
 

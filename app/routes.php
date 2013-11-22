@@ -24,6 +24,12 @@ Route::get('/contacto', 'HomeController@get_contacto');
 Route::post('/busqueda', 'HomeController@post_busqueda');
 Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
 
+//Rutas búsqueda
+
+Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
+
+// Rutas Dashboard
+
 Route::get('/login', 'UserController@get_login');
 Route::post('/login', 'UserController@post_login');
 Route::get('/logout', 'UserController@logout');

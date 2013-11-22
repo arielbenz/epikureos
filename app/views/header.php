@@ -4,8 +4,7 @@
 <?php
 	$cad = $_SERVER['REQUEST_URI'];
 	$actual = explode("/", $cad)[2];
-
-	$url = "http://localhost/epikureos";
+	$url = URL::to('/');
 	require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
 ?>
 
