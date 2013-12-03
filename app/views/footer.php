@@ -7,7 +7,7 @@
 		<section id="home-footer">
 
 			<nav id="footer-links" class="footer-info">
-				<h3>Epikureos</h3>
+				<h3>Alta Salida</h3>
 				<div id="about">
 					<ul>
 						<li><a href="<?php echo $url?>/quees">¿Qué es?</a></li>
@@ -27,8 +27,8 @@
 			<article id="footer-redes" class="footer-info">
 				<h3>SEGUINOS EN</h3>
 				<ul>
-					<li><a href="#" class="link-face"></a></li>
-      				<li><a href="#" class="link-twitter"></a></li>
+					<li><a href="http://facebook.com/AltaSalida" class="link-face"></a></li>
+      				<li><a href="http://twitter.com/altasalida" class="link-twitter"></a></li>
        				<li><a href="#" class="link-rss"></a></li>
        				<li><a href="#" class="link-plus"></a></li>
 				</ul>

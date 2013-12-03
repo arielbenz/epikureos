@@ -1,0 +1,82 @@
+
+#barra-lugar
+{
+	background: #58ba48;
+	height: 60px;
+	width: 100%;
+}
+
+#content-lugar
+{
+	height: 100%; 
+	margin: 0 auto;
+	width: 1280px;
+}
+
+
+#info-barra
+{
+	border-top: 1.5px solid #CCC;
+	height: 80px; 
+	margin: 0 auto;
+	margin-top: 25px;
+	width: 1280px;
+}
+
+
+#info-lugar-left
+{
+	background-color: #BBB;
+	display: inline-block;
+	height: 480px;
+	width: 450px;
+}
+
+#info-lugar-middle
+{
+	background-color: #BBB;
+	display: inline-block;
+	height: 480px;
+	width: 275px;
+}
+
+	#lugar-mapa
+	{
+		background-color: #AAA;
+		height: 250px;
+		width: 275px;
+	}
+
+	#lugar-utiles
+	{
+		background-color: #AAA;
+		height: 210px;
+		margin-top: 20px;
+		width: 275px;
+	}
+
+#info-lugar-right
+{
+	background-color: #BBB;
+	display: inline-block;
+	height: 480px;
+	width: 450px;
+}
+
+#tags-barra
+{
+	background-color: #BBB;
+	margin: 0 auto;
+	margin-top: 25px;
+	height: 40px;
+	width: 1200px;
+}
+
+#comentarios-lugar
+{
+	background-color: #CCC;
+	margin: 0 auto;
+	margin-top: 25px;
+	height: 400px;
+	width: 900px;
+}

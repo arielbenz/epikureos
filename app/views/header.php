@@ -10,18 +10,10 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Epikureos - Un nuevo hábito gastronómico</title>
+	<title>Alta Salida - Un nuevo hábito gastronómico</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,900,700,300,200,400italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/<?php echo $actual; ?>.css" />
-	<link rel="stylesheet" href="css/busqueda.css" />
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-</head>
-
-<body>
-
-<?php include "app/views/menu.php";?>
+	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/<?php echo $actual; ?>.css" />

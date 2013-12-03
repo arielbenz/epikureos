@@ -15,9 +15,13 @@ body
 	background-image: url("http://localhost/epikureos/img/fondo.png");
   	background-repeat: repeat;
 	color: #000;
-	font-family: "Titillium Web", sans-serif;
+	font-family: "Open Sans Regular", sans-serif;
 	font-size: 16px;
 	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "TitilliumWeb-Regular";
 }
 
 header
@@ -57,6 +61,7 @@ header nav ul li a
 	border-top: 5px solid #252525;
 	color: #dfdfdf;
 	display: inline-block;
+	font-family: "TitilliumWeb-Regular";
 	font-size: 16px;
 	margin: 0 2px 0 0 ;
 	padding: 20.5px 0;
@@ -74,6 +79,7 @@ header #ciudad
 {
 	display: inline-block;
 	float: right;
+	font-family: "TitilliumWeb-Thin";
 	height: 70px;
 	position: relative;
 	right: 30px;
@@ -86,8 +92,8 @@ header #ciudad select
 	color: #dfdfdf;
 	cursor: pointer;
 	display: inline-block;
+
 	font-size: 16px;
-	font-style: normal;
 	height: 29px;
 	line-height: 1;
 	margin-top: 23px;
@@ -211,12 +217,12 @@ header #logo
 
 .font-bold
 {
-	font-weight: bold;
+	font-family: "TitilliumWeb-Bold";
 }
 
 .font-normal
 {
-	font-weight: normal;
+	font-family: "TitilliumWeb-Thin";
 }
 
 #home-search
@@ -237,6 +243,7 @@ header #logo
 
 #home-search #nav-search
 {
+	font-family: "TitilliumWeb-Regular";
 	height: 40px;
 	margin: 0 auto;
 	position: relative;
@@ -257,7 +264,6 @@ header #logo
 	color: #FFF;
 	display: inline-block;
 	font-size: 16px;
-	font-weight: normal;
 	margin: 0 0 10px 10px;
 	padding: 7px 0;
 	text-shadow: -0.5px -0.5px 1px #CCC;
@@ -317,10 +323,11 @@ header #logo
     border: none;
     color: #888;
     float: left;
+    font-family: "TitilliumWeb-Thin";
+    font-style: oblique;
     font-size: 20px;
-	font-style: oblique;
     height: 30px;
-    padding:10px 5px;
+    padding: 10px 5px;
     width: 370px;
     
 }
@@ -410,8 +417,8 @@ header #logo
 #home-info #noticias h3
 {
 	color: #7a7675;
+	font-family: "TitilliumWeb-SemiBold";
 	font-size: 26px;
-	font-weight: normal;
 	margin: 0 0 22px 0;
 	text-align: left;
 }
@@ -453,20 +460,21 @@ header #logo
 #home-info #noticias .title-noticia a
 {
 	color: #333333;
-	font-size: 22px;
-	font-weight: normal;
+	font-family: "Open Sans Light";
+	font-size: 20px;
 	margin: 0;
 }
 
 #home-info #noticias #masnoticias {
 	background: #9ea9ad;
 	color: #eff0f0;
-	height: 40px;
+	height: 35px;
+	margin-top: 5px;
 }
 
 #home-info #noticias #masnoticias h4 {
-	font-size: 26px;
-	font-weight: normal;
+	font-family: "Open Sans Light";
+	font-size: 24px;
 	margin-left: 10px;
 	position: relative;
 	text-align: left;
@@ -500,8 +508,9 @@ header #logo
 
 footer
 {
-	background: #292728;
+	background: #252525;
 	color: #FFF;
+	font-family: "Open Sans Regular";
 	max-width: 100%;
 }
 
@@ -515,7 +524,7 @@ footer
 
 #home-footer
 {
-	background: #292728;
+	background: #252525;
 	height: 225px;
 	margin: 0 auto;
 	width: 1280px;
@@ -533,6 +542,7 @@ footer
 
 #home-footer #footer-links h3
 {
+	font-family: "Open Sans Bold";
 	font-size: 26px;
 	margin: 10px 0 10px 0;
 	text-align: left;
@@ -602,7 +612,7 @@ footer
 .link-face:hover
 {
 	background: url("../img/facebookon.png") no-repeat;
-	transition: all 0.2s ease;
+	transition: all 0.4s ease;
 }
 
 .link-twitter
@@ -613,7 +623,7 @@ footer
 .link-twitter:hover
 {
 	background: url("../img/twitteron.png") no-repeat;
-	transition: all 0.2s ease;
+	transition: all 0.4s ease;
 }
 
 .link-rss
@@ -624,7 +634,7 @@ footer
 .link-rss:hover
 {
 	background: url("../img/rsson.png") no-repeat;
-	transition: all 0.2s ease;
+	transition: all 0.4s ease;
 }
 
 .link-plus
@@ -635,7 +645,7 @@ footer
 .link-plus:hover
 {
 	background: url("../img/googleon.png") no-repeat;
-	transition: all 0.2s ease;
+	transition: all 0.4s ease;
 }
 
 
@@ -651,6 +661,7 @@ footer
 	color: #000;
 	font-style: oblique;
 	float: right;
+	height: 30px;
 	margin-top: 5px;
 	width: 205px;
 }

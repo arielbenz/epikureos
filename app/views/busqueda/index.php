@@ -9,10 +9,11 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Epikureos - Un nuevo hábito gastronómico</title>
+	<title>Alta Salida - Un nuevo hábito gastronómico</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,900,700,300,200,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
 </head>
@@ -22,7 +23,7 @@
 
 	<?php include "app/views/menu.php";?>
 
-	<!-- BODY -->
+	<!-- CONTENT -->
 
 	<section id="barra-busqueda" class="barra-content">
 		<div id="barra">
@@ -121,7 +122,7 @@
         }
 
         function pageselectCallback(page_index, jq) {
-            var items_per_page = '4';
+            var items_per_page = '6';
             var max_elem = Math.min((page_index + 1) * items_per_page, lugares.length);
             var newcontent = '';
 
@@ -132,7 +133,7 @@
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
                	newcontent += '<div class="box-result">';
-                newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/slug-lugar"><img src="' + thumbs[i] + '"/></a></div>';
+                newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';

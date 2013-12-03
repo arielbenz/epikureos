@@ -7,6 +7,8 @@
 		$my_query_posta = new WP_Query('showposts=1');
 	?>
 
+	<?php include "app/views/menu.php";?>
+
 	<!-- HOME -->	
 	
 	<section id="home-search">
@@ -51,7 +53,7 @@
 					<?php while (have_posts()) : the_post(); ?>
 						<div class="posta">
 
-							<!--imagen-->
+							<!--Imagen la posta-->
 							<div class="imagen-laposta">
 								<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
 									if ($postaimagen) { ?>
@@ -60,6 +62,10 @@
 									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
 								<?php } ?>
 							</div>
+
+							<div class="title-noticia">
+								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				 			</div>
 
 						</div>
 					<?php endwhile; ?>
@@ -83,7 +89,7 @@
 				<?php while (have_posts()) : the_post(); ?>
 					<div class="noticia">
 
-						<!--imagen-->
+						<!--imagen noticia-->
 						<div class="imagen-noticia">
 							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
 								if ($postimageurl) { ?>
@@ -93,7 +99,7 @@
 							<?php } ?>
 						</div>
 
-						<!--titulo-->
+						<!--titulo noticia-->
 				 		<div class="title-noticia">
 							<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				 		</div>

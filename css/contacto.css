@@ -86,12 +86,20 @@
 	margin-top: 15px;
 }
 
+#content-contacto #mensaje-contacto input
+{
+	font-family: "TitilliumWeb-Light";
+	font-style: oblique;
+}
+
 #content-contacto #mensaje-contacto #form-enviar
 {
 	background: #097d7d;
 	border-radius: 3px;
 	color: #FFF;
 	float: right;
+	font-family: "TitilliumWeb-Bold";
+	font-style: normal;
 	font-size: 23px;
 	height: 40px;
 	margin-top: 8px;
@@ -134,8 +142,8 @@
 #content-lugar h3
 {
 	margin-top: 20px;
+	font-family: "TitilliumWeb-Bold";
 	font-size: 30px;
-	font-weight: bold;
 }
 
 #content-lugar #lugar-info
@@ -160,7 +168,8 @@
 #content-lugar #lugar-info #personal-data h2, #sitio-data h2
 {
 	color: #FFF;
-	font-size: 24px;
+	font-family: "TitilliumWeb-Thin";
+	font-size: 26px;
 	margin-bottom: 10px;
 	margin-left: 40px;
 	text-align: left;
@@ -170,6 +179,8 @@
 {
 	border-radius: 3px;
 	height: 40px;
+	font-family: "TitilliumWeb-Light";
+	font-style: oblique;
 	font-size: 16px;
 	margin-bottom: 10px;
 	margin-left: 5px;
@@ -182,6 +193,9 @@
 	background: #097d7d;
 	border-radius: 3px;
 	color: #FFF;
+	font-family: "TitilliumWeb-Bold";
+	font-style: normal;
 	font-size: 23px;
 	height: 40px;
+	width: 150px;
 }

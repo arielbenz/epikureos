@@ -6,6 +6,8 @@
 		$my_query = new WP_Query('showposts=5');
 	?>
 
+	<?php include "app/views/menu.php";?>
+
 	<section id="barra-novedades" class="barra-content">
 		<div id="barra">
 			<div id="barra-titulo">

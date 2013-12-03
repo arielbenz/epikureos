@@ -3,6 +3,10 @@
 	
 	<?php include "app/views/header.php";?>
 
+	<?php include "app/views/menu.php";?>
+
+	<!-- CONTENT -->
+
 	<section id="barra-promos" class="barra-content">
 		<div id="barra">
 			<div id="barra-titulo">
