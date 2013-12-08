@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying image attachments.
+ * Template for displaying image attachments
  *
  * @package WordPress
  * @subpackage Twenty_Eleven
@@ -15,7 +15,6 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<nav id="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Image navigation', 'twentyeleven' ); ?></h3>
 					<span class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous' , 'twentyeleven' ) ); ?></span>
 					<span class="nav-next"><?php next_image_link( false, __( 'Next &rarr;' , 'twentyeleven' ) ); ?></span>
 				</nav><!-- #nav-single -->
@@ -48,7 +47,7 @@ get_header(); ?>
 							<div class="entry-attachment">
 								<div class="attachment">
 <?php
-	/**
+	/*
 	 * Grab the IDs of all the image attachments in a gallery so we can get the URL of the next adjacent image in a gallery,
 	 * or the first image (if we're looking at the last image in a gallery), or, in a gallery of one, just the link to that image file
 	 */
@@ -72,6 +71,13 @@ get_header(); ?>
 	}
 ?>
 									<a href="<?php echo esc_url( $next_attachment_url ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php
+									/**
+									 * Filter the Twenty Eleven default attachment size.
+									 *
+									 * @since Twenty Eleven 1.0
+									 *
+									 * @param int The height and width attachment size dimensions in pixels. Default 848.
+									 */
 									$attachment_size = apply_filters( 'twentyeleven_attachment_size', 848 );
 									echo wp_get_attachment_image( $post->ID, array( $attachment_size, 1024 ) ); // filterable image width with 1024px limit for image height.
 									?></a>

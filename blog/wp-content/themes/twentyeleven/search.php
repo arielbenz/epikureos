@@ -1,13 +1,6 @@
-<?php
-/**
- * The template for displaying Search Results pages.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+<?php include "../app/views/header.php";?>
 
-get_header(); ?>
+<?php include "../app/views/menu.php";?>
 
 		<section id="primary">
 			<div id="content" role="main">
@@ -24,9 +17,11 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php
-						/* Include the Post-Format-specific template for the content.
+						/*
+						 * Include the Post-Format-specific template for the content.
 						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 * called content-___.php (where ___ is the Post Format name) and that
+						 * will be used instead.
 						 */
 						get_template_part( 'content', get_post_format() );
 					?>
@@ -54,4 +49,5 @@ get_header(); ?>
 		</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+
+<?php include "../app/views/footer.php";?>

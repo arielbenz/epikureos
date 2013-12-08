@@ -271,7 +271,7 @@ msgstr "Enlace permanente a %s"
 
 #: loop.php:26 loop.php:178
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Entradas más nuevas <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Siguiente <span class=\"meta-nav\">&rarr;</span>"
 
 #: loop.php:25 loop.php:177
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"

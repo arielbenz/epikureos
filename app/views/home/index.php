@@ -80,7 +80,7 @@
 		
 		<section id="noticias">
 			
-			<h3>ÚLTIMAS NOTICIAS</h3>
+			<h3><a href="<?php echo $url?>/novedades">ÚLTIMAS NOTICIAS</h3>
 
 			<?php query_posts('category_name=novedades&showposts=2'); ?>
 
@@ -117,6 +117,7 @@
 				<h4>MÁS NOTICIAS</h4>
 			</article>
 		</section>
+		
 	</section>
 
 	<section id="home-publicidad">

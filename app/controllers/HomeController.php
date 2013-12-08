@@ -7,11 +7,13 @@ class HomeController extends BaseController {
 	}
 
 	public function get_novedades() {
-		return View::make('novedades.index');
+		//return View::make('novedades.index');
+		return Redirect::to('blog/seccion/novedades');
 	}
 
 	public function get_posta() {
-		return View::make('laposta.index');
+		//return View::make('laposta.index');
+		return Redirect::to('blog/seccion/laposta');
 	}
 
 	public function get_promos() {

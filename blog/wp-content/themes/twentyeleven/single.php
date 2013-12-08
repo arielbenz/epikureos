@@ -1,32 +1,36 @@
-<?php
-/**
- * The Template for displaying all single posts.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+<?php include "../app/views/header.php";?>
 
-get_header(); ?>
+<?php include "../app/views/menu.php";?>
 
-		<div id="primary">
-			<div id="content" role="main">
+		<section id="container-post">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<nav id="nav-single">
-						<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentyeleven' ); ?></h3>
-						<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'twentyeleven' ) ); ?></span>
-						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></span>
-					</nav><!-- #nav-single -->
+				<nav id="nav-single">
+					
+					<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'twentyeleven' ) ); ?></span>
+					<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></span>
+				</nav><!-- #nav-single -->
 
-					<?php get_template_part( 'content-single', get_post_format() ); ?>
+				<div class="post">
+			 		<!--titulo-->
+					<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+					<!--fin titulo-->
 
-					<?php comments_template( '', true ); ?>
+					<h3><?php the_time('j F Y') ?></h3>
 
-				<?php endwhile; // end of the loop. ?>
+					<!--post-->
+					<div class="post-info">
+						<?php the_content(); ?>
+					</div>
+				</div>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+				<div class="meta">
+					<p><?php the_tags(); ?></p>
+				</div>
 
-<?php get_footer(); ?>
+			<?php endwhile; // end of the loop. ?>
+
+		</section><!-- #primary -->
+
+<?php include "../app/views/footer.php";?>

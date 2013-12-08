@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<?php
-	$cad = $_SERVER['REQUEST_URI'];
-	$actual = explode("/", $cad)[2];
-	$url = URL::to('/');
-?>
-
-<head>
-	<meta charset="utf-8" />
-	<title>Alta Salida - Un nuevo hábito gastronómico</title>
-
-	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
-</head>
-
-<body>
 	<!-- HEADER -->
 
+	<?php include "app/views/header.php";?>
+
+	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
+	
 	<?php include "app/views/menu.php";?>
 
 	<!-- CONTENT -->
@@ -29,11 +13,6 @@
 		<div id="barra">
 			<div id="barra-titulo">
 				<h2><b class="font-normal">RESULTADOS</b><b class="font-bold">BÚSQUEDA</b></h2>
-				<div id="barra-back">
-					<label>
-
-					</label>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -77,6 +56,8 @@
 		<article id="publicidad4" class="class-publi"></article>
 	</section>
 
+	<!-- JAVASCRIPT -->
+
 	<script src="<?php echo $url;?>/js/jquery.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="<?php echo $url;?>/js/jquery.pagination.js"></script>
@@ -92,6 +73,20 @@
 		var url = '<?php echo $url?>';
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 		var thumbs = $.parseJSON('<?php echo $thumbs?>');
+
+		var contentString = '<div id="content">'+
+		    '<div id="siteNotice">'+
+		    '</div>'+
+		    '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
+		    '<div id="bodyContent">'+
+		    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+		    'Aboriginal people of the area. It has many springs, waterholes, '+
+		    'rock caves and ancient paintings. Uluru is listed as a World '+
+		    'Heritage Site.</p>'+
+		    '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+		    'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
+		    '</div>'+
+		    '</div>';
 
 		function inicio ()
 		{
@@ -159,13 +154,19 @@
         }
 
          function addMark(location, title, bounds) {
-            marcador = new google.maps.Marker({
+            var marcador = new google.maps.Marker({
 	            position: location,
 	            map: map,
 	            title: title
 	        });
 
 	        bounds.extend(marcador.position);
+
+	        var infowindow = new google.maps.InfoWindow({
+			    content: contentString
+			});
+
+			
         }
 
 	</script>

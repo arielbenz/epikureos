@@ -1,65 +1,101 @@
-<?php
-/**
- * The template for displaying Category Archive pages.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
 
-get_header(); ?>
+<?php include "../app/views/header.php";?>
 
-		<section id="primary">
-			<div id="content" role="main">
+	<?php
+		if ($actual == 'novedades') { ?>
+			<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
+		<?php
+		} else if($actual == 'laposta') { ?>
+			<link rel="stylesheet" href="<?php echo $url;?>/css/laposta.css" />
+	<?php	
+		}
+	?>
 
-			<?php if ( have_posts() ) : ?>
+<?php include "../app/views/menu.php";?>
 
-				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Category Archives: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-					?></h1>
+	<?php
 
-					<?php
-						$category_description = category_description();
-						if ( ! empty( $category_description ) )
-							echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
-					?>
-				</header>
+		if ($actual == 'novedades') { ?>
+			
+			<section id="barra-novedades" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<h2><b class="font-bold">NOVEDADES</b></h2>
+					</div>
+				</div>
+			</section>
 
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
+		<?php
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+		} else if($actual == 'laposta') { ?>
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+			<section id="barra-laposta" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<h2><b class="font-normal">LA</b><b class="font-bold">POSTA</b></h2>
+					</div>
+				</div>
+			</section>
+	<?php	
+		}
+	?>
+
+	
+	<div class="bar-blog"></div>
+
+
+	<div id="container-post">
+
+		<div id="content-post" >
+
+			<?php if (have_posts()) : ?>
+
+		 		<?php while (have_posts()) : the_post(); ?>
+
+					<div class="post-novedades">
+				 		<!--imagen noticia-->
+						<div class="imagen-novedades">
+							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+								if ($postimageurl) { ?>
+									<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+								<?php } else { ?> 
+									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+							<?php } ?>
+						</div>
+
+						<div class="info-novedades">
+							<!--titulo-->
+							<div class="post-title">
+								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+							</div>
+							
+							<!--fecha-->
+							<div class="post-fecha">
+								<?php the_time('j F Y') ?>
+							</div>
+
+							<!--post-->
+							<div class="post-info">
+								<?php the_excerpt()?>
+							</div>
+						</div>				 		
+
+					</div>
 
 				<?php endwhile; ?>
 
 				<?php twentyeleven_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
-
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
-
+				<h1>Lo que buscas no se encuentra</h1>			
 			<?php endif; ?>
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		</div>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+		<?php get_sidebar(); ?>
+
+	</div>
+
+
+
+	<?php include $_SERVER ['DOCUMENT_ROOT'].'epikureos/app/views/footer.php';?>

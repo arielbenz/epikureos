@@ -3,6 +3,8 @@
 	
 	<?php include "app/views/header.php";?>
 
+	<link rel="stylesheet" href="<?php echo $url;?>/css/contacto.css" />
+
 	<?php include "app/views/menu.php";?>
 
 	<!-- CONTENT -->
@@ -11,8 +13,6 @@
 		<div id="barra">
 			<div id="barra-titulo">
 				<h2>CONTACTO</h2>
-				<div id="barra-back">
-				</div>
 			</div>
 		</div>
 	</section>
@@ -92,32 +92,36 @@
 		</article>
 	</section>
 
+
+	<!-- JAVASCRIPT -->
+
+	<script src="<?php echo $url;?>/js/jquery.js"></script>
+
 	<script>
-			//Nuestro código
-			var $nombre = $('#form-nombre'),
-				$mail = $('#form-mail'),
-				$enviar = $('#form-enviar'),
-				$mensaje = $('#form-comentario');
+		var $nombre = $('#form-nombre'),
+			$mail = $('#form-mail'),
+			$enviar = $('#form-enviar'),
+			$mensaje = $('#form-comentario');
 
-			$('#form-contacto').submit(function() {
-				$.ajax({
-					type:"POST",
-					url: "enviar.php",
-					data:{id:"fgfg"}
-					}).done(function(msg){
-						alert($nombre.val());
-					});
-			});
+		$('#form-contacto').submit(function() {
+			$.ajax({
+				type:"POST",
+				url: "enviar.php",
+				data:{id:"fgfg"}
+				}).done(function(msg){
+					alert($nombre.val());
+				});
+		});
 
-			// function enviar() {
-			// 	$.ajax({
-			// 		type:"POST",
-			// 		url: "enviar.php",
-			// 		data:{id:$nombre.val()}
-			// 		}).done(function(msg){
-			// 			alert($nombre.val());
-			// 		});
-			// }
+		// function enviar() {
+		// 	$.ajax({
+		// 		type:"POST",
+		// 		url: "enviar.php",
+		// 		data:{id:$nombre.val()}
+		// 		}).done(function(msg){
+		// 			alert($nombre.val());
+		// 		});
+		// }
 
 	</script>
 

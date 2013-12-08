@@ -6,21 +6,21 @@
 		$my_query = new WP_Query('showposts=5');
 	?>
 
+	<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
+
 	<?php include "app/views/menu.php";?>
 
 	<section id="barra-novedades" class="barra-content">
 		<div id="barra">
 			<div id="barra-titulo">
 				<h2><b class="font-bold">NOVEDADES</b></h2>
-				<div id="barra-back">
-				</div>
 			</div>
 		</div>
 	</section>
 
 	<section id="content-novedades">
 
-		<?php query_posts('category_name=novedades&showposts=5'); ?>
+		<?php query_posts('category_name=novedades&showposts=1'); ?>
 
 		<?php if (have_posts()) : ?>
 
@@ -44,6 +44,8 @@
 				</div>
 
 			<?php endwhile; ?>
+
+				<?php twentyeleven_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 			<h1>Lo que buscas no se encuentra</h1>			

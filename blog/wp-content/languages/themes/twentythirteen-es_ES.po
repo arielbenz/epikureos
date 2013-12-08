@@ -216,7 +216,7 @@ msgstr "<span class=\"meta-nav\">&larr;</span> Entradas más antiguas"
 
 #: functions.php:272
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Entradas más nuevas <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Siguiente <span class=\"meta-nav\">&rarr;</span>"
 
 #: functions.php:300
 msgid "Post navigation"

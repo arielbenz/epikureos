@@ -518,15 +518,15 @@ msgstr "Tu comentario está pendiente de moderación."
 
 #: functions.php:455
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Entradas más nuevas <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Siguiente <span class=\"meta-nav\">&rarr;</span>"
 
 #: functions.php:454
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Entradas más antiguas"
 
 #: functions.php:453 single.php:18
-msgid "Post navigation"
-msgstr "Navegador de artículos"
+
+
 
 #: functions.php:433
 msgid "Footer Area Three"

@@ -3,6 +3,8 @@
 	
 	<?php include "app/views/header.php";?>
 
+	<link rel="stylesheet" href="<?php echo $url;?>/css/laposta.css" />
+
 	<?php include "app/views/menu.php";?>
 
 	<!-- CONTENT -->
@@ -11,8 +13,6 @@
 		<div id="barra">
 			<div id="barra-titulo">
 				<h2><b class="font-normal">LA</b><b class="font-bold">POSTA</b></h2>
-				<div id="barra-back">
-				</div>
 			</div>
 		</div>
 	</section>
@@ -43,6 +43,8 @@
 				</div>
 
 			<?php endwhile; ?>
+
+			<?php twentyeleven_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 			<h1>Lo que buscas no se encuentra</h1>			

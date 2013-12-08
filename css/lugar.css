@@ -20,48 +20,110 @@
 	height: 80px; 
 	margin: 0 auto;
 	margin-top: 25px;
-	width: 1280px;
+	width: 1200px;
 }
 
 
 #info-lugar-left
 {
-	background-color: #BBB;
 	display: inline-block;
 	height: 480px;
-	width: 450px;
+	margin-right: 25px;
+	vertical-align: top;
+	width: 430px;
 }
 
-#info-lugar-middle
-{
-	background-color: #BBB;
-	display: inline-block;
-	height: 480px;
-	width: 275px;
-}
-
-	#lugar-mapa
+	#lugar-title
 	{
-		background-color: #AAA;
-		height: 250px;
-		width: 275px;
+		background-color: #dcdcdc;
+		height: 165px;
+	}
+
+		.lugar-title-comun
+		{
+			font-size: 17px;
+			margin-left: 15px;
+			text-align: left;
+		}
+
+		#lugar-title #lugar-nombre h2
+		{
+			font-family: "Open Sans Bold";
+			font-size: 35px;
+			margin-left: 10px;
+			text-align: left;
+		}
+
+		#lugar-title #lugar-direccion
+		{
+			color: #807e7f;
+			font-family: "Open Sans Bold";
+			margin-top: 40px;
+		}
+
+		#lugar-title #lugar-tel
+		{
+			color: #807e7f;
+		}
+
+		#lugar-title #lugar-web
+		{
+			color: #f18932;
+		}
+
+	#lugar-descripcion
+	{
+		font-size: 16px;
+		height: 165px;
+		margin-top: 40px;
+		text-align: justify;
 	}
 
 	#lugar-utiles
 	{
-		background-color: #AAA;
-		height: 210px;
-		margin-top: 20px;
-		width: 275px;
+		background-color: #dcdcdc;
+		height: 100px;
+		margin-top: 10px;
+	}
+
+
+#info-lugar-middle
+{
+	display: inline-block;
+	height: 480px;
+	width: 280px;
+}
+
+	#lugar-mapa
+	{
+		height: 480px;
+		overflow: inherit !important;
+		top: 0;
+		width: 280px;
 	}
 
 #info-lugar-right
 {
-	background-color: #BBB;
 	display: inline-block;
+	margin-left: 25px;
 	height: 480px;
-	width: 450px;
+	width: 430px;
 }
+
+	#lugar-fotos
+	{
+		background-color: #BBB;
+		height: 415px;
+		width: 430px;
+	}
+
+	#lugar-links
+	{
+		background-color: #a59f9f;
+		height: 40px;
+		margin-top: 25px;
+		width: 430px;
+	}	
 
 #tags-barra
 {
@@ -74,9 +136,9 @@
 
 #comentarios-lugar
 {
-	background-color: #CCC;
+	/*background-color: #CCC;
 	margin: 0 auto;
-	margin-top: 25px;
-	height: 400px;
-	width: 900px;
+	margin-top: 25px;*/
+	height: 100px;
+	/*width: 900px;*/
 }

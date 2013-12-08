@@ -203,14 +203,58 @@ header #logo
 	color: white;
 	display: inline-block;
 	font-size: 40px;
-	font-weight: bold;
-	position: relative;
-	bottom: 15px;
 	right: 10px;
 	padding: 0;
 }
 
 
+/* ----------------- BLOG --------------*/
+/*------------------------------------------*/
+
+.bar-blog
+{
+	height: 50px;
+	width: 1280px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+#container-post
+{
+	height: 100%;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	padding: 0;
+	width: 1280px;
+}
+
+#container-post #content-post
+{
+	display: inline-block;
+	height: 100%;
+	margin: 0;
+	position: relative;
+	width: 890px;
+}
+
+#container-post #secondary
+{
+	display: inline-block;
+	margin: 0;
+	position: relative;
+	vertical-align: top;
+	width: 280px;
+}
+
+#nav-below .nav-previous
+{
+	display: inline-block;
+}
+
+#nav-below .nav-next
+{
+	display: inline-block;		
+}
 
 /* ----------------- BUSQUEDA --------------*/
 /*------------------------------------------*/
@@ -612,7 +656,7 @@ footer
 .link-face:hover
 {
 	background: url("../img/facebookon.png") no-repeat;
-	transition: all 0.4s ease;
+	transition: all 0.4s ease-out;
 }
 
 .link-twitter
@@ -623,7 +667,7 @@ footer
 .link-twitter:hover
 {
 	background: url("../img/twitteron.png") no-repeat;
-	transition: all 0.4s ease;
+	transition: all 0.4s linear;
 }
 
 .link-rss
@@ -634,7 +678,7 @@ footer
 .link-rss:hover
 {
 	background: url("../img/rsson.png") no-repeat;
-	transition: all 0.4s ease;
+	transition: all 0.4s linear;
 }
 
 .link-plus
@@ -645,7 +689,7 @@ footer
 .link-plus:hover
 {
 	background: url("../img/googleon.png") no-repeat;
-	transition: all 0.4s ease;
+	transition: all 0.4s linear;
 }
 
 

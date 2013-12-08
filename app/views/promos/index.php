@@ -3,6 +3,8 @@
 	
 	<?php include "app/views/header.php";?>
 
+	<link rel="stylesheet" href="<?php echo $url;?>/css/promos.css" />
+
 	<?php include "app/views/menu.php";?>
 
 	<!-- CONTENT -->
@@ -11,11 +13,6 @@
 		<div id="barra">
 			<div id="barra-titulo">
 				<h2><b class="font-bold">PROMOS</b></h2>
-				<div id="barra-back">
-					<label>
-
-					</label>
-				</div>
 			</div>
 		</div>
 	</section>
