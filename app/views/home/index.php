@@ -44,6 +44,10 @@
 				<img src="<?php echo $url?>/img/laposta.png">
 			</div>
 
+			<div class="title-laposta">dsfgsdgdfgdfg
+				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+			</div>
+
 			<div id="laposta-container">
 
 				<?php query_posts('category_name=laposta&showposts=1'); ?>
@@ -63,10 +67,6 @@
 								<?php } ?>
 							</div>
 
-							<div class="title-noticia">
-								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				 			</div>
-
 						</div>
 					<?php endwhile; ?>
 
@@ -76,11 +76,15 @@
 				<!--fin loop-->
 			</div>
 
+
+
 		</section>
 		
 		<section id="noticias">
 			
-			<h3><a href="<?php echo $url?>/novedades">ÚLTIMAS NOTICIAS</h3>
+			<article id="ultimasnoticias">
+				<h3>ÚLTIMAS NOTICIAS</h3>
+			</article>
 
 			<?php query_posts('category_name=novedades&showposts=2'); ?>
 
@@ -114,7 +118,7 @@
 			<!--fin loop-->
 
 			<article id="masnoticias">
-				<h4>MÁS NOTICIAS</h4>
+				<h4><a href="<?php echo $url?>/novedades">MÁS NOTICIAS</h4>
 			</article>
 		</section>
 		

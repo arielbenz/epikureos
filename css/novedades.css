@@ -26,7 +26,6 @@
 	display: inline-block;
 	float: right;
 	margin-top: 15px;
-	text-align: left;
 	width: 640px;
 }
 
@@ -36,6 +35,7 @@
 	font-weight: bold;
 	margin: 0;
 	padding: 0;
+	text-align: left;
 }
 
 .info-novedades .post-title a
@@ -51,12 +51,15 @@
 	font-size: 15px;
 	font-weight: bold;
 	font-style: oblique;
+	text-align: left;
 }
 
 .info-novedades .post-info
 {
 	margin-top: 15px;
+	text-align: justify;
 }
+
 
 #search-2
 {

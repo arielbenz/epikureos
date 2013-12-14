@@ -6,12 +6,6 @@
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<nav id="nav-single">
-					
-					<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'twentyeleven' ) ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></span>
-				</nav><!-- #nav-single -->
-
 				<div class="post">
 			 		<!--titulo-->
 					<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>

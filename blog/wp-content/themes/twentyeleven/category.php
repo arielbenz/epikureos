@@ -20,7 +20,7 @@
 			<section id="barra-novedades" class="barra-content">
 				<div id="barra">
 					<div id="barra-titulo">
-						<h2><b class="font-bold">NOVEDADES</b></h2>
+						<div class="font-bold">NOVEDADES</div>
 					</div>
 				</div>
 			</section>
@@ -32,7 +32,7 @@
 			<section id="barra-laposta" class="barra-content">
 				<div id="barra">
 					<div id="barra-titulo">
-						<h2><b class="font-normal">LA</b><b class="font-bold">POSTA</b></h2>
+						<div class="font-normal">LA</div><div class="font-bold">POSTA</div>
 					</div>
 				</div>
 			</section>
@@ -52,39 +52,75 @@
 
 		 		<?php while (have_posts()) : the_post(); ?>
 
-					<div class="post-novedades">
-				 		<!--imagen noticia-->
-						<div class="imagen-novedades">
-							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
-								if ($postimageurl) { ?>
-									<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
-								<?php } else { ?> 
-									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-							<?php } ?>
-						</div>
+						<?php
 
-						<div class="info-novedades">
-							<!--titulo-->
-							<div class="post-title">
-								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-							</div>
-							
-							<!--fecha-->
-							<div class="post-fecha">
-								<?php the_time('j F Y') ?>
-							</div>
+							if ($actual == 'novedades') { ?>
 
-							<!--post-->
-							<div class="post-info">
-								<?php the_excerpt()?>
-							</div>
-						</div>				 		
+								<div class="post-novedades">
+								
+								<!--imagen novedades-->
+								<div class="imagen-novedades">
+									<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+										if ($postimageurl) { ?>
+											<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+										<?php } else { ?> 
+											<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+									<?php } ?>
+								</div>
+
+								<div class="info-novedades">
+									<!--titulo-->
+									<div class="post-title">
+										<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+									</div>
+									
+									<!--fecha-->
+									<div class="post-fecha">
+										<?php the_time('j F Y') ?>
+									</div>
+
+									<!--post-->
+									<?php
+										if ($actual == 'novedades') { ?>
+											<div class="post-info">
+												<?php the_excerpt()?>
+											</div>
+									<?php
+										}
+									?>	
+								</div>
+
+							<?php
+
+							} else if($actual == 'laposta') { ?>
+
+								<div class="post-laposta">
+
+								<!--imagen novedades-->
+								<div class="imagen-laposta">
+									<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+										if ($postimageurl) { ?>
+											<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+										<?php } else { ?> 
+											<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+									<?php } ?>
+									<div class="imagen-info">
+										<!--titulo-->
+										
+											<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
+										
+									</div>
+								</div>
+								
+						<?php }	?>
 
 					</div>
 
 				<?php endwhile; ?>
 
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
+				<div id="nav-pages">
+					<?php posts_nav_link(); ?>
+				</div>
 
 			<?php else : ?>
 				<h1>Lo que buscas no se encuentra</h1>			
@@ -92,10 +128,12 @@
 
 		</div>
 
-		<?php get_sidebar(); ?>
+		<?php
+			if ($actual == 'novedades') { 
+				get_sidebar();
+			}
+		?>
 
 	</div>
-
-
 
 	<?php include $_SERVER ['DOCUMENT_ROOT'].'epikureos/app/views/footer.php';?>

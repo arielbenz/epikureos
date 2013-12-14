@@ -82,7 +82,7 @@ header #ciudad
 	font-family: "TitilliumWeb-Thin";
 	height: 70px;
 	position: relative;
-	right: 30px;
+	right: 10px;
 }
 
 header #ciudad select
@@ -172,7 +172,7 @@ header #logo
 {
 	display: inline-block;
 	float: left;
-	margin-left: 30px;
+	margin-left: 10px;
 	margin-top: 5px;
 }
 
@@ -193,9 +193,12 @@ header #logo
 
 .barra-content #barra #barra-titulo
 {
+	color: #FFF;
+	font-size: 40px;
 	float: right;
 	position: relative;
-	right: 30px;
+	right: 10px;
+	text-rendering: optimizeSpeed;
 }
 
 .barra-content #barra #barra-titulo h2
@@ -261,11 +264,13 @@ header #logo
 
 .font-bold
 {
+	display: inline-block;
 	font-family: "TitilliumWeb-Bold";
 }
 
 .font-normal
 {
+	display: inline-block;
 	font-family: "TitilliumWeb-Thin";
 }
 
@@ -435,8 +440,9 @@ header #logo
 #home-info #laposta
 {
 	display: inline-block;
-	height: 500px;
+	height: 475px;
 	margin-right: 40px;
+	margin-top: 5px;
 	position: relative;
 	top: 50px;
 	width: 750px;
@@ -446,6 +452,16 @@ header #logo
 {
 	position: absolute;
 	top: 20px;
+}
+
+#home-info #laposta .title-laposta
+{
+	background: transparent;
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	top: 100px;
+	
 }
 
 #home-info #noticias
@@ -458,13 +474,21 @@ header #logo
 	width: 430px;
 }
 
-#home-info #noticias h3
+#home-info #noticias #ultimasnoticias
 {
+	height: 40px;
+	margin: 0 0 5px 0;
+}
+
+#home-info #noticias #ultimasnoticias h3
+{
+	border: 0;
 	color: #7a7675;
 	font-family: "TitilliumWeb-SemiBold";
 	font-size: 26px;
-	margin: 0 0 22px 0;
+	padding-top: 0;
 	text-align: left;
+	top: 0;
 }
 
 #home-info #noticias .noticia
@@ -475,7 +499,6 @@ header #logo
 
 #home-info #noticias .imagen-noticia
 {
-	background: #AAA;
 	height: 125px;
 }
 
@@ -509,19 +532,26 @@ header #logo
 	margin: 0;
 }
 
-#home-info #noticias #masnoticias {
+#home-info #noticias #masnoticias
+{
 	background: #9ea9ad;
 	color: #eff0f0;
 	height: 35px;
-	margin-top: 5px;
 }
 
-#home-info #noticias #masnoticias h4 {
+#home-info #noticias #masnoticias h4
+{
+	color: #333333;
 	font-family: "Open Sans Light";
 	font-size: 24px;
 	margin-left: 10px;
 	position: relative;
 	text-align: left;
+}
+
+#home-info #noticias #masnoticias a
+{
+	color: #333333;
 }
 
 /* ----------------  PUBLICIDAD ----------------*/
@@ -558,12 +588,28 @@ footer
 	max-width: 100%;
 }
 
-#partner
+#partner-footer
 {
-	border-top: 1.5px solid #CCC;
+	background: #eee;
 	height: 200px;
+}
+
+#partner-section
+{
+	/*border-top: 1.5px solid #CCC;*/
 	margin: 0 auto;
+	padding-top: 20px;
 	width: 1280px;
+}
+
+.partner-image
+{
+	background-color: #DDD;
+	display: inline-block;
+	height: 150px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 200px;
 }
 
 #home-footer
@@ -586,6 +632,7 @@ footer
 
 #home-footer #footer-links h3
 {
+	color: #FFF;
 	font-family: "Open Sans Bold";
 	font-size: 26px;
 	margin: 10px 0 10px 0;

@@ -18,9 +18,9 @@
 	}
 
 	//$actual = end($current);
-	//$url = URL::to('/');
+	$url = URL::to('/');
 	
-	$url = "http://" . $_SERVER['HTTP_HOST'] . '/epikureos';
+	//$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
 
 	require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
 ?>

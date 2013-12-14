@@ -1,6 +1,13 @@
 	
-	<section id="partner">
-			
+	<section id="partner-footer">
+		
+		<div id="partner-section">
+			<div class="partner-image"></div>
+			<div class="partner-image"></div>
+			<div class="partner-image"></div>
+			<div class="partner-image"></div>
+		</div>
+		
 	</section>
 
 	<footer>
@@ -42,7 +49,7 @@
 			</article>
 
 			<article id="footer-terminos">
-				<small>Términos de uso y políticas de seguridad | Copyright 2013 Epikureos</small>
+				<small>Términos de uso y políticas de seguridad | Copyright 2013 Alta Salida</small>
 			</article>
 
 			<article id="footer-design">
