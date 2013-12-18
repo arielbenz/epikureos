@@ -38,6 +38,13 @@
 	width: 590px;
 }
 
+#content-busqueda #search-header h3
+{
+	color: #807e7f;
+	font-family: "TitilliumWeb-Regular";
+	margin-top: 10px;
+}
+
 #content-busqueda #search-header h4
 {
 	color: #474747;
@@ -70,7 +77,7 @@
 
 #content-busqueda #result-bar
 {
-	background-color: #DDD;
+	background-color: #cbc9ca;
 	height: 40px;
 	margin: 0 auto;
 	margin-bottom: 50px;
@@ -100,7 +107,7 @@
 #content-busqueda .box-result
 {
 	background-color: #FFF;
-	border: 1.5px solid #DDD;	
+	border: 1.7px solid #cbc9ca;	
 	display: inline-block;
 	height: 150px;
 	margin-bottom: 25px;

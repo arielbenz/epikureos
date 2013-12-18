@@ -30,9 +30,15 @@ class HomeController extends BaseController {
 
 	public function get_busqueda($busqueda) {
 
-		$categoria = Categoria::where('slug', '=', $busqueda)->first();
-		
-		$lugares = $categoria->lugares;
+		$lugares = null;
+
+		$categoria = Etiqueta::where('descripcion', 'LIKE', '%'.$busqueda.'%')->first();
+
+		if ($categoria == null) {
+			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->get();
+		} else {
+			$lugares = $categoria->lugares;
+		}
 
 		$thumbs = array();
 		$i = 0;
@@ -45,7 +51,7 @@ class HomeController extends BaseController {
 
 		$lugaresJson = $lugares->toJson();
 
-		return View::make('busqueda.index')->with('busqueda', $categoria->descripcion)->with('lugares', $lugares)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
 	}
 
 	public function post_busqueda() {

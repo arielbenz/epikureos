@@ -20,17 +20,19 @@ class AdminController extends BaseController {
 
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::all()->lists('descripcion', 'id');
+		$etiquetas = Etiqueta::all()->lists('descripcion', 'id');
 		$ciudades = Ciudad::all()->lists('descripcion', 'id');
 		$zonas = Zona::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('ciudades', $ciudades)->with('zonas', $zonas);
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas);
 	}
 
 	public function get_add()
 	{
 		$categorias = Categoria::all()->lists('descripcion', 'id');
+		$etiquetas = Etiqueta::all()->lists('descripcion', 'id');
 		$ciudades = Ciudad::all()->lists('descripcion', 'id');
 		$zonas = Zona::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('ciudades', $ciudades)->with('zonas', $zonas);
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas);
 	}
 
 	public function post_add()
@@ -40,6 +42,7 @@ class AdminController extends BaseController {
 		$rules = array(
 			'nombre' => 'required',
 			'categorias' => 'required',
+			'etiquetas' => 'required',
 		);
 
 		$validator = Validator::make($input, $rules);
@@ -70,6 +73,15 @@ class AdminController extends BaseController {
 				$relation = new CategoriaLugar;
 					$relation->id_lugar = $lugar->id;
 					$relation->id_categoria = $categoria;
+				$relation->save();
+			}
+
+			$etiquetas = Input::get('etiquetas');
+			foreach($etiquetas as $etiqueta)
+			{
+				$relation = new EtiquetaLugar;
+					$relation->id_lugar = $lugar->id;
+					$relation->id_etiqueta = $etiqueta;
 				$relation->save();
 			}
 
@@ -110,13 +122,24 @@ class AdminController extends BaseController {
 
 			$categorias = Input::get('categorias');
 
+			$etiquetas = Input::get('etiquetas');
+
 			$old_relations = CategoriaLugar::where('id_lugar', '=', $id)->delete();
+			$old_relations_tag = EtiquetaLugar::where('id_lugar', '=', $id)->delete();
 
 			foreach($categorias as $categoria)
 			{
 				$relation = new CategoriaLugar;
 					$relation->id_lugar = $id;
 					$relation->id_categoria = $categoria;
+				$relation->save();
+			}
+
+			foreach($etiquetas as $etiqueta)
+			{
+				$relation = new EtiquetaLugar;
+					$relation->id_lugar = $id;
+					$relation->id_etiqueta = $etiqueta;
 				$relation->save();
 			}
 

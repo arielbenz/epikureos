@@ -33,6 +33,7 @@ header
 
 a
 {
+	color: #252525;
 	text-decoration: none;
 }
 
@@ -83,6 +84,7 @@ header #ciudad
 	height: 70px;
 	position: relative;
 	right: 10px;
+	vertical-align: top;
 }
 
 header #ciudad select
@@ -129,12 +131,17 @@ header #ciudad #logo-dia
 header nav ul li a:hover
 {
 	background: #343031;
-	border-top: 5px solid #343031;
+	/*border-top: 5px solid #343031;*/
 }
 
 header nav #menu-laposta a
 {
 	background: #343031;
+	border-top: 5px solid #58ba48;
+}
+
+header nav #menu-laposta a:hover
+{
 	border-top: 5px solid #58ba48;
 }
 
@@ -210,6 +217,20 @@ header #logo
 	padding: 0;
 }
 
+#barra-novedades
+{
+	background: #df3726;
+	height: 60px;
+	width: 100%;
+}
+
+#barra-laposta
+{
+	background: #58ba48;
+	height: 60px;
+	width: 100%;
+}
+
 
 /* ----------------- BLOG --------------*/
 /*------------------------------------------*/
@@ -235,9 +256,9 @@ header #logo
 {
 	display: inline-block;
 	height: 100%;
-	margin: 0;
+	margin-right: 25px;
 	position: relative;
-	width: 890px;
+	width: 880px;
 }
 
 #container-post #secondary
@@ -307,7 +328,7 @@ header #logo
 
 #home-search #nav-search ul li a 
 {
-	background: #474747;
+	background-color: #474747;
 	border-radius: 5px;
 	box-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
 	color: #FFF;
@@ -317,12 +338,16 @@ header #logo
 	padding: 7px 0;
 	text-shadow: -0.5px -0.5px 1px #CCC;
 	width: 130px;
+
+	-webkit-transition: background-color 0.3s ease-out;
+  	-moz-transition: background-color 0.3s ease-out;
+  	-o-transition: background-color 0.3s ease-out;
+  	transition: background-color 0.3s ease-out;
 }
 
 #home-search #nav-search ul li a:hover
 {
-	background: #f08421;
-	transition: all 0.3s ease;
+	background-color: #f08421;
 }
 
 #form-search {
@@ -406,7 +431,7 @@ header #logo
 
 #home-promo #promo
 {
-	background: url("http://localhost/epikureos/img/fondo.jpg") repeat 100% center;
+	background: url("http://localhost/epikureos/img/fondo-promo.png") repeat 100% center;
 	/*background: #AAA;*/
 	border: 8px solid #FFF;
 	display: inline-block;
@@ -693,6 +718,11 @@ footer
 #footer-redes ul li a
 {
     display: block;
+
+    -webkit-transition: background 0.3s ease-out;
+  	-moz-transition: background 0.3s ease-out;
+  	-o-transition: background 0.3s ease-out;
+  	transition: background 0.3s ease-out;
 }
 
 .link-face
@@ -703,7 +733,6 @@ footer
 .link-face:hover
 {
 	background: url("../img/facebookon.png") no-repeat;
-	transition: all 0.4s ease-out;
 }
 
 .link-twitter
@@ -714,7 +743,6 @@ footer
 .link-twitter:hover
 {
 	background: url("../img/twitteron.png") no-repeat;
-	transition: all 0.4s linear;
 }
 
 .link-rss
@@ -725,7 +753,6 @@ footer
 .link-rss:hover
 {
 	background: url("../img/rsson.png") no-repeat;
-	transition: all 0.4s linear;
 }
 
 .link-plus
@@ -736,7 +763,6 @@ footer
 .link-plus:hover
 {
 	background: url("../img/googleon.png") no-repeat;
-	transition: all 0.4s linear;
 }
 
 
@@ -777,4 +803,74 @@ footer
 	margin-right: 35px;
 	position: relative;
 	top: 40px;
+}
+
+
+/* BARRA SIDEBAR */
+
+#search-2
+{
+	background-color: #a09a9a;
+	height: 125px;
+	margin: 0 auto;
+	width: 275px;
+}
+
+#searchform {
+	padding-top: 15px;
+}
+
+#searchform label
+{
+	color: #FFF;
+	display: block;
+	font-family: "Open Sans Bold";
+	font-size: 25px;
+}
+
+#searchform #s
+{
+	display: block;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 250px;
+}
+
+#searchform .submit
+{
+	display: none;
+}
+
+#categories-2
+{
+	background-color: #252525;
+	height: 125px;
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 275px;
+}
+
+#categories-2 h3
+{
+	color: #FFF;
+	font-family: "Open Sans Bold";
+	font-size: 25px;
+	padding-top: 10px;
+}
+
+#categories-2 .postform
+{
+	height: 40px;
+	margin-top: 15px;
+	width: 250px;
+}
+
+.next-pages
+{
+	background-color: #DDD;
+	margin: 0 auto;
+	height: 15px;
+	padding-top: 2px;
+	width: 100px;
 }

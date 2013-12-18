@@ -83,6 +83,11 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Etiquetas')}}
+					{{Form::select('etiquetas[]', $etiquetas, Lugar::enEtiquetas($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
 					<p>{{Form::submit('Modificar lugar', array('class' => 'btn btn-default'))}}</p>
 				</div>
 
@@ -157,6 +162,11 @@
 				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, array(1), array('multiple' => 'multiple', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Etiquetas')}}
+					{{Form::select('etiquetas[]', $etiquetas, array(1), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

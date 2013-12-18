@@ -1,33 +1,81 @@
-<?php
-/**
- * The Template for displaying all single posts.
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
+<?php include "../app/views/header.php";?>
 
-get_header(); ?>
+<link rel="stylesheet" href="<?php echo $url;?>/css/single.css" />
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+<?php include "../app/views/menu.php";?>
+
+	<?php
+
+		if ($actual == 'novedades') { ?>
+			
+			<section id="barra-novedades" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<div class="font-bold">NOVEDADES</div>
+					</div>
+				</div>
+			</section>
+
+		<?php
+
+		} else if($actual == 'laposta') { ?>
+
+			<section id="barra-laposta" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<div class="font-normal">LA</div><div class="font-bold">POSTA</div>
+					</div>
+				</div>
+			</section>
+	<?php	
+		}
+	?>
+
+	<div class="bar-blog"></div>
+	
+
+	<div id="container-post">
+
+		<div id="content-post" >
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<div class="post">
 
-				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
-				</nav><!-- .nav-single -->
+			 		<!--titulo-->
+					<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
-				<?php comments_template( '', true ); ?>
+					<!--fecha-->						
+					<h3><?php the_time('j F Y') ?></h3>
 
-			<?php endwhile; // end of the loop. ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+					<!--imagen novedades-->
+					<div class="imagen">
+						<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
+							if ($postimageurl) { ?>
+								<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+							<?php } else { ?> 
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+						<?php } ?>
+					</div>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+					<!--post-->
+					<div class="post-info">
+						<?php the_content(); ?>
+					</div>
+
+				</div>
+
+				<div class="meta">
+					<p><?php the_tags(); ?></p>
+				</div>
+
+			<?php endwhile; ?>
+
+		</div>
+
+		<?php get_sidebar(); ?>
+	
+	</div>
+
+<?php include "../app/views/footer.php";?>

@@ -1,10 +1,4 @@
 
-#barra-laposta
-{
-	background: #58ba48;
-	height: 60px;
-	width: 100%;
-}
 
 .post-laposta
 {
@@ -26,16 +20,17 @@
 
 .imagen-laposta .imagen-info
 {
-	background-color: #EEE;
-	width: 380px;
-	height: 60px;
+	background: rgba(37, 37, 37, 0.9);
+	color: #FFF;
+	height: 55px;
 	vertical-align: top;
+	width: 380px;
 }
 
 .imagen-laposta .imagen-info h2
 {
-	font-family: "Open Sans Regular";
-	font-size: 17px;
+	font-family: "Open Sans Light";
+	font-size: 18px;
 	margin: 0;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -43,11 +38,19 @@
 
 .imagen-laposta .imagen-info a
 {
-	color: #191919;
+	color: #FFF;
 	text-decoration: none;
 }
 
 #nav-pages
 {
 	margin-top: 20px;
+}
+
+.post-fecha {
+	background: rgba(37, 37, 37, 0.9);
+	color: #FFF;
+	font-family: "Open Sans Regular";
+	text-align: left;
+	width: 380px;
 }

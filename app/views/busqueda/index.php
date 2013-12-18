@@ -24,11 +24,14 @@
 	<section id="content-busqueda">
 
 		<div id="search-header">
-			<h3>RESULTADOS PARA "<?php echo strtoupper($busqueda); ?>"</h3>
+			
 		</div>
 
 		<div id="search-combo">
-			<input id="input-search" type="text" name="search" placeholder="Buscar..." required></input>
+			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
+				<input id="input-search" type="text" name="search" placeholder="Buscar..." required></input>
+				<button type="submit">Buscar</button>
+			</form>	
 		</div>
 
 		<div id="result-bar">
@@ -70,6 +73,7 @@
 		$(document).on("ready", inicio);
 
 		var map;
+		var busqueda = '<?php echo $busqueda?>';
 		var url = '<?php echo $url?>';
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 		var thumbs = $.parseJSON('<?php echo $thumbs?>');
@@ -93,12 +97,13 @@
             //Carga de lugares
             var optInit = getOptionsFromForm();
             $("#Pagination").pagination(lugares.length, optInit);
+            $('#content-busqueda').slideDown();
 		}
 
-		function initializeMap() {
+		function initializeMap(zoom) {
 			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
 	        var myOptions = {
-	            zoom: 15,
+	            zoom: zoom,
 	            center: latlon,
 	            scrollwheel: false,
 	            mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -117,12 +122,16 @@
         }
 
         function pageselectCallback(page_index, jq) {
-            var items_per_page = '6';
+            var items_per_page = '4';
             var max_elem = Math.min((page_index + 1) * items_per_page, lugares.length);
             var newcontent = '';
 
-            initializeMap();
-
+            if (lugares.length == 1) {
+            	initializeMap(16);
+            } else {
+            	initializeMap(15);
+            }
+            	
         	var bounds = new google.maps.LatLngBounds();
 
             for(var i = page_index * items_per_page; i < max_elem; i++)
@@ -131,8 +140,8 @@
                 newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
-                newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
-                newcontent += '<div class="box-result-desc">' + lugares[i].descripcion + '</div>';
+                newcontent += '<div class="box-result-title">' + lugares[i].direccion + '</div>';
+                
                 newcontent += '</div>';
                 newcontent += '</div>';
 
@@ -143,12 +152,18 @@
 	            addMark(marker, lugares[i].nombre, bounds);
             }
 
-            map.fitBounds(bounds);
-			map.setCenter(bounds.getCenter());
-
+			if (lugares.length > 1) {
+				map.fitBounds(bounds);
+				map.setCenter(bounds.getCenter());
+			} else {
+				map.setCenter(bounds.getCenter());
+			}
+            
             $('#results').html(newcontent);
 
-            $('#search-header').html('<h3>Mostrando ' + page_index * items_per_page + ' de ' + lugares.length + ' resultados</h3>');
+            console.log(busqueda);
+
+            $('#search-header').html('<h3><b class="font-normal">' + lugares.length + ' RESULTADOS PARA </b><b class="font-bold">"' + busqueda.toUpperCase() + '"</b></h3>');
 
 	        return false;
         }

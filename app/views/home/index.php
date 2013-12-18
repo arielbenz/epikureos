@@ -44,10 +44,6 @@
 				<img src="<?php echo $url?>/img/laposta.png">
 			</div>
 
-			<div class="title-laposta">dsfgsdgdfgdfg
-				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-			</div>
-
 			<div id="laposta-container">
 
 				<?php query_posts('category_name=laposta&showposts=1'); ?>

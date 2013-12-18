@@ -1,11 +1,4 @@
 
-#barra-novedades
-{
-	background: #df3726;
-	height: 60px;
-	width: 100%;
-}
-
 .post-novedades
 {
 	height: 200px;
@@ -58,63 +51,4 @@
 {
 	margin-top: 15px;
 	text-align: justify;
-}
-
-
-#search-2
-{
-	background-color: #a09a9a;
-	height: 125px;
-	margin: 0 auto;
-	width: 275px;
-}
-
-#searchform {
-	padding-top: 15px;
-}
-
-#searchform label
-{
-	color: #FFF;
-	display: block;
-	font-family: "Open Sans Bold";
-	font-size: 25px;
-}
-
-#searchform #s
-{
-	display: block;
-	height: 40px;
-	margin: 0 auto;
-	margin-top: 10px;
-	width: 250px;
-}
-
-#searchform .submit
-{
-	display: none;
-}
-
-#categories-2
-{
-	background-color: #252525;
-	height: 125px;
-	margin: 0 auto;
-	margin-top: 20px;
-	width: 275px;
-}
-
-#categories-2 h3
-{
-	color: #FFF;
-	font-family: "Open Sans Bold";
-	font-size: 25px;
-	padding-top: 10px;
-}
-
-#categories-2 .postform
-{
-	height: 40px;
-	margin-top: 15px;
-	width: 250px;
 }

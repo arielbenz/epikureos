@@ -17,11 +17,12 @@
 		$actual = "contacto";
 	}
 
-	//$actual = end($current);
-	$url = URL::to('/');
-	
-	//$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
+	//Sitio online
+	//$url = URL::to('/');
+	//require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
 
+	//localhost
+	$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
 	require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
 ?>
 

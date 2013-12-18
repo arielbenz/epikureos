@@ -11,10 +11,21 @@ class Lugar extends Eloquent {
 		return $this->belongsToMany('Categoria', 'categorias_lugares', 'id_lugar', 'id_categoria' );
 	}
 
+	public function etiquetas()
+	{
+		return $this->belongsToMany('Etiqueta', 'etiquetas_lugares', 'id_lugar', 'id_etiqueta' );
+	}
+
 	public static function enCategorias($id)
 	{
 		$categorias = Lugar::find($id)->categorias()->lists('id');
 		return $categorias;
+	}
+
+	public static function enEtiquetas($id)
+	{
+		$etiquetas = Lugar::find($id)->etiquetas()->lists('id');
+		return $etiquetas;
 	}
 
 	public function fotos()
