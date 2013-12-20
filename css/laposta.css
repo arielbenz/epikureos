@@ -3,8 +3,8 @@
 .post-laposta
 {
 	display: inline-block;
-	margin-left: 22px;
-	margin-right: 22px;
+	margin-left: 8px;
+	margin-right: 8px;
 	margin-top: 22px;
 	vertical-align: top;
 }
@@ -15,7 +15,7 @@
 	height: 100%;
 	margin: 0;
 	position: relative;
-	width: 1280px;
+	width: 1200px;
 }
 
 .imagen-laposta .imagen-info

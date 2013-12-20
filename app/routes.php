@@ -21,7 +21,7 @@ Route::get('/promos', 'HomeController@get_promos');
 Route::get('/quees', 'HomeController@get_quees');
 Route::get('/contacto', 'HomeController@get_contacto');
 
-// Route::post('/busqueda', 'HomeController@post_busqueda');
+Route::post('/busqueda', 'HomeController@post_busqueda');
 Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
 
 //Rutas búsqueda

@@ -14,14 +14,13 @@
 	margin: 0 auto;
 	margin-bottom: 20px;
 	margin-top: 20px;
-	width: 1280px;
+	width: 1200px;
 }
 
 #content-contacto h2
 {
 	color: #807e7f;
 	font-size: 30px;
-	font-weight: bold;
 	margin: 0;
 	text-align: left;
 }
@@ -35,23 +34,20 @@
 #content-contacto #header-contacto
 {
 	color: #000;
-	margin-left: 65px;
 }
 
 #content-contacto #info-contacto
 {
-	/*background: #dcdcdc;*/
 	display: inline-block;
 	height: 260px;
 	margin-top: 50px;
 	vertical-align: top;
-	width: 400px;
+	width: 445px;
 }
 
 #content-contacto #info-contacto #info-data
 {
 	font-size: 18px;
-	margin-left: 15px;
 	margin-top: 8px;
 }
 
@@ -75,9 +71,8 @@
 	width: 750px;
 }
 
-#content-contacto #mensaje-contacto h2, #info-contacto h2
+#content-contacto #mensaje-contacto h2
 {
-	margin-left: 15px;
 	margin-top: 2px;
 }
 
@@ -136,7 +131,7 @@
 	border-top: 2px solid #DDD;
 	height: 130px;
 	margin: 0 auto;
-	width: 1280px;
+	width: 1200px;
 }
 
 #content-lugar h3
@@ -149,11 +144,10 @@
 #content-lugar #lugar-info
 {
 	background: #24a8aa;
-	/*background: #dcdcdc;*/
 	height: 220px;
 	margin: 0 auto;
 	margin-top: 10px;
-	width: 1155px;
+	width: 1200px;
 }
 
 #content-lugar #lugar-info #personal-data, #sitio-data

@@ -14,7 +14,7 @@
 		<section id="home-footer">
 
 			<nav id="footer-links" class="footer-info">
-				<h3>Alta Salida</h3>
+				<h3>ALTA SALIDA</h3>
 				<div id="about">
 					<ul>
 						<li><a href="<?php echo $url?>/quees">¿Qué es?</a></li>
