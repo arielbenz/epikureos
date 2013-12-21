@@ -70,7 +70,20 @@
 
 			<!--titulo laposta-->
 	 		<div class="title-laposta">
-				<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+	 			<div class="calendar">
+	 				<div class="icon-calendar">
+
+					</div>
+	 				<div class="post-fecha">
+						<?php the_time('j M') ?>
+					</div>
+	 			</div>
+	 			<div class="bottom-info">
+	 				<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+					<div class="extract">
+						<?php the_excerpt()?>
+					</div>
+	 			</div>
 	 		</div>
 
 		</section>

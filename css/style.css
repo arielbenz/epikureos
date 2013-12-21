@@ -94,14 +94,18 @@ header #ciudad select
 	color: #dfdfdf;
 	cursor: pointer;
 	display: inline-block;
-
 	font-size: 16px;
 	height: 29px;
 	line-height: 1;
 	margin-top: 23px;
+	text-indent: 0.01px;
+    text-overflow: '';
 	width: 120px;
 	-webkit-appearance: none;
+	-moz-appearance: none;
+    -ms-appearance: none;
 }
+
 
 
 header #ciudad label {position: relative}
@@ -131,7 +135,6 @@ header #ciudad #logo-dia
 header nav ul li a:hover
 {
 	background: #343031;
-	/*border-top: 5px solid #343031;*/
 }
 
 header nav #menu-laposta a
@@ -480,31 +483,66 @@ header #logo
 #home-info #laposta .title-laposta
 {
 	background: rgba(37, 37, 37, 0.7);
-	height: 150px;
+	color: #FFF;
+	height: 130px;
+	line-height: 200%;
 	margin-left: 10px;
 	position: absolute;
-	top: 325px;
+	top: 345px;
 	width: 730px;
 }
 
 /*NUEVO*/
 
-#home-info #laposta .title-laposta h2
+#home-info #laposta .title-laposta .bottom-info
+{
+	display: inline-block;
+	margin-top: 16px;
+	width: 650px;
+}
+
+#home-info #laposta .title-laposta .bottom-info h2
 {
 	color: #FFF;
 	font-family: "TitilliumWeb-SemiBold";
 	font-size: 30px;
-	margin: 0;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 20px;
 	text-align: left;
 	text-transform: uppercase;
 }
 
-#home-info #laposta .title-laposta a
+#home-info #laposta .title-laposta .bottom-info a
 {
 	color: #FFF;
-	text-decoration: none;
+}
+
+#home-info #laposta .title-laposta .bottom-info .extract
+{
+	font-family: "Open Sans Light";
+	font-size: 16px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+#home-info #laposta .title-laposta .calendar
+{	
+	display: inline-block;
+    margin-top: 20px;
+    vertical-align: top;
+    width: 50px;
+}
+
+#home-info #laposta .title-laposta .calendar .icon-calendar
+{
+	background: url("../img/calendar.png") no-repeat;
+	height:20px;
+	margin: 0 auto;
+    width:20px;
+}
+
+#home-info #laposta .title-laposta .calendar .post-fecha
+{
+	font-size: 10px;
 }
 
 /*NUEVO*/

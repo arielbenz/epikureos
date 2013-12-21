@@ -98,7 +98,7 @@
 
 										<!--fecha-->
 										<div class="post-fecha">
-											<?php the_time('j F Y') ?>
+											<?php the_time('j M Y') ?>
 										</div>
 
 										<figure>
@@ -114,7 +114,7 @@
 									</div>
 									
 									<!--titulo-->
-									<div class="imagen-info" href="<?php the_permalink(); ?>">
+									<div class="imagen-info">
 										<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
 									</div>
 					
