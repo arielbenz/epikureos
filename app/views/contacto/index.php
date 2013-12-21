@@ -45,19 +45,15 @@
 				<!-- <button id="form-enviar">ENVIAR</button> -->
 			</form>
 
-			<div id="exito" style="display:none">
-            	Sus datos han sido recibidos con éxito.
-        	</div>
+			<div id="respuesta">
 
-        	<div id="fracaso" style="display:none">
-	            Se ha producido un error durante el envío de datos.
-	        </div>
+        	</div>
 			
 		</article>
 
 	</section>
 
-	<section id="content-lugar">
+	<!-- <section id="content-lugar">
 		<h3>AGREGÁ TU LUGAR FAVORITO</h3>
 		<article id="lugar-info">
 
@@ -90,7 +86,7 @@
 			</form>	
 
 		</article>
-	</section>
+	</section> -->
 
 
 	<!-- JAVASCRIPT -->
@@ -98,30 +94,18 @@
 	<script src="<?php echo $url;?>/js/jquery.js"></script>
 
 	<script>
-		var $nombre = $('#form-nombre'),
-			$mail = $('#form-mail'),
-			$enviar = $('#form-enviar'),
-			$mensaje = $('#form-comentario');
 
-		$('#form-contacto').submit(function() {
-			$.ajax({
-				type:"POST",
-				url: "enviar.php",
-				data:{id:"fgfg"}
-				}).done(function(msg){
-					alert($nombre.val());
+		$(document).on("ready", function(){
+ 
+			$('#form-contacto').submit(function() {
+		 
+				$.post("enviar.php", $("#form-contacto").serialize(),  function(response) {			
+					$('#respuesta').css("display","block");
+					$('#respuesta').html(response);
 				});
+				return false;
+			});
 		});
-
-		// function enviar() {
-		// 	$.ajax({
-		// 		type:"POST",
-		// 		url: "enviar.php",
-		// 		data:{id:$nombre.val()}
-		// 		}).done(function(msg){
-		// 			alert($nombre.val());
-		// 		});
-		// }
 
 	</script>
 

@@ -44,35 +44,34 @@
 				<img src="<?php echo $url?>/img/laposta.png">
 			</div>
 
-			<div id="laposta-container">
+			<?php query_posts('category_name=laposta&showposts=1'); ?>
 
-				<?php query_posts('category_name=laposta&showposts=1'); ?>
+			<?php if (have_posts()) : ?>
 
-				<?php if (have_posts()) : ?>
+				<?php while (have_posts()) : the_post(); ?>
+					<div class="posta">
 
-					<?php while (have_posts()) : the_post(); ?>
-						<div class="posta">
-
-							<!--Imagen la posta-->
-							<div class="imagen-laposta">
-								<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
-									if ($postaimagen) { ?>
-									<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
-									<?php } else { ?> 
-									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-								<?php } ?>
-							</div>
-
+						<!--Imagen la posta-->
+						<div class="imagen-laposta">
+							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
+								if ($postaimagen) { ?>
+								<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
+								<?php } else { ?> 
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+							<?php } ?>
 						</div>
-					<?php endwhile; ?>
 
-				<?php else : ?>
-					<h1>Lo que buscas no se encuentra</h1>			
-				<?php endif; ?>
-				<!--fin loop-->
-			</div>
+					</div>
+				<?php endwhile; ?>
 
+			<?php else : ?>
+				<h1>Lo que buscas no se encuentra</h1>			
+			<?php endif; ?>
 
+			<!--titulo laposta-->
+	 		<div class="title-laposta">
+				<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+	 		</div>
 
 		</section>
 		

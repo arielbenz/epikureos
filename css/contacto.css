@@ -8,12 +8,12 @@
 
 #content-contacto
 {
-	border-bottom: 2px solid #DDD;
+	/*border-bottom: 2px solid #DDD;*/
 	border-top: 2px solid #DDD;
 	height: 480px;
 	margin: 0 auto;
 	margin-bottom: 20px;
-	margin-top: 20px;
+	margin-top: 40px;
 	width: 1200px;
 }
 
@@ -34,6 +34,7 @@
 #content-contacto #header-contacto
 {
 	color: #000;
+	margin-top: 10px;
 }
 
 #content-contacto #info-contacto
@@ -74,6 +75,7 @@
 #content-contacto #mensaje-contacto h2
 {
 	margin-top: 2px;
+	margin-left: 15px;
 }
 
 #content-contacto #mensaje-contacto form
@@ -115,6 +117,9 @@
 #content-contacto #mensaje-contacto #form-comentario
 {
 	border-radius: 3px;
+	font-family: "TitilliumWeb-Light";
+	font-style: oblique;
+	font-size: 16px;
 	height: 90px;
 	margin-top: 10px;
 	width: 720px;
@@ -169,7 +174,20 @@
 	text-align: left;
 }
 
-#content-lugar #lugar-info input, select
+#content-lugar #lugar-info input
+{
+	border-radius: 3px;
+	height: 40px;
+	font-family: "TitilliumWeb-Light";
+	font-style: oblique;
+	font-size: 16px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 230px;
+}
+
+#content-lugar #lugar-info select
 {
 	border-radius: 3px;
 	height: 40px;
@@ -192,4 +210,9 @@
 	font-size: 23px;
 	height: 40px;
 	width: 150px;
+}
+
+#respuesta
+{
+	display: none;
 }

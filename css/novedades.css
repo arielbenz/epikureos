@@ -52,3 +52,12 @@
 	margin-top: 15px;
 	text-align: justify;
 }
+
+.page-numbers.current {
+    background: #df3726;
+    color: #fff;
+}
+
+.page-numbers:hover {
+	background: #df3726;
+}

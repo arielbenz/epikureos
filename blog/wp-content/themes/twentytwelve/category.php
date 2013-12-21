@@ -36,13 +36,10 @@
 					</div>
 				</div>
 			</section>
-	<?php	
-		}
-	?>
-
 	
-	<div class="bar-blog"></div>
+	<?php } ?>
 
+	<div class="bar-blog"></div>
 
 	<div id="container-post">
 
@@ -96,39 +93,41 @@
 
 								<div class="post-laposta">
 
-								<!--imagen novedades-->
-								<div class="imagen-laposta">
+									<!--imagen novedades-->
+									<div class="imagen-laposta">
 
-									<!--fecha-->
-									<div class="post-fecha">
-										<?php the_time('j F Y') ?>
+										<!--fecha-->
+										<div class="post-fecha">
+											<?php the_time('j F Y') ?>
+										</div>
+
+										<figure>
+
+											<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+												if ($postimageurl) { ?>
+													<img src="<?php echo $postimageurl; ?>"/>
+												<?php } else { ?> 
+													<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg"/> 
+											<?php } ?>
+
+										</figure>	
 									</div>
-
-									<figure>
-
-										<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
-											if ($postimageurl) { ?>
-												<img src="<?php echo $postimageurl; ?>"/>
-											<?php } else { ?> 
-												<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg"/> 
-										<?php } ?>
-
-									</figure>
 									
-									<div class="imagen-info">
-										<!--titulo-->
+									<!--titulo-->
+									<div class="imagen-info" href="<?php the_permalink(); ?>">
 										<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
 									</div>
-								</div>
-								
+					
 						<?php }	?>
 
-					</div>
+						</div>
 
 				<?php endwhile; ?>
 
-				<div id="nav-pages">
-					<?php my_pagination(); ?>
+				<div id="pagination">
+					<div id="nav-pages">
+						<?php my_pagination(); ?>
+					</div>
 				</div>
 
 			<?php else : ?>
