@@ -1,7 +1,7 @@
 
 #barra-contacto
 {
-	background: #24a8aa;
+	background: #55c6f2;
 	height: 60px;
 	width: 100%;
 }
@@ -91,7 +91,7 @@
 
 #content-contacto #mensaje-contacto #form-enviar
 {
-	background: #097d7d;
+	background: #55c6f2;
 	border-radius: 3px;
 	color: #FFF;
 	float: right;

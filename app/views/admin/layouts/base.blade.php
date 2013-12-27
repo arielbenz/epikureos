@@ -5,7 +5,7 @@
 		@section('titulo')
 			Página principal
 		@show 
-		 | Epikureos
+		 | Alta Salida
 	</title>
 	<meta charset="utf-8" />
 
@@ -17,13 +17,13 @@
 	<div class="container-full">
 
 		<div class="row">
-			<div class="col-lg-7 col-lg-offset-3" style="margin-bottom:50px;">
+			<div class="col-lg-9 col-lg-offset-1" style="margin-bottom:50px;">
 				<h1>Panel de Administración</h1>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-lg-2 col-lg-offset-3">
+			<div class="col-lg-2 col-lg-offset-1">
 				<h3>Menú principal</h3>
 				<ul>
 					<li><a href="{{URL::to('/admin')}}">Inicio</a></li>
@@ -35,10 +35,11 @@
 					<li><a href="{{URL::to('/admin/lugares')}}">Lista de lugares</a></li>
 					<li><a href="{{URL::to('/admin/lugares/add')}}">Añadir Lugar</a></li>
 					<li><a href="{{URL::to('/admin/categorias')}}">Categorías</a></li>
+					<li><a href="{{URL::to('/admin/etiquetas')}}">Etiquetas</a></li>
 				</ul>
 			</div>
 
-			<div class="col-lg-5">
+			<div class="col-lg-8">
 				@yield('content')
 			</div>
 		</div>

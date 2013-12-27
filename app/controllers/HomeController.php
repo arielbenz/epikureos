@@ -8,12 +8,14 @@ class HomeController extends BaseController {
 
 	public function get_novedades() {
 		//return View::make('novedades.index');
-		return Redirect::to('blog/seccion/novedades');
+		// return Redirect::to('blog/seccion/novedades');
+		return Redirect::to('blog/novedades');
 	}
 
 	public function get_posta() {
 		//return View::make('laposta.index');
-		return Redirect::to('blog/seccion/laposta');
+		// return Redirect::to('blog/seccion/laposta');
+		return Redirect::to('blog/laposta');
 	}
 
 	public function get_promos() {
@@ -32,12 +34,12 @@ class HomeController extends BaseController {
 
 		$lugares = null;
 
-		$categoria = Etiqueta::where('descripcion', 'LIKE', '%'.$busqueda.'%')->first();
+		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
 
-		if ($categoria == null) {
-			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->get();
+		if ($etiqueta == null) {
+			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->where('estado', '=', 1)->get();
 		} else {
-			$lugares = $categoria->lugares;
+			$lugares = $etiqueta->lugares;
 		}
 
 		$thumbs = array();
@@ -50,7 +52,8 @@ class HomeController extends BaseController {
 		}
 
 		$lugaresJson = $lugares->toJson();
-
+	
+		//echo $lugaresJson;
 		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
 	}
 

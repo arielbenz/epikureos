@@ -54,5 +54,11 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('/categorias/edit/{id}', 'AdminController@categorias_get_edit');
 		Route::post('/categorias/edit/{id}', 'AdminController@categorias_post_edit');
 		Route::get('/categorias/delete/{id}', 'AdminController@categorias_delete');
+
+		Route::get('/etiquetas', 'AdminController@etiquetas');
+		Route::post('/etiquetas/add', 'AdminController@etiquetas_add');
+		Route::get('/etiquetas/edit/{id}', 'AdminController@etiquetas_get_edit');
+		Route::post('/etiquetas/edit/{id}', 'AdminController@etiquetas_post_edit');
+		Route::get('/etiquetas/delete/{id}', 'AdminController@etiquetas_delete');
 	});
 });

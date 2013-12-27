@@ -7,9 +7,16 @@ class AdminController extends BaseController {
 		return View::make('admin.index');
 	}
 
+
+	/**
+	*
+	* LUGARES
+	*
+	**/
+
 	public function lugares_all()
 	{
-		$lugares = Lugar::all();
+		$lugares = Lugar::orderBy('nombre', 'ASC')->get();
 		return View::make('admin.lugares.all')->with('lugares', $lugares);
 	}
 
@@ -19,19 +26,22 @@ class AdminController extends BaseController {
 		echo $foto[0];
 
 		$lugar = Lugar::find($id);
-		$categorias = Categoria::all()->lists('descripcion', 'id');
-		$etiquetas = Etiqueta::all()->lists('descripcion', 'id');
-		$ciudades = Ciudad::all()->lists('descripcion', 'id');
-		$zonas = Zona::all()->lists('descripcion', 'id');
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas);
+		$categorias = Categoria::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$thumb = Foto::where('id_lugar', '=', $id)->first();
+
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('thumb', $thumb);
 	}
 
 	public function get_add()
 	{
-		$categorias = Categoria::all()->lists('descripcion', 'id');
-		$etiquetas = Etiqueta::all()->lists('descripcion', 'id');
-		$ciudades = Ciudad::all()->lists('descripcion', 'id');
-		$zonas = Zona::all()->lists('descripcion', 'id');
+		$categorias = Categoria::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+
 		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas);
 	}
 
@@ -55,6 +65,7 @@ class AdminController extends BaseController {
 		{
 			$lugar = new Lugar;
 				$lugar->nombre = Input::get('nombre');
+				$lugar->slug = Input::get('slug');
 				$lugar->descripcion = Input::get('descripcion');
 				$lugar->longitud = Input::get('longitud');
 				$lugar->latitud = Input::get('latitud');
@@ -66,6 +77,15 @@ class AdminController extends BaseController {
 				$lugar->ciudad = Input::get('ciudad');
 				$lugar->zona = Input::get('zona');
 			$lugar->save();
+
+			$thumb = Input::get('thumb');
+
+			$foto = new Foto;
+			$foto->url = $thumb;
+			$foto->tipo = 1;
+			$foto->id_lugar = $lugar->id;
+			$foto->estado = 1;
+			$foto->save();
 
 			$categorias = Input::get('categorias');
 			foreach($categorias as $categoria)
@@ -108,6 +128,7 @@ class AdminController extends BaseController {
 		{
 			$lugar = Lugar::find($id);
 				$lugar->nombre = Input::get('nombre');
+				$lugar->slug = Input::get('slug');
 				$lugar->descripcion = Input::get('descripcion');
 				$lugar->longitud = Input::get('longitud');
 				$lugar->latitud = Input::get('latitud');
@@ -120,8 +141,13 @@ class AdminController extends BaseController {
 				$lugar->zona = Input::get('zona');
 			$lugar->save();
 
-			$categorias = Input::get('categorias');
+			$thumb = Input::get('thumb');
 
+			$foto = Foto::where('id_lugar', '=', $id)->first();
+			$foto->url = $thumb;
+			$foto->save();
+
+			$categorias = Input::get('categorias');
 			$etiquetas = Input::get('etiquetas');
 
 			$old_relations = CategoriaLugar::where('id_lugar', '=', $id)->delete();
@@ -146,6 +172,10 @@ class AdminController extends BaseController {
 			return Redirect::to('/admin/lugares');
 		}
 	}
+
+
+	/*==========  CATEGORIAS  ==========*/
+	
 
 	public function categorias()
 	{
@@ -219,5 +249,82 @@ class AdminController extends BaseController {
 		return Redirect::to('/admin/categorias');
 	}
 
+
+
+	/*==========  ETIQUETAS  ==========*/
+
+
+
+	public function etiquetas()
+	{
+		$etiquetas = Etiqueta::all();
+		return View::make('admin.etiquetas.etiquetas')->with('etiquetas', $etiquetas);
+	}
+
+	public function etiquetas_add()
+	{
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$etiqueta = new Etiqueta;
+				$etiqueta->slug = Input::get('slug');
+				$etiqueta->descripcion = Input::get('descripcion');
+			$etiqueta->save();
+
+			return Redirect::to('/admin/etiquetas');
+		}
+	}
+
+	public function etiquetas_get_edit($id)
+	{
+		$etiquetas = Etiqueta::all();
+		$etiqueta = Etiqueta::find($id);
+		return View::make('admin.etiquetas.etiquetas')->with('etiquetas', $etiquetas)->with('etiqueta', $etiqueta);
+	}
+
+	public function etiquetas_post_edit($id)
+	{
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$etiqueta = Etiqueta::find($id);
+				$etiqueta->slug = Input::get('slug');
+				$etiqueta->descripcion = Input::get('descripcion');
+			$etiqueta->save();
+
+			return Redirect::to('/admin/etiquetas');
+		}
+	}
+
+	public function etiquetas_delete($id)
+	{
+		$etiqueta = Etiqueta::find($id);
+		$etiqueta->delete();
+		return Redirect::to('/admin/etiquetas');
+	}
 
 }

@@ -5,7 +5,7 @@
 		@section('titulo')
 			Página principal
 		@show 
-		 | Epikureos
+		 | Alta Salida
 	</title>
 	<meta charset="utf-8" />
 
@@ -18,7 +18,7 @@
 
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-3" style="margin-bottom:50px;">
-				<h1>Epikureos</h1>
+				<h1>Alta Salida</h1>
 			</div>
 		</div>
 
@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-3">
 				<footer>
-					Epikureos
+					Alta Salida
 				</footer>
 			</div>
 		</div>

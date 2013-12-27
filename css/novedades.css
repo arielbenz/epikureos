@@ -33,8 +33,19 @@
 
 .info-novedades .post-title a
 {
-	color: #191919;
+	color: #252525;
 	text-decoration: none;
+
+	-webkit-transition: color .3s ease;
+	   -moz-transition: color .3s ease;
+	    -ms-transition: color .3s ease;
+	     -o-transition: color .3s ease;
+	        transition: color .3s ease;
+}
+
+.info-novedades .post-title a:hover
+{
+	color: #df3726;
 }
 
 .info-novedades .post-fecha

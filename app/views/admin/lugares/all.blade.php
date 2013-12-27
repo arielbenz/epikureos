@@ -5,7 +5,7 @@
 		<thead>
 			<tr>
 				<td>Nombre</td>
-				<td>Descripción</td>
+				<!-- <td>Descripción</td> -->
 				<td>Longitud</td>
 				<td>Latitud</td>
 				<td>Dirección</td>
@@ -19,7 +19,7 @@
 			@foreach($lugares as $lugar)
 			<tr>
 				<td><a href="/epikureos/admin/lugares/{{$lugar->id}}">{{$lugar->nombre}}</a></td>
-				<td>{{$lugar->descripcion}}</td>
+				<!-- <td>{{$lugar->descripcion}}</td> -->
 				<td>{{$lugar->longitud}}</td>
 				<td>{{$lugar->latitud}}</td>
 				<td>{{$lugar->direccion}}</td>

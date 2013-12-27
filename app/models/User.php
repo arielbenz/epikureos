@@ -3,6 +3,7 @@
 class User extends Eloquent {
 
 	protected $table = 'users';
+	public $timestamps = false;
 
 	public static function isLogged()
 	{

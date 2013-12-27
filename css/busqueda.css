@@ -21,6 +21,13 @@
 	width: 100%;
 }
 
+.info-window
+{
+	font-size: 20px;
+	height: 20px;
+	width: 120px;
+}
+
 #content-busqueda h3
 {
 	color: #474747;

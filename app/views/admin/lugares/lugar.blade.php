@@ -14,6 +14,12 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Slug')}}
+					{{Form::text('slug', $lugar->slug, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('slug') }}</span>
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Descripción')}}
 					{{Form::textarea('descripcion', $lugar->descripcion, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('descripcion') }}</span>
@@ -62,6 +68,12 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('thumb')}}
+					{{Form::text('thumb', $thumb->url, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('thumb') }}</span>
+				</div>
+
+				<div class="form-group">
 					{{Form::label('estado')}}
 					{{Form::text('estado', $lugar->estado, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('estado') }}</span>
@@ -99,6 +111,12 @@
 					{{Form::label('Nombre')}}
 					{{Form::text('nombre', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('nombre') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Slug')}}
+					{{Form::text('slug', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('slug') }}</span>
 				</div>
 
 				<div class="form-group">
@@ -147,6 +165,12 @@
 					{{Form::label('facebook')}}
 					{{Form::text('facebook', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('facebook') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('thumb')}}
+					{{Form::text('thumb', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('thumb') }}</span>
 				</div>
 
 				<div class="form-group">

@@ -20,7 +20,7 @@
 	</div>
 	<div class="form-group">
 		<p>{{Form::submit('Acceder', array('class' => 'btn btn-default'))}}</p>
-		<p><a href="/signup" class="btn btn-default">Registrarme</a></p>
+		<p><a href="/epikureos/signup" class="btn btn-default">Registrarme</a></p>
 	</div>
 
 	{{Form::close()}}

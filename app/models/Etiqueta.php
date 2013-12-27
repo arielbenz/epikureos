@@ -8,6 +8,6 @@ class Etiqueta extends Eloquent {
 
 	public function lugares()
 	{
-		return $this->belongsToMany('Lugar', 'etiquetas_lugares', 'id_etiqueta', 'id_lugar' );
+		return $this->belongsToMany('Lugar', 'etiquetas_lugares', 'id_etiqueta', 'id_lugar')->where('estado', '=', 1)->orderBy('nombre', 'ASC');
 	}
 }

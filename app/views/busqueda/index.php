@@ -52,12 +52,12 @@
 
 	</section>
 
-	<section id="home-publicidad">
+	<!-- <section id="home-publicidad">
 		<article id="publicidad1" class="class-publi"></article>
 		<article id="publicidad2" class="class-publi"></article>
 		<article id="publicidad3" class="class-publi"></article>
 		<article id="publicidad4" class="class-publi"></article>
-	</section>
+	</section> -->
 
 	<!-- JAVASCRIPT -->
 
@@ -73,24 +73,11 @@
 		$(document).on("ready", inicio);
 
 		var map;
+		var popup;
 		var busqueda = '<?php echo $busqueda?>';
 		var url = '<?php echo $url?>';
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 		var thumbs = $.parseJSON('<?php echo $thumbs?>');
-
-		var contentString = '<div id="content">'+
-		    '<div id="siteNotice">'+
-		    '</div>'+
-		    '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
-		    '<div id="bodyContent">'+
-		    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-		    'Aboriginal people of the area. It has many springs, waterholes, '+
-		    'rock caves and ancient paintings. Uluru is listed as a World '+
-		    'Heritage Site.</p>'+
-		    '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-		    'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
-		    '</div>'+
-		    '</div>';
 
 		function inicio ()
 		{
@@ -136,7 +123,6 @@
 
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
-            	
                	newcontent += '<div class="box-result">';
                 newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
@@ -170,6 +156,11 @@
         }
 
          function addMark(location, title, bounds) {
+
+         	var infowindow = new google.maps.InfoWindow({
+			    content: "<div class='info-window'>"+ title +"</div>"
+			});
+
             var marcador = new google.maps.Marker({
 	            position: location,
 	            map: map,
@@ -178,16 +169,27 @@
 
 	        bounds.extend(marcador.position);
 
-	        var infowindow = new google.maps.InfoWindow({
-			    content: contentString
+			// infowindow.open(map, marcador);
+
+			// google.maps.event.addListener(marcador, "click", function() {
+			// 	infowindow.open(map, marcador);
+			// });
+
+			google.maps.event.addListener(marcador, "mouseover", function() {
+				if(!popup){
+	                popup = new google.maps.InfoWindow();
+	            }
+	            var note = "<div class='info-window'>"+ title +"</div>";
+	            popup.setContent(note);
+	            popup.open(map, this);
 			});
 
-			
+
         }
 
 	</script>
 
-	<script src="<?php echo $url;?>/js/search.js"></script>
+	
 
 	<!-- FOOTER -->
 

@@ -5,6 +5,8 @@
 
 .post
 {
+	
+	margin-top: 20px;
 	text-align: justify;
 }
 
@@ -17,6 +19,7 @@
 {
 	font-family: "TitilliumWeb-Bold";
 	font-size: 35px;
+	line-height: 110%;
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
