@@ -74,9 +74,8 @@
 				</div>
 
 				<div class="form-group">
-					{{Form::label('estado')}}
-					{{Form::text('estado', $lugar->estado, array('class' => 'form-control'))}}
-					<span class="help-block">{{ $errors->first('estado') }}</span>
+					{{Form::label('Estado')}}
+					{{Form::select('estado', array(0 => 'No Publicado', 1 => 'Publicado'), array($lugar->estado), array('class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
@@ -171,6 +170,11 @@
 					{{Form::label('thumb')}}
 					{{Form::text('thumb', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('thumb') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Estado')}}
+					{{Form::select('estado', array(0 => 'No publicado', 1 => 'Publicado'), '', array('class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

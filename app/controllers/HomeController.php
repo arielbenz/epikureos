@@ -53,7 +53,6 @@ class HomeController extends BaseController {
 
 		$lugaresJson = $lugares->toJson();
 	
-		//echo $lugaresJson;
 		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
 	}
 

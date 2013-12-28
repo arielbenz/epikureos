@@ -61,7 +61,7 @@
 
 	<!-- JAVASCRIPT -->
 
-	<script src="<?php echo $url;?>/js/jquery.js"></script>
+	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="<?php echo $url;?>/js/jquery.pagination.js"></script>
 
@@ -183,13 +183,8 @@
 	            popup.setContent(note);
 	            popup.open(map, this);
 			});
-
-
         }
-
 	</script>
-
-	
 
 	<!-- FOOTER -->
 

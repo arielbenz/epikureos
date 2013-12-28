@@ -58,5 +58,12 @@
 			
 		</section>
 	</footer>
+
+	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
+	<script src="<?php echo $url?>/js/prefixfree.min.js"></script>
+
 </body>
 </html>

@@ -91,7 +91,7 @@
 
 	<!-- JAVASCRIPT -->
 
-	<script src="<?php echo $url;?>/js/jquery.js"></script>
+	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
 
 	<script>
 

@@ -53,6 +53,7 @@ class AdminController extends BaseController {
 			'nombre' => 'required',
 			'categorias' => 'required',
 			'etiquetas' => 'required',
+			'estado' => 'required',
 		);
 
 		$validator = Validator::make($input, $rules);
@@ -75,6 +76,7 @@ class AdminController extends BaseController {
 				$lugar->twitter = Input::get('twitter');
 				$lugar->facebook = Input::get('facebook');
 				$lugar->ciudad = Input::get('ciudad');
+				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
 			$lugar->save();
 
@@ -116,6 +118,8 @@ class AdminController extends BaseController {
 		$rules = array(
 			'nombre' => 'required',
 			'categorias' => 'required',
+			'etiquetas' => 'required',
+			'estado' => 'required',
 		);
 
 		$validator = Validator::make($input, $rules);
@@ -138,6 +142,7 @@ class AdminController extends BaseController {
 				$lugar->twitter = Input::get('twitter');
 				$lugar->facebook = Input::get('facebook');
 				$lugar->ciudad = Input::get('ciudad');
+				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
 			$lugar->save();
 

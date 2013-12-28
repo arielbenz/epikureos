@@ -27,10 +27,13 @@
 ?>
 
 <head>
-	<meta charset="utf-8" />
-	<title>Alta Salida - Un nuevo hábito gastronómico</title>
+	<title>Alta Salida - Tus salidas en un solo lugar</title>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
+	<meta charset="utf-8" />
+	<meta description = "Alta Salida - Tus salidas en un solo lugar"/>
+
+	<meta name="keywords" content="Salidas, Comidas, Bebidas, Santa Fe, Gastronomía" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
+
