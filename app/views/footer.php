@@ -1,5 +1,5 @@
 	
-	<section id="partner-footer">
+	<!-- <section id="partner-footer">
 		
 		<div id="partner-section">
 			<div class="partner-image"></div>
@@ -8,7 +8,7 @@
 			<div class="partner-image"></div>
 		</div>
 		
-	</section>
+	</section> -->
 
 	<footer>
 		<section id="home-footer">
@@ -25,7 +25,7 @@
 
 				<div id="contact">
 					<ul>
-						<li><a href="<?php echo $url?>/contacto">Agregá tu lugar favorito</a></li>
+						<!-- <li><a href="<?php echo $url?>/contacto">Agregá tu lugar favorito</a></li> -->
 						<li><a href="<?php echo $url?>/contacto">Contacto</a></li>
 					</ul>
 				</div>
@@ -43,9 +43,17 @@
 
 			<article id="footer-news" class="footer-info">
 				<h3>MANTENETE INFORMADO</h3>
-				<form id="form-footer">
-					<input type="email" placeholder="Ingresá tu mail..." required></input>
-				</form>
+
+				<div id="mc_embed_signup">
+					<form id="form-footer" action="http://altasalida.us3.list-manage1.com/subscribe/post?u=b8a63465d39195c8c5b2ccecc&amp;id=2b81f804fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						
+						<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder=" Ingresá tu mail..." required>
+					    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_b8a63465d39195c8c5b2ccecc_2b81f804fd" value=""></div>
+						<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+					</form>
+				</div>
+
 			</article>
 
 			<article id="footer-terminos">
@@ -58,12 +66,6 @@
 			
 		</section>
 	</footer>
-
-	<link rel="stylesheet" href="<?php echo $url;?>/css/normalize.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/open-sans.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
-	<script src="<?php echo $url?>/js/prefixfree.min.js"></script>
 
 </body>
 </html>

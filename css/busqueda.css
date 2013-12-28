@@ -21,6 +21,11 @@
 	width: 100%;
 }
 
+.form-search {
+    margin: 0 auto;
+    margin-top: 22px;
+}
+
 .info-window
 {
 	font-size: 20px;
@@ -41,7 +46,7 @@
 	display: inline-block;
 	height: 80px;
 	text-align: left;
-	width: 590px;
+	width: 49.8%;
 }
 
 #content-busqueda #search-header h3
@@ -66,18 +71,15 @@
 	text-align: right;
 	position: relative;
 	vertical-align: top;
-	width: 590px;
+	width: 49.8%;
 }
 
 #content-busqueda #search-combo input
 {
 	border: 1px solid #DDD;
-	border-radius: 5px;
-	font-size: 20px;
-	font-style: oblique;
+	font-size: 18px;
 	height: 40px;
 	position: relative;
-	top: 20px;
 	width: 280px;
 }
 
@@ -107,7 +109,9 @@
 
 #content-busqueda #results
 {
-	border-bottom: 1.5px solid #DDD;
+	background-color: #f9f9f9;
+	/*border-bottom: 1.5px solid #DDD;*/
+	padding-top: 20px;
 }
 
 #content-busqueda .box-result
@@ -116,7 +120,7 @@
 	border: 1.7px solid #cbc9ca;	
 	display: inline-block;
 	height: 150px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	margin-left: 10px;
 	margin-right: 10px;
 	width: 570px;

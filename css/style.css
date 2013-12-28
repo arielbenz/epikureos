@@ -851,13 +851,30 @@ footer
 
 #home-footer #footer-news input
 {
-	color: #000;
-	font-style: oblique;
+	background-color: #252525;
+	border: 1px solid #FFF;
+	color: #FFF;
 	float: right;
 	height: 30px;
 	margin-top: 5px;
 	width: 205px;
 }
+
+#home-footer #footer-news .button
+{
+	width: 207px;
+
+	-webkit-transition: background-color 0.3s ease-out;
+  	-moz-transition: background-color 0.3s ease-out;
+  	-o-transition: background-color 0.3s ease-out;
+  	transition: background-color 0.3s ease-out;
+}
+
+#home-footer #footer-news .button:hover
+{
+	background-color: #f08421;
+}
+
 
 #home-footer #footer-terminos
 {
@@ -921,7 +938,6 @@ footer
 	background-color: #252525;
 	height: 125px;
 	margin: 0 auto;
-	/*margin-top: 20px;*/
 	width: 275px;
 }
 

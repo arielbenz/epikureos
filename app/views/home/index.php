@@ -15,7 +15,7 @@
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input type="text" name="lugar" placeholder="Ingresá tu lugar o comida favorita..." required></input>
+				<input type="text" name="lugar" placeholder="Ingresá tu lugar favorito..." required></input>
 				<button type="submit">Buscar</button>
 			</form>	
 

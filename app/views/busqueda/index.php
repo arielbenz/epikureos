@@ -28,20 +28,19 @@
 		</div>
 
 		<div id="search-combo">
-			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input id="input-search" type="text" name="search" placeholder="Buscar..." required></input>
-				<button type="submit">Buscar</button>
-			</form>	
+			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
+				<input id="input-search" type="text" name="lugar" placeholder="Buscar..." required></input>
+			</form>
 		</div>
 
-		<div id="result-bar">
+		<!-- <div id="result-bar">
 			<div id="result-bar-etiquetas">
 				<p>Etiquetas</p>
 			</div>
 			<div id="result-bar-filter">
 				<p>Ordenar por</p>
 			</div>
-		</div>
+		</div> -->
 
 		<div id="results"></div>
 
