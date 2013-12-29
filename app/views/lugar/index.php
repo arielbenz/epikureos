@@ -75,7 +75,7 @@
 
 	</section>
 
-	<script src="<?php echo $url;?>/js/jquery.js"></script>
+	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script>
@@ -99,28 +99,8 @@
 	            position: latlon,
 	            map: map
 	        });
-
-	        var contentStringCal = '<div id="contentCal">contentStringCal</div>';
-
-       		var infowindow = new google.maps.InfoWindow({});
-
-       		google.maps.event.addListener(marcador, 'mouseover', function() {
-
-	            if(contentStringCal != infowindow.getContent())
-	            {
-	              infowindow.setContent(contentStringCal);
-	              infowindow.open(map,marcador);
-	            } else {
-	            	infowindow.setContent('');
-	            	infowindow.close(map,marcador);
-	            }
-	        });
-	        
 	        
 		}
-
-
-
 
 	</script>
 

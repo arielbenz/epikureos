@@ -64,9 +64,6 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="<?php echo $url;?>/js/jquery.pagination.js"></script>
 
-	<script src="<?php echo $url;?>/js/underscore.js"></script>
-	<script src="<?php echo $url;?>/js/backbone.js"></script>
-
 	<script>
 
 		$(document).on("ready", inicio);
@@ -131,8 +128,6 @@
                 newcontent += '</div>';
                 newcontent += '</div>';
 
-                console.log(lugares[i]);
-
                 var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
 
 	            addMark(marker, lugares[i].nombre, bounds);
@@ -146,8 +141,6 @@
 			}
             
             $('#results').html(newcontent);
-
-            console.log(busqueda);
 
             $('#search-header').html('<h3><b class="font-normal">' + lugares.length + ' RESULTADOS PARA </b><b class="font-bold">"' + busqueda.toUpperCase() + '"</b></h3>');
 
@@ -168,22 +161,17 @@
 
 	        bounds.extend(marcador.position);
 
-			// infowindow.open(map, marcador);
-
-			// google.maps.event.addListener(marcador, "click", function() {
-			// 	infowindow.open(map, marcador);
-			// });
-
 			google.maps.event.addListener(marcador, "mouseover", function() {
 				if(!popup){
 	                popup = new google.maps.InfoWindow();
 	            }
-	            var note = "<div class='info-window'>"+ title +"</div>";
+	            var note = "<div class='info-window'><p>"+ title +"</p></div>";
 	            popup.setContent(note);
 	            popup.open(map, this);
 			});
         }
 	</script>
+	
 
 	<!-- FOOTER -->
 
