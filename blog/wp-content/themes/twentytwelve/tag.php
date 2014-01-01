@@ -1,52 +1,77 @@
-<?php
-/**
- * The template for displaying Tag pages
- *
- * Used to display archive-type pages for posts in a tag.
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
 
-get_header(); ?>
+<?php include "../app/views/header.php";?>
 
-	<section id="primary" class="site-content">
-		<div id="content" role="main">
+<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
 
-		<?php if ( have_posts() ) : ?>
-			<header class="archive-header">
-				<h1 class="archive-title"><?php printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
+<?php include "../app/views/menu.php";?>
 
-			<?php if ( tag_description() ) : // Show an optional tag description ?>
-				<div class="archive-meta"><?php echo tag_description(); ?></div>
+	<section id="barra-novedades" class="barra-content">
+		<div id="barra">
+			<div id="barra-titulo">
+				<div class="font-bold">BÚSQUEDA</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="bar-blog"></div>
+
+	<div id="container-post">
+
+		<div id="content-post" >
+
+			<?php if (have_posts()) : ?>
+
+		 		<?php while (have_posts()) : the_post(); ?>
+
+					<div class="post-novedades">
+						
+						<!--imagen novedades-->
+						<div class="imagen-novedades">
+							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+								if ($postimageurl) { ?>
+									<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+								<?php } else { ?> 
+									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+							<?php } ?>
+						</div>
+
+						<div class="info-novedades">
+							<!--titulo-->
+							<div class="post-title">
+								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+							</div>
+							
+							<!--fecha-->
+							<div class="post-fecha">
+								<?php the_time('j F Y') ?>
+							</div>
+
+							<!--post-->
+							<div class="post-info">
+								<?php the_excerpt()?>
+							</div>
+
+						</div>
+					</div>
+
+				<?php endwhile; ?>
+
+				<div id="pagination">
+					<div id="nav-pages">
+						<?php my_pagination(); ?>
+					</div>
+				</div>
+
+			<?php else : ?>
+				<h1>Lo que buscas no se encuentra</h1>			
 			<?php endif; ?>
-			</header><!-- .archive-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+		</div>
 
-				/*
-				 * Include the post format-specific template for the content. If you want to
-				 * this in a child theme then include a file called called content-___.php
-				 * (where ___ is the post format) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
+		<?php
+			get_sidebar();
+		?>
 
-			endwhile;
+	</div>
 
-			twentytwelve_content_nav( 'nav-below' );
-			?>
-
-		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
-
-		</div><!-- #content -->
-	</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php include "../app/views/footer.php";?>

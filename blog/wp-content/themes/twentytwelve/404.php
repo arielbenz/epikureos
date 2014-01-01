@@ -1,29 +1,33 @@
-<?php
-/**
- * The template for displaying 404 pages (Not Found)
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
 
-get_header(); ?>
+<?php include "../app/views/header.php";?>
+
+<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
+<link rel="stylesheet" href="<?php echo $url;?>/css/404.css" />
+
+<?php include "../app/views/menu.php";?>
+
+	<section id="barra-novedades" class="barra-content">
+		<div id="barra">
+			<div id="barra-titulo">
+				<div class="font-bold">ERROR</div>
+			</div>
+		</div>
+	</section>
 
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
 			<article id="post-0" class="post error404 no-results not-found">
-				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'twentytwelve' ); ?></h1>
-				</header>
+				<div class="entry-header">
+					<h1 class="entry-title">Esto es algo embarazoso ¿no?</h1>
+				</div>
 
 				<div class="entry-content">
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwelve' ); ?></p>
-					<?php get_search_form(); ?>
-				</div><!-- .entry-content -->
-			</article><!-- #post-0 -->
+					<p>Parece que no encontramos lo que estás intentando localizar.</p>
+				</div>
+			</article>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		</div>
+	</div>
 
-<?php get_footer(); ?>
+<?php include "../app/views/footer.php";?>

@@ -21,7 +21,7 @@
 			?>
 
 			<div id="logo">
-				<a href="<?php echo $url?>/"><img alt="Epikureos" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/"><img alt="Alta Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
 			<nav id="menu">

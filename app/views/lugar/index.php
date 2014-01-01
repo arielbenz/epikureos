@@ -62,6 +62,22 @@
 			<div id="lugar-fotos">
 			</div>
 			<div id="lugar-links">
+				<ul>
+					<li><a href=<?php
+									if ($lugar->facebook == "")
+										echo "#";
+									else
+										echo $lugar->facebook;
+								?> 
+ 							 class="contacto-face"></a></li>
+
+      				<li><a href=<?php if ($lugar->twitter == "")
+										echo "#";
+									else
+										echo $lugar->twitter;
+								 ?> class="contacto-twitter"></a></li>
+       				<li><a href="#" class="contacto-plus"></a></li>
+				</ul>
 			</div>
 		</div>
 

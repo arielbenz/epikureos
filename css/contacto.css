@@ -8,7 +8,6 @@
 
 #content-contacto
 {
-	/*border-bottom: 2px solid #DDD;*/
 	border-top: 2px solid #DDD;
 	height: 480px;
 	margin: 0 auto;
@@ -45,6 +44,52 @@
 	vertical-align: top;
 	width: 445px;
 }
+
+#content-contacto #info-contacto #links-contacto
+{
+	margin-top: 95px;
+}
+
+#content-contacto #info-contacto #links-contacto ul
+{
+	list-style: none;
+	text-align: left;
+}
+
+#content-contacto #info-contacto #links-contacto ul li
+{
+	display: inline-block;
+	margin-right: 1px;
+}
+
+#content-contacto #info-contacto #links-contacto ul li a
+{
+	height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+}
+
+#content-contacto #info-contacto #links-contacto ul li a
+{
+    display: block;
+}
+
+.contacto-face
+{
+	background: url("../img/contacto-facebook.png") no-repeat;
+}
+
+.contacto-twitter
+{
+	background: url("../img/contacto-twitter.png") no-repeat;
+}
+
+.contacto-plus
+{
+	background: url("../img/contacto-plus.png") no-repeat;
+}
+
 
 #content-contacto #info-contacto #info-data
 {

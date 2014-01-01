@@ -123,7 +123,48 @@
 		height: 40px;
 		margin-top: 25px;
 		width: 430px;
-	}	
+	}
+
+	#lugar-links ul
+	{
+		list-style: none;
+		text-align: right;
+	}
+
+	#lugar-links ul li
+	{
+		display: inline-block;
+		margin: 0;
+    	padding: 0;
+	}
+
+	#lugar-links ul li a
+	{
+		height: 40px;
+	    margin: 0;
+	    padding: 0;
+	    width: 40px;
+	}
+
+	#lugar-links ul li a
+	{
+	    display: block;
+	}
+
+	.contacto-face
+	{
+		background: url("../img/contacto-facebook.png") no-repeat;
+	}
+
+	.contacto-twitter
+	{
+		background: url("../img/contacto-twitter.png") no-repeat;
+	}
+
+	.contacto-plus
+	{
+		background: url("../img/contacto-plus.png") no-repeat;
+	}
 
 #tags-barra
 {
