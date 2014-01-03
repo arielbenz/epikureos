@@ -22,7 +22,6 @@ body
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "TitilliumWeb-Regular";
-	-webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
 }
 
 header
@@ -301,7 +300,7 @@ header #logo
 
 #home-search
 {
-	background: url("../img/fondo6.jpg") repeat 100% center;
+	background: url("../img/header-search.jpg") repeat 100% center;
 	height: 400px;
 	width: 100%;
 }

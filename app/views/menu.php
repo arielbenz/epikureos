@@ -21,7 +21,7 @@
 			?>
 
 			<div id="logo">
-				<a href="<?php echo $url?>/"><img alt="Alta Salida" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/" title="Alta Salida - Tus salidas para comer y tomar en un solo lugar"><img alt="Alta Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
 			<nav id="menu">

@@ -22,11 +22,10 @@
 		</article>
 		<nav id="nav-search">
 			<ul>
-				<li><a href="<?php echo $url?>/busqueda/restobar">RESTOBAR</a></li>
-				<li><a href="<?php echo $url?>/busqueda/restaurant">RESTAURANT</a></li>
-				<li><a href="<?php echo $url?>/busqueda/cafe">CAFÉS</a></li>
-				<li><a href="<?php echo $url?>/busqueda/vinotecas">VINOTECAS</a></li>
-				<li><a href="<?php echo $url?>/busqueda/heladerias">HELADERÍAS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
+				<li><a href="<?php echo $url?>/busqueda/restaurant" title="Restaurantes">RESTAURANTES</a></li>
+				<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
+				<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
 			</ul>
 		</nav>
 	</section>

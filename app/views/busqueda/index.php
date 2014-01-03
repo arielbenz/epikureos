@@ -120,7 +120,7 @@
             for(var i = page_index * items_per_page; i < max_elem; i++)
             {
                	newcontent += '<div class="box-result">';
-                newcontent += '<div class="box-result-image"><a href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
+                newcontent += '<div class="box-result-image"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
                 newcontent += '<div class="box-result-title">' + lugares[i].direccion + '</div>';

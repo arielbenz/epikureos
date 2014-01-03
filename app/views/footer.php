@@ -42,15 +42,13 @@
 			</article>
 
 			<article id="footer-news" class="footer-info">
-				<h3>MANTENETE INFORMADO</h3>
+				<h3>MANTENTE INFORMADO</h3>
 
 				<div id="mc_embed_signup">
-					<form id="form-footer" action="http://altasalida.us3.list-manage1.com/subscribe/post?u=b8a63465d39195c8c5b2ccecc&amp;id=2b81f804fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-						
+					<form id="form-footer" action="http://altasalida.us3.list-manage1.com/subscribe/post?u=b8a63465d39195c8c5b2ccecc&amp;id=2b81f804fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 						<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder=" Ingresá tu mail..." required>
-					    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_b8a63465d39195c8c5b2ccecc_2b81f804fd" value=""></div>
-						<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						<div class="clear"><input type="submit" value="LISTO" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 					</form>
 				</div>
 
