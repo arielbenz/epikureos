@@ -39,43 +39,65 @@
 		height: 165px;
 	}
 
-		.lugar-title-comun
+		#lugar-title-left
 		{
-			font-size: 17px;
-			margin-left: 15px;
-			text-align: left;
+			display: inline-block;
+			float: left;
+			width: 380px;
 		}
 
-		#lugar-title #lugar-nombre h2
-		{
-			font-family: "Open Sans Bold";
-			font-size: 35px;
-			margin-left: 10px;
-			text-align: left;
-		}
+			.lugar-title-comun
+			{
+				font-size: 17px;
+				margin-left: 15px;
+				text-align: left;
+			}
 
-		#lugar-title #lugar-direccion
-		{
-			color: #807e7f;
-			font-family: "Open Sans Bold";
-			margin-top: 40px;
-		}
+			#lugar-nombre
+			{
+				height: 80px;
+			}
 
-		#lugar-title #lugar-tel
-		{
-			color: #807e7f;
-		}
+			#lugar-title-left #lugar-nombre h1
+			{
+				font-family: "Open Sans Bold";
+				font-size: 35px;
+				margin: 0;
+				margin-left: 10px;
+				margin-top: 5px;
+				text-align: left;
+				line-height: 40px;
+			}
 
-		#lugar-title #lugar-web
-		{
-			color: #f18932;
+			#lugar-title-left #lugar-direccion
+			{
+				color: #807e7f;
+				font-family: "Open Sans Bold";
+			}
+
+			#lugar-title-left #lugar-tel
+			{
+				color: #807e7f;
+			}
+
+			#lugar-title-left #lugar-web
+			{
+				color: #f18932;
+			}
+
+		#lugar-title-right {
+			display: inline-block;
+			float: right;
+			margin-top: 90px;
+			padding: 0 10px;
+			width: 30px;
 		}
 
 	#lugar-descripcion
 	{
 		font-size: 16px;
 		height: 165px;
-		margin-top: 40px;
+		margin-top: 30px;
 		text-align: justify;
 	}
 
@@ -83,7 +105,7 @@
 	{
 		background-color: #dcdcdc;
 		height: 100px;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 
 
@@ -119,16 +141,25 @@
 
 	#lugar-links
 	{
-		background-color: #a59f9f;
+		background-color: #BBB;
 		height: 40px;
 		margin-top: 25px;
 		width: 430px;
+	}
+
+	#lugar-links h4
+	{
+		color: white;
+		float: left;
+		font-size: 25px;
+		margin-left: 20px;
 	}
 
 	#lugar-links ul
 	{
 		list-style: none;
 		text-align: right;
+		width: 100%;
 	}
 
 	#lugar-links ul li
@@ -153,17 +184,17 @@
 
 	.contacto-face
 	{
-		background: url("../img/contacto-facebook.png") no-repeat;
+		background: url("../img/contacto-facebook.png") no-repeat !important;
 	}
 
 	.contacto-twitter
 	{
-		background: url("../img/contacto-twitter.png") no-repeat;
+		background: url("../img/contacto-twitter.png") no-repeat !important;
 	}
 
 	.contacto-plus
 	{
-		background: url("../img/contacto-plus.png") no-repeat;
+		background: url("../img/contacto-plus.png") no-repeat !important;
 	}
 
 #tags-barra

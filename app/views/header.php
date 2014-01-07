@@ -27,12 +27,12 @@
 ?>
 
 <head>
-	<title>Alta Salida - Tus salidas para comer y tomar en un solo lugar</title>
+	<title>Alta Salida - Tus salidas en un solo lugar</title>
 
 	<meta charset="utf-8" />
 	<meta description = "Alta Salida - Tus salidas en un solo lugar"/>
 
-	<meta name="keywords" content="Salidas, Comidas, Bebidas, Comer, Tomar,Cerveza, Santa Fe, Gastronomía, Bares, Resto, Restaurant, Café, Heladerías, Postres, Pizzas, Gourmet" />
+	<meta name="keywords" content="Salidas, Comidas, Bebidas, Comer, Tomar, Cerveza, Santa Fe, Gastronomía, Bares, Resto, Restaurant, Café, Heladerías, Postres, Pizzas, Gourmet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
