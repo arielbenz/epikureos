@@ -80,7 +80,7 @@
 			</div>
 
 			<div id="lugar-links">
-				<h4>COMPARTIR LUGAR</h4>
+				<h4>RECOMENDÁ TU LUGAR</h4>
 				<ul>
        				<!-- Facebook -->
 					<li><a href="http://www.facebook.com/sharer.php?u=<?php echo URL::current();?>" target="_blank" class="contacto-face"></a></li>

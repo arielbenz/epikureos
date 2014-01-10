@@ -8,14 +8,14 @@ class HomeController extends BaseController {
 
 	public function get_novedades() {
 		//return View::make('novedades.index');
-		// return Redirect::to('blog/seccion/novedades');
-		return Redirect::to('blog/novedades');
+		return Redirect::to('blog/seccion/novedades');
+		//return Redirect::to('blog/novedades');
 	}
 
 	public function get_posta() {
 		//return View::make('laposta.index');
-		// return Redirect::to('blog/seccion/laposta');
-		return Redirect::to('blog/laposta');
+		return Redirect::to('blog/seccion/laposta');
+		//return Redirect::to('blog/laposta');
 	}
 
 	public function get_promos() {

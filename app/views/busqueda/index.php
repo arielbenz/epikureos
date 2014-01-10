@@ -75,6 +75,9 @@
 		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
 		var thumbs = $.parseJSON('<?php echo $thumbs?>');
 
+		var faceimg =  url + '/img/face-lugar.png';
+		var twitterimg = url + '/img/twitter-lugar.png';
+
 		function inicio ()
 		{
             //Carga de lugares
@@ -122,9 +125,15 @@
                	newcontent += '<div class="box-result">';
                 newcontent += '<div class="box-result-image"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
                 newcontent += '<div class="box-result-data">';
+                newcontent += '<div class="data-left">';
                 newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
-                newcontent += '<div class="box-result-title">' + lugares[i].direccion + '</div>';
-                
+                newcontent += '<div class="box-result-address">' + lugares[i].direccion + '</div>';
+                newcontent += '</div>';
+                newcontent += '<div class="data-right"><ul>';
+               	newcontent += '<li><a href=' + lugares[i].facebook + '><img src="' + faceimg + '"></a></li>';
+               	if (lugares[i].twitter != '')
+               		newcontent += '<li><a href=' + lugares[i].twitter + '><img src="' + twitterimg + '"></a></li>';
+                newcontent += '</ul></div>';
                 newcontent += '</div>';
                 newcontent += '</div>';
 
