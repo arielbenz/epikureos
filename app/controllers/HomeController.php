@@ -30,6 +30,10 @@ class HomeController extends BaseController {
 		return View::make('contacto.index');
 	}
 
+	public function get_terminos() {
+		return View::make('terminos.index');
+	}
+
 	public function get_busqueda($busqueda) {
 
 		$lugares = null;

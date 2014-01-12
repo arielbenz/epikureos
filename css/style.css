@@ -655,7 +655,8 @@ header #logo
 #home-publicidad
 {
 	display: inline-block;
-	height: 290px;
+	/*height: 290px;*/
+	height: 50px;
 	margin: 0 auto;
 	width: 1200px;
 }
@@ -757,6 +758,10 @@ footer
 	color: white;
 }
 
+#home-footer #footer-links ul li a:hover {
+	color: #f08421;
+}
+
 #home-footer #footer-links #about
 {
 	display: inline-block;
@@ -849,6 +854,19 @@ footer
 }
 
 
+.form-icon {
+	position: absolute;
+	left: 0;
+}
+
+.icon.mail {
+	margin: 11px 5px;
+	height: 19px;
+	width: 26px;
+	float: left;
+	background: transparent url('../img/icon_mail.png') no-repeat left top;
+}
+
 #home-footer #footer-news h3
 {
 	font-size: 26px;
@@ -856,28 +874,38 @@ footer
 	text-align: right;
 }
 
-#home-footer #footer-news input
+.input
+{
+	position: relative;
+	float: right;
+}
+
+#home-footer #footer-news .input input
 {
 	background-color: #252525;
 	border: 1px solid #FFF;
 	color: #FFF;
-	float: right;
 	height: 30px;
 	margin-top: 5px;
+}
+
+.email
+{
+	float: right;
+	padding: 0 0 0 40px;
 	width: 205px;
 }
 
-#home-footer #footer-news .button
+#home-footer #footer-news .input .button
 {
-	width: 207px;
-
+	width: 247px;
 	-webkit-transition: background-color 0.3s ease-out;
   	-moz-transition: background-color 0.3s ease-out;
   	-o-transition: background-color 0.3s ease-out;
   	transition: background-color 0.3s ease-out;
 }
 
-#home-footer #footer-news .button:hover
+#home-footer #footer-news .input .button:hover
 {
 	background-color: #f08421;
 }
@@ -891,6 +919,10 @@ footer
 	height: 20px;
 	position: relative;
 	top: 40px;
+}
+
+#home-footer #footer-terminos a {
+	color: white;	
 }
 
 #home-footer #footer-design

@@ -1,12 +1,12 @@
 
-#barra-quees
+#barra-terminos
 {
 	background: #f28422;
 	height: 60px;
 	width: 100%;
 }
 
-#content-quees
+#content-terminos
 {
 	background: #FbFbFb;
 	font-family: "Open Sans Regular";
@@ -18,7 +18,12 @@
 	width: 1200px;
 }
 
-#content-quees p
+#content-terminos p
 {
 	margin: 20px 0;
+}
+
+#content-terminos h3
+{
+	margin-top: 20px;
 }

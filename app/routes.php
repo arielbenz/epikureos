@@ -20,6 +20,7 @@ Route::get('/laposta', 'HomeController@get_posta');
 Route::get('/promos', 'HomeController@get_promos');
 Route::get('/quees', 'HomeController@get_quees');
 Route::get('/contacto', 'HomeController@get_contacto');
+Route::get('/terminos', 'HomeController@get_terminos');
 
 Route::post('/busqueda', 'HomeController@post_busqueda');
 Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');

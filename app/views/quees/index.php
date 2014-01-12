@@ -21,13 +21,21 @@
 
 		<h1>Bienvenidos a Alta Salida</h1>
 
-		<h3>¿Cómo surgió?</h3>		
+		<p><b>Alta Salida</b> surge con un grupo de amigos con ganas de ofrecer algo diferente para <b>Santa Fe</b> y la región. Proponemos un concepto original en salidas con su propia impronta, tratando de fomentar y generar nuevos espacios para disfrutar del buen comer y beber.</p>
+ 
+		<p>Nuestra idea es brindarte una opción acorde a la salida que estas planeando, ya sea un desayuno, almuerzo, reunión de trabajo, after office, cenas románticas, salidas con amigos, eventos o cualquier propuesta de salida que estes dispuesto a disfrutar.</p>
 
-		<h3>Ofrecemos</h3>
-		<p>Sencillez y rapidez a la hora de elegir un lugar para salir en la ciudad, ya sea restaurant, bar, café, heladerías, etc.</p>
+		<p>Así mismo también queremos que siempre tengas disponible a mano las últimas novedades y la posta, ya que entendemos lo importante que es para vos pasar un buen momento en un buen lugar y del tiempo que podes ganar a través de nuestra iniciativa.</p>
+		 
+		<p>Otro de los objetivos, no menos importante es impulsar eventos y actividades afines al tema con el fin de posicionar a la ciudad y la región en el mundo gastronómico.</p>
 
-		<h3>Contacto</h3>
-		<p>Si tenes alguna duda, comentario o sugerencia, envíanos un mail a <b>info@altasalida.com</b></p>
+		<p>Para eso, cada rincón del sitio está pensado y diseñado para ofrecer sencillez y rapidez, buscando una interfaz elegante, versátil y rápida.</p>
+		 
+		<p>Sali de la rutina y seguinos en <b>Facebook</b> y <b>Twitter</b>.</p>
+
+		<p>Si tenes alguna duda, comentario o sugerencia, envíanos un mail a <b>info @ altasalida.com</b></p>
+
+		<h3>Equipo #AltaSalida</h3>
 
 	</section>
 

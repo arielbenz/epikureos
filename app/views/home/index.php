@@ -132,10 +132,10 @@
 	</section>
 
 	<section id="home-publicidad">
-		<article id="publicidad1" class="class-publi"></article>
+		<!-- <article id="publicidad1" class="class-publi"></article>
 		<article id="publicidad2" class="class-publi"></article>
 		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article>
+		<article id="publicidad4" class="class-publi"></article> -->
 	</section>
 
 
