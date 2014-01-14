@@ -66,9 +66,9 @@
 
 				</div>
 
-				<div class="meta">
+				<!-- <div class="meta">
 					<p><?php the_tags(); ?></p>
-				</div>
+				</div> -->
 
 			<?php endwhile; ?>
 

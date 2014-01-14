@@ -259,6 +259,7 @@ header #logo
 	margin: 0 auto;
 	margin-bottom: 40px;
 	padding: 0;
+	padding-bottom: 20px;
 	width: 1200px;
 }
 
@@ -307,36 +308,35 @@ header #logo
 
 #home-search
 {
-	background: url("../img/header-search.jpg") repeat 100% center;
-	height: 400px;
+	background: url("../img/header-tarde.jpg") repeat center;
+	height: 300px;
 	width: 100%;
 }
 
 #home-search #search
 {
-	height: 150px;
+	height: 80px;
 	margin: 0 auto;
 	position: relative;
-	top: 120px;
-	width: 990px;
+	top: 90px;
+	width: 600px;
 }
 
-#home-search #nav-search
+#home-search #search #nav-search
 {
 	font-family: "TitilliumWeb-Regular";
-	height: 40px;
 	margin: 0 auto;
-	position: relative;
-	top: 60px;
-	width: 1000px;
+	/*position: relative;
+	top: 60px;*/
+	padding-right: 10px;
 }
 
-#home-search #nav-search ul li
+#home-search #search #nav-search ul li
 {
 	display: inline-block;
 }
 
-#home-search #nav-search ul li a 
+#home-search #search #nav-search ul li a 
 {
 	background-color: #474747;
 	border-radius: 5px;
@@ -355,15 +355,16 @@ header #logo
   	transition: background-color 0.3s ease-out;
 }
 
-#home-search #nav-search ul li a:hover
+#home-search #search #nav-search ul li a:hover
 {
 	background-color: #f08421;
 }
 
 #form-search {
     margin: 0 auto;
-    padding: 15px;
+    /*padding: 15px;*/
     width: 490px;
+    height: 100%;
 }
 
 #home-search #search button
@@ -442,7 +443,7 @@ header #logo
 
 #home-promo #promo
 {
-	background: url("../img/fondo-promo.png") repeat 100% center;
+	background: url("../img/imagen-left.png") repeat 100% center;
 	border: 8px solid #EEE;
 	display: inline-block;
 	float: left;
@@ -452,7 +453,7 @@ header #logo
 
 #home-promo #lugar
 {
-	background: url("../img/fondo2.jpg") repeat 100% center;
+	background: url("../img/imagen-right.jpg") repeat 100% center;
 	border: 8px solid #EEE;
 	display: inline-block;
 	float: right;

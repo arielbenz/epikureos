@@ -6,6 +6,10 @@
 	width: 880px;
 }
 
+.post-novedades:hover {
+	background: #F6F6F6;
+}
+
 .imagen-novedades
 {
 	display: inline-block;

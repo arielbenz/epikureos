@@ -16,6 +16,7 @@
 	margin: 0;
 	position: relative;
 	width: 1200px;
+	background: #FbFbFb;
 }
 
 .imagen-info
@@ -24,7 +25,7 @@
 	color: #FFF;
 	height: 55px;
 	position: absolute;
-	top: 215px;
+	top: 211px;
 	width: 380px;
 }
 
@@ -47,8 +48,14 @@
 	background: rgba(37, 37, 37, 0.9);
 	color: #FFF;
 	font-family: "Open Sans Regular";
-	text-align: left;
 	width: 380px;
+}
+
+.post-fecha p {
+	text-align: right;
+	padding-right: 10px;
+	font-size: 14px;
+	font-family: "Open Sans Light";
 }
 
 .page-numbers.current {

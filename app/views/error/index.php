@@ -19,11 +19,11 @@
 
 			<article id="post-0" class="post error404 no-results not-found">
 				<div class="entry-header">
-					<h1 class="entry-title">Esto es algo embarazoso ¿no?</h1>
+					<h1 class="entry-title">Ups!</h1>
 				</div>
 
 				<div class="entry-content">
-					<p>Parece que no encontramos lo que estás intentando localizar.</p>
+					<p>Parece que no encontramos lo que estás intentando buscar.</p>
 				</div>
 			</article>
 

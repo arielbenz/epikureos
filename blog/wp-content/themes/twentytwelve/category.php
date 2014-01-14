@@ -98,26 +98,27 @@
 
 										<!--fecha-->
 										<div class="post-fecha">
-											<?php the_time('j M Y') ?>
+											<p><?php the_time('j M Y') ?><p>
 										</div>
 
 										<figure>
-
+											<a href="<?php the_permalink(); ?>">
 											<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
 												if ($postimageurl) { ?>
 													<img src="<?php echo $postimageurl; ?>"/>
 												<?php } else { ?> 
 													<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg"/> 
 											<?php } ?>
-
+											</a>
 										</figure>	
 									</div>
 									
 									<!--titulo-->
-									<div class="imagen-info">
-										<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
-									</div>
-					
+									<a href="<?php the_permalink(); ?>">
+										<div class="imagen-info">
+											<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
+										</div>
+									</a>
 						<?php }	?>
 
 						</div>

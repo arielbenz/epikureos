@@ -17,10 +17,9 @@
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
 				<input type="text" name="lugar" placeholder="Ingresá tu lugar favorito..." required></input>
 				<button type="submit">Buscar</button>
-			</form>	
+			</form>
 
-		</article>
-		<nav id="nav-search">
+			<nav id="nav-search">
 			<ul>
 				<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
 				<li><a href="<?php echo $url?>/busqueda/restaurant" title="Restaurantes">RESTAURANTES</a></li>
@@ -28,6 +27,9 @@
 				<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
 			</ul>
 		</nav>
+
+		</article>
+		
 	</section>
 
 	<section id="home-promo">
@@ -124,9 +126,11 @@
 			<?php endif; ?>
 			<!--fin loop-->
 
-			<article id="masnoticias">
-				<h4><a href="<?php echo $url?>/novedades">MÁS NOTICIAS</h4>
-			</article>
+			<a href="<?php echo $url?>/novedades">
+				<article id="masnoticias">
+					<h4>MÁS NOTICIAS</h4>
+				</article>
+			</a>
 		</section>
 		
 	</section>
