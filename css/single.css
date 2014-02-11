@@ -5,9 +5,12 @@
 
 .post
 {
-	
 	margin-top: 20px;
 	text-align: justify;
+}
+
+.post-info a {
+	color: #f08421;
 }
 
 .post h2

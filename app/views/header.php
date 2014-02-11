@@ -42,3 +42,40 @@
 	<link rel="stylesheet" href="<?php echo $url;?>/css/titillium-web.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 	<script src="<?php echo $url?>/js/prefixfree.min.js"></script>
+
+	<script src="<?php echo $url?>/js/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-47164304-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+		$(function() {
+		  $.ajax({
+		    url: '//connect.facebook.net/es_ES/all.js',
+		    dataType: 'script',
+		    cache: true,
+		    success: function() {
+		      FB.init({
+		        appId: '1416774568569452',
+		        xfbml: true
+		      });
+		      FB.Event.subscribe('auth.authResponseChange', function(response) {
+		        if (response && response.status == 'connected') {
+		          FB.api('/me', function(response) {
+		            alert('Nombre: ' + response.name);
+		          });
+		        }
+		      });
+		    }
+		  });
+		});
+
+	</script>

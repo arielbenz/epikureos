@@ -64,7 +64,7 @@
 			</article>
 
 			<article id="footer-design">
-				<p>Diseñado por R</p>
+				<p>Diseñado por Nicolás Rebaudino</p>
 			</article>
 			
 		</section>

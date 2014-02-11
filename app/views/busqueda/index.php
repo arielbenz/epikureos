@@ -81,9 +81,18 @@
 		function inicio ()
 		{
             //Carga de lugares
-            var optInit = getOptionsFromForm();
-            $("#Pagination").pagination(lugares.length, optInit);
-            $('#content-busqueda').slideDown();
+            
+            if (lugares.lenght > 0) {
+            	var optInit = getOptionsFromForm();
+            	console.log("Hay resultados");
+            } else {
+            	var optInit = getOptionsFromForm();
+            	initializeMap(14);
+		        console.log("No hay resultados");
+            }
+            	
+
+	        $("#Pagination").pagination(lugares.length, optInit);
 		}
 
 		function initializeMap(zoom) {
@@ -100,15 +109,11 @@
 
 		function getOptionsFromForm() {
             var opt = {callback: pageselectCallback};
-            $("input:text").each(function(){
-                opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
-            });
-            var htmlspecialchars ={ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"}
             return opt;
         }
 
         function pageselectCallback(page_index, jq) {
-            var items_per_page = '4';
+            var items_per_page = '6';
             var max_elem = Math.min((page_index + 1) * items_per_page, lugares.length);
             var newcontent = '';
 
@@ -117,41 +122,43 @@
             } else {
             	initializeMap(15);
             }
+
+            if (lugares.length > 0) {
             	
-        	var bounds = new google.maps.LatLngBounds();
+	        	var bounds = new google.maps.LatLngBounds();
 
-            for(var i = page_index * items_per_page; i < max_elem; i++)
-            {
-               	newcontent += '<div class="box-result">';
-                newcontent += '<div class="box-result-image"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
-                newcontent += '<div class="box-result-data">';
-                newcontent += '<div class="data-left">';
-                newcontent += '<div class="box-result-title">' + lugares[i].nombre + '</div>';
-                newcontent += '<div class="box-result-address">' + lugares[i].direccion + '</div>';
-                newcontent += '</div>';
-                newcontent += '<div class="data-right"><ul>';
-               	newcontent += '<li><a href=' + lugares[i].facebook + '><img src="' + faceimg + '"></a></li>';
-               	if (lugares[i].twitter != '')
-               		newcontent += '<li><a href=' + lugares[i].twitter + '><img src="' + twitterimg + '"></a></li>';
-                newcontent += '</ul></div>';
-                newcontent += '</div>';
-                newcontent += '</div>';
+	            for(var i = page_index * items_per_page; i < max_elem; i++)
+	            {
+	               	newcontent += '<div class="box-result">';
+	                newcontent += '<div class="box-result-image"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
+	                newcontent += '<div class="box-result-data">';
+	                newcontent += '<div class="data-left">';
+	                newcontent += '<div class="box-result-title"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '">' + lugares[i].nombre + '</a></div>';
+	                newcontent += '<div class="box-result-address">' + lugares[i].direccion + '</div>';
+	                newcontent += '</div>';
+	                // newcontent += '<div class="data-right"><ul>';
+	               	// newcontent += '<li><a href=' + lugares[i].facebook + '><img src="' + faceimg + '"></a></li>';
+	               	// if (lugares[i].twitter != '')
+	               	// 	newcontent += '<li><a href=' + lugares[i].twitter + '><img src="' + twitterimg + '"></a></li>';
+	                // newcontent += '</ul></div>';
+	                newcontent += '</div>';
+	                newcontent += '</div>';
 
-                var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
+	                var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
+		            addMark(marker, lugares[i].nombre, bounds);
+	            }
 
-	            addMark(marker, lugares[i].nombre, bounds);
-            }
+				if (lugares.length > 1) {
+					map.fitBounds(bounds);
+					map.setCenter(bounds.getCenter());
+				} else {
+					map.setCenter(bounds.getCenter());
+				}
 
-			if (lugares.length > 1) {
-				map.fitBounds(bounds);
-				map.setCenter(bounds.getCenter());
-			} else {
-				map.setCenter(bounds.getCenter());
-			}
-            
-            $('#results').html(newcontent);
+	            $('#results').html(newcontent);
+        	}
 
-            $('#search-header').html('<h3><b class="font-normal">' + lugares.length + ' RESULTADOS PARA </b><b class="font-bold">"' + busqueda.toUpperCase() + '"</b></h3>');
+        	$('#search-header').html('<h3><b class="font-normal">' + lugares.length + ' RESULTADOS PARA </b><b class="font-bold">"' + busqueda.toUpperCase() + '"</b></h3>');
 
 	        return false;
         }

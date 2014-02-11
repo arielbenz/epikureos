@@ -96,7 +96,7 @@
 		</div>
 
 		<div id="tags-barra">
-
+			<div class="fb-comments" data-href="http://altasalida.com" data-numposts="5" data-colorscheme="light"></div>
 		</div>
 
 		<div id="comentarios-lugar">

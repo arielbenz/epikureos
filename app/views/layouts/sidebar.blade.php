@@ -11,7 +11,7 @@
 	@if(!Session::has('user_id'))
 		<ul>
 			<li><a href="{{URL::to('/login')}}">Acceder</a></li>
-			<li><a href="{{URL::to('/signup')}}">Registrarse</a></li>
+			<!-- <li><a href="{{URL::to('/signup')}}">Registrarse</a></li> -->
 		</ul>
 	@else
 		<p>¡Hola {{Session::get('user_username')}}!</p>

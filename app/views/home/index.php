@@ -12,6 +12,8 @@
 	<!-- HOME -->	
 	
 	<section id="home-search">
+
+		<img class="home-search-background" src="<?php echo $url?>/img/<?php echo $fondo?>">
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
@@ -20,22 +22,22 @@
 			</form>
 
 			<nav id="nav-search">
-			<ul>
-				<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
-				<li><a href="<?php echo $url?>/busqueda/restaurant" title="Restaurantes">RESTAURANTES</a></li>
-				<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
-				<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
-			</ul>
-		</nav>
+				<ul>
+					<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
+					<li><a href="<?php echo $url?>/busqueda/restaurant" title="Restaurantes">RESTAURANTES</a></li>
+					<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
+					<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
+				</ul>
+			</nav>
 
 		</article>
 		
 	</section>
 
-	<section id="home-promo">
+	<!-- <section id="home-promo">
 		<article id="promo"></article>
 		<article id="lugar"></article>
-	</section>
+	</section> -->
 
 	<section id="home-info">
 
@@ -92,7 +94,7 @@
 		<section id="noticias">
 			
 			<article id="ultimasnoticias">
-				<h3>ÚLTIMAS NOTICIAS</h3>
+				<h3>ÚLTIMAS NOVEDADES</h3>
 			</article>
 
 			<?php query_posts('category_name=novedades&showposts=2'); ?>
@@ -128,7 +130,7 @@
 
 			<a href="<?php echo $url?>/novedades">
 				<article id="masnoticias">
-					<h4>MÁS NOTICIAS</h4>
+					<h4>MÁS NOVEDADES</h4>
 				</article>
 			</a>
 		</section>

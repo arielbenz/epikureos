@@ -48,16 +48,22 @@
 					<!--fecha-->						
 					<h3><?php the_time('j F Y') ?></h3>
 
+					<?php
+						if ($actual == 'laposta') { ?>
 
-					<!--imagen novedades-->
-					<div class="imagen">
-						<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
-							if ($postimageurl) { ?>
-								<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
-							<?php } else { ?> 
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-						<?php } ?>
-					</div>
+							<!--imagen novedades-->
+							<div class="imagen">
+								<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
+									if ($postimageurl) { ?>
+										<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+									<?php } else { ?> 
+										<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+								<?php } ?>
+							</div>
+
+						<?php
+							}
+						?>	
 
 					<!--post-->
 					<div class="post-info">
