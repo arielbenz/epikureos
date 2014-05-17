@@ -1,6 +1,8 @@
 <?php
 
-class User extends Eloquent {
+use Illuminate\Auth\UserInterface;
+
+class User extends Eloquent implements UserInterface {
 
 	protected $table = 'users';
 	public $timestamps = false;
@@ -25,5 +27,18 @@ class User extends Eloquent {
 	{
 		return $this->hasMany('Lugar');
 	}
+
+	public function profiles()
+    {
+        return $this->hasMany('Profile');
+    }
+
+	public function getAuthIdentifier() {
+    	return $this->getKey();
+    }
+
+    public function getAuthPassword() {
+    	return $this->password;
+    }
 
 }

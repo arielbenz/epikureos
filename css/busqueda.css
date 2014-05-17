@@ -28,14 +28,15 @@
 
 .info-window
 {
-	font-size: 22px;
-	height: 20px;
+	font-size: 16px;
+	height: auto;
 	width: 100%;
 }
 
 .gm-style-iw
 {
-	width: 120%;	
+	width: 120%;
+	overflow: hidden !important;
 }
 
 #content-busqueda h3
@@ -193,16 +194,20 @@
 	height: 40px;
 	margin: 0 auto;
 	margin-bottom: 50px;
-	margin-top: 10px;
+	margin-top: 30px;
 	width: 1186px;
 }
 
-#content-busqueda #Pagination {
-	display: inline-block;
+.pagination {
+	clear: both;
 	margin: 0 auto;
 }
 
-#content-busqueda .pagination a {
+.pagination ul li {
+	display: inline-block;
+}
+
+.pagination a {
     text-decoration: none;
 	color: #000;
 	background: #d6d6d6;
@@ -214,26 +219,23 @@
 	        transition: background .3s ease;
 }
 
-#content-busqueda .pagination a, #content-busqueda .pagination span {
-    display: block;
-    float: left;
+.pagination a, .pagination span {
     padding: 0.3em 0.5em;
     margin-right: 5px;
-	margin-bottom: 5px;
 }
 
-#content-busqueda .pagination a:hover {
+.pagination a:hover {
 	background: #fbb714;
 }
 
 
-#content-busqueda .pagination .current {
-    background: #fbb714;
-    color: #fff;
-}
-
-#content-busqueda .pagination .current.prev, #content-busqueda .pagination .current.next{
+.pagination span {
 	color:#999;
 	border-color:#999;
 	background:#d6d6d6;
+}
+
+.pagination .active span {
+    background: #fbb714;
+    color: #fff;
 }

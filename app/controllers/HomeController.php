@@ -41,28 +41,21 @@ class HomeController extends BaseController {
 		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
 
 		if ($etiqueta == null) {
-			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->where('estado', '=', 1)->get();
+			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->where('estado', '=', 1)->paginate(8);
 		} else {
-			$lugares = $etiqueta->lugares;
+			$lugares = $etiqueta->lugares()->paginate(8);
 		}
 
-		$thumbs = array();
-		$i = 0;
-
-		foreach ($lugares as $lugar) {
-			$foto = Lugar::getThumb($lugar->id);
-			$thumbs[$i] = $foto->url;
-			$i = $i + 1;
-		}
-
-		$lugaresJson = $lugares->toJson();
-	
-		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugaresJson', $lugaresJson)->with('thumbs', json_encode($thumbs));
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares);
 	}
 
 	public function post_busqueda() {
 		$lugar = Input::get('lugar');
 		return Redirect::to('busqueda/'.$lugar);
+	}
+
+	public function vote($lugar) {
+		echo $lugar;
 	}
 
 }

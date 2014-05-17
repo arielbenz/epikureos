@@ -61,10 +61,10 @@
 						<td>{{$cat->slug}}</td>
 						<td>{{$cat->descripcion}}</td>
 						<td>
-							<a href="/epikureos/admin/etiquetas/edit/{{$cat->id}}" class="btn btn-default">
+							<a href="/admin/etiquetas/edit/{{$cat->id}}" class="btn btn-default">
 							<span class="glyphicon glyphicon-edit"></span> Editar
 							</a>
-							<a href="/epikureos/admin/etiquetas/delete/{{$cat->id}}" class="btn btn-default">
+							<a href="/admin/etiquetas/delete/{{$cat->id}}" class="btn btn-default">
 							<span class="glyphicon glyphicon-remove"></span> Eliminar
 							</a>
 						</td>

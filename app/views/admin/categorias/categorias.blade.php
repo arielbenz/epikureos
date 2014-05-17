@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-lg-3">
 			@if(!isset($categoria))
-				{{Form::open(array('method' => 'POST', 'url' => '/epikureos/admin/categorias/add', 'role' => 'form'))}}
+				{{Form::open(array('method' => 'POST', 'url' => '/admin/categorias/add', 'role' => 'form'))}}
 
 				<div class="form-group">
 					{{Form::label('Slug')}}
@@ -60,10 +60,10 @@
 						<td>{{$cat->slug}}</td>
 						<td>{{$cat->descripcion}}</td>
 						<td>
-							<a href="/epikureos/admin/categorias/edit/{{$cat->id}}" class="btn btn-default">
+							<a href="/admin/categorias/edit/{{$cat->id}}" class="btn btn-default">
 							<span class="glyphicon glyphicon-edit"></span> Editar
 							</a>
-							<a href="/epikureos/admin/categorias/delete/{{$cat->id}}" class="btn btn-default">
+							<a href="/admin/categorias/delete/{{$cat->id}}" class="btn btn-default">
 							<span class="glyphicon glyphicon-remove"></span> Eliminar
 							</a>
 						</td>

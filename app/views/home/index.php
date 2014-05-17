@@ -13,7 +13,7 @@
 	
 	<section id="home-search">
 
-		<img class="home-search-background" src="<?php echo $url?>/img/<?php echo $fondo?>">
+		<!-- <img class="home-search-background" src="<?php echo $url?>/img/<?php echo $fondo?>"> -->
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">

@@ -30,12 +30,12 @@
 			<div id="info-data">
 				<p><strong>t.</strong>  342-5055-444</p>
 				<p><strong>t.</strong>  11-364-265-64</p>
-				<p id="info-mail"><strong>@</strong> info@altasalida.com</p>
+				<p id="info-mail"><strong>@</strong> info@tusalida.net</p>
 			</div>
 			<div id="links-contacto">
 				<ul>
-					<li><a href="http://facebook.com/AltaSalida" class="contacto-face"></a></li>
-      				<li><a href="http://twitter.com/altasalida" class="contacto-twitter"></a></li>
+					<li><a href="http://facebook.com/TuSalidaBar" class="contacto-face"></a></li>
+      				<li><a href="http://twitter.com/tusalidaok" class="contacto-twitter"></a></li>
        				<li><a href="#" class="contacto-plus"></a></li>
 				</ul>
 			</div>
@@ -97,8 +97,6 @@
 
 
 	<!-- JAVASCRIPT -->
-
-	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
 
 	<script>
 

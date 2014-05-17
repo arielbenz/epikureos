@@ -4,8 +4,68 @@
 	<?php include "app/views/header.php";?>
 
 	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
+		
+	<?php include "app/views/menu.php";
+		$nombres = array();
+	 	$latitudes = array();
+	 	$longitudes = array();
+
+	 	$i = 0;
+	?>
+
+	<!-- JAVASCRIPT -->
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	
-	<?php include "app/views/menu.php";?>
+	<script>
+
+		var popup;
+
+		function setLugares(nombres, latitudes, longitudes) {
+
+			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
+	        var myOptions = {
+	            zoom: 14,
+	            center: latlon,
+	            scrollwheel: false,
+	            mapTypeId: google.maps.MapTypeId.ROADMAP
+	        };
+
+	        var map = new google.maps.Map($("#mapa").get(0), myOptions);
+	        var bounds = new google.maps.LatLngBounds();
+
+			for(i = 0; i < nombres.length; i++) {
+				var marker = new google.maps.LatLng(latitudes[i], longitudes[i]);
+				addMark(map, marker, nombres[i], bounds);
+			}
+
+			//centerMap
+			if(nombres.length > 1) {
+				map.fitBounds(bounds);
+				map.setCenter(bounds.getCenter());
+			}
+		}
+
+		function addMark(map, location, title, bounds) {
+            var marcador = new google.maps.Marker({
+	            position: location,
+	            map: map,
+	            title: title
+	        });
+
+	        bounds.extend(marcador.position);
+
+			google.maps.event.addListener(marcador, "mouseover", function() {
+				if(!popup){
+	                popup = new google.maps.InfoWindow();
+	            }
+	            var note = "<div class='info-window'><p>"+ title +"</p></div>";
+	            popup.setContent(note);
+	            popup.open(map, this);
+			});
+        }
+
+	</script>
 
 	<!-- CONTENT -->
 
@@ -24,7 +84,7 @@
 	<section id="content-busqueda">
 
 		<div id="search-header">
-			
+			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b></h3>	
 		</div>
 
 		<div id="search-combo">
@@ -42,13 +102,51 @@
 			</div>
 		</div> -->
 
-		<div id="results"></div>
+		<div id="results">
+		    
+		    <?php foreach ($lugares as $lugar): ?>
+		        
+		        <div class="box-result">
+	 				<div class="box-result-image">
+	 					<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>">
+	 						<img src="<?php $foto = Lugar::getThumb($lugar->id)->url; echo $foto;?>"/>
+	 					</a>
+	 				</div>
+	 				<div class="box-result-data">
+	 					<div class="data-left">
+	 						<div class="box-result-title">
+	 							<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>"> <?php echo $lugar->nombre; ?>  </a>
+	 						</div>
+	 						<div class="box-result-address">
+	 							<?php echo $lugar->direccion; ?>
+	 						</div>
+	 					</div>
+	 					<!-- <div class="data-right"><a href="<?php echo $url?>/lugares/<?php echo $lugar->slug; ?>/vote">Votar</a></div> -->
+	 				</div>
+	 			</div>
 
-		<div id="result-footer">
-			<div id="Pagination" class="pagination"></div>
+	 			<?php
+					$nombres[$i] = $lugar->nombre;
+					$latitudes[$i] = $lugar->latitud;
+					$longitudes[$i] = $lugar->longitud;
+					$i = $i + 1;
+				?>
+
+		    <?php endforeach; ?>
+
+		    <script>
+		    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
+		    	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
+		    	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
+		    	setLugares(nombres, latitudes, longitudes);
+	 		</script>
+
 		</div>
 
-
+		<div id="result-footer">
+			<?php echo $lugares->links(); ?>
+		</div>
+		
 	</section>
 
 	<!-- <section id="home-publicidad">
@@ -57,137 +155,6 @@
 		<article id="publicidad3" class="class-publi"></article>
 		<article id="publicidad4" class="class-publi"></article>
 	</section> -->
-
-	<!-- JAVASCRIPT -->
-
-	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	<script src="<?php echo $url;?>/js/jquery.pagination.js"></script>
-
-	<script>
-
-		$(document).on("ready", inicio);
-
-		var map;
-		var popup;
-		var busqueda = '<?php echo $busqueda?>';
-		var url = '<?php echo $url?>';
-		var lugares = $.parseJSON('<?php echo $lugaresJson?>');
-		var thumbs = $.parseJSON('<?php echo $thumbs?>');
-
-		var faceimg =  url + '/img/face-lugar.png';
-		var twitterimg = url + '/img/twitter-lugar.png';
-
-		function inicio ()
-		{
-            //Carga de lugares
-            
-            if (lugares.lenght > 0) {
-            	var optInit = getOptionsFromForm();
-            	console.log("Hay resultados");
-            } else {
-            	var optInit = getOptionsFromForm();
-            	initializeMap(14);
-		        console.log("No hay resultados");
-            }
-            	
-
-	        $("#Pagination").pagination(lugares.length, optInit);
-		}
-
-		function initializeMap(zoom) {
-			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
-	        var myOptions = {
-	            zoom: zoom,
-	            center: latlon,
-	            scrollwheel: false,
-	            mapTypeId: google.maps.MapTypeId.ROADMAP
-	        };
-        	map = new google.maps.Map($("#mapa").get(0), myOptions);
-		}
-
-
-		function getOptionsFromForm() {
-            var opt = {callback: pageselectCallback};
-            return opt;
-        }
-
-        function pageselectCallback(page_index, jq) {
-            var items_per_page = '6';
-            var max_elem = Math.min((page_index + 1) * items_per_page, lugares.length);
-            var newcontent = '';
-
-            if (lugares.length == 1) {
-            	initializeMap(16);
-            } else {
-            	initializeMap(15);
-            }
-
-            if (lugares.length > 0) {
-            	
-	        	var bounds = new google.maps.LatLngBounds();
-
-	            for(var i = page_index * items_per_page; i < max_elem; i++)
-	            {
-	               	newcontent += '<div class="box-result">';
-	                newcontent += '<div class="box-result-image"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '"><img src="' + thumbs[i] + '"/></a></div>';
-	                newcontent += '<div class="box-result-data">';
-	                newcontent += '<div class="data-left">';
-	                newcontent += '<div class="box-result-title"><a target="_blank" href="' + url + '/lugares/' + lugares[i].slug + '">' + lugares[i].nombre + '</a></div>';
-	                newcontent += '<div class="box-result-address">' + lugares[i].direccion + '</div>';
-	                newcontent += '</div>';
-	                // newcontent += '<div class="data-right"><ul>';
-	               	// newcontent += '<li><a href=' + lugares[i].facebook + '><img src="' + faceimg + '"></a></li>';
-	               	// if (lugares[i].twitter != '')
-	               	// 	newcontent += '<li><a href=' + lugares[i].twitter + '><img src="' + twitterimg + '"></a></li>';
-	                // newcontent += '</ul></div>';
-	                newcontent += '</div>';
-	                newcontent += '</div>';
-
-	                var marker = new google.maps.LatLng(lugares[i].latitud, lugares[i].longitud);
-		            addMark(marker, lugares[i].nombre, bounds);
-	            }
-
-				if (lugares.length > 1) {
-					map.fitBounds(bounds);
-					map.setCenter(bounds.getCenter());
-				} else {
-					map.setCenter(bounds.getCenter());
-				}
-
-	            $('#results').html(newcontent);
-        	}
-
-        	$('#search-header').html('<h3><b class="font-normal">' + lugares.length + ' RESULTADOS PARA </b><b class="font-bold">"' + busqueda.toUpperCase() + '"</b></h3>');
-
-	        return false;
-        }
-
-         function addMark(location, title, bounds) {
-
-         	var infowindow = new google.maps.InfoWindow({
-			    content: "<div class='info-window'>"+ title +"</div>"
-			});
-
-            var marcador = new google.maps.Marker({
-	            position: location,
-	            map: map,
-	            title: title
-	        });
-
-	        bounds.extend(marcador.position);
-
-			google.maps.event.addListener(marcador, "mouseover", function() {
-				if(!popup){
-	                popup = new google.maps.InfoWindow();
-	            }
-	            var note = "<div class='info-window'><p>"+ title +"</p></div>";
-	            popup.setContent(note);
-	            popup.open(map, this);
-			});
-        }
-	</script>
-	
 
 	<!-- FOOTER -->
 

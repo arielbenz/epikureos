@@ -16,7 +16,7 @@
 			
 			@foreach($lugares as $lugar)
 			<tr>
-				<td><a href="/epikureos/admin/lugares/{{$lugar->id}}">{{$lugar->nombre}}</a></td>
+				<td><a href="/admin/lugares/{{$lugar->id}}">{{$lugar->nombre}}</a></td>
 				@if($lugar->descripcion == null)
 					<td><span></span></td>
 				@else
@@ -37,4 +37,6 @@
 			@endforeach
 		</thead>
 	</table>
+
+	{{$lugares->links()}}
 @stop

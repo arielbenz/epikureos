@@ -1,8 +1,0 @@
-[2013-08-10 16:21:04] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Dev\workspace\epikureos\bootstrap\compiled.php:4945
-Stack trace:
-#0 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4790): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
-#1 D:\Dev\workspace\epikureos\bootstrap\compiled.php(4778): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
-#2 D:\Dev\workspace\epikureos\bootstrap\compiled.php(483): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
-#3 D:\Dev\workspace\epikureos\bootstrap\compiled.php(472): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
-#4 D:\Dev\workspace\epikureos\index.php(49): Illuminate\Foundation\Application->run()
-#5 {main} [] []

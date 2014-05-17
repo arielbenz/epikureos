@@ -5,7 +5,7 @@
 		@section('titulo')
 			Página principal
 		@show 
-		 | Alta Salida
+		 | Tu Salida
 	</title>
 	<meta charset="utf-8" />
 

@@ -19,9 +19,9 @@
 
 	<section id="content-quees">
 
-		<h1>Bienvenidos a Alta Salida</h1>
+		<h1>Bienvenidos a Tu Salida</h1>
 
-		<p><b>Alta Salida</b> surge de un grupo de amigos con ganas de ofrecer algo diferente en tu ciudad y la región. Proponemos un concepto original en salidas con su propia impronta. Tratando de fomentar y generar nuevos espacios para disfrutar del buen comer y beber.</p>
+		<p><b>Tu Salida</b> surge de un grupo de amigos con ganas de ofrecer algo diferente en tu ciudad y la región. Proponemos un concepto original en salidas con su propia impronta. Tratando de fomentar y generar nuevos espacios para disfrutar del buen comer y beber.</p>
  
 		<p>Nuestra idea es brindarte una opción acorde a la salida que estas planeando. Ya sea un desayuno, almuerzo, reunión de trabajo, after office, cenas románticas, salidas con amigos, eventos o cualquier propuesta gastronómica que estés dispuesto a disfrutar.</p>
 
@@ -31,11 +31,11 @@
 
 		<p>Por eso, cada rincón del sitio está pensado y diseñado para ofrecer sencillez y rapidez, buscando una interfaz elegante, versátil y rápida.</p>
 		 
-		<p>Salí de la rutina y seguinos en <b><a href="http://facebook.com/AltaSalida">Facebook</a></b> y <b><a href="http://twitter.com/altasalida">Twitter</a></b>.</p>
+		<p>Salí de la rutina y seguinos en <b><a href="http://facebook.com/TuSalidaBar">Facebook</a></b> y <b><a href="http://twitter.com/tu_salida">Twitter</a></b>.</p>
 
-		<p>Si tenes alguna duda, comentario o sugerencia, envíanos un mail a <b><a href="mailto:info@altasalida.com">info@altasalida.com</a></b></p>
+		<p>Si tenes alguna duda, comentario o sugerencia, envíanos un mail a <b><a href="mailto:info@tusalida.net">info@tusalida.net</a></b></p>
 
-		<h3>Equipo #AltaSalida</h3>
+		<h3>Equipo #TuSalida</h3>
 
 	</section>
 

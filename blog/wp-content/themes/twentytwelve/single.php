@@ -43,9 +43,10 @@
 				<div class="post">
 
 			 		<!--titulo-->
-					<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+					<h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-					<!--fecha-->						
+					<!--fecha-->
+										
 					<h3><?php the_time('j F Y') ?></h3>
 
 					<?php

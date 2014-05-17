@@ -315,15 +315,11 @@ header #logo
 
 #home-search
 {
-	/*background: url("../img/header-amanecer.jpg") no-repeat;*/
+	background: url("../img/header-noche.jpg") no-repeat;
 	height: 300px;
 	width: 100%;
 }
 
-/*.home-search-background {
-	width: 100%;
-}
-*/
 #home-search #search
 {
 	height: 80px;
@@ -352,7 +348,7 @@ header #logo
 {
 	background-color: #474747;
 	border-radius: 5px;
-	box-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+	box-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
 	color: #FFF;
 	display: inline-block;
 	font-size: 16px;
@@ -600,6 +596,7 @@ header #logo
 #home-info #noticias .imagen-noticia
 {
 	height: 125px;
+	overflow: hidden;
 }
 
 #home-info #noticias .imagen-noticia img

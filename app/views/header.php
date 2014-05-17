@@ -21,16 +21,20 @@
 	//$url = URL::to('/');
 	//require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
 
-	//localhost
-	$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
-	require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
+	//Con localhost
+	//$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
+	//require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
+
+	//Con virtual host epikureos.com
+	$url = "http://epikureos.com";
+	require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
 ?>
 
 <head>
-	<title>Alta Salida - Tus salidas en un solo lugar</title>
+	<title>Tu Salida - Tus salidas en un solo lugar</title>
 
 	<meta charset="utf-8" />
-	<meta description = "Alta Salida - Tus salidas en un solo lugar"/>
+	<meta description = "Tu Salida - Tus salidas en un solo lugar"/>
 
 	<meta name="keywords" content="Salidas, Comidas, Bebidas, Comer, Tomar, Cerveza, Santa Fe, Gastronomía, Bares, Resto, Restaurant, Café, Heladerías, Postres, Pizzas, Gourmet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -43,7 +47,9 @@
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 	<script src="<?php echo $url?>/js/prefixfree.min.js"></script>
 
-	<script src="<?php echo $url?>/js/jquery-1.10.2.min.js"></script>
+	<script src="<?php echo $url?>/js/jquery-1.11.0.min.js"></script>
+
+	<script src="//connect.facebook.net/es_ES/all.js"></script>
 
 	<script type="text/javascript">
 
@@ -57,25 +63,30 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
-		$(function() {
-		  $.ajax({
-		    url: '//connect.facebook.net/es_ES/all.js',
-		    dataType: 'script',
-		    cache: true,
-		    success: function() {
-		      FB.init({
-		        appId: '1416774568569452',
-		        xfbml: true
-		      });
-		      FB.Event.subscribe('auth.authResponseChange', function(response) {
-		        if (response && response.status == 'connected') {
-		          FB.api('/me', function(response) {
-		            alert('Nombre: ' + response.name);
-		          });
-		        }
-		      });
-		    }
-		  });
-		});
+		//Facebook login
 
+		// $(function() {
+		// 	$.ajax({
+		// 		url: '//connect.facebook.net/es_ES/all.js',
+		// 		dataType: 'script',
+		// 		cache: true,
+		// 		success: function() {
+		// 	  		FB.init({
+		// 	    		appId: '283139271849796',
+		// 	    		xfbml: true
+		// 	  		});
+			  	
+		// 	  		FB.Event.subscribe('auth.authResponseChange', function(response) {
+		// 	    		if (response && response.status == 'connected') {
+		// 	      			FB.api('/me', function(response) {
+		// 	        			alert('Nombre: ' + response.name);
+		// 	      			});
+		// 	    		}
+		// 	  		});
+		// 		}
+		// 	});
+		// });
+		
 	</script>
+
+	

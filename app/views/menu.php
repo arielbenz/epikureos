@@ -26,13 +26,13 @@
 				}	
 				else {
 					$dia = "noche.png";
-					$fondo = "header-noche.jpg";
+					$fondo = "home-patricio2.png";
 				}
 					
 			?>
 
 			<div id="logo">
-				<a href="<?php echo $url?>/" title="Alta Salida - Tus salidas en un solo lugar"><img alt="Alta Salida" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/" title="Tu Salida - Tus salidas en un solo lugar"><img alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
 			<nav id="menu">

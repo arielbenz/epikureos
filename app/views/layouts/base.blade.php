@@ -5,7 +5,7 @@
 		@section('titulo')
 			Página principal
 		@show 
-		 | Alta Salida
+		 | Tu Salida
 	</title>
 	<meta charset="utf-8" />
 
@@ -18,7 +18,7 @@
 
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-3" style="margin-bottom:50px;">
-				<h1>Alta Salida</h1>
+				<h1>Tu Salida</h1>
 			</div>
 		</div>
 
@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-3">
 				<footer>
-					Alta Salida
+					Tu Salida
 				</footer>
 			</div>
 		</div>

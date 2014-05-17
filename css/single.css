@@ -13,12 +13,12 @@
 	color: #f08421;
 }
 
-.post h2
+.post h1
 {
 	text-align: left;
 }
 
-.post h2 a
+.post h1 a
 {
 	font-family: "TitilliumWeb-Bold";
 	font-size: 35px;
@@ -32,6 +32,13 @@
 .post .post-info p
 {
 	margin-top: 20px;
+}
+
+.post .post-info h3
+{
+	font-size: 25px;
+	font-family: "TitilliumWeb-Bold";
+	margin-top: 15px;
 }
 
 .post .post-info p strong

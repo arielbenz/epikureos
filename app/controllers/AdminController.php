@@ -16,7 +16,7 @@ class AdminController extends BaseController {
 
 	public function lugares_all()
 	{
-		$lugares = Lugar::orderBy('nombre', 'ASC')->get();
+		$lugares = Lugar::orderBy('nombre', 'ASC')->paginate(20);
 		return View::make('admin.lugares.all')->with('lugares', $lugares);
 	}
 

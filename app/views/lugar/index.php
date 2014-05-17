@@ -86,7 +86,7 @@
 					<li><a href="http://www.facebook.com/sharer.php?u=<?php echo URL::current();?>" target="_blank" class="contacto-face"></a></li>
 					 
 					<!-- Twitter -->
-					<li><a href="https://twitter.com/intent/tweet?text=<?php echo $lugar->nombre; ?>&url=<?php echo URL::current();?>&via=altasalida" target="_blank" class="contacto-twitter"></a></li>
+					<li><a href="https://twitter.com/intent/tweet?text=<?php echo $lugar->nombre; ?>&url=<?php echo URL::current();?>&via=tusalidaok" target="_blank" class="contacto-twitter"></a></li>
 
 					<!-- Google+ -->
 					<li><a href="https://plus.google.com/share?url=<?php echo URL::current();?>" target="_blank" class="contacto-plus"></a></li> 
@@ -96,7 +96,7 @@
 		</div>
 
 		<div id="tags-barra">
-			<div class="fb-comments" data-href="http://altasalida.com" data-numposts="5" data-colorscheme="light"></div>
+			<div class="fb-comments" data-href="http://tusalida.net" data-numposts="5" data-colorscheme="light"></div>
 		</div>
 
 		<div id="comentarios-lugar">
@@ -105,7 +105,6 @@
 
 	</section>
 
-	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script>
