@@ -3,9 +3,7 @@
 
 	<?php include "app/views/header.php";?>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
-		
-	<?php include "app/views/menu.php";
+	<?php
 		$nombres = array();
 	 	$latitudes = array();
 	 	$longitudes = array();

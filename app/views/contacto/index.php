@@ -3,10 +3,6 @@
 	
 	<?php include "app/views/header.php";?>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/contacto.css" />
-
-	<?php include "app/views/menu.php";?>
-
 	<!-- CONTENT -->
 
 	<section id="barra-contacto" class="barra-content">

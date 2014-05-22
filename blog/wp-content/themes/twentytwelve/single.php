@@ -1,9 +1,5 @@
 <?php include "../app/views/header.php";?>
 
-<link rel="stylesheet" href="<?php echo $url;?>/css/single.css" />
-
-<?php include "../app/views/menu.php";?>
-
 	<?php
 
 		if ($actual == 'novedades') { ?>
@@ -34,7 +30,7 @@
 	<div class="bar-blog"></div>
 	
 
-	<div id="container-post">
+	<div id="container-post <?php echo $actual; ?>">
 
 		<div id="content-post" >
 

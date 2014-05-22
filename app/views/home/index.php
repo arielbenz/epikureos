@@ -7,8 +7,6 @@
 		$my_query_posta = new WP_Query('showposts=1');
 	?>
 
-	<?php include "app/views/menu.php";?>
-
 	<!-- HOME -->	
 	
 	<section id="home-search">
