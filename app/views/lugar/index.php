@@ -72,7 +72,7 @@
 
 		<div id="info-lugar-right">
 			<div id="lugar-fotos">
-				<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide1.png">
+				<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide1.jpg">
 			</div>
 
 			<div id="lugar-links">

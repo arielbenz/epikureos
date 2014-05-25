@@ -17,16 +17,7 @@
 		$actual = "contacto";
 	}
 
-	//Sitio online
-	//$url = URL::to('/');
-	//require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
-
-	//Con localhost
-	//$url = "http://".$_SERVER['HTTP_HOST'].'/epikureos';
-	//require_once($_SERVER ['DOCUMENT_ROOT'].'epikureos/blog/wp-config.php');
-
-	//Con virtual host epikureos.com
-	$url = "http://epikureos.com";
+	$url = "http://".$_SERVER['HTTP_HOST'];
 	require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
 ?>
 
@@ -58,7 +49,7 @@
 		
 	</script>
 
-	// <script>
+	<script>
 	// 	// This is called with the results from from FB.getLoginStatus().
 	//   	function statusChangeCallback(response) {
 	//     	console.log('statusChangeCallback');
@@ -175,7 +166,7 @@
 				}
 			?>
 			<div id="logo">
-				<a href="<?php echo $url?>/" title="Tu Salida - Tus salidas en un solo lugar"><img alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/"><img title="Tu Salida - Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
 			<nav id="menu">
