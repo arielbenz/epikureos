@@ -117,6 +117,7 @@
 	 						</div>
 	 						<div class="box-result-address">
 	 							<?php echo $lugar->direccion; ?>
+	 							<input class="votar" type="button" value="Votar"/>
 	 						</div>
 	 					</div>
 	 					<!-- <div class="data-right"><a href="<?php echo $url?>/lugares/<?php echo $lugar->slug; ?>/vote">Votar</a></div> -->
