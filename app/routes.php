@@ -29,6 +29,28 @@ Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
 
 Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
 
+// Route that handles submission of review - rating/comment
+Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
+    
+    $input = array(
+        'comment' => Input::get('comment'),
+        'rating'  => Input::get('rating')
+    );
+    // instantiate Rating model
+    $review = new Review;
+
+    // Validate that the user's input corresponds to the rules specified in the review model
+    $validator = Validator::make($input, $review->getCreateRules());
+
+    // If input passes validation - store the review in DB, otherwise return to product page with error message 
+    if ($validator->passes()) {
+        $review->storeReviewForLugar($slug, $input['comment'], $input['rating']);
+        return Redirect::to('lugares/'.$slug.'#reviews-anchor')->with('review_posted',true);
+    }
+
+    return Redirect::to('lugares/'.$slug.'#reviews-anchor')->withErrors($validator)->withInput();
+}));
+
 // Rutas Dashboard
 
 Route::get('/login', 'UserController@get_login');
@@ -108,7 +130,7 @@ Route::get('/loginfb/callback', function() {
  
     $profile->access_token = $facebook->getAccessToken();
     $profile->save();
-    
+
     $user = $profile->user;
     Auth::login($user);
     $data = array();

@@ -3,6 +3,9 @@
 
 	<?php include "app/views/header.php";?>
 
+	<script src="<?php echo $url?>/js/expanding.js"></script>
+	<script src="<?php echo $url?>/js/starrr.js"></script>
+
 	<!-- CONTENT -->
 
 	<section id="barra-lugar" class="barra-content">
@@ -21,6 +24,36 @@
 
 		<div id="info-lugar-left">
 			<div id="lugar-title">
+
+				<div class="lugar-ratings">
+					<span class="lugar-ratings-stars">
+	                	<?php	
+						for ($i = 1; $i <= 5; $i++) { ?>
+	    					<span class="glyphicon glyphicon-star<?php
+	    						if($i <= $lugar->rating_cache) {
+	    							echo "";
+			    				} else {
+			    					echo "-empty";
+			    				}
+							?>">
+							</span>
+	    				<?php
+	    				}
+	    				?>
+						
+						<?php
+	    					echo number_format($lugar->rating_cache, 1);
+	    					echo " estrellas";
+	    				?>
+    				</span>
+
+    				<span class="lugar-ratings-reviews">
+						<?php
+                			echo $lugar->rating_count;
+                			echo " reseñas";
+                		?>
+                	</span>	
+              	</div>
 
 				<div id="lugar-title-left">
 					<div id="lugar-nombre">
@@ -58,9 +91,9 @@
 				<?php echo $lugar->descripcion; ?>
 			</div>
 
-			<div id="lugar-utiles">
+			<!-- <div id="lugar-utiles">
 				
-			</div>
+			</div> -->
 
 		</div>
 
@@ -82,18 +115,127 @@
 
 		</div>
 
-		<div id="tags-barra">
-			<div class="fb-comments" data-href="http://tusalida.net" data-numposts="5" data-colorscheme="light"></div>
-		</div>
+		<div class="comentarios-lugar">
+			<div class="row" style="height: 33px;"></div>
 
-		<div id="comentarios-lugar">
+			<div class="review-new">
+				<?php
+					if (Auth::check()) {
+				?>
+						<a href="#reviews-anchor" id="open-review-box" class="btn-leave-comment">Dejar un comentario</a>
+    			<?php
+    				} else {
+    			?>
+    					<a href="/loginfb" class="btn-leave-comment">Iniciar Sesión</a>
+    			<?php
+    				}
+				?>
+				
+            </div>
+            
+            <div class="row" id="post-review-box" style="display:none;">
+				<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
+					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+					<input id="ratings-hidden" name="rating" type="hidden">                  
+					<textarea id="new-review" class="form-control animated" placeholder="Ingresá un comentario..." name="comment"></textarea>
 
+					<div class="text-right">
+                    	<div class="stars starrr" data-rating="0"></div>
+                    
+	                    <a href="#" id="close-review-box" class="btn btn-cancel">
+	                    	<span class="glyphicon glyphicon-remove"></span>Cancelar
+	                   	</a>
+	                    <button class="btn btn-success btn-lg" type="submit">Aceptar</button>
+                  	</div>
+                </form>
+            </div>
+
+				<?php
+
+				foreach($reviews as $review)
+				{ ?>
+					<div class="review">
+						<div class="review-comment-photo">
+	    					<img src="<?php echo $review->user->photo; ?>" alt="">
+	    				</div>
+						
+						<div class="review-data">
+							<div class="review-comment-rating">
+							<?php	
+							for ($i = 1; $i <= 5; $i++) { ?>
+		    					<span class="glyphicon glyphicon-star<?php
+		    						if($i <= $review->rating) {
+		    							echo "";
+				    				} else {
+				    					echo "-empty";
+				    				}
+								?>"></span>
+		    				<?php
+		    				} ?>
+		    				</div>
+		    				<span class="review-comment-username"><?php echo $review->user->name; ?></span>
+						</div>
+
+						<span class="review-comment-date"><?php echo $review->timeago ?></span>
+
+						<div class="review-comment">
+							<?php echo $review->comment; ?>
+						</div> 
+					</div>
+					<?php
+				}
+
+				$reviews->links();
+			?>
 		</div>
 
 	</section>
 
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script>
 
+		$(function(){
+
+			// initialize the autosize plugin on the review text area
+			$('#new-review').autosize({append: "\n"});
+
+			var reviewBox = $('#post-review-box');
+			var newReview = $('#new-review');
+			var openReviewBtn = $('#open-review-box');
+			var closeReviewBtn = $('#close-review-box');
+			var ratingsField = $('#ratings-hidden');
+
+			openReviewBtn.click(function(e) {
+				reviewBox.slideDown(400, function() {
+			    	$('#new-review').trigger('autosize.resize');
+			    	newReview.focus();
+			  	});
+			
+				openReviewBtn.fadeOut(100);
+				closeReviewBtn.show();
+				$('.review-new').css("margin-bottom", "0px");
+			});
+
+			closeReviewBtn.click(function(e) {
+				e.preventDefault();
+				reviewBox.slideUp(300, function() {
+			    	newReview.focus();
+			    	openReviewBtn.fadeIn(200);
+			  	});
+				closeReviewBtn.hide();
+				$('.review-new').css("margin-bottom", "33px");
+			});
+
+			$('.starrr').on('starrr:change', function(e, value){
+	        	ratingsField.val(value);
+	      	});
+
+      	});
+
+	</script>
+
+	<!-- Google Maps -->
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script>
 
 		$(document).on("ready", inicio);

@@ -38,4 +38,18 @@ class Lugar extends Eloquent {
 		$foto = Foto::where('id_lugar','=', $id)->where('estado','=',1)->first();
 		return $foto;
 	}
+
+	public function reviews()
+	{
+		return $this->hasMany('Review');
+	}
+
+	public function recalculateRating($rating)
+    {
+    	$reviews = $this->reviews()->notSpam()->approved();
+	    $avgRating = $reviews->avg('rating');
+		$this->rating_cache = round($avgRating,1);
+		$this->rating_count = $reviews->count();
+    	$this->save();
+    }
 }
