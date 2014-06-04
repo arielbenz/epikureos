@@ -112,12 +112,31 @@
 	 				</div>
 	 				<div class="box-result-data">
 	 					<div class="data-left">
+	 						<span class="lugar-ratings-stars">
+			                	<?php	
+								for ($i = 1; $i <= 5; $i++) { ?>
+			    					<span class="glyphicon glyphicon-star<?php
+			    						if($i <= $lugar->rating_cache) {
+			    							echo "";
+					    				} else {
+					    					echo "-empty";
+					    				}
+									?>">
+									</span>
+			    				<?php
+			    				}
+			    				?>
+								
+								<?php
+			    					echo number_format($lugar->rating_cache, 1);
+			    					echo " estrellas";
+			    				?>
+		    				</span>
 	 						<div class="box-result-title">
 	 							<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>"> <?php echo $lugar->nombre; ?>  </a>
 	 						</div>
 	 						<div class="box-result-address">
 	 							<?php echo $lugar->direccion; ?>
-	 							<input class="votar" type="button" value="Votar"/>
 	 						</div>
 	 					</div>
 	 					<!-- <div class="data-right"><a href="<?php echo $url?>/lugares/<?php echo $lugar->slug; ?>/vote">Votar</a></div> -->
