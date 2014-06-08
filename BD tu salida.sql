@@ -158,6 +158,33 @@ INSERT INTO `ciudades` (`id`, `descripcion`) VALUES
 /*!40000 ALTER TABLE `ciudades` ENABLE KEYS */;
 
 
+-- Volcando estructura para tabla altasalida_db.comentarios
+CREATE TABLE IF NOT EXISTS `comentarios` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `lugar_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `comment` varchar(50) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_fk` (`user_id`),
+  KEY `lugar_fk` (`lugar_id`),
+  CONSTRAINT `lugar_fk` FOREIGN KEY (`lugar_id`) REFERENCES `lugares` (`id`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla altasalida_db.comentarios: ~8 rows (aproximadamente)
+DELETE FROM `comentarios`;
+/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` (`id`, `user_id`, `lugar_id`, `comment`, `created_at`, `updated_at`) VALUES
+	(35, 10, 22, 'Primer comentario', '2014-06-08 00:52:06', '2014-06-08 00:52:06'),
+	(36, 10, 22, 'Nuevo comentario', '2014-06-08 02:19:04', '2014-06-08 02:19:04'),
+	(37, 10, 22, 'Tercer comentario', '2014-06-08 02:19:55', '2014-06-08 02:19:55'),
+	(38, 10, 22, 'CUarto comentario', '2014-06-08 02:53:29', '2014-06-08 02:53:29'),
+	(39, 10, 22, 'comenta ttatat', '2014-06-08 02:53:51', '2014-06-08 02:53:51');
+/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
+
+
 -- Volcando estructura para tabla altasalida_db.etiquetas
 CREATE TABLE IF NOT EXISTS `etiquetas` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -555,7 +582,7 @@ INSERT INTO `lugares` (`id`, `nombre`, `rating_count`, `rating_cache`, `slug`, `
 	(19, 'Oh! Restó', 0, 3.0, 'oh-resto', '', '-60.68793125000002', '-31.64091690978526', 'Lavalle 3200', '0342 - 155332233', '', '', 'https://www.facebook.com/oh.resto', 1, 3, 1),
 	(20, 'Castelar del puerto', 0, 3.0, 'castelar-del-puerto', '', '-60.701310072517344', '-31.64956798250401', 'Puerto de Santa Fe, Dique 1', '0342 4572110', '', '', '', 0, 3, 1),
 	(21, 'Cabañas Recreo', 0, 3.0, 'cabañas-recreo', '', '-60.71131030181765', '-31.63376670978254', 'Bv. Pellegrini 3200', '0342 - 4556556', 'http://cabanasrecreo.com', '', 'https://www.facebook.com/cabanasrecreo.sf', 0, 1, 1),
-	(22, '1980 Boulevard', 4, 3.5, '1980-boulevard', 'De lo clásico a lo sofisticado, 1980 Boulevard Resto, Café, Bar cuenta con distintos cocineros (Chef) especialistas en comidas gourmet…Un detalle que primero, deleita los paladares más exigentes, y segundo, ofrece una gran variedad de los mejores platos elaborados. 1980 BV cuenta con una capacidad para 600 comensales, además de un subsuelo donde se realizaran eventos y fiestas temáticas, conferencias de prensa, etc.', '-60.70127922711367', '-31.636138966965554', 'Bv. Gálvez 2300', '342-4520309', '', '', 'http://www.facebook.com/1980boulevard', 1, 2, 1),
+	(22, '1980 Boulevard', 1, 4.0, '1980-boulevard', 'De lo clásico a lo sofisticado, 1980 Boulevard Resto, Café, Bar cuenta con distintos cocineros (Chef) especialistas en comidas gourmet…Un detalle que primero, deleita los paladares más exigentes, y segundo, ofrece una gran variedad de los mejores platos elaborados. 1980 BV cuenta con una capacidad para 600 comensales, además de un subsuelo donde se realizaran eventos y fiestas temáticas, conferencias de prensa, etc.', '-60.70127922711367', '-31.636138966965554', 'Bv. Gálvez 2300', '342-4520309', '', '', 'http://www.facebook.com/1980boulevard', 1, 2, 1),
 	(23, 'Belgrano Bar', 0, 3.0, 'belgrano-bar', '', '-60.69842044999996', '-31.63498520978297', 'Belgrano 3660', '', '', '', 'https://www.facebook.com/belgrano.bar.5', 1, 1, 1),
 	(24, 'BrewPub Estación Saer', 0, 3.0, 'brewpub-estacion-saer', 'Cerveza Artesanal es innovación, independencia, curiosidad, colaboración, personalidad y familia.', '-60.68615739038387', '-31.63898608038253', 'Bv. Gálvez 1150', '', '', '', 'https://www.facebook.com/brewpub.saer', 1, 1, 1),
 	(25, 'Costa Litoral', 0, 3.0, 'costa-litoral', 'Costa Cafe restó bar, un lugar exclusivo para disfrutar un desayuno, un almuerzo o cena con la mejor vista del puerto. Las mejores picadas, platos elaborados, pescados y el mejor liso santafesino. Internet wifi y estacionamiento sin cargo. A solo dos cuadras del centro de la ciudad. SOMOS LA TERMINAL DE EMBARQUE DEL CATAMARÁN COSTA LITORAL', '-60.70193682601848', '-31.647873528595202', 'Cabecera del Dique 1, Puerto de Santa Fe', '0342-4564381', '', '', 'https://www.facebook.com/costa.litoral', 0, 1, 1),
@@ -584,7 +611,7 @@ INSERT INTO `lugares` (`id`, `nombre`, `rating_count`, `rating_cache`, `slug`, `
 	(48, 'Freddo', 0, 3.0, 'freddo-bv', '', '-60.69370034999997', '-31.637746209784016', 'Bv. Pellegrini 1711', '', '', '', 'https://www.facebook.com/freddosantafeoficial', 1, 5, 1),
 	(49, 'Freddo', 0, 3.0, 'freddo-la-ribera', '', '-60.700947678758205', '-31.648984756583726', 'Shopping La Ribera', '', '', '', 'https://www.facebook.com/freddosantafeoficial', 1, 1, 1),
 	(50, 'Triferto Peatonal', 0, 3.0, 'triferto-peatonal', 'En la esquina dónde se unen la peatonal San Martín y la Cortada Falucho se encuentra el lugar ideal para las reuniones y almuerzos de la semana, las rondas de café y las tardes de té. Las mesas sobre la peatonal , un amplio salón climatizado y la atención especial del personal hacen de Triferto Peatonal el punto de encuentro de los santafesinos y los turistas que nos visitan.', '-60.70736084051281', '-31.648570811038475', 'San Martín y Cortada Falucho', '0800-555-7070', '', '', 'https://www.facebook.com/triferto.bien.santafesino', 1, 2, 1),
-	(51, 'Ágora', 0, 3.0, 'agora', 'El lugar ofrece un ambiente cálido y una carta muy variada, que va desde las tablas tradicionales y otras de pescado o mexicana. Además se ofrece pizzas a platos gourmet, incluyendo también buena variedad de postres.', '-60.71074035000004', '-31.636410109783505', 'Santiago del Estero 3102', '342-4551295', '', '', 'https://www.facebook.com/agorarestobar', 1, 3, 1),
+	(51, 'Ágora', 1, 0.0, 'agora', 'El lugar ofrece un ambiente cálido y una carta muy variada, que va desde las tablas tradicionales y otras de pescado o mexicana. Además se ofrece pizzas a platos gourmet, incluyendo también buena variedad de postres.', '-60.71074035000004', '-31.636410109783505', 'Santiago del Estero 3102', '342-4551295', '', '', 'https://www.facebook.com/agorarestobar', 1, 3, 1),
 	(52, 'Falucho Bar', 0, 3.0, 'falucho-bar', '', '-60.70744391512072', '-31.648569348319455', 'San Martín 2365 Local 23', '342-4120032 | 342-155475920', '', '', 'https://www.facebook.com/FaluchoBar', 1, 2, 1),
 	(53, 'La Pastelería', 0, 3.0, 'la-pasteleria', 'Casa de tortas y té, pastelería 100% artesanal, de calidad y realizada con mucho amor y dedicación. Hacemos tortas por pedidos o para llevar en el momento, vendemos variedad de pastelería. Scons, cuadrados dulces, croissant, muffins, etc. y hacemos servicios de Mesas Dulces.', '-60.70389254999998', '-31.637050959783764', 'San Martín 3376', '342-4553591', '', '', 'https://www.facebook.com/lapasteleria.santafe', 1, 4, 1),
 	(54, 'Barrio Latino', 0, 3.0, 'barrio-latino', '', '-60.688038012512955', '-31.637765501903075', 'Castellanos y Avellaneda', '', '', '', 'https://www.facebook.com/barrio.latino.1', 1, 5, 1),
@@ -607,6 +634,28 @@ INSERT INTO `lugares` (`id`, `nombre`, `rating_count`, `rating_cache`, `slug`, `
 /*!40000 ALTER TABLE `lugares` ENABLE KEYS */;
 
 
+-- Volcando estructura para tabla altasalida_db.ocasion
+CREATE TABLE IF NOT EXISTS `ocasion` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla altasalida_db.ocasion: ~7 rows (aproximadamente)
+DELETE FROM `ocasion`;
+/*!40000 ALTER TABLE `ocasion` DISABLE KEYS */;
+INSERT INTO `ocasion` (`id`, `descripcion`) VALUES
+	(1, 'Ir con amigos'),
+	(2, 'Ir en pareja'),
+	(3, 'Ir en familia'),
+	(4, 'Reuniones de negocio'),
+	(5, 'Tomar buenos tragos'),
+	(6, 'After office'),
+	(7, 'Tomar el mejor café'),
+	(8, 'Noche romántica');
+/*!40000 ALTER TABLE `ocasion` ENABLE KEYS */;
+
+
 -- Volcando estructura para tabla altasalida_db.profiles
 CREATE TABLE IF NOT EXISTS `profiles` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -618,43 +667,61 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   PRIMARY KEY (`id`),
   KEY `profile_user` (`user_id`),
   CONSTRAINT `profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla altasalida_db.profiles: ~0 rows (aproximadamente)
 DELETE FROM `profiles`;
 /*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
 INSERT INTO `profiles` (`id`, `user_id`, `username`, `uid`, `access_token`, `access_token_secret`) VALUES
-	(13, 10, 'arielmbenz', 100001785373137, 'CAAEBg3ZB4d0QBALx64Bcd6oFZBg4b5MGJDXQ6ywIxs02FkQy5', '0');
+	(13, 10, 'arielmbenz', 100001785373137, 'CAAEBg3ZB4d0QBAGFHVffjcyjloXK3La7GgZBg5AmWRLOSrK06', '0'),
+	(14, 11, 'ariel.matias.3154', 100007766564249, 'CAAEBg3ZB4d0QBAP0JM9K4m6j3xYgf3WAZA7LGt28yxq3h4Qfw', '0');
 /*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla altasalida_db.reviews
 CREATE TABLE IF NOT EXISTS `reviews` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `lugar_id` int(11) unsigned NOT NULL,
   `rating` int(11) unsigned NOT NULL,
-  `comment` varchar(50) NOT NULL,
   `approved` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `spam` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `lugar_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `review_user` (`user_id`),
   KEY `review_lugar` (`lugar_id`),
   CONSTRAINT `review_lugar` FOREIGN KEY (`lugar_id`) REFERENCES `lugares` (`id`),
   CONSTRAINT `review_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla altasalida_db.reviews: ~4 rows (aproximadamente)
 DELETE FROM `reviews`;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
-INSERT INTO `reviews` (`id`, `rating`, `comment`, `approved`, `spam`, `created_at`, `updated_at`, `user_id`, `lugar_id`) VALUES
-	(1, 3, 'Comentario de la review', 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 10, 22),
-	(2, 4, 'ultimo comentario del lugar', 1, 0, '2014-06-01 15:15:58', '2014-06-01 15:15:58', 10, 22),
-	(3, 2, 'nuevo comentario', 1, 0, '2014-06-01 15:52:34', '2014-06-01 15:52:34', 10, 22),
-	(4, 5, 'Comentario con 5 estrellas', 1, 0, '2014-06-01 19:54:08', '2014-06-01 19:54:08', 10, 22);
+INSERT INTO `reviews` (`id`, `user_id`, `lugar_id`, `rating`, `approved`, `spam`, `created_at`, `updated_at`) VALUES
+	(10, 10, 22, 4, 1, 0, '2014-06-08 00:52:06', '2014-06-08 02:53:51');
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla altasalida_db.reviews_ocasion
+CREATE TABLE IF NOT EXISTS `reviews_ocasion` (
+  `review_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `ocasion_id` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`review_id`,`ocasion_id`),
+  KEY `id_ocasion` (`ocasion_id`),
+  CONSTRAINT `id_ocasion` FOREIGN KEY (`ocasion_id`) REFERENCES `ocasion` (`id`),
+  CONSTRAINT `id_review` FOREIGN KEY (`review_id`) REFERENCES `reviews` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla altasalida_db.reviews_ocasion: ~8 rows (aproximadamente)
+DELETE FROM `reviews_ocasion`;
+/*!40000 ALTER TABLE `reviews_ocasion` DISABLE KEYS */;
+INSERT INTO `reviews_ocasion` (`review_id`, `ocasion_id`) VALUES
+	(10, 1),
+	(10, 2),
+	(10, 5),
+	(10, 8);
+/*!40000 ALTER TABLE `reviews_ocasion` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla altasalida_db.tipos_fotos
@@ -677,21 +744,22 @@ INSERT INTO `tipos_fotos` (`id`, `descripcion`, `size`) VALUES
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL DEFAULT '0',
-  `photo` varchar(50) DEFAULT NULL,
+  `photo` varchar(100) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
   `type` tinyint(1) unsigned NOT NULL,
   `username` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla altasalida_db.users: ~2 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `photo`, `name`, `password`, `type`, `username`) VALUES
 	(2, 'altasalida@gmail.com', NULL, NULL, '$2y$08$0bhU3iUblV6xmrQsPDooxOC6FhiyL1F.7COc1OcL6yNn4Jt98vKGm', 2, 'altodash'),
-	(10, 'arielmbenz@gmail.com', 'https://graph.facebook.com/arielmbenz/picture?type', 'Ariel Benz', '', 0, '');
+	(10, 'arielmbenz@gmail.com', 'https://graph.facebook.com/arielmbenz/picture?type', 'Ariel Benz', '', 0, ''),
+	(11, 'arielbenz@outlook.com', 'https://graph.facebook.com/ariel.matias.3154/picture?type', 'Ariel Matias', '', 0, '');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
