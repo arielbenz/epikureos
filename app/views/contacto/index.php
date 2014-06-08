@@ -56,42 +56,6 @@
 
 	</section>
 
-	<!-- <section id="content-lugar">
-		<h3>AGREGÁ TU LUGAR FAVORITO</h3>
-		<article id="lugar-info">
-
-			<form id="form-lugar" action="" method="POST">
-
-				<div id="personal-data">
-					<h2><b class="font-normal">TUS</b><b class="font-bold">DATOS</b></h2>
-					<input id="personal-nombre" type="text" name="nombre" placeholder="Nombre" required></input>
-					<input id="personal-apellido" type="text" name="apellido" placeholder="Apellido" required></input>
-					<input id="personal-telefono" type="text" name="telefono" placeholder="Teléfono" required></input>
-					<input id="personal-mail" type="email" name="mail" placeholder="Correo Electrónico" required></input>
-				</div>
-
-				<div id="sitio-data">
-					<h2><b class="font-normal">EL</b><b class="font-bold">SITIO</b></h2>
-					<input id="lugar-nombre" type="text" name="nombreLugar" placeholder="Nombre" required></input>
-					<select>
-						<option value="" disabled selected>Rubro</option>
-						<option value ="resto">RESTÓ</option>
-					</select>
-					<input id="lugar-direccion" type="text" name="direccionLugar" placeholder="Dirección" required></input>
-					<select>
-						<option value="" disabled selected>Ciudad</option>
-						<option value ="santafe">SANTA FE</option>
-					</select>
-				</div>
-
-				<input id="form-reportar" type="submit" value="REPORTAR"/>
-
-			</form>	
-
-		</article>
-	</section> -->
-
-
 	<!-- JAVASCRIPT -->
 
 	<script>

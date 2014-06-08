@@ -3,15 +3,12 @@
 	
 	<?php
 		include "app/views/header.php";
-		$my_query = new WP_Query('showposts=2');
-		$my_query_posta = new WP_Query('showposts=1');
 	?>
 
 	<!-- HOME -->	
 	
 	<section id="home-search">
 
-		<!-- <img class="home-search-background" src="<?php echo $url?>/img/<?php echo $fondo?>"> -->
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
@@ -31,11 +28,6 @@
 		</article>
 		
 	</section>
-
-	<!-- <section id="home-promo">
-		<article id="promo"></article>
-		<article id="lugar"></article>
-	</section> -->
 
 	<section id="home-info">
 

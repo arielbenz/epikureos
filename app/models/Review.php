@@ -5,15 +5,6 @@ class Review extends Eloquent
 
     protected $table = 'reviews';
 
-     // Validation rules for the ratings
-    public function getCreateRules()
-    {
-        return array(
-            'comment'=>'required|min:10',
-            'rating'=>'required|integer|between:1,5'
-        );
-    }
- 
     public function user()
     {
         return $this->belongsTo('User');
@@ -22,6 +13,12 @@ class Review extends Eloquent
     public function lugar()
     {
         return $this->belongsTo('Lugar');
+    }
+
+    public function getRatingByUserLugar($id_user, $id_lugar)
+    {
+        $rating = Review::where('user_id', $id_user)->where('lugar_id', $id_lugar);
+        return $rating;
     }
 
     public function scopeApproved($query)
@@ -39,6 +36,11 @@ class Review extends Eloquent
         return $query->where('spam', false);
     }
 
+    public function ocasiones()
+    {
+        return $this->belongsToMany('Ocasion', 'reviews_ocasion', 'review_id', 'ocasion_id' );
+    }
+
     // Attribute presenters
     public function getTimeagoAttribute()
     {
@@ -46,15 +48,44 @@ class Review extends Eloquent
         return $date;
     }
 
-    // this function takes in product ID, comment and the rating and attaches the review to the product by its ID, then the average rating for the product is recalculated
-    public function storeReviewForLugar($slugLugar, $comment, $rating)
+    // this function takes in lugar ID, comment and the rating and attaches the review to the lugar by its ID, then the average rating for the lugar is recalculated
+    public function storeReviewForLugar($lugar, $comment, $rating, $recomendaciones)
     {
-        $lugar = Lugar::where('slug', '=', $slugLugar)->first();
+        $user_id = Auth::user()->id;
 
-        $this->user_id = Auth::user()->id;
-        $this->comment = $comment;
+        $this->user_id = $user_id;
         $this->rating = $rating;
         $lugar->reviews()->save($this);
+
+        $comentario = new Comentario;
+        $comentario->storeCometarioForReview($lugar, $user_id, $comment);
+
+        foreach($recomendaciones as $recomendacion) {
+            $relation = new ReviewOcasion;
+            $relation->review_id = $this->id;
+            $relation->ocasion_id = $recomendacion;
+            $relation->save();
+        }
+
+        // recalculate ratings for the specified lugar
+        $lugar->recalculateRating($rating);
+    }
+
+    public function updateReviewForLugar($review, $lugar, $comment, $rating, $recomendaciones)
+    {
+        $user_id = Auth::user()->id;
+
+        $comentario = new Comentario;
+        $comentario->storeCometarioForReview($lugar, $user_id, $comment);
+
+        $old_relations = ReviewOcasion::where('review_id', '=', $review->id)->delete();
+
+        foreach($recomendaciones as $recomendacion) {
+            $relation = new ReviewOcasion;
+            $relation->review_id = $this->id;
+            $relation->ocasion_id = $recomendacion;
+            $relation->save();
+        }
 
         // recalculate ratings for the specified lugar
         $lugar->recalculateRating($rating);

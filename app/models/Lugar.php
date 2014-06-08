@@ -44,6 +44,11 @@ class Lugar extends Eloquent {
 		return $this->hasMany('Review');
 	}
 
+	public function comentarios()
+    {
+        return $this->hasMany('Comentario');
+    }
+
 	public function recalculateRating($rating)
     {
     	$reviews = $this->reviews()->notSpam()->approved();

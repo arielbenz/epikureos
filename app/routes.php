@@ -11,6 +11,8 @@
 |
 */
 
+require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
+
 //Rutas de home
 
 Route::get('/', 'HomeController@get_index');
@@ -33,22 +35,35 @@ Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
 Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
     
     $input = array(
-        'comment' => Input::get('comment'),
-        'rating'  => Input::get('rating')
+        'comment'       => Input::get('comment'),
+        'rating'        => Input::get('rating')
     );
-    // instantiate Rating model
-    $review = new Review;
 
-    // Validate that the user's input corresponds to the rules specified in the review model
-    $validator = Validator::make($input, $review->getCreateRules());
+    $recomendacion_checked = Input::get('recomendacion');
 
-    // If input passes validation - store the review in DB, otherwise return to product page with error message 
+    $lugar = Lugar::where('slug', '=', $slug)->first();
+    $review = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
+
+    $validacion = array(
+            'comment'=>'required|min:10',
+            'rating'=>'required|integer|between:1,5'
+        );
+
+    $validator = Validator::make($input, $validacion);
+
     if ($validator->passes()) {
-        $review->storeReviewForLugar($slug, $input['comment'], $input['rating']);
-        return Redirect::to('lugares/'.$slug.'#reviews-anchor')->with('review_posted',true);
+        if ($review == null) {
+            $review = new Review;
+            $review->storeReviewForLugar($lugar, $input['comment'], $input['rating'], $recomendacion_checked);
+        } else {
+            $review->rating = $input['rating'];
+            $review->save();
+            $review->updateReviewForLugar($review, $lugar, $input['comment'], $input['rating'], $recomendacion_checked);
+        }
+        return Redirect::to('lugares/'.$slug.'#review')->with('review_posted',true);
     }
-
-    return Redirect::to('lugares/'.$slug.'#reviews-anchor')->withErrors($validator)->withInput();
+    
+    return Redirect::to('lugares/'.$slug.'#review')->withErrors($validator)->withInput();
 }));
 
 // Rutas Dashboard
@@ -133,6 +148,9 @@ Route::get('/loginfb/callback', function() {
 
     $user = $profile->user;
     Auth::login($user);
+    $_SESSION["user_id"] = $user->id;
+    $_SESSION["user_photo"] = $user->photo;
+    simpleSessionStart();
     $data = array();
     if (Auth::check()) {
         $data = Auth::user();
@@ -142,5 +160,8 @@ Route::get('/loginfb/callback', function() {
 
 Route::get('/logout', function() {
     Auth::logout();
+    unset($_SESSION["user_id"]);
+    unset($_SESSION["user_photo"]);
+    simpleSessionDestroy();
     return Redirect::to('/');
 });

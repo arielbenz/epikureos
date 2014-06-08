@@ -39,7 +39,6 @@
 	<script src="<?php echo $url?>/js/modernizr.min.js"></script>
 
 	<script type="text/javascript">
-
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-47164304-1']);
 		_gaq.push(['_trackPageview']);
@@ -49,33 +48,25 @@
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
-
-		// Remove the ugly Facebook appended hash
-		// <https://github.com/jaredhanson/passport-facebook/issues/12>
 		if (window.location.hash && window.location.hash === "#_=_") {
-		  // If you are not using Modernizr, then the alternative is:
-		  //   `if (window.history && history.replaceState) {`
 		  if (Modernizr.history) {
 		    window.history.replaceState("", document.title, window.location.pathname);
 		  } else {
-		    // Prevent scrolling by storing the page's current scroll offset
 		    var scroll = {
 		      top: document.body.scrollTop,
 		      left: document.body.scrollLeft
 		    };
 		    window.location.hash = "";
-		    // Restore the scroll offset, should be flicker free
 		    document.body.scrollTop = scroll.top;
 		    document.body.scrollLeft = scroll.left;
 		  }
 		}
-		
 	</script>
 	
 </head>
 
 <body>
-	<header>
+	<header class="header">
 		<div id="header-nav">
 			<?php
 				$hora = date("H") - 3;
@@ -110,25 +101,23 @@
 					<li id="menu-inicio"><a href="<?php echo $url?>">INICIO</a></li>
 					<li <?php if ($actual == "novedades") echo 'class="menu-actual" id="menu-novedades">'; else echo '>'?> <a href="<?php echo $url?>/novedades">NOVEDADES</a></li>
 					<li <?php if ($actual == "laposta") echo 'class="menu-actual" id="menu-laposta">'; else echo '>'?> <a href="<?php echo $url?>/laposta">LA POSTA</a></li>
-					<!-- <li <?php if ($actual == "promos") echo 'class="menu-actual" id="menu-promos">'; else echo '>'?> <a href="<?php echo $url?>/promos">PROMOS</a></li> -->
 					<li <?php if ($actual == "quees") echo 'class="menu-actual" id="menu-quees">'; else echo '>'?> <a href="<?php echo $url?>/quees">¿QUÉ ES?</a></li>
 					<li <?php if ($actual == "contacto") echo 'class="menu-actual" id="menu-contacto">'; else echo '>'?> <a href="<?php echo $url?>/contacto">CONTACTO</a></li>
-					
-
-
 					<?php
-					if (Auth::check()) {
-					?>
-							<li>
-								<img src="<?php echo Auth::user()->photo; ?>" style="width: 30px; position: relative; top: 9px; left: 45px;" alt="">
-								<a class="menu-login" href="/logout">Cerrar Sesión</a>
-							</li>
-	    			<?php
-	    				} else {
-	    			?>
-	    					<li><a class="menu-login" href="/loginfb">Iniciar Sesión</a></li>
-	    			<?php
-	    				}
+					if($actual != "novedades" && $actual != "laposta") {
+						if (simpleSessionGet("user_id") != null) {
+						?>
+								<li>
+									<img src="<?php echo simpleSessionGet("user_photo"); ?>" style="width: 30px; position: relative; top: 9px; left: 45px;" alt="">
+									<a class="menu-login" href="/logout">Cerrar Sesión</a>
+								</li>
+		    			<?php
+		    				} else {
+		    			?>
+		    					<li><a class="menu-login" href="/loginfb">Iniciar Sesión</a></li>
+		    			<?php
+		    			}
+		    		}
 					?>
 				</ul>
 				
