@@ -105,10 +105,10 @@
 					<li <?php if ($actual == "contacto") echo 'class="menu-actual" id="menu-contacto">'; else echo '>'?> <a href="<?php echo $url?>/contacto">CONTACTO</a></li>
 					<?php
 					if($actual != "novedades" && $actual != "laposta") {
-						if (simpleSessionGet("user_id") != null) {
+						if (Auth::check()) {
 						?>
 								<li>
-									<img src="<?php echo simpleSessionGet("user_photo"); ?>" style="width: 30px; position: relative; top: 9px; left: 45px;" alt="">
+									<img src="<?php echo Auth::user()->photo; ?>" style="width: 30px; position: relative; top: 9px; left: 45px;" alt="">
 									<a class="menu-login" href="/logout">Cerrar Sesión</a>
 								</li>
 		    			<?php

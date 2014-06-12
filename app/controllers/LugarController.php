@@ -14,6 +14,8 @@ class LugarController extends BaseController {
 		$review_user = null;
 		$comments = null;
 		$votos_ocasiones = array();
+		$ocasiones = array();
+		$i = 0;
 
 		if(sizeof($reviews) > 0) {
 			$i = 0;
@@ -25,7 +27,9 @@ class LugarController extends BaseController {
 			foreach(Ocasion::all() as $ocasion) {
 				$ocasionCount = ReviewOcasion::where('ocasion_id', '=', $ocasion->id)->whereIn('review_id', $idreviews)->count();
 				$votos_ocasiones[$ocasion->descripcion] = $ocasionCount;
+				$ocasiones[$i] = $ocasion->id;
 				$total_votos = $total_votos + $ocasionCount;
+				$i = $i + 1;
 			}
 
 			$comments = $lugar->comentarios()->orderBy('created_at','desc')->paginate(4);
@@ -37,10 +41,12 @@ class LugarController extends BaseController {
 		} else {
 			foreach(Ocasion::all() as $ocasion) {
 				$votos_ocasiones[$ocasion->descripcion] = 0;
+				$ocasiones[$i] = $ocasion->id;
+				$i = $i + 1;
 			}
 		}
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('review_user', $review_user)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos);
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('review_user', $review_user)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones);
 	}
 
 }
