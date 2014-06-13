@@ -242,8 +242,6 @@
 					foreach($votosLugar as $ocasion => $voto) {
 				?>
 					<div class="lugar-votos-ocasion">
-						<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">Sumar</a>
-						<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">Restar</a>
 						<span class="lugar-votos-desc"><?php echo $ocasion ?></span><span class="lugar-votos-voto"><?php echo $voto ?> Votos</span>
 	    				<div class="meter orange nostripes">
 							<span style="width: <?php 
@@ -260,6 +258,21 @@
 					}
 				?>
 			</div>
+		</div>
+
+		<div class="lugar-votos-right" style="display:inline-block;width: 50px;vertical-align: top;margin-top: 93px;">
+			<?php
+				$indexOcasion = 1;
+				foreach($votosLugar as $ocasion => $voto) {
+			?>
+			<div class="lugar-votos-button" style="margin-bottom: 20px;">
+				<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">Sumar</a>
+				<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">Restar</a>
+			</div>
+			<?php
+				$indexOcasion = $indexOcasion + 1;
+				}
+			?>
 		</div>
 
 	</section>
@@ -370,69 +383,60 @@
 	            map: map
 	        });
 
-			$(".vote").click(function() {
+			$(".vote").click(function(event) {
+
 				var userid = <?php echo Auth::user()->id; ?>;
 				var lugarid = <?php echo $lugar->id; ?>;
 				var reviewid = <?php echo $review_user->id; ?>;
 				var ocasionid = $(this).attr("id");
 				var name = $(this).attr("name");
 
-				params = {  'userid' : userid,
+				var params = {  'userid' : userid,
 							'lugarid' : lugarid,
 							'reviewid' : reviewid,
 							'ocasionid' : ocasionid,
-							'name' : name
-						};
+							'name' : name						};
 
 			   	$.ajax({
 	                type: "POST",
 		            url: "<?php echo $lugar->slug; ?>/votelike",
 		            data: params,
+		            cache: false,
 		            success: function (data) {
 		            	console.log("Esta funcionando");
 
-		            	$.ajax({
-			                type: "POST",
-				            url: "<?php echo $lugar->slug; ?>/updatelikes",
-				            data: params,
-				            success: function (data) {
-				            	var votos = data.votosLugar;
-				            	var ocasiones = data.totalOcasiones;
-				            	console.log("Esta funcionando el update");
-				            								
-				            	var html = "";
-				            	var voto = 0;
+		            	var votos = data.votosLugar;
+		            	var ocasiones = data.totalOcasiones;
+		            	var html = "";
+		            	var voto = 0;
 
-								for(var i in votos) {
-									voto = 0;
-									if(votos[i] > 0) {
-										voto = (votos[i]*100)/(data.totalVotos);
-									}
-									
-									html = html.concat("<div class='lugar-votos-ocasion'><a href class='vote' id='" + ocasiones[i] + "' name='up'>Sumar</a><a href class='vote' id='" + ocasiones[i] + "' name='down'>Restar</a><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
-								}
+		            	var j = 1;
+						for(var i in votos) {
+							voto = 0;
+							if(votos[i] > 0) {
+								voto = (votos[i]*100)/(data.totalVotos);
+							}
+							html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
 
-								$(".lugar-ocasion-votos").html(html);
-								$(".meter > span").each(function() {
-									$(this)
-										.data("origWidth", $(this).width())
-										.width(0)
-										.animate({
-											width: $(this).data("origWidth")
-										}, 1200);
-								});
-				            },
-				            error: function(errors) {
-				                console.log("Error al votar");
-				            }  
-				        });
-						return false;
+							j = j + 1;
+						}
+
+						$(".lugar-ocasion-votos").html(html);
+
+						$(".meter > span").each(function() {
+							$(this)
+								.data("origWidth", $(this).width())
+								.width(0)
+								.animate({
+									width: $(this).data("origWidth")
+								}, 1200);
+						});
 		            },
 		            error: function(errors) {
 		                console.log("Error al votar");
 		            }  
 		        });
-				return false;
+				event.preventDefault();
 		 	});
 	        
 		}

@@ -83,61 +83,80 @@ Route::post('/lugares/{lugar}/votelike', function(){
             $ocasion->review_id = $reviewid;
             $ocasion->ocasion_id = $ocasionid;
             $ocasion->save();
+
+            $lugar = Lugar::where('id', '=', $lugarid)->first();
+            $reviews = $lugar->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->get();
+
+            $idreviews[] = array();
+            $total_votos = 0;
+            $votos_ocasiones = array();
+            $ocasiones = array();
+            $i = 0;
+
+            if(sizeof($reviews) > 0) {
+                $i = 0;
+                foreach($reviews as $review) {
+                    $idreviews[$i] = $review->id;
+                    $i = $i + 1;
+                }
+
+                foreach(Ocasion::all() as $oca) {
+                    $ocasionCount = ReviewOcasion::where('ocasion_id', '=', $oca->id)->whereIn('review_id', $idreviews)->count();
+                    $votos_ocasiones[$oca->descripcion] = $ocasionCount;
+                    $ocasiones[$i] = $oca->id;
+                    $total_votos = $total_votos + $ocasionCount;
+                    $i = $i + 1;
+                }
+            } else {
+                foreach(Ocasion::all() as $oca) {
+                    $votos_ocasiones[$oca->descripcion] = 0;
+                    $ocasiones[$i] = $oca->id;
+                    $i = $i + 1;
+                }
+            }
+
         } else if ($name == "down" && $ocasion != null) {
             $ocasion->delete();
+            $lugar = Lugar::where('id', '=', $lugarid)->first();
+            $reviews = $lugar->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->get();
+
+            $idreviews[] = array();
+            $total_votos = 0;
+            $votos_ocasiones = array();
+            $ocasiones = array();
+            $i = 0;
+
+            if(sizeof($reviews) > 0) {
+                $i = 0;
+                foreach($reviews as $review) {
+                    $idreviews[$i] = $review->id;
+                    $i = $i + 1;
+                }
+
+                foreach(Ocasion::all() as $oca) {
+                    $ocasionCount = ReviewOcasion::where('ocasion_id', '=', $oca->id)->whereIn('review_id', $idreviews)->count();
+                    $votos_ocasiones[$oca->descripcion] = $ocasionCount;
+                    $ocasiones[$i] = $oca->id;
+                    $total_votos = $total_votos + $ocasionCount;
+                    $i = $i + 1;
+                }
+            } else {
+                foreach(Ocasion::all() as $oca) {
+                    $votos_ocasiones[$oca->descripcion] = 0;
+                    $ocasiones[$i] = $oca->id;
+                    $i = $i + 1;
+                }
+            }
         } else if ($name == "up" && $ocasion != null) {
             $error = "Ya realizó su voto";
         } else if ($name == "down" && $ocasion == null) {
             $error = "Todavía no realizó su voto positivo";
         }
 
-        return Response::json(array('message' => $error, 'reviewid' => $reviewid));
-    }
-});
-
-Route::post('/lugares/{lugar}/updatelikes', function(){
-    if(Request::ajax()) {
-
-        $lugarid  = Input::get('lugarid');
-        $userid = Input::get('userid');
-        $ocasionid = Input::get('ocasionid');
-        $reviewid = Input::get('reviewid');
-        $error = "";
-
-        $lugar = Lugar::where('id', '=', $lugarid)->first();
-        $reviews = $lugar->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->get();
-
-        $idreviews[] = array();
-        $total_votos = 0;
-        $votos_ocasiones = array();
-        $ocasiones = array();
-        $i = 0;
-
-        if(sizeof($reviews) > 0) {
-            $i = 0;
-            foreach($reviews as $review) {
-                $idreviews[$i] = $review->id;
-                $i = $i + 1;
-            }
-
-            foreach(Ocasion::all() as $ocasion) {
-                $ocasionCount = ReviewOcasion::where('ocasion_id', '=', $ocasion->id)->whereIn('review_id', $idreviews)->count();
-                $votos_ocasiones[$ocasion->descripcion] = $ocasionCount;
-                $ocasiones[$i] = $ocasion->id;
-                $total_votos = $total_votos + $ocasionCount;
-                $i = $i + 1;
-            }
-        } else {
-            foreach(Ocasion::all() as $ocasion) {
-                $votos_ocasiones[$ocasion->descripcion] = 0;
-                $ocasiones[$i] = $ocasion->id;
-                $i = $i + 1;
-            }
-        }
-
         return Response::json(array('message' => $error, 'votosLugar' => $votos_ocasiones, 'totalVotos' => $total_votos, 'totalOcasiones' => $ocasiones));
     }
 });
+
 
 // Rutas Dashboard
 
@@ -223,7 +242,6 @@ Route::get('/loginfb/callback', function() {
     Auth::login($user);
     $_SESSION["user_id"] = $user->id;
     $_SESSION["user_photo"] = $user->photo;
-    simpleSessionStart();
     $data = array();
     if (Auth::check()) {
         $data = Auth::user();
@@ -235,6 +253,5 @@ Route::get('/logout', function() {
     Auth::logout();
     unset($_SESSION["user_id"]);
     unset($_SESSION["user_photo"]);
-    simpleSessionDestroy();
     return Redirect::to('/');
 });
