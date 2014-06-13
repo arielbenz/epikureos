@@ -1,0 +1,180 @@
+#barra-busqueda {
+    background: #fbb714;
+    height: 60px;
+    width: 100%;
+}
+
+#mapa {
+    height: 380px;
+    overflow: inherit !important;
+    top: 0;
+    width: 100%;
+    .info-window {
+        font-size: 16px;
+        height: auto;
+        width: 100%;
+    }
+    .gm-style-iw {
+        width: 120%;
+        overflow: hidden !important;
+    }
+}
+
+#content-busqueda {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 1200px;
+    h3 {
+        color: #474747;
+        margin: 0;
+        font-size: 28px;
+        font-weight: normal;
+    }
+    #search-header {
+        display: inline-block;
+        height: 90px;
+        text-align: left;
+        width: 49.8%;
+        h3 {
+            color: #807e7f;
+            font-family: "TitilliumWeb-Regular";
+            margin-top: 10px;
+        }
+        h4 {
+            color: #474747;
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+        }
+    }
+    #search-combo {
+        display: inline-block;
+        height: 90px;
+        text-align: right;
+        position: relative;
+        vertical-align: top;
+        width: 49.8%;
+        .form-search {
+            margin: 0 auto;
+            margin-top: 22px;
+            input {
+                border: 2px solid #DDD;
+                font-size: 18px;
+                height: 35px;
+                padding: 5px;
+                position: relative;
+                width: 280px;
+            }
+        }
+    }
+    #results {
+        background-color: #f9f9f9;
+        padding-top: 20px;
+        #result-bar {
+            background-color: #cbc9ca;
+            height: 40px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            margin-top: 10px;
+            width: 1186px;
+            #result-bar-etiquetas {
+                display: inline-block;
+                height: 40px;
+                width: 49.5%;
+            }
+            #result-bar-filter {
+                display: inline-block;
+                height: 40px;
+                width: 49.5%;
+            }
+        }
+        .box-result {
+            background-color: #FFF;
+            border: 1.7px solid #cbc9ca;
+            display: inline-block;
+            height: 150px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 570px;
+            &:hover {
+                @include box-shadow(0px 4px 5px 0px rgba(0, 0, 0, 0.2));
+            }
+            .box-result-image {
+                display: inline-block;
+                height: 125px;
+                margin-top: 12.5px;
+                width: 200px;
+            }
+            .box-result-data {
+                display: inline-block;
+                float: right;
+                height: 150px;
+                vertical-align: top;
+                width: 338px;
+                .data-left {
+                    float: left;
+                    .lugar-ratings-stars {
+                        margin-top: 11px;
+                        margin-bottom: 10px;
+                    }
+                    .box-result-title {
+                        font-size: 19px;
+                        font-family: "Open Sans Bold";
+                        margin-top: 7px;
+                        text-align: left;
+                    }
+                    .box-result-address {
+                        font-size: 15px;
+                        font-family: "Open Sans Light";
+                        margin-top: 7px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    #result-footer {
+        height: 40px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        width: 1186px;
+    }
+}
+
+.pagination {
+    clear: both;
+    margin: 0 auto;
+    ul {
+        li {
+            display: inline-block;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+        background: #d6d6d6;
+        @include transition(background, 0.3s, ease);
+        &:hover {
+            background: #fbb714;
+        }
+    }
+    span {
+        color: #999;
+        border-color: #999;
+        background: #d6d6d6;
+    }
+    .active {
+        span {
+            background: #fbb714;
+            color: #fff;
+        }
+    }
+    & {
+        a, span {
+            padding: 0.3em 0.5em;
+            margin-right: 5px;
+        }
+    }
+}

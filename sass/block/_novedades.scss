@@ -1,0 +1,78 @@
+
+.post-novedades
+{
+    height: 200px;
+    border-top: 1px solid #c4c4c4;
+    width: 880px;
+}
+
+.post-novedades:hover {
+    background: #F6F6F6;
+}
+
+.imagen-novedades
+{
+    display: inline-block;
+    float: left;
+    margin-top: 20px;
+    vertical-align: top;
+}
+
+.info-novedades
+{
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+    width: 640px;
+}
+
+.info-novedades .post-title h2
+{
+    font-family: "Open Sans Bold";
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.info-novedades .post-title a
+{
+    color: #252525;
+    text-decoration: none;
+
+    -webkit-transition: color .3s ease;
+       -moz-transition: color .3s ease;
+        -ms-transition: color .3s ease;
+         -o-transition: color .3s ease;
+            transition: color .3s ease;
+}
+
+.info-novedades .post-title a:hover
+{
+    color: #df3726;
+}
+
+.info-novedades .post-fecha
+{
+    color: #959595;
+    font-family: "Open Sans Regular";
+    font-size: 15px;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: left;
+}
+
+.info-novedades .post-info
+{
+    margin-top: 15px;
+    text-align: justify;
+}
+
+.page-numbers.current {
+    background: #df3726;
+    color: #fff;
+}
+
+.page-numbers:hover {
+    background: #df3726;
+}
