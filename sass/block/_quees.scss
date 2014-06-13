@@ -1,0 +1,22 @@
+#barra-quees {
+    background: #f28422;
+    height: 60px;
+    width: 100%;
+}
+
+#content-quees {
+    background: #FbFbFb;
+    font-family: "Open Sans Regular";
+    font-size: 17px;
+    height: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: justify;
+    width: 1200px;
+    p {
+        margin: 20px 0;
+    }
+    b, a {
+        color: #f28422;
+    }
+}

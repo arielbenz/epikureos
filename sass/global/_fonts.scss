@@ -1,0 +1,93 @@
+/*
+ * ===========================================
+ * FONT FAMILYS
+ * ===========================================
+ */
+
+@import "compass/css3";
+
+// @include font-face("icongs", font-files("/etc/designs/news/js/vendor/icongs/fonts/icongs_4176808f3eae2f9b12b92233f91f7ba2.eot", "/etc/designs/news/js/vendor/icongs/fonts/icongs_4176808f3eae2f9b12b92233f91f7ba2.svg", "/etc/designs/news/js/vendor/icongs/fonts/icongs_4176808f3eae2f9b12b92233f91f7ba2.woff", "/etc/designs/news/js/vendor/icongs/fonts/icongs_4176808f3eae2f9b12b92233f91f7ba2.ttf"));
+
+/* Open Sans @font-face kit */
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url("../fonts/OS-Light/OpenSans-Light.eot");
+    src: url("../fonts/OS-Light/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/OS-Light/OpenSans-Light.woff") format("woff"), url("../fonts/OS-Light/OpenSans-Light.ttf") format("truetype"), url("../fonts/OS-Light/OpenSans-Light.svg#OpenSansLight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url("../fonts/OS-Regular/OpenSans-Regular.eot");
+    src: url("../fonts/OS-Regular/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/OS-Regular/OpenSans-Regular.woff") format("woff"), url("../fonts/OS-Regular/OpenSans-Regular.ttf") format("truetype"), url("../fonts/OS-Regular/OpenSans-Regular.svg#OpenSansRegular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url("../fonts/OS-Bold/OpenSans-Bold.eot");
+    src: url("../fonts/OS-Bold/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/OS-Bold/OpenSans-Bold.woff") format("woff"), url("../fonts/OS-Bold/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OS-Bold/OpenSans-Bold.svg#OpenSansBold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/* Titillium Web @font-face kit */
+
+@font-face {
+    font-family: 'TitilliumWeb-Bold';
+    src: url("../fonts/TW-Bold/TitilliumWeb-Bold.eot");
+    src: url("../fonts/TW-Bold/TitilliumWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/TW-Bold/TitilliumWeb-Bold.woff") format("woff"), url("../fonts/TW-Bold/TitilliumWeb-Bold.ttf") format("truetype"), url("../fonts/TW-Bold/TitilliumWeb-Bold.svg#TitilliumWeb-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TitilliumWeb-Light';
+    src: url("../fonts/TW-Light/TitilliumWeb-Light.eot");
+    src: url("../fonts/TW-Light/TitilliumWeb-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/TW-Light/TitilliumWeb-Light.woff") format("woff"), url("../fonts/TW-Light/TitilliumWeb-Light.ttf") format("truetype"), url("../fonts/TW-Light/TitilliumWeb-Light.svg#TitilliumWeb-Light") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TitilliumWeb-Thin';
+    src: url("../fonts/TW-ExtraLight/TitilliumWeb-ExtraLight.eot");
+    src: url("../fonts/TW-ExtraLight/TitilliumWeb-ExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/TW-ExtraLight/TitilliumWeb-ExtraLight.woff") format("woff"), url("../fonts/TW-ExtraLight/TitilliumWeb-ExtraLight.ttf") format("truetype"), url("../fonts/TW-ExtraLight/TitilliumWeb-ExtraLight.svg#TitilliumWeb-Thin") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TitilliumWeb-Regular';
+    src: url("../fonts/TW-Regular/TitilliumWeb-Regular.eot");
+    src: url("../fonts/TW-Regular/TitilliumWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/TW-Regular/TitilliumWeb-Regular.woff") format("woff"), url("../fonts/TW-Regular/TitilliumWeb-Regular.ttf") format("truetype"), url("../fonts/TW-Regular/TitilliumWeb-Regular.svg#TitilliumWeb-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TitilliumWeb-SemiBold';
+    src: url("../fonts/TW-SemiBold/TitilliumWeb-SemiBold.eot");
+    src: url("../fonts/TW-SemiBold/TitilliumWeb-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/TW-SemiBold/TitilliumWeb-SemiBold.woff") format("woff"), url("../fonts/TW-SemiBold/TitilliumWeb-SemiBold.ttf") format("truetype"), url("../fonts/TW-SemiBold/TitilliumWeb-SemiBold.svg#TitilliumWeb-SemiBold") format("svg");
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+/* Glyphicons halflings */
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("../fonts/glyphicons-halflings-regular.eot");
+    src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg");
+}
