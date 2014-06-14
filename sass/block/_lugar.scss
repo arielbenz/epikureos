@@ -164,12 +164,17 @@
 
 .comentarios-lugar-alert {
     text-align: left;
-    padding: 20px;
+    padding: 10px;
 }
 
 .stars {
-    margin-bottom: 10px;
     font-size: 24px;
+    color: #BBB;
+    float: right;
+    margin-left: 20px;
+}
+
+.stars-user {
     color: #fbb714;
 }
 
@@ -214,14 +219,13 @@
 
 .btn-success {
     color: #fff;
-    &.enabled {
-        background-color: #58ba48;
-        border-color: #58ba48;
-    }
-    &.disabled {
-        background-color: #BBB;
-        border-color: #BBB;
-    }
+    background-color: #BBB;
+    border-color: #BBB;
+}
+
+.btn-success-user {
+    background-color: #58ba48;
+    border-color: #58ba48;
 }
 
 .review {
@@ -266,26 +270,33 @@
 }
 
 .form-comment-rating {
-    height: 220px;
+    height: 180px;
 }
 
 .form-control {
-    height: 200px !important;
-    width: 450px;
+    height: 150px !important;
+    width: 680px;
     padding: 10px;
     resize: none !important;
 }
 
 .text-right {
-    display: inline-block;
-    text-align: left;
+    text-align: right;
 }
 
 .form-buttons {
-    margin-left: 7px;
     margin-top: 10px;
-    width: 220px;
     height: 60px;
+    text-align: left;
+    display: inline-block;
+    width: 20%;
+}
+
+.lugar-rating-star {
+    display: inline-block;
+    width: 74%;
+    vertical-align: top;
+    margin-top: 10px;
 }
 
 .form-recomendacion-name {
@@ -332,9 +343,8 @@
 
 .lugar-votos {
     display: inline-block;
-    width: 430px;
+    width: 349px;
     vertical-align: top;
-    margin-left: 25px;
     margin-top: 30px;
     h3 {
         color: #656565;
@@ -343,6 +353,48 @@
         margin-bottom: 25px;
         margin-top: 0 !important;
     }
+}
+
+.lugar-votos-right {
+    display: inline-block;
+    width: 77px;
+    vertical-align: top;
+    margin-top: 95px;
+    text-align: right;
+    .lugar-votos-button {
+        height: 52px;
+        margin-bottom: 15px;
+        float: right;
+        width: 39px;
+    }
+}
+
+.flecha-up {
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #58ba48;
+    font-size: 0px;
+    line-height: 0px;
+    margin-bottom: 18px;
+ }
+
+ .flecha-down {
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #df3726;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.lugar-rating-right {
+    width: 430px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
 }
 
 .lugar-votos-desc {
@@ -428,9 +480,6 @@
     background-image: none;
 }
 
-#home-footer {
-    margin-top: 30px;
-}
 
 //////////////////////////////
 

@@ -6,7 +6,6 @@
 		include "app/views/lugar/timeago.php";
 	?>
 
-	<script src="<?php echo $url?>/js/expanding.js"></script>
 	<script src="<?php echo $url?>/js/starrr.js"></script>
 
 	<!-- CONTENT -->
@@ -121,66 +120,34 @@
                 	</div>
               	<?php } ?>
 			</div>
-
-			<div class="review-new">
-				<?php
-					if (Auth::check()) {
-				?>
-						<a href="#review" id="open-review-box" class="btn-leave-comment">Dejá tu comentario</a>
-    			<?php
-    				} else {
-    			?>
-    					<a href="/loginfb" class="btn-leave-comment">Iniciar Sesión</a>
-    			<?php
-    				}
-				?>
-				
-            </div>
             
-            <div class="row" id="post-review-box" style="display:none;">
+            <div class="row" id="post-review-box">
 				<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
 					<div class="form-comment-rating">
 						<div class="form-comment">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-							<input id="ratings-hidden" name="rating" type="hidden" value="<?php if ($review_user != null) { echo $review_user->rating; } ?>">                  
-							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu comentario... ¿Te gustó el lugar? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
-						</div>
+							<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
 
-						<div class="text-right">
-	                    	<div class="stars starrr" data-rating="<?php if ($review_user != null) { echo $review_user->rating;	} else { echo Input::old('rating',0); } ?>"></div>
-							<?php 
-								$ocasiones = Ocasion::all();
-								foreach($ocasiones as $ocasion) {
-								?>
-									<div class="squaredThree">
-										<input type="checkbox" class="form-recomendacion" name="recomendacion[]" id="<?php echo $ocasion->id; ?>"
-										<?php
-											if($review_user != null) {
-												foreach($review_user->ocasiones as $ocasionReco) {
-													if($ocasionReco->id == $ocasion->id) {
-														echo "checked";
-													}
-												}
-											}
-										?>
-										value="<?php echo $ocasion->id; ?>">
-										<label for="<?php echo $ocasion->id; ?>"></label>
-										<span class="form-recomendacion-name"><?php echo $ocasion->descripcion; ?></span>
-									</div>
-									
-								<?php
+							if (Auth::check()) {
+								$userReview = Review::where('user_id', $comentario->user->id)->where('lugar_id', $lugar->id)->first();
+								if ($userReview != null) {
+									echo $userReview->rating; 	
 								}
-								?>
-	                  	</div>
+							}
 
+							?>">
+							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu comentario... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
+						</div>
 	                </div>
 
 					<div class="form-buttons">
-						<button class="btn btn-success btn-lg" type="submit" disabled>Aceptar</button>
-	                  	<a href="#" id="close-review-box" class="btn btn-cancel">
-		                	<span class="glyphicon glyphicon-remove"></span>Cancelar
-		               	</a>
+						<button class="btn btn-success <?php if (Auth::check()) { echo "btn-success-user"; } ?> btn-lg" type="submit">Aceptar</button>
 	                </div>
+	                <div class="lugar-rating-star">
+						<div class="text-right">
+							<span>Tu votación</span><div class="stars <?php if (Auth::check()) { echo "stars-user"; } ?> starrr" data-rating="<?php if ($review_user != null) { echo $review_user->rating;	} else { echo Input::old('rating',0); } ?>"></div>
+			             </div>
+					</div>
                 </form>
             </div>
 
@@ -233,46 +200,50 @@
 				?>
 		</div>
 
-		<div class="lugar-votos">
-			<h3>Recomendado para:</h3>
-	
-			<div class="lugar-ocasion-votos">
-				<?php
-					$indexOcasion = 1;
-					foreach($votosLugar as $ocasion => $voto) {
-				?>
-					<div class="lugar-votos-ocasion">
-						<span class="lugar-votos-desc"><?php echo $ocasion ?></span><span class="lugar-votos-voto"><?php echo $voto ?> Votos</span>
-	    				<div class="meter orange nostripes">
-							<span style="width: <?php 
-								if($voto > 0) {
-									echo ($voto*100)/$totalVotos;
-								} else {
-									echo 0;
-								}?>%">
-							</span>
+		<div class="lugar-rating-right">
+
+			<div class="lugar-votos">
+				<h3>Recomendado para:</h3>
+		
+				<div class="lugar-ocasion-votos">
+					<?php
+						$indexOcasion = 1;
+						foreach($votosLugar as $ocasion => $voto) {
+					?>
+						<div class="lugar-votos-ocasion">
+							<span class="lugar-votos-desc"><?php echo $ocasion ?></span><span class="lugar-votos-voto"><?php echo $voto ?> Votos</span>
+		    				<div class="meter orange nostripes">
+								<span style="width: <?php 
+									if($voto > 0) {
+										echo ($voto*100)/$totalVotos;
+									} else {
+										echo 0;
+									}?>%">
+								</span>
+							</div>
 						</div>
-					</div>
+					<?php
+						$indexOcasion = $indexOcasion + 1;
+						}
+					?>
+				</div>
+			</div>
+
+			<div class="lugar-votos-right">
 				<?php
-					$indexOcasion = $indexOcasion + 1;
+					$indexOcasion = 0;
+					foreach($votosLugar as $ocasion => $voto) {
+						?>
+						<div class="lugar-votos-button">
+							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up"><div class="flecha-up"></div></a>
+							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down"><div class="flecha-down"></div></a>
+						</div>
+						<?php
+						$indexOcasion = $indexOcasion + 1;
 					}
 				?>
 			</div>
-		</div>
 
-		<div class="lugar-votos-right" style="display:inline-block;width: 50px;vertical-align: top;margin-top: 93px;">
-			<?php
-				$indexOcasion = 1;
-				foreach($votosLugar as $ocasion => $voto) {
-			?>
-			<div class="lugar-votos-button" style="margin-bottom: 20px;">
-				<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">Sumar</a>
-				<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">Restar</a>
-			</div>
-			<?php
-				$indexOcasion = $indexOcasion + 1;
-				}
-			?>
 		</div>
 
 	</section>
@@ -281,57 +252,16 @@
 
 		$(function(){
 
-			// initialize the autosize plugin on the review text area
-			$('#new-review').autosize({append: "\n"});
-
 			var reviewBox = $('#post-review-box');
 			var newReview = $('#new-review');
 			var openReviewBtn = $('#open-review-box');
 			var closeReviewBtn = $('#close-review-box');
 			var ratingsField = $('#ratings-hidden');
 
-			openReviewBtn.click(function(e) {
-				reviewBox.slideDown(400, function() {
-			    	$('#new-review').trigger('autosize.resize');
-			    	newReview.focus();
-			  	});
-			
-				openReviewBtn.fadeOut(100);
-				closeReviewBtn.show();
-				$('.review-new').css("margin-bottom", "0px");
-
-				var checkboxes = $(".form-recomendacion"), submitButt = $(".btn-success");
-
-				if(checkboxes.is(":checked")) {
-					submitButt.addClass("enabled");
-					submitButt.removeClass("disabled");
-				} else {
-					submitButt.addClass("disabled");
-					submitButt.removeClass("enabled");
-				}
-				submitButt.attr("disabled", !checkboxes.is(":checked"));
-
-				checkboxes.click(function() {
-				    	submitButt.attr("disabled", !checkboxes.is(":checked"));
-			    	if(checkboxes.is(":checked")) {
-						submitButt.addClass("enabled");
-						submitButt.removeClass("disabled");
-					} else {
-						submitButt.addClass("disabled");
-						submitButt.removeClass("enabled");
-					}
-				});
+			$(".glyphicon").click(function() {
+				console.log($("#ratings-hidden").val());
 			});
 
-			closeReviewBtn.click(function(e) {
-				e.preventDefault();
-				reviewBox.slideUp(300, function() {
-			    	newReview.focus();
-			    	openReviewBtn.fadeIn(200);
-			  	});
-				closeReviewBtn.hide();
-				$('.review-new').css("margin-bottom", "33px");
-			});
 
 			<?php
 				if($errors->first('comment') || $errors->first('rating')) {
@@ -361,6 +291,7 @@
 	<!-- Google Maps -->
 
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 	<script>
 
 		$(document).on("ready", inicio);
@@ -384,18 +315,11 @@
 	        });
 
 			$(".vote").click(function(event) {
-
-				var userid = <?php echo Auth::user()->id; ?>;
 				var lugarid = <?php echo $lugar->id; ?>;
-				var reviewid = <?php echo $review_user->id; ?>;
 				var ocasionid = $(this).attr("id");
 				var name = $(this).attr("name");
 
-				var params = {  'userid' : userid,
-							'lugarid' : lugarid,
-							'reviewid' : reviewid,
-							'ocasionid' : ocasionid,
-							'name' : name						};
+				var params = {  'lugarid' : lugarid, 'ocasionid' : ocasionid, 'name' : name };
 
 			   	$.ajax({
 	                type: "POST",
@@ -403,36 +327,43 @@
 		            data: params,
 		            cache: false,
 		            success: function (data) {
-		            	console.log("Esta funcionando");
+		            	if(data.message == "") {
+		            		var votos = data.votosLugar;
+			            	var ocasiones = data.totalOcasiones;
+			            	var html = "";
+			            	var voto = 0;
 
-		            	var votos = data.votosLugar;
-		            	var ocasiones = data.totalOcasiones;
-		            	var html = "";
-		            	var voto = 0;
+			            	var j = 1;
+							for(var i in votos) {
+								voto = 0;
+								if(votos[i] > 0) {
+									voto = (votos[i]*100)/(data.totalVotos);
+								}
+								html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
 
-		            	var j = 1;
-						for(var i in votos) {
-							voto = 0;
-							if(votos[i] > 0) {
-								voto = (votos[i]*100)/(data.totalVotos);
+								j = j + 1;
 							}
-							html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
 
-							j = j + 1;
-						}
+							$(".lugar-ocasion-votos").html(html);
 
-						$(".lugar-ocasion-votos").html(html);
+							$(".meter > span").each(function() {
+								$(this)
 
-						$(".meter > span").each(function() {
-							$(this)
-								.data("origWidth", $(this).width())
-								.width(0)
-								.animate({
-									width: $(this).data("origWidth")
-								}, 1200);
-						});
+							});
+
+							$(".meter > span").each(function() {
+								$(this)
+									.data("origWidth", $(this).width())
+									.width(0)
+									.animate({
+										width: $(this).data("origWidth")
+									}, 1200);
+							});
+		            	} else {
+		            		console.log(data.message);
+		            	}
 		            },
-		            error: function(errors) {
+		            error: function(data) {
 		                console.log("Error al votar");
 		            }  
 		        });
