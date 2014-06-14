@@ -126,14 +126,15 @@
 					<div class="form-comment-rating">
 						<div class="form-comment">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
 							<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
 
-							if (Auth::check()) {
-								$userReview = Review::where('user_id', $comentario->user->id)->where('lugar_id', $lugar->id)->first();
-								if ($userReview != null) {
-									echo $userReview->rating; 	
+								if (Auth::check()) {
+									$userReview = Review::where('user_id', Auth::user()->id)->where('lugar_id', $lugar->id)->first();
+									if ($userReview != null) {
+										echo $userReview->rating; 	
+									}
 								}
-							}
 
 							?>">
 							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu comentario... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
@@ -145,7 +146,7 @@
 	                </div>
 	                <div class="lugar-rating-star">
 						<div class="text-right">
-							<span>Tu votación</span><div class="stars <?php if (Auth::check()) { echo "stars-user"; } ?> starrr" data-rating="<?php if ($review_user != null) { echo $review_user->rating;	} else { echo Input::old('rating',0); } ?>"></div>
+							<div class="stars <?php if (Auth::check()) { echo "stars-user"; } ?> starrr" data-rating="<?php if ($review_user != null) { echo $review_user->rating;	} else { echo Input::old('rating',0); } ?>"></div>
 			             </div>
 					</div>
                 </form>
@@ -235,8 +236,8 @@
 					foreach($votosLugar as $ocasion => $voto) {
 						?>
 						<div class="lugar-votos-button">
-							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up"><div class="flecha-up"></div></a>
-							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down"><div class="flecha-down"></div></a>
+							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up"><div class="voteocasion voteocasion-up voteocasion-up<?php echo $totalOcasiones[$indexOcasion] ?>"></div></a>
+							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down"><div class="voteocasion voteocasion-down voteocasion-down<?php echo $totalOcasiones[$indexOcasion] ?>"></div></a>
 						</div>
 						<?php
 						$indexOcasion = $indexOcasion + 1;
@@ -248,51 +249,32 @@
 
 	</section>
 
+	<!-- Google Maps -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 	<script>
 
-		$(function(){
-
-			var reviewBox = $('#post-review-box');
-			var newReview = $('#new-review');
-			var openReviewBtn = $('#open-review-box');
-			var closeReviewBtn = $('#close-review-box');
-			var ratingsField = $('#ratings-hidden');
-
-			$(".glyphicon").click(function() {
-				console.log($("#ratings-hidden").val());
-			});
-
-
-			<?php
-				if($errors->first('comment') || $errors->first('rating')) {
-			?>
-				openReviewBtn.click();
-			<?php
-				}
-			?>
-
-			$('.starrr').on('starrr:change', function(e, value){
-	        	ratingsField.val(value);
-	      	});
-
+		function meterAnimate() {
+			var meterid = 1;
 	      	$(".meter > span").each(function() {
+	      		if($(this).width() > 0) {
+	      			$(".voteocasion-up"+meterid).css("border-bottom", "15px solid #EEE");
+	      			$(".voteocasion-down"+meterid).css("border-top", "15px solid #df3726");
+	      		} else {
+	      			$(".voteocasion-up"+meterid).css("border-bottom", "15px solid #58ba48");
+	      			$(".voteocasion-down"+meterid).css("border-top", "15px solid #EEE");
+	      		}
 				$(this)
 					.data("origWidth", $(this).width())
 					.width(0)
 					.animate({
 						width: $(this).data("origWidth")
 					}, 1200);
+				meterid = meterid + 1;
 			});
+		}
 
-	    });
 
-	</script>
-
-	<!-- Google Maps -->
-
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-	<script>
 
 		$(document).on("ready", inicio);
 
@@ -351,14 +333,7 @@
 
 							});
 
-							$(".meter > span").each(function() {
-								$(this)
-									.data("origWidth", $(this).width())
-									.width(0)
-									.animate({
-										width: $(this).data("origWidth")
-									}, 1200);
-							});
+							meterAnimate();
 		            	} else {
 		            		console.log(data.message);
 		            	}
@@ -369,6 +344,33 @@
 		        });
 				event.preventDefault();
 		 	});
+
+			$(function(){
+				var reviewBox = $('#post-review-box');
+				var newReview = $('#new-review');
+				var openReviewBtn = $('#open-review-box');
+				var closeReviewBtn = $('#close-review-box');
+				var ratingsField = $('#ratings-hidden');
+
+				$(".glyphicon").click(function() {
+					console.log($("#ratings-hidden").val());
+				});
+
+
+				<?php
+					if($errors->first('comment') || $errors->first('rating')) {
+				?>
+					openReviewBtn.click();
+				<?php
+					}
+				?>
+
+				$('.starrr').on('starrr:change', function(e, value){
+		        	ratingsField.val(value);
+		      	});
+
+		      	meterAnimate();
+		    });
 	        
 		}
 

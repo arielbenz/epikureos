@@ -42,31 +42,31 @@ Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
             'rating' => Input::get('rating'),
         );
 
+        $validacion = array(
+            'comment'=> 'required|min:10',
+            'rating' => 'required|integer|between:1,5' 
+        );
+
         $lugar = Lugar::where('slug', '=', $slug)->first();
         $review = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
-
-        $validacion = array(
-                'comment'=> 'required|min:10',
-                'rating' => 'required|integer|between:1,5' 
-            );
 
         $validator = Validator::make($input, $validacion);
 
         if ($validator->passes()) {
             if ($review == null) {
                 $review = new Review;
-                $review->storeReviewForLugar($lugar, $input['comment'], $input['rating']);
+                $review->storeReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
             } else {
                 $review->updateReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
             }
-            return Redirect::to('lugares/'.$slug.'#review')->with('review_posted',true);
+            return Redirect::to('lugares/'.$slug)->with('review_posted',true);
         }
 
-        return Redirect::to('lugares/'.$slug.'#review')->withErrors($validator)->withInput();
+        return Redirect::to('lugares/'.$slug)->withErrors($validator)->withInput();
 
     } else {
 
-        return Redirect::to('lugares/'.$slug.'#review')->withErrors(array('login' => "No se encuentra logueado para poder comentar."))->withInput();
+        return Redirect::to('lugares/'.$slug)->withErrors(array('login' => "No se encuentra logueado para poder comentar."))->withInput();
 
     }
 

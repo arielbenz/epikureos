@@ -57,11 +57,11 @@ class Review extends Eloquent
         $lugar->reviews()->save($this);
     }
 
-    public function storeReviewForLugar($lugar, $comment, $rating)
+    public function storeReviewForLugar($review, $lugar, $comment, $rating)
     {
         $user_id = Auth::user()->id;
-        $this->user_id = $user_id;
-        $this->rating = $rating;
+        $review->user_id = $user_id;
+        $review->rating = $rating;
         $lugar->reviews()->save($this);
 
         $comentario = new Comentario;
@@ -73,6 +73,8 @@ class Review extends Eloquent
     public function updateReviewForLugar($review, $lugar, $comment, $rating)
     {
         $user_id = Auth::user()->id;
+        $review->rating = $rating;
+        $review->save();
 
         $comentario = new Comentario;
         $comentario->storeCometarioForReview($lugar, $user_id, $comment);
