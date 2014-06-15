@@ -65,7 +65,7 @@ class Review extends Eloquent
         $lugar->reviews()->save($this);
 
         $comentario = new Comentario;
-        $comentario->storeCometarioForReview($lugar, $user_id, $comment);
+        $comentario->storeCometarioForReview($review, $lugar, $user_id, $comment);
 
         $lugar->recalculateRating($rating);
     }
@@ -77,7 +77,7 @@ class Review extends Eloquent
         $review->save();
 
         $comentario = new Comentario;
-        $comentario->storeCometarioForReview($lugar, $user_id, $comment);
+        $comentario->storeCometarioForReview($review, $lugar, $user_id, $comment);
 
         $lugar->recalculateRating($rating);
     }

@@ -14,10 +14,11 @@ class Comentario extends Eloquent {
         return $this->belongsTo('User');
     }
 
-    public function storeCometarioForReview($lugar, $user_id, $comment)
+    public function storeCometarioForReview($review, $lugar, $user_id, $comment)
     {
         $this->user_id = $user_id;
         $this->lugar_id = $lugar->id;
+        $this->review_id = $review->id;
         $this->comment = $comment;
         $lugar->comentarios()->save($this);
     }

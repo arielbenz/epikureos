@@ -94,7 +94,7 @@
 			</div>
 
 			<div id="lugar-links">
-				<h4>RECOMENDÁ TU LUGAR</h4>
+				<h4>COMPARTÍ TU LUGAR</h4>
 				<ul><li><a href="http://www.facebook.com/sharer.php?u=<?php echo URL::current();?>" target="_blank" class="contacto-face"></a></li><li><a href="https://twitter.com/intent/tweet?text=<?php echo $lugar->nombre; ?>&url=<?php echo URL::current();?>&via=tusalidaok" target="_blank" class="contacto-twitter"></a></li><li><a href="https://plus.google.com/share?url=<?php echo URL::current();?>" target="_blank" class="contacto-plus"></a></li></ul>
 			</div>
 
