@@ -30,7 +30,7 @@
 	<div class="bar-blog"></div>
 	
 
-	<div id="container-post <?php echo $actual; ?>">
+	<div id="container-post" class="container-<?php echo $actual; ?>">
 
 		<div id="content-post" >
 

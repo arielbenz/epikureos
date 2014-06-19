@@ -327,13 +327,7 @@ ul {
     width: 1200px;
 }
 
-.container-laposta {
-    display: inline-block;
-    height: 100%;
-    position: relative;
-}
-
-.container-novedades {
+.container-laposta, .container-novedades {
     #content-post {
         background: #FFF;
         display: inline-block;
@@ -341,13 +335,13 @@ ul {
         margin-right: 25px;
         position: relative;
         width: 880px;
-        #secondary {
-            display: inline-block;
-            margin: 0;
-            position: relative;
-            vertical-align: top;
-            width: 280px;
-        }
+    }
+    #secondary {
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        vertical-align: top;
+        width: 280px;
     }
 }
 
