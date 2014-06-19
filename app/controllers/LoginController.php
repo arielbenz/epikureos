@@ -5,7 +5,6 @@ class LoginController extends BaseController {
 	public function loginfb() {
 	    $facebook = new Facebook(Config::get('facebook'));
 	    $params = array(
-	        'display' => 'popup',
 	        'redirect_uri' => url('/loginfb/callback'),
 	        'scope' => 'public_profile,email',
 	    );
@@ -32,13 +31,13 @@ class LoginController extends BaseController {
 	        $user = new User;
 	        $user->name = $me['first_name'].' '.$me['last_name'];
 	        $user->email = $me['email'];
-	        $user->photo = 'https://graph.facebook.com/'.$me['username'].'/picture?type=large';
+			$user->photo = "https://graph.facebook.com/".$uid."/picture";
 	 
 	        $user->save();
 	 
 	        $profile = new Profile();
 	        $profile->uid = $uid;
-	        $profile->username = $me['username'];
+	        $profile->username = "";
 	        $profile = $user->profiles()->save($profile);
 	    }
 	 
