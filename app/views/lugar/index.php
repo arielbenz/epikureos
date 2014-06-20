@@ -73,7 +73,7 @@
 			</div>
 
 			<div id="lugar-descripcion">
-				<?php echo $lugar->descripcion; ?>
+				<p><?php echo $lugar->descripcion; ?></p>
 			</div>
 
 			<!-- <div id="lugar-utiles">
