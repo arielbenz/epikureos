@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6c0b62fb47d7526cae2a6ebaf74ad0ce",
+    "hash": "6b341f1310b44749d82b1f391f9eb16d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -534,12 +534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk.git",
-                "reference": "5c5a3e80af30ea00e7682e94b31112c505051f50"
+                "reference": "b31c5a7911773a0684e89c7d1d84b0ca575e6cc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/5c5a3e80af30ea00e7682e94b31112c505051f50",
-                "reference": "5c5a3e80af30ea00e7682e94b31112c505051f50",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk/zipball/b31c5a7911773a0684e89c7d1d84b0ca575e6cc8",
+                "reference": "b31c5a7911773a0684e89c7d1d84b0ca575e6cc8",
                 "shasum": ""
             },
             "require": {
@@ -572,7 +572,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2014-01-09 21:38:48"
+            "time": "2014-05-01 04:58:13"
         },
         {
             "name": "filp/whoops",
@@ -1806,9 +1806,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "facebook/php-sdk": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],

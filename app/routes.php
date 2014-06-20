@@ -22,12 +22,56 @@ Route::get('/quees', 'HomeController@get_quees');
 Route::get('/contacto', 'HomeController@get_contacto');
 Route::get('/terminos', 'HomeController@get_terminos');
 
+//Rutas búsqueda
+
 Route::post('/busqueda', 'HomeController@post_busqueda');
 Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
 
-//Rutas búsqueda
+//Rutas lugar
 
 Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
+Route::post('/lugares/{lugar}/votelike', 'LugarController@vote_lugar');
+
+// Ruta que envia comentario
+Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
+
+    if (Auth::check()) {
+    
+        $input = array(
+            'comment' => Input::get('comment'),
+            'rating' => Input::get('rating'),
+        );
+
+        $validacion = array(
+            'comment'=> 'required|min:10',
+            'rating' => 'required|integer|between:1,5' 
+        );
+
+        $lugar = Lugar::where('slug', '=', $slug)->first();
+        $review = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
+
+        $validator = Validator::make($input, $validacion);
+
+        if ($validator->passes()) {
+            if ($review == null) {
+                $review = new Review;
+                $review->storeReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
+            } else {
+                $review->updateReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
+            }
+            return Redirect::to('lugares/'.$slug)->with('review_posted',true);
+        }
+
+        return Redirect::to('lugares/'.$slug)->withErrors($validator)->withInput();
+
+    } else {
+
+        return Redirect::to('lugares/'.$slug)->withErrors(array('login' => "No se encuentra logueado para poder comentar."))->withInput();
+
+    }
+
+}));
+
 
 // Rutas Dashboard
 
@@ -38,10 +82,8 @@ Route::get('/signup', 'UserController@get_signup');
 Route::post('/signup', 'UserController@post_signup');
 Route::get('/dashboard', 'UserController@dashboard');
 
-Route::group(array('prefix' => 'admin'), function()
-{
-	Route::group(array('before' => 'admin'), function()
-	{
+Route::group(array('prefix' => 'admin'), function() {
+	Route::group(array('before' => 'admin'), function() {
 		Route::get('/', 'AdminController@index');
 
 		Route::get('/lugares', 'AdminController@lugares_all');
@@ -63,3 +105,9 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('/etiquetas/delete/{id}', 'AdminController@etiquetas_delete');
 	});
 });
+
+// Rutas Login Facebook
+
+Route::get('/loginfb', 'LoginController@loginfb');
+Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
+Route::get('/logout', 'LoginController@logoutfb');

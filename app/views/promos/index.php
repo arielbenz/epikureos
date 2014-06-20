@@ -3,10 +3,6 @@
 	
 	<?php include "app/views/header.php";?>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/promos.css" />
-
-	<?php include "app/views/menu.php";?>
-
 	<!-- CONTENT -->
 
 	<section id="barra-promos" class="barra-content">

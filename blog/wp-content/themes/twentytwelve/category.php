@@ -2,18 +2,6 @@
 <?php include "../app/views/header.php";?>
 
 	<?php
-		if ($actual == 'novedades') { ?>
-			<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
-		<?php
-		} else if($actual == 'laposta') { ?>
-			<link rel="stylesheet" href="<?php echo $url;?>/css/laposta.css" />
-	<?php	
-		}
-	?>
-
-<?php include "../app/views/menu.php";?>
-
-	<?php
 
 		if ($actual == 'novedades') { ?>
 			
@@ -41,7 +29,7 @@
 
 	<div class="bar-blog"></div>
 
-	<div id="container-post">
+	<div id="container-post" class="container-<?php echo $actual;?>">
 
 		<div id="content-post" >
 

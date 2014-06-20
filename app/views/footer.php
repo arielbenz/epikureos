@@ -35,8 +35,8 @@
 				<ul>
 					<li><a href="http://facebook.com/TuSalidaBar" class="link-face"></a></li>
       				<li><a href="http://twitter.com/tusalidaok" class="link-twitter"></a></li>
-       				<li><a href="#" class="link-rss"></a></li>
-       				<li><a href="#" class="link-plus"></a></li>
+       				<!-- <li><a href="#" class="link-rss"></a></li>
+       				<li><a href="#" class="link-plus"></a></li> -->
 				</ul>
 			</article>
 
@@ -49,14 +49,13 @@
 					</div>
 
 					<div id="mc_embed_signup">
-						<form id="form-footer" action="http://tusalida.us3.list-manage1.com/subscribe/post?u=b8a63465d39195c8c5b2ccecc&amp;id=2b81f804fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+						<form id="form-footer" action="http://tusalida.us8.list-manage.com/subscribe/post?u=0c8dcb8d56d850adea5b44305&amp;id=a048191a2d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Ingresá tu mail..." required>
-						    <div style="position: absolute; left: -5000px;"><input type="text" name="b_b8a63465d39195c8c5b2ccecc_2b81f804fd" value=""></div>
+						    <div style="position: absolute; left: -5000px;"><input type="text" name="b_0c8dcb8d56d850adea5b44305_a048191a2d" value=""></div>
 							<div class="clear"><input type="submit" value="LISTO" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 						</form>
 					</div>
-				</div>
-				
+				</div>				
 			</article>
 
 			<article id="footer-terminos">
@@ -71,110 +70,32 @@
 	</footer>
 
 
-	<div id="fb-root"></div>
-
 	<script>
-	window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '283139271849796', // Set YOUR APP ID
-	      status     : true, // check login status
-	      cookie     : true, // enable cookies to allow the server to access the session
-	      xfbml      : true  // parse XFBML
-	    });
-	 
-	    FB.Event.subscribe('auth.authResponseChange', function(response) 
-	    {
-	     if (response.status === 'connected') 
-	    {
-	        document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
-	        //SUCCESS
-	 
-	    }    
-	    else if (response.status === 'not_authorized') 
-	    {
-	        document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
-	 
-	        //FAILED
-	    } else 
-	    {
-	        document.getElementById("message").innerHTML +=  "<br>Logged Out";
-	 
-	        //UNKNOWN ERROR
-	    }
-	    }); 
-	 
-	    };
-	 
-	    function Login()
-	    {
-	 
-	        FB.login(function(response) {
-	           if (response.authResponse) 
-	           {
-	                getUserInfo();
-	            } else 
-	            {
-	             console.log('User cancelled login or did not fully authorize.');
-	            }
-	         },{scope: 'email,user_photos,user_videos'});
-	 
-	    }
-	 
-	  function getUserInfo() {
-	        FB.api('/me', function(response) {
-	 
-	      var str="<b>Name</b> : "+response.name+"<br>";
-	          str +="<b>Link: </b>"+response.link+"<br>";
-	          str +="<b>Username:</b> "+response.username+"<br>";
-	          str +="<b>id: </b>"+response.id+"<br>";
-	          str +="<b>Email:</b> "+response.email+"<br>";
-	          str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-	          str +="<input type='button' value='Logout' onclick='Logout();'/>";
-	          document.getElementById("status").innerHTML=str;
-	 
-	    });
-	    }
-	    function getPhoto()
-	    {
-	      FB.api('/me/picture?type=normal', function(response) {
-	 
-	          var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
-	          document.getElementById("status").innerHTML+=str;
-	 
-	    });
-	 
-	    }
-	    function Logout()
-	    {
-	        FB.logout(function(){document.location.reload();});
-	    }
-	 
-	  // Load the SDK asynchronously
-	  (function(d){
-	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement('script'); js.id = id; js.async = true;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     ref.parentNode.insertBefore(js, ref);
-	   }(document));
-	 
+
+		$(".votar").click(function(){
+			<?php 
+				$data = "";
+			    if (Auth::check()) {
+			        $data = Auth::user()->email;
+			    }
+			?>
+			console.log("<?php echo $data; ?>");
+		});
 	</script>
 
-	<div align="center">
-	<h2>Facebook OAuth Javascript Demo</h2>
-	 
-	<div id="status">
-	 Click on Below Image to start the demo: <br/>
-	<img src="http://hayageek.com/examples/oauth/facebook/oauth-javascript/LoginWithFacebook.png" style="cursor:pointer;" onclick="Login()"/>
-	</div>
-	 
-	<br/><br/><br/><br/><br/>
-	 
-	<div id="message">
-	Logs:<br/>
-	</div>
-	 
-	</div>
+	<script src="<?php echo $url?>/js/bootstrap.min.js"></script>
+	<script src="<?php echo $url?>/js/bootbox.min.js"></script>
+
+	<script type="text/javascript">
+		$(".menu-login").click(function(event){
+			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+			window.location = "http://epikureos.com/loginfb";
+		});
+		$(".menu-logout").click(function(event){
+			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+			window.location = "http://epikureos.com/logout";
+		});
+	</script>
 
 </body>
 </html>

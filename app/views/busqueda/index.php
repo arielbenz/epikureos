@@ -3,9 +3,7 @@
 
 	<?php include "app/views/header.php";?>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/busqueda.css" />
-		
-	<?php include "app/views/menu.php";
+	<?php
 		$nombres = array();
 	 	$latitudes = array();
 	 	$longitudes = array();
@@ -93,15 +91,6 @@
 			</form>
 		</div>
 
-		<!-- <div id="result-bar">
-			<div id="result-bar-etiquetas">
-				<p>Etiquetas</p>
-			</div>
-			<div id="result-bar-filter">
-				<p>Ordenar por</p>
-			</div>
-		</div> -->
-
 		<div id="results">
 		    
 		    <?php foreach ($lugares as $lugar): ?>
@@ -114,6 +103,25 @@
 	 				</div>
 	 				<div class="box-result-data">
 	 					<div class="data-left">
+	 						
+	 						<span class="lugar-ratings-stars">
+			                	<?php	
+								for ($star = 1; $star <= 5; $star++) { ?>
+			    					<span class="glyphicon glyphicon-star<?php
+			    						if($star <= $lugar->rating_cache) {
+			    							echo "";
+					    				} else {
+					    					echo "-empty";
+					    				}
+									?>">
+									</span>
+			    				<?php 
+			    				}
+			    				echo number_format($lugar->rating_cache, 1);
+			    				echo " estrellas";
+			    				?>
+		    				</span>
+
 	 						<div class="box-result-title">
 	 							<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>"> <?php echo $lugar->nombre; ?>  </a>
 	 						</div>
@@ -121,7 +129,6 @@
 	 							<?php echo $lugar->direccion; ?>
 	 						</div>
 	 					</div>
-	 					<!-- <div class="data-right"><a href="<?php echo $url?>/lugares/<?php echo $lugar->slug; ?>/vote">Votar</a></div> -->
 	 				</div>
 	 			</div>
 
@@ -148,13 +155,6 @@
 		</div>
 		
 	</section>
-
-	<!-- <section id="home-publicidad">
-		<article id="publicidad1" class="class-publi"></article>
-		<article id="publicidad2" class="class-publi"></article>
-		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article>
-	</section> -->
 
 	<!-- FOOTER -->
 

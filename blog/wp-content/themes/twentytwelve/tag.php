@@ -1,10 +1,6 @@
 
 <?php include "../app/views/header.php";?>
 
-<link rel="stylesheet" href="<?php echo $url;?>/css/novedades.css" />
-
-<?php include "../app/views/menu.php";?>
-
 	<section id="barra-novedades" class="barra-content">
 		<div id="barra">
 			<div id="barra-titulo">

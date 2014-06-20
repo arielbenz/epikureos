@@ -1,64 +1,138 @@
 
-	<!-- HEADER -->
+<?php include "app/views/header.php";?>
+
+	<?php
+
+		if ($actual == 'novedades') { ?>
+			
+			<section id="barra-novedades" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<div class="font-bold">NOVEDADES</div>
+					</div>
+				</div>
+			</section>
+
+		<?php
+
+		} else if($actual == 'laposta') { ?>
+
+			<section id="barra-laposta" class="barra-content">
+				<div id="barra">
+					<div id="barra-titulo">
+						<div class="font-normal">LA</div><div class="font-bold">POSTA</div>
+					</div>
+				</div>
+			</section>
 	
-	<?php include "app/views/header.php";?>
+	<?php } ?>
 
-	<link rel="stylesheet" href="<?php echo $url;?>/css/laposta.css" />
+	<div class="bar-blog"></div>
 
-	<?php include "app/views/menu.php";?>
+	<div id="container-post" class="container-<?php echo $actual;?>">
 
-	<!-- CONTENT -->
+		<div id="content-post" >
 
-	<section id="barra-laposta" class="barra-content">
-		<div id="barra">
-			<div id="barra-titulo">
-				<h2><b class="font-normal">LA</b><b class="font-bold">POSTA</b></h2>
-			</div>
-		</div>
-	</section>
+			<?php query_posts('category_name=laposta'); ?>
 
-	<section id="content-laposta">
+			<?php if (have_posts()) : ?>
 
-		<?php query_posts('category_name=laposta&showposts=5'); ?>
+		 		<?php while (have_posts()) : the_post(); ?>
 
-		<?php if (have_posts()) : ?>
+						<?php
 
-	 		<?php while (have_posts()) : the_post(); ?>
+							if ($actual == 'novedades') { ?>
 
-				<div class="post">
-			 		<!--titulo-->
-					<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-					<!--fin titulo-->
+								<div class="post-novedades">
+								
+								<!--imagen novedades-->
+								<div class="imagen-novedades">
+									<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+										if ($postimageurl) { ?>
+											<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+										<?php } else { ?> 
+											<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+									<?php } ?>
+								</div>
 
-					<h3><?php the_time('j F Y') ?></h3>
+								<div class="info-novedades">
+									<!--titulo-->
+									<div class="post-title">
+										<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+									</div>
+									
+									<!--fecha-->
+									<div class="post-fecha">
+										<?php the_time('j F Y') ?>
+									</div>
 
-					<!--post-->
-					<div class="post-info">
-						<?php the_content(); ?>
+									<!--post-->
+									<?php
+										if ($actual == 'novedades') { ?>
+											<div class="post-info">
+												<?php the_excerpt()?>
+											</div>
+									<?php
+										}
+									?>	
+								</div>
+
+							<?php
+
+							} else if($actual == 'laposta') { ?>
+
+								<div class="post-laposta">
+
+									<!--imagen novedades-->
+									<div class="imagen-laposta">
+
+										<!--fecha-->
+										<div class="post-fecha">
+											<p><?php the_time('j M Y') ?><p>
+										</div>
+
+										<figure>
+											<a href="<?php the_permalink(); ?>">
+											<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb-mini', true);
+												if ($postimageurl) { ?>
+													<img src="<?php echo $postimageurl; ?>"/>
+												<?php } else { ?> 
+													<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg"/> 
+											<?php } ?>
+											</a>
+										</figure>	
+									</div>
+									
+									<!--titulo-->
+									<a href="<?php the_permalink(); ?>">
+										<div class="imagen-info">
+											<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
+										</div>
+									</a>
+						<?php }	?>
+
+						</div>
+
+				<?php endwhile; ?>
+
+				<div id="pagination">
+					<div id="nav-pages">
+						<?php my_pagination(); ?>
 					</div>
 				</div>
 
-				<div class="meta">
-					<p><?php the_tags(); ?></p>
-				</div>
+			<?php else : ?>
+				<h1>Lo que buscas no se encuentra</h1>			
+			<?php endif; ?>
 
-			<?php endwhile; ?>
+		</div>
 
-			<?php twentyeleven_content_nav( 'nav-below' ); ?>
+		<?php
+			if ($actual == 'novedades') { 
+				get_sidebar();
+			}
+		?>
 
-		<?php else : ?>
-			<h1>Lo que buscas no se encuentra</h1>			
-		<?php endif; ?>
+	</div>
 
-	</section>
-
-	<section id="home-publicidad">
-		<article id="publicidad1" class="class-publi"></article>
-		<article id="publicidad2" class="class-publi"></article>
-		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article>
-	</section>
-
-	<!-- FOOTER -->
-
-	<?php include "app/views/footer.php";?>
+<?php include "app/views/footer.php";?>

@@ -1,0 +1,74 @@
+/*
+ * ===========================================
+ * COLORS
+ * ===========================================
+ */
+
+/*
+ * ===========================================
+ * Typography
+ * ===========================================
+ */
+
+$type-default: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$type-headings-default: "Utopia STD", "Times New Roman", Georgia, serif;
+$type-alternate: "Utopia STD", "Times New Roman", Georgia, serif;
+
+$default-line-height: 1.5rem;
+
+// =======
+// z-index
+// =======
+
+$z-above-top: 1005;
+$z-top: 1000;
+$z-middle-top: 15;
+$z-middle: 10;
+$z-middle-bottom: 5;
+$z-bottom: 0;
+$z-underneath: -5;
+
+// =============
+// Media Queries
+// =============
+
+$breakpoint-default-media: screen;
+$breakpoint-to-ems: true;
+
+$max-w: 320px;
+
+//portrait
+$min-dw: min-device-width $max-w;
+$max-dw: max-device-width 480px;
+$minmax-dw: $min-dw $max-dw;
+
+$bp-sm: 320px;
+$bp-small: 640px;
+$bp-smed: 768px;
+$bp-until-small: max-width $bp-small - 0.01;
+$bp-until-smed: max-width $bp-smed - 0.01;
+$bp-med: 800px;
+$bp-until-med: max-width $bp-med - 0.01;
+$bp-mlrg: 1000px;
+$bp-until-mlrg: max-width $bp-mlrg - 0.01;
+$bp-lrg: 1300px;
+$bp-x-lrg: 1600px;
+$bp-xx-lrg: 2000px;
+
+$bp-ad-med: 1219px;
+$bp-ad-until-med: max-width $bp-ad-med - 0.01;
+$bp-ad-small: 896px;
+$bp-ad-until-small: max-width $bp-ad-small - 0.01;
+
+// =============
+// Susy
+// =============
+// $susy: (
+//   columns: 16,
+//   gutters: 1/4,
+//   math: fluid,
+//   output: float,
+//   gutter-position: inside,
+//   global-box-sizing: border-box,
+//   gutter-override: 1.25rem
+// );
