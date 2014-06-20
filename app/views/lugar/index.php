@@ -121,7 +121,7 @@
               	<?php } ?>
 			</div>
             
-            <div class="row" id="post-review-box">
+            <div id="post-review-box">
 				<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
 					<div class="form-comment-rating">
 						<div class="form-comment">
@@ -142,7 +142,7 @@
 	                </div>
 
 					<div class="form-buttons">
-						<button class="btn btn-success <?php if (Auth::check()) { echo "btn-success-user"; } ?> btn-lg" type="submit">Aceptar</button>
+						<button class="button button-comment <?php if (Auth::check()) { echo "button-comment-user"; } ?>" type="submit">Aceptar</button>
 	                </div>
 	                <div class="lugar-rating-star">
 						<div class="text-right">
@@ -297,52 +297,78 @@
 	        });
 
 			$(".vote").click(function(event) {
-				var lugarid = <?php echo $lugar->id; ?>;
-				var ocasionid = $(this).attr("id");
-				var name = $(this).attr("name");
 
-				var params = {  'lugarid' : lugarid, 'ocasionid' : ocasionid, 'name' : name };
+				var user = "<?php echo Auth::check() ?>";
+				
+				if(user) {
+					var lugarid = <?php echo $lugar->id; ?>;
+					var ocasionid = $(this).attr("id");
+					var name = $(this).attr("name");
 
-			   	$.ajax({
-	                type: "POST",
-		            url: "<?php echo $lugar->slug; ?>/votelike",
-		            data: params,
-		            cache: false,
-		            success: function (data) {
-		            	if(data.message == "") {
-		            		var votos = data.votosLugar;
-			            	var ocasiones = data.totalOcasiones;
-			            	var html = "";
-			            	var voto = 0;
+					var params = {  'lugarid' : lugarid, 'ocasionid' : ocasionid, 'name' : name };
 
-			            	var j = 1;
-							for(var i in votos) {
-								voto = 0;
-								if(votos[i] > 0) {
-									voto = (votos[i]*100)/(data.totalVotos);
+				   	$.ajax({
+		                type: "POST",
+			            url: "<?php echo $lugar->slug; ?>/votelike",
+			            data: params,
+			            cache: false,
+			            success: function (data) {
+			            	if(data.message == "") {
+			            		var votos = data.votosLugar;
+				            	var ocasiones = data.totalOcasiones;
+				            	var html = "";
+				            	var voto = 0;
+
+				            	var j = 1;
+								for(var i in votos) {
+									voto = 0;
+									if(votos[i] > 0) {
+										voto = (votos[i]*100)/(data.totalVotos);
+									}
+									html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
+
+									j = j + 1;
 								}
-								html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
 
-								j = j + 1;
-							}
+								$(".lugar-ocasion-votos").html(html);
 
-							$(".lugar-ocasion-votos").html(html);
+								$(".meter > span").each(function() {
+									$(this)
 
-							$(".meter > span").each(function() {
-								$(this)
+								});
 
-							});
-
-							meterAnimate();
-		            	} else {
-		            		console.log(data.message);
-		            	}
-		            },
-		            error: function(data) {
-		                console.log("Error al votar");
-		            }  
-		        });
-				event.preventDefault();
+								meterAnimate();
+			            	} else {
+			            		console.log(data.message);
+			            	}
+			            },
+			            error: function(data) {
+			                console.log("Error al votar");
+			            }  
+			        });
+					event.preventDefault();
+				} else {
+					bootbox.dialog({
+						message: "Debe iniciar sesión para poder votar",
+					  	title: "Votación",
+					  	buttons: {
+						    danger: {
+					      	label: "Cancelar",
+					      	className: "btn-danger",
+					      	callback: function() {}
+					    },
+					    main: {
+					    	label: "Iniciar Sesión",
+					      	className: "btn-primary",
+					      	callback: function() {
+						      	<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+					         	window.location = "http://epikureos.com/loginfb";
+					      	}
+					    }
+					  }
+					});
+					event.preventDefault();
+				}
 		 	});
 
 			$(function(){
@@ -355,7 +381,6 @@
 				$(".glyphicon").click(function() {
 					console.log($("#ratings-hidden").val());
 				});
-
 
 				<?php
 					if($errors->first('comment') || $errors->first('rating')) {

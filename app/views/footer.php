@@ -83,7 +83,19 @@
 		});
 	</script>
 
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+	<script src="<?php echo $url?>/js/bootstrap.min.js"></script>
+	<script src="<?php echo $url?>/js/bootbox.min.js"></script>
+
+	<script type="text/javascript">
+		$(".menu-login").click(function(event){
+			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+			window.location = "http://epikureos.com/loginfb";
+		});
+		$(".menu-logout").click(function(event){
+			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+			window.location = "http://epikureos.com/logout";
+		});
+	</script>
 
 </body>
 </html>

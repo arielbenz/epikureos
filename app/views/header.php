@@ -33,6 +33,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
+	<link rel="stylesheet" href="<?php echo $url;?>/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 
 	<script src="<?php echo $url?>/js/jquery-1.11.0.min.js"></script>
@@ -109,12 +110,12 @@
 						?>
 								<li>
 									<img src="<?php echo Auth::user()->photo; ?>" style="width: 30px; position: relative; top: 9px; left: 45px;" alt="">
-									<a class="menu-login" href="/logout">Cerrar Sesión</a>
+									<div class="menu-logout">Cerrar Sesión</div>
 								</li>
 		    			<?php
 		    				} else {
 		    			?>
-		    					<li><a class="menu-login" href="/loginfb">Iniciar Sesión</a></li>
+		    					<li><div class="menu-login">Iniciar Sesión</div></li>
 		    			<?php
 		    			}
 		    		}

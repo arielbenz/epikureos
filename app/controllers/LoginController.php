@@ -6,7 +6,7 @@ class LoginController extends BaseController {
 	    $facebook = new Facebook(Config::get('facebook'));
 	    $params = array(
 	        'redirect_uri' => url('/loginfb/callback'),
-	        'scope' => 'public_profile,email',
+	        'scope' => 'public_profile, email',
 	    );
 	    return Redirect::to($facebook->getLoginUrl($params));
 	}
@@ -46,20 +46,16 @@ class LoginController extends BaseController {
 
 	    $user = $profile->user;
 	    Auth::login($user);
-	    $_SESSION["user_id"] = $user->id;
-	    $_SESSION["user_photo"] = $user->photo;
 	    $data = array();
 	    if (Auth::check()) {
 	        $data = Auth::user();
-	        return Redirect::to('/');
+	        return Redirect::to($_SESSION['lastpage']);
 	    }
 	}
 
 	public function logoutfb() {
 	    Auth::logout();
-	    unset($_SESSION["user_id"]);
-	    unset($_SESSION["user_photo"]);
-	    return Redirect::to('/');
+	    return Redirect::to($_SESSION['lastpage']);
 	}
 
 }

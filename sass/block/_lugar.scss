@@ -116,7 +116,8 @@
         color: white;
         float: left;
         font-size: 25px;
-        margin-left: 20px;
+        margin-left: 15px;
+        margin-top: 1px;
     }
     ul {
         list-style: none;
@@ -199,32 +200,20 @@
     content: "\e007";
 }
 
-.btn-cancel {
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
-    padding: 5px 0px;
-    font-size: 16px;
-    line-height: 1.33;
-    margin-right: 10px;
-    display: inline-block;
-    width: 90px;
-}
-
-.btn-lg {
+.button {
     padding: 5px 0px;
     font-size: 16px;
     line-height: 1.33;
     width: 90px;
 }
 
-.btn-success {
+.button-comment {
     color: #fff;
     background-color: #BBB;
     border-color: #BBB;
 }
 
-.btn-success-user {
+.button-comment-user {
     background-color: #58ba48;
     border-color: #58ba48;
 }
@@ -275,6 +264,7 @@
 }
 
 .form-control {
+    font-size: 16px;
     height: 130px !important;
     width: 680px;
     padding: 10px;
