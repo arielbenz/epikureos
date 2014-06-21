@@ -1,6 +1,6 @@
 .laposta {
     #content-post {
-        background: #FFF;
+        background: white;
         display: inline-block;
         height: 100%;
         margin-right: 25px;
@@ -11,20 +11,20 @@
 
 .imagen-info {
     background: rgba(37, 37, 37, 0.7);
-    color: #FFF;
+    color: white;
     height: 55px;
     position: absolute;
     top: 211px;
     width: 380px;
     h2 {
-        font-family: "Open Sans Light";
+        font-family: $openSans-light;
         font-size: 18px;
         margin: 0;
         padding-left: 5px;
         padding-right: 5px;
     }
     a {
-        color: #DDD;
+        color: $gray-middle-four;
         text-decoration: none;
     }
 }
@@ -38,23 +38,23 @@
     vertical-align: top;
     .post-fecha {
         background: rgba(37, 37, 37, 0.9);
-        color: #FFF;
-        font-family: "Open Sans Regular";
+        color: white;
+        font-family: $openSans-regular;
         width: 380px;
         p {
             text-align: right;
             padding-right: 10px;
             font-size: 14px;
-            font-family: "Open Sans Light";
+            font-family: $openSans-light;
         }
     }
 }
 
 .page-numbers.current {
-    background: #58ba48;
-    color: #fff;
+    background: $green-dark;
+    color: white;
 }
 
 .page-numbers:hover {
-    background: #58ba48;
+    background: $green-dark;
 }

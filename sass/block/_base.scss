@@ -12,14 +12,14 @@ article, footer, header, nav, section {
 
 body {
     background-repeat: repeat;
-    color: #000;
-    font-family: "Open Sans Regular", sans-serif;
+    color: $gray-dark;
+    font-family: $openSans-regular;
     font-size: 16px;
     text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "TitilliumWeb-Regular";
+    font-family: $titillium-regular;
     margin: 0;
     line-height: normal;
 }
@@ -29,7 +29,7 @@ p {
 }
 
 a {
-    color: #252525;
+    color: $gray-dark;
     text-decoration: none;
 }
 
@@ -44,7 +44,7 @@ ul {
 }
 
 .header {
-    background: #252525;
+    background: $gray-dark;
     height: 70px;
     width: 100%;
     #header-nav {
@@ -67,9 +67,9 @@ ul {
                 padding: 3px 0;
                 color: white;
                 display: inline-block;
-                font-family: "TitilliumWeb-Regular";
+                font-family: $titillium-regular;
                 width: 110px;
-                transition: all 0.5s ease;
+                @include transition(all, 0.5s, ease);
                 &:hover {
                     background: #343031;
                 }
@@ -79,8 +79,8 @@ ul {
                 &:hover:after {
                     background: #3b5998;
                     bottom: -45px;
-                    color: #fff;
-                    content: "Iniciá sesión con Facebook";
+                    color: white;
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -102,15 +102,15 @@ ul {
                 li {
                     display: inline-block;
                     a {
-                        border-top: 5px solid #252525;
+                        border-top: 5px solid $gray-dark;
                         color: #dfdfdf;
                         display: inline-block;
-                        font-family: "TitilliumWeb-Regular";
+                        font-family: $titillium-regular;
                         font-size: 16px;
                         margin: 0;
                         padding: 20.5px 0;
                         width: 110px;
-                        transition: all 0.5s ease;
+                        @include transition(all, 0.5s, ease);
                         &:hover {
                             background: #343031;
                         }
@@ -124,29 +124,29 @@ ul {
             }
             #menu-novedades {
                 a {
-                    border-top: 5px solid #df3726;
+                    border-top: 5px solid $red-dark;
                 }
             }
             #menu-laposta {
                 a {
-                    border-top: 5px solid #58ba48;
+                    border-top: 5px solid $green-dark;
                 }
             }
             #menu-contacto {
                 a {
-                    border-top: 5px solid #55c6f2;
+                    border-top: 5px solid $blue-light;
                 }
             }
             #menu-quees {
                 a {
-                    border-top: 5px solid #f28422;
+                    border-top: 5px solid $orange-middle;
                 }
             }
         }
         #ciudad {
             display: inline-block;
             float: right;
-            font-family: "TitilliumWeb-Regular";
+            font-family: $titillium-regular;
             height: 70px;
             position: relative;
             right: 10px;
@@ -194,7 +194,7 @@ ul {
         margin: 0 auto;
         width: 1200px;
         #barra-titulo {
-            color: #FFF;
+            color: white;
             font-size: 40px;
             float: left;
             position: relative;
@@ -212,13 +212,13 @@ ul {
 }
 
 #barra-novedades {
-    background: #df3726;
+    background: $red-dark;
     height: 60px;
     width: 100%;
 }
 
 #barra-laposta {
-    background: #58ba48;
+    background: $green-dark;
     height: 60px;
     width: 100%;
 }
@@ -228,12 +228,12 @@ ul {
 
 .font-bold {
     display: inline-block;
-    font-family: "TitilliumWeb-Bold";
+    font-family: $titillium-bold;
 }
 
 .font-normal {
     display: inline-block;
-    font-family: "TitilliumWeb-Thin";
+    font-family: $titillium-thin;
 }
 
 #home-search {
@@ -251,7 +251,7 @@ ul {
             height: 100%;
         }
         #nav-search {
-            font-family: "TitilliumWeb-Regular";
+            font-family: $titillium-regular;
             margin: 0 auto;
             padding-right: 10px;
             ul {
@@ -260,7 +260,7 @@ ul {
                     a {
                         background-color: #474747;
                         @include border-radius(5px);
-                        color: #FFF;
+                        color: white;
                         display: inline-block;
                         font-size: 16px;
                         margin: 0 0 10px 10px;
@@ -270,20 +270,20 @@ ul {
                         @include text-shadow(#cccccc -0.5px -0.5px 1px);
                         @include transition(background-color, 0.3s, ease-out);
                         &:hover {
-                            background-color: #f08421;
+                            background-color: $orange-dark;
                         }
                     }
                 }
             }
         }
         button {
-            background-color: #f08421;
+            background-color: $orange-dark;
             border: none;
             @include border-radius(0 5px 5px 0);
-            color: #FFF;
+            color: white;
             cursor: pointer;
             float: right;
-            font-family: "Open Sans Regular";
+            font-family: $openSans-regular;
             font-size: 16px;
             font-weight: bold;
             height: 50px;
@@ -294,17 +294,17 @@ ul {
             width: 110px;
             @include text-shadow(rgba(0, 0, 0, 0.3) 0 -1px 0);
             &:hover {
-                background: #df3726;
+                background: $red-dark;
                 &:before {
-                    border-right-color: #df3726;
+                    border-right-color: $red-dark;
                 }
             }
             &:active, &:focus {
-                background: #df3726;
+                background: $red-dark;
             }
             &:before {
                 content: "";
-                border-color: transparent #f28422 transparent;
+                border-color: transparent $orange-middle;
                 border-style: solid solid solid none;
                 border-width: 8px 8px 8px 0;
                 left: -6px;
@@ -312,7 +312,7 @@ ul {
                 top: 17px;
             }
             &:focus:before {
-                border-right-color: #df3726;
+                border-right-color: $red-dark;
             }
         }
         input {
@@ -321,7 +321,7 @@ ul {
             border: none;
             color: #888;
             float: left;
-            font-family: "TitilliumWeb-Thin";
+            font-family: $titillium-thin;
             font-style: normal;
             font-size: 20px;
             height: 30px;
@@ -329,11 +329,11 @@ ul {
             width: 370px;
             &:focus {
                 outline: 0;
-                background: #FFF;
+                background: white;
                 @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.8));
             }
             &:required {
-                box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+                box-shadow: 0px 0px 3px #cccccc, 0 10px 15px $gray-middle-two inset;
             }
         }
     }
@@ -350,7 +350,7 @@ ul {
 }
 
 #container-post {
-    background: #FFF;
+    background: white;
     height: 100%;
     margin: 0 auto;
     margin-bottom: 40px;
@@ -361,7 +361,7 @@ ul {
 
 .container-laposta, .container-novedades {
     #content-post {
-        background: #FFF;
+        background: white;
         display: inline-block;
         height: 100%;
         margin-right: 25px;
@@ -395,7 +395,7 @@ ul {
     width: 1200px;
     #promo {
         background: url("../img/imagen-left.png") repeat 100% center;
-        border: 8px solid #EEE;
+        border: 8px solid $gray-middle-two;
         display: inline-block;
         float: left;
         height: 234px;
@@ -403,7 +403,7 @@ ul {
     }
     #lugar {
         background: url("../img/imagen-right.jpg") repeat 100% center;
-        border: 8px solid #EEE;
+        border: 8px solid $gray-middle-two;
         display: inline-block;
         float: right;
         height: 234px;
@@ -431,7 +431,7 @@ ul {
         }
         .title-laposta {
             background: rgba(37, 37, 37, 0.7);
-            color: #FFF;
+            color: white;
             height: 130px;
             line-height: 200%;
             margin-left: 11px;
@@ -443,21 +443,22 @@ ul {
                 margin-top: 16px;
                 width: 650px;
                 a {
-                    color: #FFF;
+                    color: white;
                 }
                 h2 {
-                    color: #FFF;
-                    font-family: "TitilliumWeb-SemiBold";
+                    color: white;
+                    font-family: $titillium-semiBold;
                     font-size: 30px;
                     padding-left: 20px;
                     text-align: left;
                     text-transform: uppercase;
                 }
                 .extract {
-                    font-family: "Open Sans Light";
+                    font-family: $openSans-light;
                     font-size: 16px;
                     padding-left: 20px;
                     text-align: left;
+                    line-height: normal;
                 }
             }
             .calendar {
@@ -492,7 +493,7 @@ ul {
             h3 {
                 border: 0;
                 color: #7a7675;
-                font-family: "TitilliumWeb-SemiBold";
+                font-family: $titillium-semiBold;
                 font-size: 26px;
                 padding-top: 0;
                 text-align: left;
@@ -512,7 +513,7 @@ ul {
                 /* Firefox 10+, Firefox on Android */
                 filter: gray;
                 /* IE 6-9 */
-                transition: all 0.3s ease;
+                @include transition(all, 0.3s, ease);
                 &:hover {
                     @include filter(grayscale(0%));
                     filter: none;
@@ -522,13 +523,12 @@ ul {
         .title-noticia {
             height: 75px;
             line-height: 180%;
-            margin-left: 5px;
             text-align: left;
             h2 {
                 line-height: inherit;
                 a {
                     color: #3d3d3d;
-                    font-family: "Open Sans Light";
+                    font-family: $openSans-light;
                     font-size: 20px;
                     margin: 0;
                 }
@@ -539,15 +539,15 @@ ul {
             color: #eff0f0;
             height: 35px;
             h4 {
-                color: #FFF;
-                font-family: "Open Sans Light";
+                color: white;
+                font-family: $openSans-light;
                 font-size: 24px;
                 margin-left: 10px;
                 position: relative;
                 text-align: left;
             }
             a {
-                color: #FFF;
+                color: white;
             }
         }
     }
@@ -562,7 +562,7 @@ ul {
     margin: 0 auto;
     width: 1200px;
     .class-publi {
-        background: #BBB;
+        background: $gray-middle-three;
         display: inline-block;
         height: 190px;
         position: relative;
@@ -585,7 +585,7 @@ ul {
 /*------------------------------------------*/
 
 #partner-footer {
-    background: #eee;
+    background: $gray-middle-two;
     height: 200px;
 }
 
@@ -596,7 +596,7 @@ ul {
 }
 
 .partner-image {
-    background-color: #DDD;
+    background-color: $gray-middle-four;
     display: inline-block;
     height: 150px;
     margin-left: 10px;
@@ -605,12 +605,12 @@ ul {
 }
 
 footer {
-    background: #252525;
-    color: #FFF;
-    font-family: "Open Sans Regular";
+    background: $gray-dark;
+    color: white;
+    font-family: $openSans-regular;
     max-width: 100%;
     #home-footer {
-        background: #252525;
+        background: $gray-dark;
         height: 225px;
         margin: 0 auto;
         margin-top: 30px;
@@ -625,7 +625,7 @@ footer {
         }
         #footer-links {
             h3 {
-                color: #FFF;
+                color: white;
                 font-size: 26px;
                 margin: 10px 0 10px 0;
                 text-align: left;
@@ -636,7 +636,7 @@ footer {
                     a {
                         color: white;
                         &:hover {
-                            color: #f08421;
+                            color: $orange-dark;
                         }
                     }
                 }
@@ -707,9 +707,9 @@ footer {
             }
             .input {
                 input {
-                    background-color: #252525;
-                    border: 1px solid #FFF;
-                    color: #FFF;
+                    background-color: $gray-dark;
+                    border: 1px solid white;
+                    color: white;
                     font-size: 100%;
                     font-family: inherit;
                     height: 30px;
@@ -719,7 +719,7 @@ footer {
                     width: 247px;
                     @include transition(background, 0.3s, ease-out);
                     &:hover {
-                        background-color: #f08421;
+                        background-color: $orange-dark;
                     }
                 }
             }
@@ -782,9 +782,9 @@ footer {
 #searchform {
     padding-top: 15px;
     label {
-        color: #FFF;
+        color: white;
         display: block;
-        font-family: "Open Sans Bold";
+        font-family: $openSans-bold;
         font-size: 25px;
     }
     #s {
@@ -800,13 +800,13 @@ footer {
 }
 
 #categories-2 {
-    background-color: #252525;
+    background-color: $gray-dark;
     height: 125px;
     margin: 0 auto;
     width: 275px;
     h3 {
-        color: #FFF;
-        font-family: "Open Sans Bold";
+        color: white;
+        font-family: $openSans-bold;
         font-size: 25px;
         padding-top: 10px;
     }
@@ -818,7 +818,7 @@ footer {
 }
 
 .next-pages {
-    background-color: #DDD;
+    background-color: $gray-middle-four;
     margin: 0 auto;
     height: 15px;
     padding-top: 2px;
@@ -828,7 +828,7 @@ footer {
 /* NAVIGATION */
 
 #pagination {
-    background-color: #FFF;
+    background-color: white;
     margin-top: 20px;
     height: 100%;
     width: 100%;
@@ -841,8 +841,8 @@ footer {
 }
 
 .page-numbers {
-    color: #000;
-    background: #d6d6d6;
+    color: $gray-dark;
+    background: $gray-middle-five;
     display: block;
     float: left;
     padding: 0.3em 0.5em;
@@ -859,7 +859,7 @@ img.alignright,
 .alignright img {
     box-sizing: border-box;
     padding: 5px;
-    border: 1px solid #EEE;
+    border: 1px solid $gray-middle-two;
 }
 
 .post-info {

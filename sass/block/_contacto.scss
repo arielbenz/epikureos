@@ -1,18 +1,18 @@
 #barra-contacto {
-    background: #55c6f2;
+    background: $blue-light;
     height: 60px;
     width: 100%;
 }
 
 #content-contacto {
-    border-top: 2px solid #DDD;
+    border-top: 2px solid $gray-middle-four;
     height: 480px;
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 40px;
     width: 1200px;
     h2 {
-        color: #807e7f;
+        color: $gray-middle;
         font-size: 30px;
         margin: 0;
         text-align: left;
@@ -22,7 +22,7 @@
         text-align: left;
     }
     #header-contacto {
-        color: #000;
+        color: $gray-dark;
         margin-top: 10px;
     }
     #info-contacto {
@@ -37,7 +37,7 @@
             #info-mail {
                 color: #f38a2f;
                 strong {
-                    color: #000;
+                    color: $gray-dark;
                 }
             }
         }
@@ -82,15 +82,15 @@
         #form-contacto {
             margin-top: 15px;
             input {
-                font-family: "TitilliumWeb-Light";
+                font-family: $titillium-light;
                 font-style: oblique;
             }
             #form-enviar {
-                background: #55c6f2;
+                background: $blue-light;
                 @include border-radius(3px);
-                color: #FFF;
+                color: white;
                 float: right;
-                font-family: "TitilliumWeb-Bold";
+                font-family: $titillium-bold;
                 font-style: normal;
                 font-size: 23px;
                 height: 40px;
@@ -108,7 +108,7 @@
             }
             #form-comentario {
                 @include border-radius(3px);
-                font-family: "TitilliumWeb-Light";
+                font-family: $titillium-light;
                 font-style: oblique;
                 font-size: 16px;
                 height: 90px;

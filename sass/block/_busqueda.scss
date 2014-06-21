@@ -36,8 +36,8 @@
         text-align: left;
         width: 49.8%;
         h3 {
-            color: #807e7f;
-            font-family: "TitilliumWeb-Regular";
+            color: $gray-middle;
+            font-family: $titillium-regular;
             margin-top: 10px;
         }
         h4 {
@@ -58,7 +58,7 @@
             margin: 0 auto;
             margin-top: 22px;
             input {
-                border: 2px solid #DDD;
+                border: 2px solid $gray-middle-four;
                 font-size: 18px;
                 height: 35px;
                 padding: 5px;
@@ -89,7 +89,7 @@
             }
         }
         .box-result {
-            background-color: #FFF;
+            background-color: white;
             border: 1.7px solid #cbc9ca;
             display: inline-block;
             height: 150px;
@@ -115,19 +115,19 @@
                 .data-left {
                     float: left;
                     .lugar-ratings-stars {
-                        font-family: "Open Sans Light";
+                        font-family: $openSans-light;
                         margin-top: 11px;
                         margin-bottom: 10px;
                     }
                     .box-result-title {
                         font-size: 19px;
-                        font-family: "Open Sans Bold";
+                        font-family: $openSans-bold;
                         margin-top: 7px;
                         text-align: left;
                     }
                     .box-result-address {
                         font-size: 15px;
-                        font-family: "Open Sans Light";
+                        font-family: $openSans-light;
                         margin-top: 7px;
                         text-align: left;
                     }
@@ -154,8 +154,8 @@
     }
     a {
         text-decoration: none;
-        color: #000;
-        background: #d6d6d6;
+        color: $gray-dark;
+        background: $gray-middle-five;
         @include transition(background, 0.3s, ease);
         &:hover {
             background: #fbb714;
@@ -164,12 +164,12 @@
     span {
         color: #999;
         border-color: #999;
-        background: #d6d6d6;
+        background: $gray-middle-five;
     }
     .active {
         span {
             background: #fbb714;
-            color: #fff;
+            color: white;
         }
     }
     & {

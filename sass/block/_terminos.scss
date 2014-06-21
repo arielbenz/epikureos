@@ -1,12 +1,12 @@
 #barra-terminos {
-    background: #f28422;
+    background: $orange-middle;
     height: 60px;
     width: 100%;
 }
 
 #content-terminos {
     background: #FbFbFb;
-    font-family: "Open Sans Regular";
+    font-family: $openSans-regular;
     font-size: 17px;
     height: 100%;
     margin: 20px auto;

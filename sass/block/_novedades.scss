@@ -7,7 +7,7 @@
 }
 
 .post-novedades:hover {
-    background: #F6F6F6;
+    background: $gray-middle-two;
 }
 
 .imagen-novedades
@@ -28,7 +28,7 @@
 
 .info-novedades .post-title h2
 {
-    font-family: "Open Sans Bold";
+    font-family: $openSans-bold;
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -37,25 +37,20 @@
 
 .info-novedades .post-title a
 {
-    color: #252525;
+    color: $gray-dark;
     text-decoration: none;
-
-    -webkit-transition: color .3s ease;
-       -moz-transition: color .3s ease;
-        -ms-transition: color .3s ease;
-         -o-transition: color .3s ease;
-            transition: color .3s ease;
+    @include transition(color, 0.3s, ease);
 }
 
 .info-novedades .post-title a:hover
 {
-    color: #df3726;
+    color: $red-dark;
 }
 
 .info-novedades .post-fecha
 {
     color: #959595;
-    font-family: "Open Sans Regular";
+    font-family: $openSans-regular;
     font-size: 15px;
     font-weight: bold;
     font-style: oblique;
@@ -69,10 +64,10 @@
 }
 
 .page-numbers.current {
-    background: #df3726;
-    color: #fff;
+    background: $red-dark;
+    color: white;
 }
 
 .page-numbers:hover {
-    background: #df3726;
+    background: $red-dark;
 }

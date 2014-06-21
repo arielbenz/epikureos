@@ -1,5 +1,5 @@
 #barra-lugar {
-    background: #58ba48;
+    background: $green-dark;
     height: 60px;
     width: 100%;
 }
@@ -27,7 +27,7 @@
 }
 
 #lugar-title {
-    background-color: #F6F6F6;
+    background-color: $gray-middle-two;
     height: 260px;
 }
 
@@ -39,11 +39,11 @@
     float: left;
     margin-left: 15px;
     & #lugar-direccion {
-        color: #807e7f;
-        font-family: "Open Sans Bold";
+        color: $gray-middle;
+        font-family: $openSans-bold;
     }
     & #lugar-tel {
-        color: #807e7f;
+        color: $gray-middle;
     }
     & #lugar-web {
         color: #f18932;
@@ -57,7 +57,7 @@
     margin-top: 20px;
     h1 {
         color: #656565;
-        font-family: "Open Sans Bold";
+        font-family: $openSans-bold;
         font-size: 35px;
         line-height: 1.2;
     }
@@ -102,13 +102,13 @@
 }
 
 #lugar-fotos {
-    background-color: #BBB;
+    background-color: $gray-middle-three;
     height: 415px;
     width: 430px;
 }
 
 #lugar-links {
-    background-color: #BBB;
+    background-color: $gray-middle-three;
     height: 40px;
     margin-top: 25px;
     width: 430px;
@@ -151,7 +151,7 @@
 }
 
 .comentarios-lugar {
-    background-color: #F6F6F6;
+    background-color: $gray-middle-two;
     display: inline-block;
     margin: 30px 0;
     height: auto;
@@ -159,7 +159,7 @@
     padding: 0;
     #comentarios-links {
         padding: 20px;
-        border-top: 1px solid #DDD;
+        border-top: 1px solid $gray-middle-four;
         margin: 0 20px;
     }
 }
@@ -171,7 +171,7 @@
 
 .stars {
     font-size: 24px;
-    color: #BBB;
+    color: $gray-middle-three;
     float: right;
     margin-left: 20px;
 }
@@ -184,7 +184,7 @@
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: $glyphicons-halflings;
     -webkit-font-smoothing: antialiased;
     font-style: normal;
     font-weight: normal;
@@ -208,18 +208,19 @@
 }
 
 .button-comment {
-    color: #fff;
-    background-color: #BBB;
-    border-color: #BBB;
+    color: white;
+    background-color: $gray-middle-three;
+    border-color: $gray-middle-three;
+    border-color: $gray-middle-three;
 }
 
 .button-comment-user {
-    background-color: #58ba48;
-    border-color: #58ba48;
+    background-color: $green-dark;
+    border-color: $green-dark;
 }
 
 .review {
-    border-top: 1px solid #DDD;
+    border-top: 1px solid $gray-middle-four;
     padding: 20px;
     margin: 0 20px;
 }
@@ -252,9 +253,9 @@
 }
 
 .btn-leave-comment {
-    color: #fff;
-    background-color: #58ba48;
-    border-color: #58ba48;
+    color: white;
+    background-color: $green-dark;
+    border-color: $green-dark;
     padding: 12px;
     margin-left: 20px;
 }
@@ -370,12 +371,12 @@
 }
 
 .voteocasion-up {
-    border-bottom: 15px solid #EEE;
+    border-bottom: 15px solid $gray-middle-two;
     margin-bottom: 18px;
 }
 
 .voteocasion-down {
-    border-top: 15px solid #EEE;
+    border-top: 15px solid $gray-middle-two;
 }
 
 .lugar-rating-right {
@@ -389,7 +390,7 @@
     display: inline-block;
     text-align: left;
     width: 50%;
-    font-family: "Open Sans Bold";
+    font-family: $openSans-bold;
 }
 
 .lugar-votos-voto {
@@ -413,8 +414,8 @@
     & > span {
         display: block;
         height: 100%;
-        background-color: #f1a165;
-        @include background-image(linear-gradient(#f1a165, #f36d0a));
+        background-color: $orange-light;
+        @include background-image(linear-gradient($orange-light, #f36d0a));
         position: relative;
         overflow: hidden;
     }
@@ -459,8 +460,8 @@
 
 
 .orange > span {
-    background-color: #f1a165;
-    @include background-image(linear-gradient(#f1a165, #f36d0a));
+    background-color: $orange-light;
+    @include background-image(linear-gradient($orange-light, #f36d0a));
 }
 
 .nostripes > span > span, .nostripes > span:after {

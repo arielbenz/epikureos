@@ -3,7 +3,7 @@
     h1 {
         text-align: left;
         a {
-            font-family: "TitilliumWeb-Bold";
+            font-family: $titillium-bold;
             font-size: 35px;
             line-height: 110%;
             margin: 0;
@@ -15,16 +15,16 @@
     .post-info {
         h3 {
             font-size: 25px;
-            font-family: "TitilliumWeb-Bold";
+            font-family: $titillium-bold;
             margin-top: 15px;
         }
         a {
-            color: #f08421;
+            color: $orange-dark;
         }
         p {
             margin-top: 20px;
             strong {
-                font-family: "Open Sans Bold";
+                font-family: $openSans-bold;
             }
         }
     }

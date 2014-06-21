@@ -1,12 +1,12 @@
 #barra-quees {
-    background: #f28422;
+    background: $orange-middle;
     height: 60px;
     width: 100%;
 }
 
 #content-quees {
     background: #FbFbFb;
-    font-family: "Open Sans Regular";
+    font-family: $openSans-regular;
     font-size: 17px;
     height: 100%;
     margin: 20px auto;
@@ -17,6 +17,6 @@
         margin: 20px 0;
     }
     b, a {
-        color: #f28422;
+        color: $orange-middle;
     }
 }

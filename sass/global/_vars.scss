@@ -4,15 +4,36 @@
  * ===========================================
  */
 
+$gray-dark: #252525;
+$gray-middle: #807e7f;
+$gray-middle-two: #F6F6F6;
+$gray-middle-three: #BBB;
+$gray-middle-four: #DDD;
+$gray-middle-five: #D6D6D6;
+$orange-dark: #f08421;
+$orange-middle: #f28422;
+$orange-light: #f1a165;
+$red-dark: #df3726;
+$green-dark: #58ba48;
+$blue-light: #55c6f2;
+
 /*
  * ===========================================
  * Typography
  * ===========================================
  */
 
-$type-default: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$type-headings-default: "Utopia STD", "Times New Roman", Georgia, serif;
-$type-alternate: "Utopia STD", "Times New Roman", Georgia, serif;
+
+$openSans-light: 		"Open Sans Light";
+$openSans-regular: 		"Open Sans Regular";
+$openSans-bold: 		"Open Sans Bold";
+$titillium-bold: 		"TitilliumWeb-Bold";
+$titillium-semiBold: 	"TitilliumWeb-SemiBold";
+$titillium-light: 		"TitilliumWeb-Light";
+$titillium-thin: 		"TitilliumWeb-Thin";
+$titillium-regular: 	"TitilliumWeb-Regular";
+$titillium-semiBold: 	"TitilliumWeb-SemiBold";
+$glyphicons-halflings: 	"Glyphicons Halflings";
 
 $default-line-height: 1.5rem;
 
