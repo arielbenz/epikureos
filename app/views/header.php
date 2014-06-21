@@ -115,7 +115,7 @@
 		    			<?php
 		    				} else {
 		    			?>
-		    					<li><div class="menu-login">Iniciar Sesión</div></li>
+		    					<li><div class="menu-login tooltip"><span>Iniciar Sesión</span></div></li>
 		    			<?php
 		    			}
 		    		}

@@ -14,14 +14,14 @@ class LoginController extends BaseController {
 	public function callback_loginfb() {
 	    $code = Input::get('code');
 	    if (strlen($code) == 0) {
-	        return Redirect::to('/')->with('message', 'There was an error communicating with Facebook');
+	        return Redirect::to('/')->with('message', 'Ha ocurrido un error con Facebook, intentelo más tarde.');
 	    }
 	 
 	    $facebook = new Facebook(Config::get('facebook'));
 	    $uid = $facebook->getUser();
 	 
 	    if ($uid == 0) {
-	        return Redirect::to('/')->with('message', 'There was an error');
+	        return Redirect::to('/')->with('message', 'Ha ocurrido un error inesperado.');
 	    }
 	 
 	    $me = $facebook->api('/me');

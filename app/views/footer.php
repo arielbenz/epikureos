@@ -97,5 +97,25 @@
 		});
 	</script>
 
+	<?php
+	if(Session::has('message')) {
+		?>
+		<script>
+			bootbox.dialog({
+				message: "<?php echo Session::get('message'); ?>",
+			  	title: "Error",
+			  	buttons: {
+				    danger: {
+			      	label: "Aceptar",
+			      	className: "btn-primary",
+			      	callback: function() {}
+			    }
+			  }
+			});
+		</script>
+		<?php
+	}    
+	?>
+
 </body>
 </html>
