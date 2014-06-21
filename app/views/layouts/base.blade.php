@@ -10,7 +10,7 @@
 	<meta charset="utf-8" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.complete.css') }}" />
 </head>
 <body>
 

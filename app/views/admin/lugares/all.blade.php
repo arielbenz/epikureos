@@ -1,42 +1,42 @@
 @extends('admin.layouts.base')
 
 @section('content')
-	<table class="table">
+	<table class="table table-hover table-bordered table-striped">
 		<thead>
 			<tr>
-				<td>Nombre</td>
-				<td>Descripción</td>
-				<td>Longitud</td>
-				<td>Latitud</td>
-				<td>Dirección</td>
-				<td>Teléfono</td>
-				<td>Facebook</td>
-				<td>Estado</td>
+				<th>Nombre</th>
+				<th>Descripción</th>
+				<th>Dirección</th>
+				<th>Teléfono</th>
+				<th>Facebook</th>
+				<th>Estado</th>
+				<th>Action</th>
 			</tr>
-			
+		</thead>
+		<tbody>
 			@foreach($lugares as $lugar)
 			<tr>
-				<td><a href="/admin/lugares/{{$lugar->id}}">{{$lugar->nombre}}</a></td>
+				<td>{{$lugar->nombre}}</td>
 				@if($lugar->descripcion == null)
 					<td><span></span></td>
 				@else
 					<td><span class="glyphicon glyphicon-ok"></span></td>
 				@endif
-				<td>{{$lugar->longitud}}</td>
-				<td>{{$lugar->latitud}}</td>
 				<td>{{$lugar->direccion}}</td>
 				<td>{{$lugar->telefono}}</td>
 				<td>{{$lugar->facebook}}</td>
-				
 				@if($lugar->estado == 0)
 					<td><span></span></td>
 				@else
 					<td><span class="glyphicon glyphicon-ok"></span></td>
 				@endif
+				<td><a href="/admin/lugares/{{$lugar->id}}">Editar</a></td>
 			</tr>
 			@endforeach
-		</thead>
+		</tbody>
 	</table>
 
-	{{$lugares->links()}}
+	<div class="row">
+    	{{$lugares->links()}}	
+    </div>
 @stop

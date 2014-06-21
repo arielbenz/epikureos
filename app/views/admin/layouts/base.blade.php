@@ -10,7 +10,7 @@
 	<meta charset="utf-8" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.complete.css') }}" />
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-2 col-lg-offset-1">
+			<div class="col-lg-1 col-lg-offset-1">
 				<h3>Menú principal</h3>
 				<ul>
 					<li><a href="{{URL::to('/admin')}}">Inicio</a></li>
@@ -39,7 +39,7 @@
 				</ul>
 			</div>
 
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 				@yield('content')
 			</div>
 		</div>
