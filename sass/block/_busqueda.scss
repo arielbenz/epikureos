@@ -102,35 +102,30 @@
             }
             .box-result-image {
                 display: inline-block;
-                height: 125px;
                 margin-top: 12.5px;
-                width: 200px;
+                width: 227px;
             }
             .box-result-data {
                 display: inline-block;
-                float: right;
-                height: 150px;
                 vertical-align: top;
                 width: 338px;
-                .data-left {
-                    float: left;
-                    .lugar-ratings-stars {
-                        font-family: $openSans-light;
-                        margin-top: 11px;
-                        margin-bottom: 10px;
-                    }
-                    .box-result-title {
-                        font-size: 19px;
-                        font-family: $openSans-bold;
-                        margin-top: 7px;
-                        text-align: left;
-                    }
-                    .box-result-address {
-                        font-size: 15px;
-                        font-family: $openSans-light;
-                        margin-top: 7px;
-                        text-align: left;
-                    }
+                margin-top: 12px;
+                text-align: left;
+                .lugar-ratings-stars {
+                    font-family: $openSans-light;
+                    margin-top: 11px;
+                    margin-bottom: 10px;
+                    float: none;
+                }
+                .box-result-title {
+                    font-size: 19px;
+                    font-family: $openSans-bold;
+                    margin-top: 7px;
+                }
+                .box-result-address {
+                    font-size: 15px;
+                    font-family: $openSans-light;
+                    margin-top: 7px;
                 }
             }
         }

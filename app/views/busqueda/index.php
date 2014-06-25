@@ -102,8 +102,7 @@
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">
-	 					<div class="data-left">
-	 						
+	 					<div>
 	 						<span class="lugar-ratings-stars">
 			                	<?php	
 								for ($star = 1; $star <= 5; $star++) { ?>
@@ -121,14 +120,12 @@
 			    				echo " estrellas";
 			    				?>
 		    				</span>
+	    				</div>
 
-	 						<div class="box-result-title">
-	 							<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>"> <?php echo $lugar->nombre; ?>  </a>
-	 						</div>
-	 						<div class="box-result-address">
-	 							<?php echo $lugar->direccion; ?>
-	 						</div>
-	 					</div>
+ 						<div class="box-result-title"><a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>"><?php echo $lugar->nombre; ?></a></div>
+ 						<div class="box-result-address">
+ 							<?php echo $lugar->direccion; ?>
+ 						</div>
 	 				</div>
 	 			</div>
 
