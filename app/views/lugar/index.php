@@ -137,18 +137,33 @@
 								}
 
 							?>">
-							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu comentario... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
+							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu opinión... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
 						</div>
 	                </div>
 
 					<div class="form-buttons">
-						<button class="button button-comment <?php if (Auth::check()) { echo "button-comment-user"; } ?>" type="submit">Aceptar</button>
+						
+						<?php if (!Auth::check()) { echo "<span class='form-buttons-login'><a href='/loginfb'>Iniciá sesión para dejar tu opinión</a></span>"; } else { echo "<button class='button button-comment button-comment-user type='submit'>Comentar</button>"; } ?>
+						
 	                </div>
-	                <div class="lugar-rating-star">
-						<div class="text-right">
-							<div class="stars <?php if (Auth::check()) { echo "stars-user"; } ?> starrr" data-rating="<?php if ($review_user != null) { echo $review_user->rating;	} else { echo Input::old('rating',0); } ?>"></div>
-			             </div>
-					</div>
+	                <?php if (Auth::check()) {
+
+	                	$rate = 0;
+	                	if ($review_user != null) { 
+	                		$rate = $review_user->rating;	
+	                	} else { 
+	                		$rate = Input::old('rating',0); 
+	                	}
+
+	                	echo "<div class='lugar-rating-star'>
+								<div class='text-right'>
+								<span class='lugar-rating-vote'>Tu voto</span>
+								<div class='stars stars-user starrr' data-rating='$rate'>
+								</div>
+			             		</div>
+							</div>";
+					}
+					?>
                 </form>
             </div>
 
@@ -236,8 +251,8 @@
 					foreach($votosLugar as $ocasion => $voto) {
 						?>
 						<div class="lugar-votos-button">
-							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up"><div class="voteocasion voteocasion-up voteocasion-up<?php echo $totalOcasiones[$indexOcasion] ?>"></div></a>
-							<a href class="vote" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down"><div class="voteocasion voteocasion-down voteocasion-down<?php echo $totalOcasiones[$indexOcasion] ?>"></div></a>
+							<a href class="vote voteocasion voteocasion-up voteocasion-up<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">+1</a>
+							<a href class="vote voteocasion voteocasion-down voteocasion-down<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">-1</a>
 						</div>
 						<?php
 						$indexOcasion = $indexOcasion + 1;
@@ -257,13 +272,20 @@
 		function meterAnimate() {
 			var meterid = 1;
 	      	$(".meter > span").each(function() {
-	      		if($(this).width() > 0) {
-	      			$(".voteocasion-up"+meterid).css("border-bottom", "15px solid #EEE");
-	      			$(".voteocasion-down"+meterid).css("border-top", "15px solid #df3726");
-	      		} else {
-	      			$(".voteocasion-up"+meterid).css("border-bottom", "15px solid #58ba48");
-	      			$(".voteocasion-down"+meterid).css("border-top", "15px solid #EEE");
-	      		}
+	      		var user = "<?php echo Auth::check() ?>";
+	      		if(user) {
+		      		if($(this).width() > 0) {
+		      			$(".voteocasion-up"+meterid).css("display", "none");
+		      			$(".voteocasion-down"+meterid).css("display", "initial");
+		      		} else {
+		      			$(".voteocasion-up"+meterid).css("background-color", "#58ba48");
+		      			$(".voteocasion-up"+meterid).css("display", "initial");
+		      			$(".voteocasion-down"+meterid).css("display", "none");
+		      		}
+		      	} else {
+		      		$(".voteocasion-up"+meterid).css("display", "initial");
+		      		$(".voteocasion-down"+meterid).css("display", "none");
+		      	}
 				$(this)
 					.data("origWidth", $(this).width())
 					.width(0)

@@ -166,7 +166,12 @@
 
 .comentarios-lugar-alert {
     text-align: left;
-    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.alert-danger, .alert-success {
+    width: 670px !important;
 }
 
 .stars {
@@ -217,16 +222,21 @@
 .button-comment-user {
     background-color: $green-dark;
     border-color: $green-dark;
+    &:hover {
+        @include box-shadow(0px 0px 4px #000);
+    }
 }
 
 .review {
     border-top: 1px solid $gray-middle-four;
     padding: 20px;
     margin: 0 20px;
+    clear: both;
 }
 
 .review-comment-rating {
     margin-left: 25px;
+    margin-bottom: 11px;
     .glyphicon {
         color: #fbb714;
     }
@@ -274,21 +284,44 @@
 
 .text-right {
     text-align: right;
+    position: relative;
 }
 
 .form-buttons {
     margin-top: 10px;
     height: 60px;
     text-align: left;
+    width: 60%;
     display: inline-block;
-    width: 20%;
+    float: left;
+    margin-left: 20px;
+}
+
+.form-buttons-login {
+    font-size: 13px;
+    font-style: italic;
+    a {
+        color: $orange-middle;
+        @include transition(color 0.3s ease);
+        &:hover {
+            color: $orange-light;
+        }
+    }
+}
+
+.lugar-rating-vote {
+    font-size: 13px;
+    font-style: italic;
+    position: absolute;
+    left: 60px;
+    top: 5px;
 }
 
 .lugar-rating-star {
-    display: inline-block;
-    width: 74%;
+    width: 33%;
     vertical-align: top;
     margin-top: 10px;
+    display: inline-block;
 }
 
 .form-recomendacion-name {
@@ -351,32 +384,37 @@
     display: inline-block;
     width: 76px;
     vertical-align: top;
-    margin-top: 95px;
+    margin-top: 111px;
     text-align: right;
     .lugar-votos-button {
-        height: 52px;
-        margin-bottom: 15px;
+        height: 23px;
+        margin-bottom: 44px;
         float: right;
         width: 39px;
     }
 }
 
 .voteocasion {
-    width: 0px;
-    height: 0px;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    font-size: 0px;
-    line-height: 0px;
+    color: white;
+    @include transition(all 0.3s ease);
 }
 
 .voteocasion-up {
-    border-bottom: 15px solid $gray-middle-two;
-    margin-bottom: 18px;
+    background-color: #EEE;
+    padding: 10px 12px;
+    &:hover {
+        background-color: #58ba48;
+        border-radius: 50%;
+    }
 }
 
 .voteocasion-down {
-    border-top: 15px solid $gray-middle-two;
+    background-color: #EEE;
+    padding: 10px 14px;
+    &:hover {
+        background-color: $red-dark;
+        border-radius: 50%;
+    }
 }
 
 .lugar-rating-right {
@@ -395,6 +433,7 @@
 
 .lugar-votos-voto {
     display: inline-block;
+    font-family: $openSans-light;
     text-align: right;
     width: 50%;
 }

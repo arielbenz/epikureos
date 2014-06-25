@@ -156,7 +156,7 @@
         text-decoration: none;
         color: $gray-dark;
         background: $gray-middle-five;
-        @include transition(background, 0.3s, ease);
+        @include transition(background 0.3s ease);
         &:hover {
             background: #fbb714;
         }

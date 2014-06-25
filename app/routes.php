@@ -38,13 +38,13 @@ Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
     if (Auth::check()) {
     
         $input = array(
-            'comment' => Input::get('comment'),
-            'rating' => Input::get('rating'),
+            'comentario' => Input::get('comment'),
+            'voto' => Input::get('rating'),
         );
 
         $validacion = array(
-            'comment'=> 'required|min:10',
-            'rating' => 'required|integer|between:1,5' 
+            'comentario'=> 'required|min:10',
+            'voto' => 'required|integer|between:1,5' 
         );
 
         $lugar = Lugar::where('slug', '=', $slug)->first();
@@ -55,9 +55,9 @@ Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
         if ($validator->passes()) {
             if ($review == null) {
                 $review = new Review;
-                $review->storeReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
+                $review->storeReviewForLugar($review, $lugar, $input['comentario'], $input['voto']);
             } else {
-                $review->updateReviewForLugar($review, $lugar, $input['comment'], $input['rating']);
+                $review->updateReviewForLugar($review, $lugar, $input['comentario'], $input['voto']);
             }
             return Redirect::to('lugares/'.$slug)->with('review_posted',true);
         }
