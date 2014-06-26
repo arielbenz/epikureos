@@ -12,6 +12,7 @@ class LugarController extends BaseController {
 		$idreviews[] = array();
 		$total_votos = 0;
 		$review_user = null;
+		$ratingUser = -1;
 		$comments = null;
 		$votos_ocasiones = array();
 		$ocasiones = array();
@@ -46,7 +47,26 @@ class LugarController extends BaseController {
 			}
 		}
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('review_user', $review_user)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones);
+		$ocasionVotosUser = array();
+		if (Auth::check()) {
+			$review_user = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
+			if($review_user != null) {
+				$ratingUser = $review_user->rating;
+				$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
+				$index = 1;
+				foreach(Ocasion::all() as $ocasion) {
+					$ocasionVotosUser[$index] = 0;
+					foreach($reviewOcasionUser as $voteUser) {
+						if($index == $voteUser->ocasion_id) {
+							$ocasionVotosUser[$index] = 1;
+						}	
+					}
+					$index = $index + 1;
+				}
+			}
+		}
+
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser);
 	}
 
 	public function vote_lugar() {
@@ -61,6 +81,8 @@ class LugarController extends BaseController {
 		        $name = Input::get('name');
 		        $reviewid = null;
 		        $error = "";
+		        $ocasionVotosUser = array();
+		        $ratingUser = -1;
 
 		        $lugar = Lugar::where('id', '=', $lugarid)->first();
 		        $newReview = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
@@ -111,6 +133,24 @@ class LugarController extends BaseController {
 		                }
 		            }
 
+					if (Auth::check()) {
+						$review_user = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
+						if($review_user != null) {
+							$ratingUser = $review_user->rating;
+							$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
+							$index = 1;
+							foreach(Ocasion::all() as $ocasion) {
+								$ocasionVotosUser[$index] = 0;
+								foreach($reviewOcasionUser as $voteUser) {
+									if($index == $voteUser->ocasion_id) {
+										$ocasionVotosUser[$index] = 1;
+									}	
+								}
+								$index = $index + 1;
+							}
+						}
+					}
+
 		        } else if ($name == "down" && $ocasion != null) {
 		            $ocasion->delete();
 		            $lugar = Lugar::where('id', '=', $lugarid)->first();
@@ -143,13 +183,31 @@ class LugarController extends BaseController {
 		                    $i = $i + 1;
 		                }
 		            }
+
+					if (Auth::check()) {
+						$review_user = Review::where('user_id', '=', Auth::user()->id)->where('lugar_id', '=', $lugar->id)->first();
+						if($review_user != null) {
+							$ratingUser = $review_user->rating;
+							$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
+							$index = 1;
+							foreach(Ocasion::all() as $ocasion) {
+								$ocasionVotosUser[$index] = 0;
+								foreach($reviewOcasionUser as $voteUser) {
+									if($index == $voteUser->ocasion_id) {
+										$ocasionVotosUser[$index] = 1;
+									}	
+								}
+								$index = $index + 1;
+							}
+						}
+					}
 		        } else if ($name == "up" && $ocasion != null) {
 		            $error = "Ya realizó su voto";
 		        } else if ($name == "down" && $ocasion == null) {
 		            $error = "Todavía no realizó su voto positivo";
 		        }
 
-		        return Response::json(array('message' => $error, 'votosLugar' => $votos_ocasiones, 'totalVotos' => $total_votos, 'totalOcasiones' => $ocasiones));
+		        return Response::json(array('message' => $error, 'votosLugar' => $votos_ocasiones, 'totalVotos' => $total_votos, 'totalOcasiones' => $ocasiones, 'votesUser' => $ocasionVotosUser, 'ratingUser' => $ratingUser));
 	    	}
     	}
     }

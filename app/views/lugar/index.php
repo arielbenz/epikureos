@@ -149,8 +149,8 @@
 	                <?php if (Auth::check()) {
 
 	                	$rate = 0;
-	                	if ($review_user != null) { 
-	                		$rate = $review_user->rating;	
+	                	if ($ratingUser != null) { 
+	                		$rate = $ratingUser;	
 	                	} else { 
 	                		$rate = Input::old('rating',0); 
 	                	}
@@ -271,21 +271,41 @@
 
 		function meterAnimate() {
 			var meterid = 1;
+			if(votesUserAjax == null) {
+				votesUserAjax = $.parseJSON('<?php echo json_encode($votesUser)?>');
+			}
+			if(ratingUser == null) {
+				ratingUser = "<?php echo $ratingUser ?>";
+			}
+
 	      	$(".meter > span").each(function() {
-	      		var user = "<?php echo Auth::check() ?>";
+	      		var user = "<?php echo Auth::check(); ?>";
+	      		var rateg = "<?php echo $ratingUser ?>";
 	      		if(user) {
-		      		if($(this).width() > 0) {
-		      			$(".voteocasion-up"+meterid).css("display", "none");
-		      			$(".voteocasion-down"+meterid).css("display", "initial");
-		      		} else {
-		      			$(".voteocasion-up"+meterid).css("background-color", "#58ba48");
-		      			$(".voteocasion-up"+meterid).css("display", "initial");
-		      			$(".voteocasion-down"+meterid).css("display", "none");
-		      		}
+	      			
+	      			if(ratingUser != -1) {
+	      				if (votesUserAjax[meterid] == 0) {
+		      				$(".voteocasion-up"+meterid).css("display", "initial");
+		      				$(".voteocasion-up"+meterid).css("background-color", "#58ba48");
+			      			$(".voteocasion-down"+meterid).css("display", "none");
+		      			} else {
+		      				$(".voteocasion-up"+meterid).css("display", "none");
+			      			$(".voteocasion-down"+meterid).css("display", "initial");
+		      			}
+		      			
+	      			} else {
+	      				
+	      					$(".voteocasion-up"+meterid).css("display", "initial");
+	      					$(".voteocasion-up"+meterid).css("background-color", "#58ba48");
+			      			$(".voteocasion-down"+meterid).css("display", "none");
+	      				
+	      			}
+	      			
 		      	} else {
 		      		$(".voteocasion-up"+meterid).css("display", "initial");
 		      		$(".voteocasion-down"+meterid).css("display", "none");
 		      	}
+
 				$(this)
 					.data("origWidth", $(this).width())
 					.width(0)
@@ -301,6 +321,8 @@
 		$(document).on("ready", inicio);
 
 		var lugar = $.parseJSON('<?php echo $lugar?>');
+		var votesUserAjax = null;
+		var ratingUser = null;
 
 		function inicio ()
 		{
@@ -338,6 +360,8 @@
 			            	if(data.message == "") {
 			            		var votos = data.votosLugar;
 				            	var ocasiones = data.totalOcasiones;
+				            	votesUserAjax = data.votesUser;
+				            	ratingUser = data.ratingUser;
 				            	var html = "";
 				            	var voto = 0;
 
@@ -356,9 +380,7 @@
 
 								$(".meter > span").each(function() {
 									$(this)
-
 								});
-
 								meterAnimate();
 			            	} else {
 			            		console.log(data.message);
