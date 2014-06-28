@@ -69,8 +69,14 @@
 
 				<div class="form-group">
 					{{Form::label('thumb')}}
-					{{Form::text('thumb', $thumb->url, array('class' => 'form-control'))}}
+					{{Form::text('thumb', $thumb->cantidad, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('thumb') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('slides')}}
+					{{Form::text('slides', $slides, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('slides') }}</span>
 				</div>
 
 				<div class="form-group">
@@ -170,6 +176,12 @@
 					{{Form::label('thumb')}}
 					{{Form::text('thumb', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('thumb') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('slides')}}
+					{{Form::text('slides', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('slides') }}</span>
 				</div>
 
 				<div class="form-group">

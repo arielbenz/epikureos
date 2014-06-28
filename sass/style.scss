@@ -1,5 +1,8 @@
+@import "lib/bootstrap";
+
 @import "global/utils";
 @import "global/typography";
+
 @import "block/base";
 @import "block/busqueda";
 @import "block/contacto";
@@ -10,3 +13,6 @@
 @import "block/single";
 @import "block/terminos";
 @import "block/404";
+
+@import "lib/carousel";
+@import "lib/carouseltheme";

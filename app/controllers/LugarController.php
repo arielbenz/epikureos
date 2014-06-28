@@ -11,6 +11,7 @@ class LugarController extends BaseController {
 
 		$idreviews[] = array();
 		$total_votos = 0;
+		$cantSlides = 0;
 		$review_user = null;
 		$ratingUser = -1;
 		$comments = null;
@@ -66,7 +67,9 @@ class LugarController extends BaseController {
 			}
 		}
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser);
+		$cantSlides = Foto::where('id_lugar', '=', $lugar->id)->where('tipo', '=', 2)->first()->cantidad;
+
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides);
 	}
 
 	public function vote_lugar() {

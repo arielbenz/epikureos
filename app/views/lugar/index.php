@@ -90,7 +90,15 @@
 
 		<div id="info-lugar-right">
 			<div id="lugar-fotos">
-				<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide1.jpg">
+				<div id="owl-demo" class="owl-carousel owl-theme">
+					<?php 
+						for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
+							?>
+							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
+							<?php	
+						}
+					?>
+				</div>
 			</div>
 
 			<div id="lugar-links">
@@ -439,6 +447,14 @@
 		      	});
 
 		      	meterAnimate();
+
+		      	$("#owl-demo").owlCarousel({
+		      		autoPlay: 4000,
+    				navigation : false,
+      				slideSpeed : 300,
+      				paginationSpeed : 400,
+      				singleItem: true
+				});
 		    });
 	        
 		}

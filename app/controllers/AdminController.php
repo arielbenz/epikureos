@@ -22,17 +22,21 @@ class AdminController extends BaseController {
 
 	public function lugar($id)
 	{
-		$foto = Lugar::getThumb($id);
-		echo $foto[0];
-
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
-		$thumb = Foto::where('id_lugar', '=', $id)->first();
+		$thumb = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 1)->first();
 
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('thumb', $thumb);
+		$slides = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 2)->first();
+		if ($slides == null) {
+			$slides = 0;
+		} else {
+			$slides = $slides->cantidad;
+		}
+
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('thumb', $thumb)->with('slides', $slides);
 	}
 
 	public function get_add()
@@ -82,12 +86,19 @@ class AdminController extends BaseController {
 
 			$thumb = Input::get('thumb');
 
-			$foto = new Foto;
-			$foto->url = $thumb;
-			$foto->tipo = 1;
-			$foto->id_lugar = $lugar->id;
-			$foto->estado = 1;
-			$foto->save();
+			$fotoThumb = new Foto;
+			$fotoThumb->cantidad = 1;
+			$fotoThumb->tipo = 1;
+			$fotoThumb->id_lugar = $lugar->id;
+			$fotoThumb->save();
+
+			$slides = Input::get('slides');
+
+			$fotoSlide = new Foto;
+			$fotoSlide->cantidad = $slides;
+			$fotoSlide->tipo = 2;
+			$fotoSlide->id_lugar = $lugar->id;
+			$fotoSlide->save();
 
 			$categorias = Input::get('categorias');
 			foreach($categorias as $categoria)
@@ -147,10 +158,21 @@ class AdminController extends BaseController {
 			$lugar->save();
 
 			$thumb = Input::get('thumb');
+			$fotoThumb = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 1)->first();
+			$fotoThumb->cantidad = $thumb;
+			$fotoThumb->save();
 
-			$foto = Foto::where('id_lugar', '=', $id)->first();
-			$foto->url = $thumb;
-			$foto->save();
+			$slides = Input::get('slides');
+			$fotoSlide = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 2)->first();
+			if ($fotoSlide == null) {
+				$fotoSlide = new Foto;
+				$fotoSlide->tipo = 2;
+				$fotoSlide->id_lugar = $lugar->id;
+			}
+			$fotoSlide->cantidad = $slides;
+			$fotoSlide->save();
+
+			
 
 			$categorias = Input::get('categorias');
 			$etiquetas = Input::get('etiquetas');

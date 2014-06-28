@@ -33,11 +33,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 
 	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
-	<script src="<?php echo $url?>/js/modernizr.min.js"></script>	
+	<script src="<?php echo $url?>/js/modernizr.min.js"></script>
+	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 </head>
 
 <body>

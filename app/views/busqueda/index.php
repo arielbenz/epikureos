@@ -98,7 +98,7 @@
 		        <div class="box-result">
 	 				<div class="box-result-image">
 	 					<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>">
-	 						<img src="<?php $foto = Lugar::getThumb($lugar->id)->url; echo $foto;?>"/>
+	 						<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/thumb.jpg">
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">

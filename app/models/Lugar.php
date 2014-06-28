@@ -35,7 +35,7 @@ class Lugar extends Eloquent {
 
 	public static function getThumb($id)
 	{
-		$foto = Foto::where('id_lugar','=', $id)->where('estado','=',1)->first();
+		$foto = Foto::where('id_lugar','=', $id)->first();
 		return $foto;
 	}
 
