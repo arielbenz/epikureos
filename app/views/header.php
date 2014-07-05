@@ -19,7 +19,7 @@
 
 	$url = "http://".$_SERVER['HTTP_HOST'];
 	require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
-
+		
 	$uid = 0;
 ?>
 
@@ -40,15 +40,18 @@
 	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 
 	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-50343708-1', 'auto');
-		ga('send', 'pageview');
+		$(document).on("ready", function() {
+			var city = "<?php echo $city; ?>";
+			$("select option").each(function() {
+				if ($(this).val() == city) {
+					$(this).attr("selected", "selected");
+				}
+			});
+			$(".select-city").change(function(){
+				window.location = "http://" + $(this).val() + ".epikureos.com";
+			});
+		});
 	</script>
-
 </head>
 
 <body>
@@ -111,8 +114,9 @@
 
 			<div id="ciudad">
 				<label>
-					<select>
-						<option value ="santafe" selected>SANTA FE</option>
+					<select class="select-city">
+						<option value ="santafe">SANTA FE</option>
+						<option value ="parana">PARANÁ</option>
 					</select>
 				</label>
 				<div id="logo-dia">

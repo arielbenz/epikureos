@@ -21,7 +21,7 @@
 	<section id="content-lugar">
 
 		<div id="info-barra">
-			<span><a href="/">Tu Salida en Santa Fe</a> >> <a href="<?php echo $url; ?>/busqueda/<?php echo $categoria->slug; ?>"><?php echo $categoria->descripcion; ?></a> >> <strong><?php echo $lugar->nombre ?></strong></span>
+
 		</div>
 
 		<div id="info-lugar-left">
@@ -414,7 +414,7 @@
 					      	className: "btn-primary",
 					      	callback: function() {
 						      	<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-					         	window.location = "http://epikureos.com/loginfb";
+					         	window.location = "http://<?php echo $city; ?>.epikureos.com/loginfb";
 					      	}
 					    }
 					  }

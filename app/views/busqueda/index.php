@@ -20,8 +20,14 @@
 		var popup;
 
 		function setLugares(nombres, latitudes, longitudes) {
-
-			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
+			var ciudad = "<?php echo $city ?>";
+			var latlon = null;
+			if(ciudad == "santafe") {
+				latlon = new google.maps.LatLng(-31.632389, -60.699459);
+			} else if(ciudad = "parana") {
+				latlon = new google.maps.LatLng(-31.741834, -60.511946);
+			}
+			
 	        var myOptions = {
 	            zoom: 14,
 	            center: latlon,
@@ -82,7 +88,7 @@
 	<section id="content-busqueda">
 
 		<div id="search-header">
-			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b></h3>	
+			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
 		</div>
 
 		<div id="search-combo">
