@@ -21,7 +21,7 @@
 	<section id="content-lugar">
 
 		<div id="info-barra">
-			<span><a href="/">Tu Salida en Santa Fe</a> >> <a href="<?php echo $url; ?>/busqueda/<?php echo $categoria->slug; ?>"><?php echo $categoria->descripcion; ?></a> >> <strong><?php echo $lugar->nombre ?></strong></span>
+			<span><a href="/">Tu Salida en <?php echo $ciudad; ?></a> >> <a href="<?php echo $url; ?>/busqueda/<?php echo $categoria->slug; ?>"><?php echo $categoria->descripcion; ?></a> >> <strong><?php echo $lugar->nombre ?></strong></span>
 		</div>
 
 		<div id="info-lugar-left">
@@ -94,7 +94,7 @@
 					<?php 
 						for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
 							?>
-							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
+							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
 							<?php	
 						}
 					?>
@@ -414,7 +414,7 @@
 					      	className: "btn-primary",
 					      	callback: function() {
 						      	<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-					         	window.location = "http://epikureos.com/loginfb";
+					         	window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
 					      	}
 					    }
 					  }

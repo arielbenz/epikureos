@@ -3,7 +3,7 @@
 class LugarController extends BaseController {
 
 
-	public function get_lugar($nombreLugar) {
+	public function get_lugar($city, $nombreLugar) {
 
 		$lugar = Lugar::where('slug', '=', $nombreLugar)->first();
 
@@ -71,8 +71,9 @@ class LugarController extends BaseController {
 
 		$idcategoria = CategoriaLugar::where('id_lugar', '=', $lugar->id)->first()->id_categoria;
 		$categoria = Categoria::where('id', '=', $idcategoria)->first();
+		$ciudad = Ciudad::where('slug', '=', $city)->first()->descripcion;
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('categoria', $categoria);
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('city', $city)->with('categoria', $categoria)->with('ciudad', $ciudad);
 	}
 
 	public function vote_lugar() {

@@ -20,8 +20,14 @@
 		var popup;
 
 		function setLugares(nombres, latitudes, longitudes) {
-
-			var latlon = new google.maps.LatLng(-31.632389, -60.699459);
+			var ciudad = "<?php echo $city ?>";
+			var latlon = null;
+			if(ciudad == "santafe") {
+				latlon = new google.maps.LatLng(-31.632389, -60.699459);
+			} else if(ciudad = "parana") {
+				latlon = new google.maps.LatLng(-31.741834, -60.511946);
+			}
+			
 	        var myOptions = {
 	            zoom: 14,
 	            center: latlon,
@@ -82,10 +88,8 @@
 	<section id="content-busqueda">
 
 		<div id="search-header">
-			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b></h3>	
-		</div>
-
-		<div id="search-combo">
+			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
+		</div><div id="search-combo">
 			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
 				<input id="input-search" type="text" name="lugar" placeholder="Buscar..." required></input>
 			</form>
@@ -98,7 +102,7 @@
 		        <div class="box-result">
 	 				<div class="box-result-image">
 	 					<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>">
-	 						<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/thumb.jpg">
+	 						<img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/thumb.jpg">
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">

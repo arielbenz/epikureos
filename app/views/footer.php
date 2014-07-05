@@ -100,32 +100,34 @@
 	<script>
 		$(".menu-login").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-			window.location = "http://epikureos.com/loginfb";
+			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/loginfb";
 		});
 		$(".menu-logout").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-			window.location = "http://epikureos.com/logout";
+			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/logout";
 		});
 	</script>
 
 	<?php
-	if(Session::has('message')) {
-		?>
-		<script>
-			bootbox.dialog({
-				message: "<?php echo Session::get('message'); ?>",
-			  	title: "Error",
-			  	buttons: {
-				    danger: {
-			      	label: "Aceptar",
-			      	className: "btn-primary",
-			      	callback: function() {}
-			    }
-			  }
-			});
-		</script>
-		<?php
-	}    
+	if($actual != "novedades" && $actual != "laposta") {
+		if(Session::has('message')) {
+			?>
+			<script>
+				bootbox.dialog({
+					message: "<?php echo Session::get('message'); ?>",
+				  	title: "Error",
+				  	buttons: {
+					    danger: {
+				      	label: "Aceptar",
+				      	className: "btn-primary",
+				      	callback: function() {}
+				    }
+				  }
+				});
+			</script>
+			<?php
+		}
+	}
 	?>
 
 </body>

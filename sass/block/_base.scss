@@ -229,6 +229,7 @@ ul {
 .font-bold {
     display: inline-block;
     font-family: $titillium-bold;
+    margin: 0 3px;
 }
 
 .font-normal {
@@ -903,4 +904,8 @@ img.alignright,
         vertical-align: middle;
         width: 45px !important;
     }
+}
+
+.uppertext {
+    text-transform: uppercase;
 }
