@@ -414,7 +414,7 @@
 					      	className: "btn-primary",
 					      	callback: function() {
 						      	<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-					         	window.location = "http://<?php echo $city; ?>.epikureos.com/loginfb";
+					         	window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
 					      	}
 					    }
 					  }
