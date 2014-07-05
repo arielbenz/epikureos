@@ -6,8 +6,8 @@ class Etiqueta extends Eloquent {
 
 	public $timestamps = false;
 
-	public function lugares()
+	public function lugares($ciudadid)
 	{
-		return $this->belongsToMany('Lugar', 'etiquetas_lugares', 'id_etiqueta', 'id_lugar')->where('estado', '=', 1)->orderBy('nombre', 'ASC');
+		return $this->belongsToMany('Lugar', 'etiquetas_lugares', 'id_etiqueta', 'id_lugar')->where('estado', '=', 1)->where('ciudad', '=', $ciudadid)->orderBy('nombre', 'ASC');
 	}
 }

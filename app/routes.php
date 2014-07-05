@@ -12,25 +12,36 @@
 */
 
 //Rutas de home
+Route::group(array('domain' => 'epikureos.com'), function() {
+    Route::get('/', 'HomeController@get_index');
+});
 
-Route::get('/', 'HomeController@get_index');
+Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
-Route::get('/novedades', 'HomeController@get_novedades');
-Route::get('/laposta', 'HomeController@get_posta');
-Route::get('/promos', 'HomeController@get_promos');
-Route::get('/quees', 'HomeController@get_quees');
-Route::get('/contacto', 'HomeController@get_contacto');
-Route::get('/terminos', 'HomeController@get_terminos');
+    Route::get('/', 'HomeController@get_index_city');
+    Route::get('/novedades', 'HomeController@get_novedades');
+    Route::get('/laposta', 'HomeController@get_posta');
+    Route::get('/promos', 'HomeController@get_promos');
+    Route::get('/quees', 'HomeController@get_quees');
+    Route::get('/contacto', 'HomeController@get_contacto');
+    Route::get('/terminos', 'HomeController@get_terminos');
 
-//Rutas búsqueda
+    //Rutas búsqueda
 
-Route::post('/busqueda', 'HomeController@post_busqueda');
-Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
+    Route::post('/busqueda', 'HomeController@post_busqueda');
+    Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
 
-//Rutas lugar
+    //Rutas lugar
 
-Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
-Route::post('/lugares/{lugar}/votelike', 'LugarController@vote_lugar');
+    Route::get('/lugares/{lugar}', 'LugarController@get_lugar');
+    Route::post('/lugares/{lugar}/votelike', 'LugarController@vote_lugar');
+
+    // Rutas Login Facebook
+
+    Route::get('/loginfb', 'LoginController@loginfb');
+    Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
+    Route::get('/logout', 'LoginController@logoutfb');
+});
 
 // Ruta que envia comentario
 Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
@@ -83,31 +94,25 @@ Route::post('/signup', 'UserController@post_signup');
 Route::get('/dashboard', 'UserController@dashboard');
 
 Route::group(array('prefix' => 'admin'), function() {
-	Route::group(array('before' => 'admin'), function() {
-		Route::get('/', 'AdminController@index');
+    Route::group(array('before' => 'admin'), function() {
+        Route::get('/', 'AdminController@index');
 
-		Route::get('/lugares', 'AdminController@lugares_all');
-		Route::get('/lugares/add', 'AdminController@get_add');
-		Route::post('/lugares/add', 'AdminController@post_add');
-		Route::get('/lugares/{id}', 'AdminController@lugar');
-		Route::post('/lugares/edit/{id}', 'AdminController@lugar_edit');
+        Route::get('/lugares', 'AdminController@lugares_all');
+        Route::get('/lugares/add', 'AdminController@get_add');
+        Route::post('/lugares/add', 'AdminController@post_add');
+        Route::get('/lugares/{id}', 'AdminController@lugar');
+        Route::post('/lugares/edit/{id}', 'AdminController@lugar_edit');
 
-		Route::get('/categorias', 'AdminController@categorias');
-		Route::post('/categorias/add', 'AdminController@categorias_add');
-		Route::get('/categorias/edit/{id}', 'AdminController@categorias_get_edit');
-		Route::post('/categorias/edit/{id}', 'AdminController@categorias_post_edit');
-		Route::get('/categorias/delete/{id}', 'AdminController@categorias_delete');
+        Route::get('/categorias', 'AdminController@categorias');
+        Route::post('/categorias/add', 'AdminController@categorias_add');
+        Route::get('/categorias/edit/{id}', 'AdminController@categorias_get_edit');
+        Route::post('/categorias/edit/{id}', 'AdminController@categorias_post_edit');
+        Route::get('/categorias/delete/{id}', 'AdminController@categorias_delete');
 
-		Route::get('/etiquetas', 'AdminController@etiquetas');
-		Route::post('/etiquetas/add', 'AdminController@etiquetas_add');
-		Route::get('/etiquetas/edit/{id}', 'AdminController@etiquetas_get_edit');
-		Route::post('/etiquetas/edit/{id}', 'AdminController@etiquetas_post_edit');
-		Route::get('/etiquetas/delete/{id}', 'AdminController@etiquetas_delete');
-	});
+        Route::get('/etiquetas', 'AdminController@etiquetas');
+        Route::post('/etiquetas/add', 'AdminController@etiquetas_add');
+        Route::get('/etiquetas/edit/{id}', 'AdminController@etiquetas_get_edit');
+        Route::post('/etiquetas/edit/{id}', 'AdminController@etiquetas_post_edit');
+        Route::get('/etiquetas/delete/{id}', 'AdminController@etiquetas_delete');
+    });
 });
-
-// Rutas Login Facebook
-
-Route::get('/loginfb', 'LoginController@loginfb');
-Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
-Route::get('/logout', 'LoginController@logoutfb');

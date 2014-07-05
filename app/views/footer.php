@@ -100,11 +100,11 @@
 	<script>
 		$(".menu-login").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-			window.location = "http://epikureos.com/loginfb";
+			window.location = "http://<?php echo $city; ?>.epikureos.com/loginfb";
 		});
 		$(".menu-logout").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-			window.location = "http://epikureos.com/logout";
+			window.location = "http://<?php echo $city; ?>.epikureos.com/logout";
 		});
 	</script>
 
