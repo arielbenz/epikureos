@@ -14,6 +14,8 @@
  * @package WordPress
  */
 
+set_time_limit(0);
+
 // ** Ajustes de MySQL. Solicita estos datos a tu proveedor de alojamiento web. ** //
 /** El nombre de tu base de datos de WordPress */
 define('DB_NAME', 'altasalida_db');
