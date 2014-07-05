@@ -28,6 +28,12 @@ class Lugar extends Eloquent {
 		return $etiquetas;
 	}
 
+	public static function enCiudad($id)
+	{
+		$ciudad = Ciudad::where('id', '=', $id)->first();
+		return $ciudad->descripcion;
+	}
+
 	public function fotos()
 	{
 		return $this->hasMany('Foto', 'id_lugar');

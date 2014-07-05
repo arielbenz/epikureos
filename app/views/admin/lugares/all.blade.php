@@ -10,6 +10,7 @@
 				<th>Teléfono</th>
 				<th>Facebook</th>
 				<th>Estado</th>
+				<th>Ciudad</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -30,6 +31,7 @@
 				@else
 					<td><span class="glyphicon glyphicon-ok"></span></td>
 				@endif
+				<td>{{$lugar->enCiudad($lugar->ciudad)}}</td>
 				<td><a href="/admin/lugares/{{$lugar->id}}">Editar</a></td>
 			</tr>
 			@endforeach

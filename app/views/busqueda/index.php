@@ -104,7 +104,7 @@
 		        <div class="box-result">
 	 				<div class="box-result-image">
 	 					<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>">
-	 						<img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/thumb.jpg">
+	 						<img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/thumb.jpg">
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">

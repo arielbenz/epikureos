@@ -94,7 +94,7 @@
 					<?php 
 						for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
 							?>
-							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
+							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
 							<?php	
 						}
 					?>
