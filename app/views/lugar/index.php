@@ -21,7 +21,7 @@
 	<section id="content-lugar">
 
 		<div id="info-barra">
-
+			<span><a href="/">Tu Salida en <?php echo $ciudad; ?></a> >> <a href="<?php echo $url; ?>/busqueda/<?php echo $categoria->slug; ?>"><?php echo $categoria->descripcion; ?></a> >> <strong><?php echo $lugar->nombre ?></strong></span>
 		</div>
 
 		<div id="info-lugar-left">

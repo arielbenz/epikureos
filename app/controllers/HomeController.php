@@ -3,14 +3,14 @@
 class HomeController extends BaseController {
 
 	public function get_index() {
-		return Redirect::to('http://santafe.' + $_SERVER['HTTP_HOST']);
+		return Redirect::to('http://santafe.'.$_SERVER['HTTP_HOST']);
 	}
 
 	public function get_index_city($city) {
 		if (in_array($city, Config::get('city.available'))) {
 	        return View::make('home.index')->with('city', $city);
 	    } else {
-	    	return Redirect::to('http://santafe.' + $_SERVER['HTTP_HOST']);
+	    	return Redirect::to('http://santafe.'.$_SERVER['HTTP_HOST']);
 	    }
 	}	
 

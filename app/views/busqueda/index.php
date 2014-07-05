@@ -89,9 +89,7 @@
 
 		<div id="search-header">
 			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
-		</div>
-
-		<div id="search-combo">
+		</div><div id="search-combo">
 			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
 				<input id="input-search" type="text" name="lugar" placeholder="Buscar..." required></input>
 			</form>

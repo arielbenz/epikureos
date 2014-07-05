@@ -69,7 +69,11 @@ class LugarController extends BaseController {
 
 		$cantSlides = Foto::where('id_lugar', '=', $lugar->id)->where('tipo', '=', 2)->first()->cantidad;
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('city', $city);
+		$idcategoria = CategoriaLugar::where('id_lugar', '=', $lugar->id)->first()->id_categoria;
+		$categoria = Categoria::where('id', '=', $idcategoria)->first();
+		$ciudad = Ciudad::where('slug', '=', $city)->first()->descripcion;
+
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('city', $city)->with('categoria', $categoria)->with('ciudad', $ciudad);
 	}
 
 	public function vote_lugar() {
