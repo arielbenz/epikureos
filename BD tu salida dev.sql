@@ -23,7 +23,7 @@ DELETE FROM `categorias`;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` (`id`, `slug`, `descripcion`) VALUES
 	(1, 'restobar', 'Restobar'),
-	(2, 'restaurant', 'Restaurant'),
+	(2, 'restaurante', 'Restaurante'),
 	(3, 'cafe', 'Café'),
 	(4, 'vinotecas', 'Vinotecas'),
 	(5, 'heladerias', 'Heladerías');
@@ -278,9 +278,6 @@ INSERT INTO `etiquetas_lugares` (`id_etiqueta`, `id_lugar`) VALUES
 	(15, 71),
 	(16, 71),
 	(1, 71),
-	(5, 51),
-	(1, 51),
-	(11, 51),
 	(6, 38),
 	(3, 38),
 	(7, 38),
@@ -480,7 +477,10 @@ INSERT INTO `etiquetas_lugares` (`id_etiqueta`, `id_lugar`) VALUES
 	(1, 4),
 	(6, 1),
 	(1, 1),
-	(12, 1);
+	(12, 1),
+	(5, 51),
+	(1, 51),
+	(11, 51);
 /*!40000 ALTER TABLE `etiquetas_lugares` ENABLE KEYS */;
 
 
@@ -497,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   CONSTRAINT `tipo_foto` FOREIGN KEY (`tipo`) REFERENCES `tipos_fotos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla altasalida_db.fotos: ~133 rows (aproximadamente)
+-- Volcando datos para la tabla altasalida_db.fotos: ~134 rows (aproximadamente)
 DELETE FROM `fotos`;
 /*!40000 ALTER TABLE `fotos` DISABLE KEYS */;
 INSERT INTO `fotos` (`id`, `tipo`, `id_lugar`, `cantidad`) VALUES
@@ -771,7 +771,7 @@ CREATE TABLE IF NOT EXISTS `ocasiones_lugares` (
   CONSTRAINT `ocasion_lugar_fk` FOREIGN KEY (`ocasion_id`) REFERENCES `ocasion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla altasalida_db.ocasiones_lugares: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla altasalida_db.ocasiones_lugares: ~23 rows (aproximadamente)
 DELETE FROM `ocasiones_lugares`;
 /*!40000 ALTER TABLE `ocasiones_lugares` DISABLE KEYS */;
 INSERT INTO `ocasiones_lugares` (`ocasion_id`, `lugar_id`) VALUES
@@ -797,7 +797,10 @@ INSERT INTO `ocasiones_lugares` (`ocasion_id`, `lugar_id`) VALUES
 	(6, 4),
 	(1, 4),
 	(6, 1),
-	(1, 1);
+	(1, 1),
+	(1, 51),
+	(3, 51),
+	(2, 51);
 /*!40000 ALTER TABLE `ocasiones_lugares` ENABLE KEYS */;
 
 
@@ -840,7 +843,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   CONSTRAINT `review_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla altasalida_db.reviews: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla altasalida_db.reviews: ~2 rows (aproximadamente)
 DELETE FROM `reviews`;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
 INSERT INTO `reviews` (`id`, `user_id`, `lugar_id`, `rating`, `approved`, `spam`, `created_at`, `updated_at`) VALUES
@@ -879,7 +882,7 @@ CREATE TABLE IF NOT EXISTS `tipos_fotos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla altasalida_db.tipos_fotos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla altasalida_db.tipos_fotos: ~2 rows (aproximadamente)
 DELETE FROM `tipos_fotos`;
 /*!40000 ALTER TABLE `tipos_fotos` DISABLE KEYS */;
 INSERT INTO `tipos_fotos` (`id`, `descripcion`, `size`) VALUES

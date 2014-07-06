@@ -31,6 +31,38 @@
 
 	<section id="home-info">
 
+		<div class="home-recomended">
+			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">
+				<figure class="effect-oscar">
+					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
+					<figcaption>
+						<p class="font-normal">Bares para una</p>
+						<h2 class="font-normal">Reuniónde<span class="font-bold">Trabajo</span></h2>
+					</figcaption>			
+				</figure>
+			</a>
+
+			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/bar/afteroffice">
+				<figure class="effect-oscar">
+					<img src="<?php echo $url?>/img/recomend2.jpg" alt="img08"/>
+					<figcaption>
+						<p class="font-normal">Bares para</p>
+						<h2 class="font-normal">after<span class="font-bold">office</span></h2>
+					</figcaption>			
+				</figure>
+			</a>
+
+			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/restaurante/pareja">
+				<figure class="effect-oscar">
+					<img src="<?php echo $url?>/img/recomend3.jpg" alt="img08"/>
+					<figcaption>
+						<p class="font-normal">Restaurantes para</p>
+						<h2 class="font-normal">iren<span class="font-bold">pareja</span></h2>
+					</figcaption>			
+				</figure>
+			</a>
+		</div>
+
 		<section id="laposta">
 
 			<div id="etiqueta-laposta">

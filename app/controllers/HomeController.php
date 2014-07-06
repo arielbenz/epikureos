@@ -75,7 +75,7 @@ class HomeController extends BaseController {
 					}
 				}
 			}
-			$lugares = lugar::whereIn('id', $idlugares)->paginate(8);
+			$lugares = lugar::whereIn('id', $idlugares)->where('ciudad', '=', $ciudad->id)->paginate(8);
 		}
 
 		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city);
