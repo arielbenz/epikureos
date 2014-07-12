@@ -24,6 +24,12 @@ grunt.initConfig({
             }
         }
     },
+    uglify: {
+        build: {
+            src:  'js/lugar.js',
+            dest: 'js/lugar.min.js'
+        }
+    },
     watch: {
         styles: {
             files: ['sass/**/*.scss',],
@@ -39,9 +45,10 @@ grunt.initConfig({
 grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-devtools');
+grunt.loadNpmTasks('grunt-contrib-uglify');
  
 // Default task(s).
-grunt.registerTask('default', ['compass']);
+grunt.registerTask('default', ['compass', 'uglify']);
 grunt.registerTask('dev', ['watch']);
  
 };
