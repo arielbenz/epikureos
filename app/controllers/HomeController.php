@@ -51,6 +51,36 @@ class HomeController extends BaseController {
 		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city);
 	}
 
+	public function get_busqueda_ocasion($city, $busqueda, $ocasion) {
+
+		$lugares = null;
+
+		$ocasion = Ocasion::where('slug', '=', $ocasion)->first();
+		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
+		$ciudad = Ciudad::where('slug', '=', $city)->first();
+
+
+		if($ocasion != null && $etiqueta != null) {
+			$lugaresOcasion = OcasionLugar::where('ocasion_id', '=', $ocasion->id)->get();
+			$lugaresEtiqueta = EtiquetaLugar::where('id_etiqueta', '=', $etiqueta->id)->get();
+
+			$idlugares = null;
+			$i = 0;
+
+			foreach ($lugaresOcasion as $lugarOcasion) {
+				foreach ($lugaresEtiqueta as $lugarEtiqueta) {
+					if($lugarOcasion->lugar_id == $lugarEtiqueta->id_lugar) {
+						$idlugares[$i] = $lugarOcasion->lugar_id;
+						$i = $i + 1;
+					}
+				}
+			}
+			$lugares = Lugar::whereIn('id', $idlugares)->where('ciudad', '=', $ciudad->id)->paginate(8);
+		}
+
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city);
+	}
+
 	public function post_busqueda() {
 		$lugar = Input::get('lugar');
 		return Redirect::to('busqueda/'.$lugar);

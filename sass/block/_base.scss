@@ -909,3 +909,114 @@ img.alignright,
 .uppertext {
     text-transform: uppercase;
 }
+
+.home-recomended {
+    margin: 0 auto;
+    padding-bottom: 40px;
+    width: 1200px;
+    a {
+        margin-right: 46px;
+        &:last-child {
+            margin-right: 0;
+        }
+        figure {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            overflow: hidden;
+            width: 366px;
+            height: 250px;
+            text-align: center;
+            cursor: pointer;
+            
+            figcaption {
+                padding: 2em;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 1.25em;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                &::before, &::after {
+                    pointer-events: none;
+                }
+            }
+            figcaption, a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 286px;
+                height: 170px;
+            }
+            a {
+                z-index: 1000;
+                text-indent: 200%;
+                white-space: nowrap;
+                font-size: 0;
+                opacity: 0;
+            }
+            h2 {
+                word-spacing: -0.15em;
+                font-weight: 300;
+                span {
+                    font-weight: 800;
+                }
+            }
+            p {
+                letter-spacing: 1px;
+                font-size: 17px;
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+figure.effect-oscar {
+    img {
+        opacity: 0.9;
+        -webkit-transition: opacity 0.35s;
+        transition: opacity 0.35s;
+    }
+    figcaption {
+        padding: 3em;
+        background-color: rgba(120, 120, 120, 0.4);
+        -webkit-transition: background-color 0.35s;
+        transition: background-color 0.35s;
+        &::before {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            bottom: 30px;
+            left: 30px;
+            border: 1px solid #fff;
+            content: '';
+        }
+    }
+    h2 {
+        margin: 10px 0 0 0;
+        -webkit-transition: -webkit-transform 0.35s;
+        transition: transform 0.35s;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    figcaption::before, p {
+        opacity: 0;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    &:hover {
+        h2 {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        img {
+            opacity: 1;
+        }
+    }
+    &:hover figcaption::before, &:hover p {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

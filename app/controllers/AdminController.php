@@ -27,6 +27,7 @@ class AdminController extends BaseController {
 		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$thumb = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 1)->first();
 
 		$slides = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 2)->first();
@@ -36,7 +37,7 @@ class AdminController extends BaseController {
 			$slides = $slides->cantidad;
 		}
 
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('thumb', $thumb)->with('slides', $slides);
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('thumb', $thumb)->with('slides', $slides);
 	}
 
 	public function get_add()
@@ -45,8 +46,9 @@ class AdminController extends BaseController {
 		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas);
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones);
 	}
 
 	public function post_add()
@@ -118,6 +120,15 @@ class AdminController extends BaseController {
 				$relation->save();
 			}
 
+			$ocasiones = Input::get('ocasiones');
+			foreach($ocasiones as $ocasion)
+			{
+				$relation = new OcasionLugar;
+					$relation->lugar_id = $lugar->id;
+					$relation->ocasion_id = $ocasion;
+				$relation->save();
+			}
+
 			return Redirect::to('/admin/lugares');
 		}
 	}
@@ -172,13 +183,14 @@ class AdminController extends BaseController {
 			$fotoSlide->cantidad = $slides;
 			$fotoSlide->save();
 
-			
 
 			$categorias = Input::get('categorias');
 			$etiquetas = Input::get('etiquetas');
+			$ocasiones = Input::get('ocasiones');
 
 			$old_relations = CategoriaLugar::where('id_lugar', '=', $id)->delete();
 			$old_relations_tag = EtiquetaLugar::where('id_lugar', '=', $id)->delete();
+			$old_relations_ocasiones = OcasionLugar::where('lugar_id', '=', $id)->delete();
 
 			foreach($categorias as $categoria)
 			{
@@ -193,6 +205,14 @@ class AdminController extends BaseController {
 				$relation = new EtiquetaLugar;
 					$relation->id_lugar = $id;
 					$relation->id_etiqueta = $etiqueta;
+				$relation->save();
+			}
+
+			foreach($ocasiones as $ocasion)
+			{
+				$relation = new OcasionLugar;
+					$relation->lugar_id = $lugar->id;
+					$relation->ocasion_id = $ocasion;
 				$relation->save();
 			}
 

@@ -30,6 +30,7 @@ Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
     Route::post('/busqueda', 'HomeController@post_busqueda');
     Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
+    Route::get('/busqueda/{lugar}/{ocasion}', 'HomeController@get_busqueda_ocasion');
 
     //Rutas lugar
 
