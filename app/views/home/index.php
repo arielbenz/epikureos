@@ -12,7 +12,7 @@
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input type="text" name="lugar" placeholder="Ingresá tu lugar favorito..." required></input>
+				<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
 				<button type="submit">Buscar</button>
 			</form>
 
