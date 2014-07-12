@@ -26,8 +26,8 @@ grunt.initConfig({
     },
     uglify: {
         build: {
-            src:  'js/lugar.js',
-            dest: 'js/lugar.min.js'
+            src:  'js/busqueda.js',
+            dest: 'js/busqueda.min.js'
         }
     },
     watch: {
