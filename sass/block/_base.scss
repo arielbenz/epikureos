@@ -22,15 +22,22 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $titillium-regular;
     margin: 0;
     line-height: normal;
+    text-rendering: optimizeLegibility;
+}
+
+h3 {
+    font-size: 20px;
 }
 
 p {
     margin: 0;
+    text-rendering: optimizeLegibility;
 }
 
 a {
     color: $gray-dark;
     text-decoration: none;
+    text-rendering: optimizeLegibility;
 }
 
 img {
@@ -149,7 +156,7 @@ ul {
             height: 70px;
             position: relative;
             vertical-align: top;
-            select {
+            .select-city {
                 background: transparent;
                 border: 0;
                 color: #dfdfdf;
@@ -162,6 +169,9 @@ ul {
                 text-indent: 0.01px;
                 width: 120px;
                 @include appearance(none);
+                option {
+                    background-color: $gray-dark;
+                }
             }
             label {
                 position: relative;
@@ -357,7 +367,7 @@ ul {
         background: white;
         display: inline-block;
         height: 100%;
-        margin-right: 25px;
+        margin-right: 22px;
         position: relative;
         width: 880px;
     }
@@ -366,7 +376,7 @@ ul {
         margin: 0;
         position: relative;
         vertical-align: top;
-        width: 280px;
+        width: 286px;
     }
 }
 
@@ -796,7 +806,8 @@ footer {
     background-color: $gray-dark;
     height: 125px;
     margin: 0 auto;
-    width: 275px;
+    width: 290px;
+    margin-bottom: 25px;
     h3 {
         color: white;
         font-family: $openSans-bold;
