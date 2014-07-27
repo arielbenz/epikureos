@@ -29,11 +29,21 @@
 
 		<div id="search-header">
 			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
+		</div><div class="comida-select">
+		<label>
+			<select class="cs-select">
+				<option value="" disabled selected>Tipo de Comida</option>
+				 <?php foreach ($comidas as $comida): ?>
+					<option value="<?php echo $comida->slug ?>"><?php echo $comida->descripcion ?></option>
+				<?php endforeach; ?>
+			</select>
+		</label>
 		</div><div id="search-combo">
 			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input id="input-search" type="text" name="lugar" placeholder="Buscar..." required></input>
+				<input id="input-search" type="text" name="lugar" placeholder="Buscá otro lugar..." required></input>
 			</form>
 		</div>
+		
 
 		<div id="results">
 		    
@@ -101,6 +111,24 @@
     	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
     	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
     	setLugares(nombres, latitudes, longitudes);
+	</script>
+
+	
+
+	<script>
+		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
+
+		$(document).on("ready", function() {
+			var comida = "<?php echo $comidaBusqueda->slug; ?>";
+			$(".cs-select option").each(function() {
+				if ($(this).val() == comida) {
+					$(this).attr("selected", "selected");
+				}
+			});
+			$(".cs-select").change(function(){
+				window.location = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>/" + $(this).val();
+			});
+		});
 	</script>
 
 	<!-- FOOTER -->

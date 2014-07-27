@@ -40,8 +40,8 @@
 	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 
 	<script>
+		var city = "<?php echo $city; ?>";
 		$(document).on("ready", function() {
-			var city = "<?php echo $city; ?>";
 			$("select option").each(function() {
 				if ($(this).val() == city) {
 					$(this).attr("selected", "selected");

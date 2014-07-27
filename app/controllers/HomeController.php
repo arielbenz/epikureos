@@ -37,10 +37,12 @@ class HomeController extends BaseController {
 	public function get_busqueda($city, $busqueda) {
 
 		$lugares = null;
+		$ciudad = Ciudad::where('slug', '=', $city)->first();
+		$comidas = Comida::orderBy('descripcion', 'ASC')->get();
+		$comidaBusqueda = null;
 
 		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
-
-		$ciudad = Ciudad::where('slug', '=', $city)->first();
+		
 
  		if ($etiqueta == null) {
 			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->where('estado', '=', 1)->where('ciudad', '=', $ciudad->id)->paginate(8);
@@ -48,37 +50,55 @@ class HomeController extends BaseController {
 			$lugares = $etiqueta->lugares($ciudad->id)->paginate(8);
 		}
 
-		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city);
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda);
 	}
 
-	public function get_busqueda_ocasion($city, $busqueda, $ocasion) {
+	public function get_busqueda_ocasion($city, $busqueda, $ocasionComida) {
 
-		$lugares = null;
-
-		$ocasion = Ocasion::where('slug', '=', $ocasion)->first();
-		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
 		$ciudad = Ciudad::where('slug', '=', $city)->first();
+		$lugares = Lugar::where('nombre', '=', $busqueda)->where('estado', '=', 1)->where('ciudad', '=', $ciudad->id)->paginate(8);
+		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
+		$comidas = Comida::orderBy('descripcion', 'ASC')->get();
+		$comida = null;
 
-
-		if($ocasion != null && $etiqueta != null) {
-			$lugaresOcasion = OcasionLugar::where('ocasion_id', '=', $ocasion->id)->get();
+		if($etiqueta != null) {
+			$comida = Comida::where('slug', 'LIKE', $ocasionComida.'%')->first();
 			$lugaresEtiqueta = EtiquetaLugar::where('id_etiqueta', '=', $etiqueta->id)->get();
-
-			$idlugares = null;
+			$idlugares[] = null;
 			$i = 0;
 
-			foreach ($lugaresOcasion as $lugarOcasion) {
-				foreach ($lugaresEtiqueta as $lugarEtiqueta) {
-					if($lugarOcasion->lugar_id == $lugarEtiqueta->id_lugar) {
-						$idlugares[$i] = $lugarOcasion->lugar_id;
-						$i = $i + 1;
+			if($comida == null) {
+				$ocasion = Ocasion::where('slug', '=', $ocasionComida)->first();
+			
+				if($ocasion != null) {
+					$lugaresOcasion = OcasionLugar::where('ocasion_id', '=', $ocasion->id)->get();
+					
+					foreach ($lugaresOcasion as $lugarOcasion) {
+						foreach ($lugaresEtiqueta as $lugarEtiqueta) {
+							if($lugarOcasion->lugar_id == $lugarEtiqueta->id_lugar) {
+								$idlugares[$i] = $lugarOcasion->lugar_id;
+								$i = $i + 1;
+							}
+						}
+					}
+					$lugares = Lugar::whereIn('id', $idlugares)->where('ciudad', '=', $ciudad->id)->paginate(8);
+				}
+			} else {
+				$lugaresComida = ComidaLugar::where('comida_id', '=', $comida->id)->get();
+
+				foreach ($lugaresComida as $lugarComida) {
+					foreach ($lugaresEtiqueta as $lugarEtiqueta) {
+						if($lugarComida->lugar_id == $lugarEtiqueta->id_lugar) {
+							$idlugares[$i] = $lugarComida->lugar_id;
+							$i = $i + 1;
+						}
 					}
 				}
+				$lugares = Lugar::whereIn('id', $idlugares)->where('ciudad', '=', $ciudad->id)->paginate(8);
 			}
-			$lugares = Lugar::whereIn('id', $idlugares)->where('ciudad', '=', $ciudad->id)->paginate(8);
 		}
 
-		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city);
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comida);
 	}
 
 	public function post_busqueda() {

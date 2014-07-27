@@ -1,11 +1,10 @@
 var popup;
 
 function setLugares(nombres, latitudes, longitudes) {
-	var ciudad = "<?php echo $city ?>";
 	var latlon = null;
-	if(ciudad == "santafe") {
+	if(city == "santafe") {
 		latlon = new google.maps.LatLng(-31.632389, -60.699459);
-	} else if(ciudad = "parana") {
+	} else if(city = "parana") {
 		latlon = new google.maps.LatLng(-31.741834, -60.511946);
 	}
 	

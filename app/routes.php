@@ -30,7 +30,7 @@ Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
     Route::post('/busqueda', 'HomeController@post_busqueda');
     Route::get('/busqueda/{lugar}', 'HomeController@get_busqueda');
-    Route::get('/busqueda/{lugar}/{ocasion}', 'HomeController@get_busqueda_ocasion');
+    Route::get('/busqueda/{lugar}/{ocasionComida}', 'HomeController@get_busqueda_ocasion');
 
     //Rutas lugar
 
@@ -115,5 +115,11 @@ Route::group(array('prefix' => 'admin'), function() {
         Route::get('/etiquetas/edit/{id}', 'AdminController@etiquetas_get_edit');
         Route::post('/etiquetas/edit/{id}', 'AdminController@etiquetas_post_edit');
         Route::get('/etiquetas/delete/{id}', 'AdminController@etiquetas_delete');
+
+        Route::get('/comidas', 'AdminController@comidas');
+        Route::post('/comidas/add', 'AdminController@comidas_add');
+        Route::get('/comidas/edit/{id}', 'AdminController@comidas_get_edit');
+        Route::post('/comidas/edit/{id}', 'AdminController@comidas_post_edit');
+        Route::get('/comidas/delete/{id}', 'AdminController@comidas_delete');
     });
 });
