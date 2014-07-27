@@ -11,66 +11,6 @@
 	 	$i = 0;
 	?>
 
-	<!-- JAVASCRIPT -->
-
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	
-	<script>
-
-		var popup;
-
-		function setLugares(nombres, latitudes, longitudes) {
-			var ciudad = "<?php echo $city ?>";
-			var latlon = null;
-			if(ciudad == "santafe") {
-				latlon = new google.maps.LatLng(-31.632389, -60.699459);
-			} else if(ciudad = "parana") {
-				latlon = new google.maps.LatLng(-31.741834, -60.511946);
-			}
-			
-	        var myOptions = {
-	            zoom: 14,
-	            center: latlon,
-	            scrollwheel: false,
-	            mapTypeId: google.maps.MapTypeId.ROADMAP
-	        };
-
-	        var map = new google.maps.Map($("#mapa").get(0), myOptions);
-	        var bounds = new google.maps.LatLngBounds();
-
-			for(i = 0; i < nombres.length; i++) {
-				var marker = new google.maps.LatLng(latitudes[i], longitudes[i]);
-				addMark(map, marker, nombres[i], bounds);
-			}
-
-			//centerMap
-			if(nombres.length > 1) {
-				map.fitBounds(bounds);
-				map.setCenter(bounds.getCenter());
-			}
-		}
-
-		function addMark(map, location, title, bounds) {
-            var marcador = new google.maps.Marker({
-	            position: location,
-	            map: map,
-	            title: title
-	        });
-
-	        bounds.extend(marcador.position);
-
-			google.maps.event.addListener(marcador, "mouseover", function() {
-				if(!popup){
-	                popup = new google.maps.InfoWindow();
-	            }
-	            var note = "<div class='info-window'><p>"+ title +"</p></div>";
-	            popup.setContent(note);
-	            popup.open(map, this);
-			});
-        }
-
-	</script>
-
 	<!-- CONTENT -->
 
 	<section id="barra-busqueda" class="barra-content">
@@ -89,11 +29,21 @@
 
 		<div id="search-header">
 			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
+		</div><div class="comida-select">
+		<label>
+			<select class="cs-select">
+				<option value="" disabled selected>Tipo de Comida</option>
+				 <?php foreach ($comidas as $comida): ?>
+					<option value="<?php echo $comida->slug ?>"><?php echo $comida->descripcion ?></option>
+				<?php endforeach; ?>
+			</select>
+		</label>
 		</div><div id="search-combo">
 			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input id="input-search" type="text" name="lugar" placeholder="Buscar..." required></input>
+				<input id="input-search" type="text" name="lugar" placeholder="Buscá otro lugar..." required></input>
 			</form>
 		</div>
+		
 
 		<div id="results">
 		    
@@ -142,12 +92,7 @@
 
 		    <?php endforeach; ?>
 
-		    <script>
-		    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
-		    	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
-		    	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
-		    	setLugares(nombres, latitudes, longitudes);
-	 		</script>
+		    
 
 		</div>
 
@@ -156,6 +101,35 @@
 		</div>
 		
 	</section>
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	
+	<script src="<?php echo $url?>/js/busqueda.min.js"></script>
+
+	<script>
+    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
+    	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
+    	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
+    	setLugares(nombres, latitudes, longitudes);
+	</script>
+
+	
+
+	<script>
+		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
+
+		$(document).on("ready", function() {
+			var comida = "<?php echo $comidaBusqueda->slug; ?>";
+			$(".cs-select option").each(function() {
+				if ($(this).val() == comida) {
+					$(this).attr("selected", "selected");
+				}
+			});
+			$(".cs-select").change(function(){
+				window.location = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>/" + $(this).val();
+			});
+		});
+	</script>
 
 	<!-- FOOTER -->
 

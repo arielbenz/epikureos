@@ -21,6 +21,11 @@ class Lugar extends Eloquent {
 		return $this->belongsToMany('Ocasion', 'ocasiones_lugares', 'lugar_id', 'ocasion_id' );
 	}
 
+	public function comidas()
+	{
+		return $this->belongsToMany('Comida', 'comidas_lugares', 'lugar_id', 'comida_id' );
+	}
+
 	public static function enCategorias($id)
 	{
 		$categorias = Lugar::find($id)->categorias()->lists('id');
@@ -37,6 +42,12 @@ class Lugar extends Eloquent {
 	{
 		$ocasiones = Lugar::find($id)->ocasiones()->lists('id');
 		return $ocasiones;
+	}
+
+	public static function enComidas($id)
+	{
+		$comidas = Lugar::find($id)->comidas()->lists('id');
+		return $comidas;
 	}
 
 	public static function enCiudad($id)

@@ -40,8 +40,8 @@
 	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 
 	<script>
+		var city = "<?php echo $city; ?>";
 		$(document).on("ready", function() {
-			var city = "<?php echo $city; ?>";
 			$("select option").each(function() {
 				if ($(this).val() == city) {
 					$(this).attr("selected", "selected");
@@ -55,6 +55,16 @@
 </head>
 
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=1493433700874584&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 	<header class="header">
 		<div id="header-nav">
 			<?php
@@ -88,10 +98,10 @@
 			<nav id="menu">
 				<ul>
 					<li id="menu-inicio"><a href="<?php echo $url?>">INICIO</a></li>
-					<li <?php if ($actual == "novedades") echo 'class="menu-actual" id="menu-novedades">'; else echo '>'?> <a href="<?php echo $url?>/novedades">NOVEDADES</a></li>
-					<li <?php if ($actual == "laposta") echo 'class="menu-actual" id="menu-laposta">'; else echo '>'?> <a href="<?php echo $url?>/laposta">LA POSTA</a></li>
-					<li <?php if ($actual == "quees") echo 'class="menu-actual" id="menu-quees">'; else echo '>'?> <a href="<?php echo $url?>/quees">¿QUÉ ES?</a></li>
-					<li <?php if ($actual == "contacto") echo 'class="menu-actual" id="menu-contacto">'; else echo '>'?> <a href="<?php echo $url?>/contacto">CONTACTO</a></li>
+					<li <?php if ($actual == "novedades") echo 'class="menu-actual" id="menu-novedades">'; else echo '>'?> <a href="/novedades">NOVEDADES</a></li>
+					<li <?php if ($actual == "laposta") echo 'class="menu-actual" id="menu-laposta">'; else echo '>'?> <a href="/laposta">LA POSTA</a></li>
+					<li <?php if ($actual == "quees") echo 'class="menu-actual" id="menu-quees">'; else echo '>'?> <a href="/quees">¿QUÉ ES?</a></li>
+					<li <?php if ($actual == "contacto") echo 'class="menu-actual" id="menu-contacto">'; else echo '>'?> <a href="/contacto">CONTACTO</a></li>
 					<?php
 					if($actual != "novedades" && $actual != "laposta") {
 						if (Auth::check()) {

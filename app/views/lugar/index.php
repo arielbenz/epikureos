@@ -6,8 +6,6 @@
 		include "app/views/lugar/timeago.php";
 	?>
 
-	<script src="<?php echo $url?>/js/starrr.js"></script>
-
 	<!-- CONTENT -->
 
 	<section id="barra-lugar" class="barra-content">
@@ -272,7 +270,8 @@
 
 	</section>
 
-	<!-- Google Maps -->
+	<script src="<?php echo $url?>/js/starrr.min.js"></script>
+
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script>

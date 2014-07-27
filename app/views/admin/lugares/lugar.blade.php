@@ -110,6 +110,11 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Comidas')}}
+					{{Form::select('comidas[]', $comidas, Lugar::enComidas($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
 					<p>{{Form::submit('Modificar lugar', array('class' => 'btn btn-default'))}}</p>
 				</div>
 
@@ -217,6 +222,11 @@
 				<div class="form-group">
 					{{Form::label('Ocasiones')}}
 					{{Form::select('ocasiones[]', $ocasiones, array(1), array('multiple' => 'multiple', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Comidas')}}
+					{{Form::select('comidas[]', $comidas, array(1), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

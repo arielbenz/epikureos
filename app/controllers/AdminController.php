@@ -2,32 +2,25 @@
 
 class AdminController extends BaseController {
 
-	public function index()
-	{
+	public function index() {
 		return View::make('admin.index');
 	}
 
+	/*==========  LUGARES  ==========*/
 
-	/**
-	*
-	* LUGARES
-	*
-	**/
-
-	public function lugares_all()
-	{
+	public function lugares_all() {
 		$lugares = Lugar::orderBy('nombre', 'ASC')->paginate(20);
 		return View::make('admin.lugares.all')->with('lugares', $lugares);
 	}
 
-	public function lugar($id)
-	{
+	public function lugar($id) {
 		$lugar = Lugar::find($id);
 		$categorias = Categoria::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$comidas = Comida::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$thumb = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 1)->first();
 
 		$slides = Foto::where('id_lugar', '=', $id)->where('tipo', '=', 2)->first();
@@ -37,22 +30,21 @@ class AdminController extends BaseController {
 			$slides = $slides->cantidad;
 		}
 
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('thumb', $thumb)->with('slides', $slides);
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('thumb', $thumb)->with('slides', $slides)->with('comidas', $comidas);
 	}
 
-	public function get_add()
-	{
+	public function get_add() {
 		$categorias = Categoria::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$etiquetas = Etiqueta::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$comidas = Comida::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones);
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('comidas', $comidas);
 	}
 
-	public function post_add()
-	{
+	public function post_add() {
 		$input = Input::all();
 
 		$rules = array(
@@ -103,8 +95,7 @@ class AdminController extends BaseController {
 			$fotoSlide->save();
 
 			$categorias = Input::get('categorias');
-			foreach($categorias as $categoria)
-			{
+			foreach($categorias as $categoria) {
 				$relation = new CategoriaLugar;
 					$relation->id_lugar = $lugar->id;
 					$relation->id_categoria = $categoria;
@@ -112,8 +103,7 @@ class AdminController extends BaseController {
 			}
 
 			$etiquetas = Input::get('etiquetas');
-			foreach($etiquetas as $etiqueta)
-			{
+			foreach($etiquetas as $etiqueta) {
 				$relation = new EtiquetaLugar;
 					$relation->id_lugar = $lugar->id;
 					$relation->id_etiqueta = $etiqueta;
@@ -121,20 +111,30 @@ class AdminController extends BaseController {
 			}
 
 			$ocasiones = Input::get('ocasiones');
-			foreach($ocasiones as $ocasion)
-			{
-				$relation = new OcasionLugar;
-					$relation->lugar_id = $lugar->id;
-					$relation->ocasion_id = $ocasion;
-				$relation->save();
+			if($ocasiones != null) {
+				foreach($ocasiones as $ocasion) {
+					$relation = new OcasionLugar;
+						$relation->lugar_id = $lugar->id;
+						$relation->ocasion_id = $ocasion;
+					$relation->save();
+				}
+			}
+
+			$comidas = Input::get('comidas');
+			if($comidas != null) {
+				foreach($comidas as $comida) {
+					$relation = new ComidaLugar;
+						$relation->lugar_id = $lugar->id;
+						$relation->comida_id = $comida;
+					$relation->save();
+				}
 			}
 
 			return Redirect::to('/admin/lugares');
 		}
 	}
 
-	public function lugar_edit($id)
-	{
+	public function lugar_edit($id)	{
 		$input = Input::all();
 
 		$rules = array(
@@ -187,45 +187,52 @@ class AdminController extends BaseController {
 			$categorias = Input::get('categorias');
 			$etiquetas = Input::get('etiquetas');
 			$ocasiones = Input::get('ocasiones');
+			$comidas = Input::get('comidas');
 
 			$old_relations = CategoriaLugar::where('id_lugar', '=', $id)->delete();
 			$old_relations_tag = EtiquetaLugar::where('id_lugar', '=', $id)->delete();
 			$old_relations_ocasiones = OcasionLugar::where('lugar_id', '=', $id)->delete();
+			$old_relations_comidas = ComidaLugar::where('lugar_id', '=', $id)->delete();
 
-			foreach($categorias as $categoria)
-			{
+			foreach($categorias as $categoria) {
 				$relation = new CategoriaLugar;
 					$relation->id_lugar = $id;
 					$relation->id_categoria = $categoria;
 				$relation->save();
 			}
 
-			foreach($etiquetas as $etiqueta)
-			{
+			foreach($etiquetas as $etiqueta) {
 				$relation = new EtiquetaLugar;
 					$relation->id_lugar = $id;
 					$relation->id_etiqueta = $etiqueta;
 				$relation->save();
 			}
 
-			foreach($ocasiones as $ocasion)
-			{
-				$relation = new OcasionLugar;
-					$relation->lugar_id = $lugar->id;
-					$relation->ocasion_id = $ocasion;
-				$relation->save();
+			if($ocasiones != null) {
+				foreach($ocasiones as $ocasion)	{
+					$relation = new OcasionLugar;
+						$relation->lugar_id = $lugar->id;
+						$relation->ocasion_id = $ocasion;
+					$relation->save();
+				}
+			}
+
+			if($comidas != null) {
+				foreach($comidas as $comida)	{
+					$relation = new ComidaLugar;
+						$relation->lugar_id = $lugar->id;
+						$relation->comida_id = $comida;
+					$relation->save();
+				}
 			}
 
 			return Redirect::to('/admin/lugares');
 		}
 	}
 
-
 	/*==========  CATEGORIAS  ==========*/
 	
-
-	public function categorias()
-	{
+	public function categorias() {
 		$categorias = Categoria::all();
 		return View::make('admin.categorias.categorias')->with('categorias', $categorias);
 	}
@@ -256,15 +263,13 @@ class AdminController extends BaseController {
 		}
 	}
 
-	public function categorias_get_edit($id)
-	{
+	public function categorias_get_edit($id) {
 		$categorias = Categoria::all();
 		$categoria = Categoria::find($id);
 		return View::make('admin.categorias.categorias')->with('categorias', $categorias)->with('categoria', $categoria);
 	}
 
-	public function categorias_post_edit($id)
-	{
+	public function categorias_post_edit($id) {
 		$input = Input::all();
 
 		$rules = array(
@@ -289,27 +294,20 @@ class AdminController extends BaseController {
 		}
 	}
 
-	public function categorias_delete($id)
-	{
+	public function categorias_delete($id) {
 		$categoria = Categoria::find($id);
 		$categoria->delete();
 		return Redirect::to('/admin/categorias');
 	}
 
-
-
 	/*==========  ETIQUETAS  ==========*/
 
-
-
-	public function etiquetas()
-	{
+	public function etiquetas() {
 		$etiquetas = Etiqueta::all();
 		return View::make('admin.etiquetas.etiquetas')->with('etiquetas', $etiquetas);
 	}
 
-	public function etiquetas_add()
-	{
+	public function etiquetas_add()	{
 		$input = Input::all();
 
 		$rules = array(
@@ -334,15 +332,13 @@ class AdminController extends BaseController {
 		}
 	}
 
-	public function etiquetas_get_edit($id)
-	{
+	public function etiquetas_get_edit($id)	{
 		$etiquetas = Etiqueta::all();
 		$etiqueta = Etiqueta::find($id);
 		return View::make('admin.etiquetas.etiquetas')->with('etiquetas', $etiquetas)->with('etiqueta', $etiqueta);
 	}
 
-	public function etiquetas_post_edit($id)
-	{
+	public function etiquetas_post_edit($id) {
 		$input = Input::all();
 
 		$rules = array(
@@ -367,11 +363,79 @@ class AdminController extends BaseController {
 		}
 	}
 
-	public function etiquetas_delete($id)
-	{
+	public function etiquetas_delete($id) {
 		$etiqueta = Etiqueta::find($id);
 		$etiqueta->delete();
 		return Redirect::to('/admin/etiquetas');
+	}
+
+	/*==========  COMIDAS  ==========*/
+
+	public function comidas() {
+		$comidas = Comida::all();
+		return View::make('admin.comidas.comidas')->with('comidas', $comidas);
+	}
+
+	public function comidas_add()	{
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$comida = new Comida;
+				$comida->slug = Input::get('slug');
+				$comida->descripcion = Input::get('descripcion');
+			$comida->save();
+
+			return Redirect::to('/admin/comidas');
+		}
+	}
+
+	public function comidas_get_edit($id)	{
+		$comidas = Comida::all();
+		$comida = Comida::find($id);
+		return View::make('admin.comidas.comidas')->with('comidas', $comidas)->with('comida', $comida);
+	}
+
+	public function comidas_post_edit($id) {
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$comida = Comida::find($id);
+				$comida->slug = Input::get('slug');
+				$comida->descripcion = Input::get('descripcion');
+			$comida->save();
+
+			return Redirect::to('/admin/comidas');
+		}
+	}
+
+	public function comidas_delete($id) {
+		$comida = Comida::find($id);
+		$comida->delete();
+		return Redirect::to('/admin/comidas');
 	}
 
 }

@@ -36,6 +36,7 @@
 					<li><a href="{{URL::to('/admin/lugares/add')}}">Añadir Lugar</a></li>
 					<li><a href="{{URL::to('/admin/categorias')}}">Categorías</a></li>
 					<li><a href="{{URL::to('/admin/etiquetas')}}">Etiquetas</a></li>
+					<li><a href="{{URL::to('/admin/comidas')}}">Comidas</a></li>
 				</ul>
 			</div>
 

@@ -22,15 +22,22 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $titillium-regular;
     margin: 0;
     line-height: normal;
+    text-rendering: optimizeLegibility;
+}
+
+h3 {
+    font-size: 20px;
 }
 
 p {
     margin: 0;
+    text-rendering: optimizeLegibility;
 }
 
 a {
     color: $gray-dark;
     text-decoration: none;
+    text-rendering: optimizeLegibility;
 }
 
 img {
@@ -53,7 +60,6 @@ ul {
         #logo {
             display: inline-block;
             float: left;
-            // margin-left: 10px;
             margin-top: 5px;
         }
         #menu {
@@ -149,9 +155,8 @@ ul {
             font-family: $titillium-regular;
             height: 70px;
             position: relative;
-            // right: 10px;
             vertical-align: top;
-            select {
+            .select-city {
                 background: transparent;
                 border: 0;
                 color: #dfdfdf;
@@ -164,6 +169,9 @@ ul {
                 text-indent: 0.01px;
                 width: 120px;
                 @include appearance(none);
+                option {
+                    background-color: $gray-dark;
+                }
             }
             label {
                 position: relative;
@@ -198,7 +206,6 @@ ul {
             font-size: 40px;
             float: left;
             position: relative;
-            // left: 4px;
             text-rendering: optimizeSpeed;
             h2 {
                 color: white;
@@ -242,32 +249,29 @@ ul {
     height: 300px;
     width: 100%;
     #search {
-        height: 80px;
+        height: 60px;
         margin: 0 auto;
-        @include rem-fallback(padding-top, 5.625);
-        @include rem-fallback(width, 37.5);
+        @include rem-fallback(padding-top, 6.25);
+        width: 560px;
         #form-search {
             margin: 0 auto;
-            width: 490px;
             height: 100%;
         }
         #nav-search {
             font-family: $titillium-regular;
             margin: 0 auto;
-            padding-right: 10px;
+            padding: 4px;
+            background-color: rgba(210, 210, 210, 0.5);
             ul {
                 li {
                     display: inline-block;
                     a {
                         background-color: #474747;
-                        @include border-radius(5px);
                         color: white;
                         display: inline-block;
                         font-size: 16px;
-                        margin: 0 0 10px 10px;
                         padding: 7px 0;
-                        width: 130px;
-                        @include box-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+                        width: 135px;
                         @include text-shadow(#cccccc -0.5px -0.5px 1px);
                         @include transition(background-color 0.3s ease-out);
                         &:hover {
@@ -280,7 +284,6 @@ ul {
         button {
             background-color: $orange-dark;
             border: none;
-            @include border-radius(0 5px 5px 0);
             color: white;
             cursor: pointer;
             float: right;
@@ -318,7 +321,6 @@ ul {
         }
         input {
             @include box-shadow(0px 0px 5px #5cd053);
-            @include border-radius(5px 0 0 5px);
             border: none;
             color: #888;
             float: left;
@@ -327,7 +329,7 @@ ul {
             font-size: 20px;
             height: 30px;
             padding: 10px 5px;
-            width: 370px;
+            width: 440px;
             &:focus {
                 outline: 0;
                 background: white;
@@ -365,7 +367,7 @@ ul {
         background: white;
         display: inline-block;
         height: 100%;
-        margin-right: 25px;
+        margin-right: 22px;
         position: relative;
         width: 880px;
     }
@@ -374,7 +376,7 @@ ul {
         margin: 0;
         position: relative;
         vertical-align: top;
-        width: 280px;
+        width: 286px;
     }
 }
 
@@ -804,7 +806,8 @@ footer {
     background-color: $gray-dark;
     height: 125px;
     margin: 0 auto;
-    width: 275px;
+    width: 290px;
+    margin-bottom: 25px;
     h3 {
         color: white;
         font-family: $openSans-bold;

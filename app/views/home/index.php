@@ -12,14 +12,14 @@
 		<article id="search">
 
 			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input type="text" name="lugar" placeholder="Ingresá tu lugar favorito..." required></input>
+				<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
 				<button type="submit">Buscar</button>
 			</form>
 
 			<nav id="nav-search">
 				<ul>
 					<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
-					<li><a href="<?php echo $url?>/busqueda/restaurant" title="Restaurantes">RESTAURANTES</a></li>
+					<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
 					<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
 					<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
 				</ul>
@@ -37,7 +37,7 @@
 					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Bares para una</p>
-						<h2 class="font-normal">Reuniónde<span class="font-bold">Trabajo</span></h2>
+						<h2 class="font-normal">Reunión de <span class="font-bold">Trabajo</span></h2>
 					</figcaption>			
 				</figure>
 			</a>
@@ -47,7 +47,7 @@
 					<img src="<?php echo $url?>/img/recomend2.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Bares para</p>
-						<h2 class="font-normal">after<span class="font-bold">office</span></h2>
+						<h2 class="font-normal"><span class="font-bold">after </span>office</h2>
 					</figcaption>			
 				</figure>
 			</a>
@@ -57,7 +57,7 @@
 					<img src="<?php echo $url?>/img/recomend3.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Restaurantes para</p>
-						<h2 class="font-normal">iren<span class="font-bold">pareja</span></h2>
+						<h2 class="font-normal">ir en <span class="font-bold">pareja</span></h2>
 					</figcaption>			
 				</figure>
 			</a>

@@ -34,7 +34,7 @@
         display: inline-block;
         height: 90px;
         text-align: left;
-        width: 850px;
+        width: 738px;
         h3 {
             color: $gray-middle;
             font-family: $titillium-regular;
@@ -47,23 +47,48 @@
             margin: 0;
         }
     }
+    .comida-select {
+        width: 250px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 22px;
+        position: relative;
+        label {
+            position: relative;
+            &:after {
+                font-family: 'icomoon';
+                content: '\e005';
+                position: absolute;
+                top: 5px;
+                right: 13px;
+                color: #807e7f;
+                pointer-events: none;
+            }
+        }
+        .cs-select {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            width: 200px;
+            font-size: 16px;
+            color: #807e7f;
+            border: 1px solid #ddd;
+            padding: 13px;
+            @include appearance(none);
+        }
+    }
     #search-combo {
         display: inline-block;
-        height: 90px;
-        text-align: right;
-        position: relative;
         vertical-align: top;
-        width: 350px;
         .form-search {
             margin: 0 auto;
             margin-top: 22px;
             input {
-                border: 2px solid $gray-middle-four;
-                font-size: 18px;
-                height: 35px;
-                padding: 5px;
+                border: 1px solid $gray-middle-four;
+                font-size: 16px;
+                padding: 14px;
                 position: relative;
-                width: 280px;
+                width: 180px;
             }
         }
     }
