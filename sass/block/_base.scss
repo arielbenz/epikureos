@@ -455,6 +455,7 @@ ul {
                     padding-left: 20px;
                     text-align: left;
                     text-transform: uppercase;
+                    line-height: inherit;
                 }
                 .extract {
                     font-family: $openSans-light;
@@ -1022,4 +1023,13 @@ figure.effect-oscar {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+}
+
+.wp-caption-text {
+    font-size: 0.85em;
+    padding-top: 0.5em;
+    color: #888;
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
