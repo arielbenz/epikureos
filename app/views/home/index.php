@@ -10,21 +10,20 @@
 	<section id="home-search">
 
 		<article id="search">
-
-			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
-				<button type="submit">Buscar</button>
-			</form>
-
-			<nav id="nav-search">
-				<ul>
-					<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
-					<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
-					<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
-					<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
-				</ul>
-			</nav>
-
+			<div class="search-section">
+				<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
+					<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
+					<button type="submit">Buscar</button>
+				</form>
+				<nav id="nav-search">
+					<ul>
+						<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
+						<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
+						<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
+						<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
+					</ul>
+				</nav>
+			</div>
 		</article>
 		
 	</section>
@@ -158,14 +157,6 @@
 		</section>
 		
 	</section>
-
-	<section id="home-publicidad">
-		<!-- <article id="publicidad1" class="class-publi"></article>
-		<article id="publicidad2" class="class-publi"></article>
-		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article> -->
-	</section>
-
 
 	<!-- FOOTER -->
 

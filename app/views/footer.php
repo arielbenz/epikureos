@@ -1,14 +1,3 @@
-	
-	<!-- <section id="partner-footer">
-		
-		<div id="partner-section">
-			<div class="partner-image"></div>
-			<div class="partner-image"></div>
-			<div class="partner-image"></div>
-			<div class="partner-image"></div>
-		</div>
-		
-	</section> -->
 
 	<footer>
 		<section id="home-footer">
@@ -58,13 +47,15 @@
 				</div>				
 			</article>
 
-			<article id="footer-terminos">
-				<small><a href="<?php echo $url?>/terminos">Términos y condiciones de uso</a> | Copyright 2014 Tu Salida</small>
-			</article>
+			<div class="footer-copy">
+				<article id="footer-terminos">
+					<small><a href="<?php echo $url?>/terminos">Términos y condiciones de uso</a> | Copyright 2014 Tu Salida</small>
+				</article>
 
-			<article id="footer-design">
-				<p>Diseñado por Nicolás Rebaudino</p>
-			</article>
+				<article id="footer-design">
+					<p>Diseñado por Nicolás Rebaudino</p>
+				</article>
+			</div>
 			
 		</section>
 	</footer>

@@ -84,12 +84,12 @@ $bp-ad-until-small: max-width $bp-ad-small - 0.01;
 // =============
 // Susy
 // =============
-// $susy: (
-//   columns: 16,
-//   gutters: 1/4,
-//   math: fluid,
-//   output: float,
-//   gutter-position: inside,
-//   global-box-sizing: border-box,
-//   gutter-override: 1.25rem
-// );
+$susy: (
+  columns: 16,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+  global-box-sizing: border-box,
+  gutter-override: 1.25rem
+);
