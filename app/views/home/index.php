@@ -37,7 +37,7 @@
 					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Bares para una</p>
-						<h2 class="font-normal">Reunión de <span class="font-bold">Trabajo</span></h2>
+						<h2 class="font-normal">Reunión de<span class="font-bold">Trabajo</span></h2>
 					</figcaption>			
 				</figure>
 			</a>

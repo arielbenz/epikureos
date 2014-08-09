@@ -36,34 +36,13 @@
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 
 	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
-	<script src="<?php echo $url?>/js/modernizr.min.js"></script>
-	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
-
+	<script async src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 	<script>
 		var city = "<?php echo $city; ?>";
-		$(document).on("ready", function() {
-			$("select option").each(function() {
-				if ($(this).val() == city) {
-					$(this).attr("selected", "selected");
-				}
-			});
-			$(".select-city").change(function(){
-				window.location = "http://" + $(this).val() + ".epikureos.com";
-			});
-		});
 	</script>
 </head>
 
 <body>
-
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=1493433700874584&version=v2.0";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<header class="header">
 		<div id="header-nav">
