@@ -12,8 +12,7 @@
 		<article id="search">
 			<div class="search-section">
 				<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-					<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
-					<button type="submit">Buscar</button>
+					<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input><button type="submit">Buscar</button>
 				</form>
 				<nav id="nav-search">
 					<ul>
@@ -74,8 +73,6 @@
 
 				<?php while (have_posts()) : the_post(); ?>
 					<div class="posta">
-
-						<!--Imagen la posta-->
 						<div class="imagen-laposta">
 							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
 								if ($postaimagen) { ?>
@@ -91,8 +88,7 @@
 			<?php else : ?>
 				<h1>Lo que buscas no se encuentra</h1>			
 			<?php endif; ?>
-
-			<!--titulo laposta-->
+			
 	 		<div class="title-laposta">
 	 			<div class="calendar">
 	 				<div class="icon-calendar">

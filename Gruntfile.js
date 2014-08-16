@@ -10,7 +10,7 @@ grunt.initConfig({
             options: {
                /* Either use your config.rb for settings, or state them here */
                //config: 'config.rb'
-               require:['susy'],
+               require:['susy', 'breakpoint'],
                httpPath:"/",
                sassDir:"sass",
                cssDir:"css",
