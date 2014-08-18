@@ -13,7 +13,7 @@
 		</div>
 	</section>
 
-	<section id="content-contacto">
+	<section class="content-contacto">
 
 		<article id="header-contacto">
 			<h2>¡TU OPINIÓN NOS INTERESA!</h2>

@@ -52,6 +52,19 @@
 			});
 		});
 	</script>
+
+	<script>
+	    $(function() {
+	        var btn_movil = $('#nav-mobile'),
+	           	menu = $('#menu').find('ul');
+	        btn_movil.on('click', function (e) {
+	            e.preventDefault();
+	            var el = $(this);
+	            el.toggleClass('nav-active');
+	            menu.toggleClass('open-menu');
+	        })
+	    });
+	</script>
 </head>
 
 <body>
@@ -95,7 +108,7 @@
 				<a href="<?php echo $url?>/"><img title="Tu Salida - Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
-			<nav id="menu">
+			<nav id="menu"><a class="nav-mobile" id="nav-mobile" href="#"></a>
 				<ul>
 					<li id="menu-inicio"><a href="<?php echo $url?>">INICIO</a></li>
 					<li <?php if ($actual == "novedades") echo 'class="menu-actual" id="menu-novedades">'; else echo '>'?> <a href="/novedades">NOVEDADES</a></li>

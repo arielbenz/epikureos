@@ -110,9 +110,9 @@
 		
 		<section id="noticias">
 			
-			<article id="ultimasnoticias">
+			<!-- <article id="ultimasnoticias">
 				<h3>ÚLTIMAS NOVEDADES</h3>
-			</article>
+			</article> -->
 
 			<?php query_posts('category_name=novedades&showposts=2'); ?>
 
@@ -145,11 +145,11 @@
 			<?php endif; ?>
 			<!--fin loop-->
 
-			<a href="<?php echo $url?>/novedades">
+			<!-- <a href="<?php echo $url?>/novedades">
 				<article id="masnoticias">
 					<h4>MÁS NOVEDADES</h4>
 				</article>
-			</a>
+			</a> -->
 		</section>
 		
 	</section>
