@@ -52,18 +52,22 @@
     }
     .info-lugar {
         #info-lugar-left {
-            display: inline-block;
+            // display: inline-block;
             height: 500px;
-            margin-right: 25px;
+            // margin-right: 25px;
             vertical-align: top;
             width: 430px;
+            float: left;
             @include breakpoint($breakpoint-mobile) {
                 height: auto;
                 margin-bottom: 20px;
                 margin-right: 0;
                 width: 100%;
             }
-
+            @include breakpoint($breakpoint-landscape) {
+                height: auto;
+                width: 100%;
+            }
             #lugar-title {
                 background-color: $gray-middle-two;
                 height: 260px;
@@ -155,14 +159,29 @@
                     font-size: 13px;
                     height: auto;
                 }
+                @include breakpoint($breakpoint-landscape) {
+                    margin-bottom: 25px;
+                    height: auto;
+                }
             }
         }
         #info-lugar-middle {
-            display: inline-block;
+            // display: inline-block;
             height: 500px;
             width: 280px;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
             @include breakpoint($breakpoint-mobile) {
                 height: auto;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-landscape) {
+                height: auto;
+                margin-left: 0;
+                margin-right: 0;
                 width: 100%;
             }
 
@@ -175,15 +194,26 @@
                     height: 250px;
                     width: 100%;
                 }
+                @include breakpoint($breakpoint-landscape) {
+                    height: 250px;
+                    width: 100%;
+                }
             }
         }
         #info-lugar-right {
-            display: inline-block;
-            margin-left: 25px;
+            // display: inline-block;
+            // margin-left: 25px;
             height: 500px;
             vertical-align: top;
             width: 430px;
+            float: left;
             @include breakpoint($breakpoint-mobile) {
+                height: auto;
+                margin-left: 0;
+                margin-top: 20px;
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-landscape) {
                 height: auto;
                 margin-left: 0;
                 margin-top: 20px;
@@ -196,6 +226,10 @@
                 @include breakpoint($breakpoint-mobile) {
                     height: 100%;
                     width: 100%;
+                }
+                @include breakpoint($breakpoint-landscape) {
+                    height: 100%;
+                    width: 100%;   
                 }
 
                 #owl-demo {
@@ -230,6 +264,9 @@
                 @include breakpoint($breakpoint-mobile) {
                     width: 100%;
                 }
+                @include breakpoint($breakpoint-landscape) {
+                    width: 100%;
+                }
 
                 h4 {
                     color: white;
@@ -241,6 +278,11 @@
                         font-size: 16px;
                         margin-left: 10px;
                         margin-top: 7px;
+                    }
+                    @include breakpoint($breakpoint-landscape) {
+                        font-size: 20px;
+                        margin-left: 10px;
+                        margin-top: 4px;
                     }
                 }
                 ul {
@@ -283,6 +325,10 @@
             margin-bottom: 0;
             width: 100%;
         }
+        @include breakpoint($breakpoint-landscape) {
+            margin-bottom: 0;
+            width: 100%;
+        }
 
         .comentarios-lugar-alert {
             text-align: left;
@@ -308,6 +354,10 @@
                             padding: 10px;
                             resize: none !important;
                             @include breakpoint($breakpoint-mobile) {
+                                font-size: 13px;
+                                width: 100%;
+                            }
+                            @include breakpoint($breakpoint-landscape) {
                                 font-size: 13px;
                                 width: 100%;
                             }
@@ -439,6 +489,10 @@
             margin-left: 0;
             width: 100%;
         }
+        @include breakpoint($breakpoint-landscape) {
+            margin-left: 0;
+            width: 100%;
+        }
 
         .lugar-votos {
             display: inline-block;
@@ -446,6 +500,10 @@
             vertical-align: top;
             margin-top: 30px;
             @include breakpoint($breakpoint-mobile) {
+                width: 80%;
+            }
+            @include breakpoint($breakpoint-landscape) {
+                float: left;
                 width: 80%;
             }
 
@@ -469,6 +527,9 @@
                             width: 75%;
                             font-size: 14px;
                         }
+                        @include breakpoint($breakpoint-landscape) {
+                            width: 80%;
+                        }
                     }
                     .lugar-votos-voto {
                         display: inline-block;
@@ -478,6 +539,9 @@
                         @include breakpoint($breakpoint-mobile) {
                             width: 25%;
                             font-size: 14px;
+                        }
+                        @include breakpoint($breakpoint-landscape) {
+                            width: 20%;
                         }
                     }
                     .meter {
@@ -552,12 +616,16 @@
             @include breakpoint($breakpoint-mobile) {
                 width: 15%;
             }
+            @include breakpoint($breakpoint-landscape) {
+                width: 20%;
+                float: right;
+            }
 
             .lugar-votos-button {
                 height: 23px;
                 margin-bottom: 44px;
                 float: right;
-                width: 39px;
+                width: 42px;
                 .voteocasion {
                     color: white;
                     @include transition(all 0.3s ease);
