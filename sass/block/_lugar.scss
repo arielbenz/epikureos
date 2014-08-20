@@ -21,7 +21,6 @@
     color: #ccc;
 }
 
-
 .glyphicon-star:before {
     content: "\e006";
 }
@@ -57,9 +56,7 @@
     }
     .info-lugar {
         #info-lugar-left {
-            // display: inline-block;
             height: 500px;
-            // margin-right: 25px;
             vertical-align: top;
             width: 430px;
             float: left;
@@ -69,13 +66,16 @@
                 margin-right: 0;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 height: auto;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-portrait) {
                 width: 58%;
             }
+
             #lugar-title {
                 background-color: $gray-middle-two;
                 height: 260px;
@@ -170,6 +170,7 @@
                     font-size: 13px;
                     height: auto;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     margin-bottom: 25px;
                     height: auto;
@@ -177,7 +178,6 @@
             }
         }
         #info-lugar-middle {
-            // display: inline-block;
             height: 500px;
             width: 280px;
             float: left;
@@ -189,12 +189,14 @@
                 margin-right: 0;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 height: auto;
                 margin-left: 0;
                 margin-right: 0;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-portrait) {
                 width: 40%;
                 height: 200px;
@@ -212,10 +214,12 @@
                     height: 250px;
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     height: 250px;
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-portrait) {
                     width: 100%;
                     height: 200px;
@@ -233,12 +237,14 @@
                 margin-top: 20px;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 height: auto;
                 margin-left: 0;
                 margin-top: 20px;
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-portrait) {
                 height: 250px;
                 width: 40%;
@@ -253,13 +259,15 @@
                     height: 100%;
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     height: 100%;
-                    width: 100%;   
+                    width: 100%;
                 }
+
                 @include breakpoint($breakpoint-portrait) {
                     height: 250px;
-                    width: 100%;   
+                    width: 100%;
                 }
 
                 #owl-demo {
@@ -279,6 +287,7 @@
                                         width: 100%;
                                         height: 100%;
                                     }
+
                                     img {
                                         display: block;
                                         width: 100%;
@@ -298,6 +307,7 @@
                 @include breakpoint($breakpoint-mobile) {
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     width: 100%;
                 }
@@ -317,6 +327,7 @@
                         margin-left: 10px;
                         margin-top: 7px;
                     }
+
                     @include breakpoint($breakpoint-landscape) {
                         font-size: 20px;
                         margin-left: 10px;
@@ -363,10 +374,12 @@
             margin-bottom: 0;
             width: 100%;
         }
+
         @include breakpoint($breakpoint-landscape) {
             margin-bottom: 0;
             width: 100%;
         }
+
         @include breakpoint($breakpoint-portrait) {
             margin-bottom: 0;
             width: 100%;
@@ -399,10 +412,12 @@
                                 font-size: 13px;
                                 width: 100%;
                             }
+
                             @include breakpoint($breakpoint-landscape) {
                                 font-size: 13px;
                                 width: 100%;
                             }
+
                             @include breakpoint($breakpoint-portrait) {
                                 font-size: 16px;
                                 width: 100%;
@@ -491,11 +506,13 @@
                 padding-right: 0;
                 margin: 0 10px;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 padding-left: 0;
                 padding-right: 0;
                 margin: 0 10px;
             }
+
             .review-comment-photo {
                 float: left;
                 width: 50px;
@@ -512,9 +529,11 @@
                 @include breakpoint($breakpoint-mobile) {
                     width: auto;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     width: auto;
                 }
+
                 .review-comment-rating {
                     margin-left: 25px;
                     margin-bottom: 11px;
@@ -554,6 +573,7 @@
             margin-left: 0;
             width: 100%;
         }
+
         @include breakpoint($breakpoint-landscape) {
             margin-left: 0;
             width: 100%;
@@ -567,6 +587,7 @@
             @include breakpoint($breakpoint-mobile) {
                 width: 80%;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 float: left;
                 width: 80%;
@@ -592,6 +613,7 @@
                             width: 75%;
                             font-size: 14px;
                         }
+
                         @include breakpoint($breakpoint-landscape) {
                             width: 80%;
                         }
@@ -605,6 +627,7 @@
                             width: 25%;
                             font-size: 14px;
                         }
+
                         @include breakpoint($breakpoint-landscape) {
                             width: 20%;
                         }
@@ -681,6 +704,7 @@
             @include breakpoint($breakpoint-mobile) {
                 width: 20%;
             }
+
             @include breakpoint($breakpoint-landscape) {
                 width: 42px;
                 float: right;
