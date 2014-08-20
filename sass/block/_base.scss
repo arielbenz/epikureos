@@ -98,6 +98,9 @@ ul {
             @include breakpoint($breakpoint-bigweb) {
                 margin-left: 10px;
             }
+            @include breakpoint($breakpoint-bigwebhd) {
+                margin-left: 10px;
+            }
 
             a {
                 img {
@@ -115,6 +118,9 @@ ul {
             @include breakpoint($breakpoint-bigweb-max) {
                 width: 100%;
                 float: none;
+            }
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: 60%;
             }
 
             #nav-mobile {
@@ -154,6 +160,9 @@ ul {
                     &:hover {
                         background: #2a2d33;
                     }
+                }
+                @include breakpoint($breakpoint-bigwebhd) {
+                    margin-left: 10px;
                 }
             }
             .tooltip {
@@ -235,6 +244,10 @@ ul {
                                 background: #2a2d33;
                             }
                         }
+                        @include breakpoint($breakpoint-bigwebhd) {
+                            font-size: 14px;
+                            width: 80px;
+                        }
                     }
                 }
             }
@@ -294,6 +307,9 @@ ul {
                 top: -3px;
                 right: 115px;
             }
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: auto;
+            }
 
             .select-city {
                 background: transparent;
@@ -310,6 +326,9 @@ ul {
                 @include appearance(none);
                 option {
                     background-color: $gray-dark;
+                }
+                @include breakpoint($breakpoint-bigwebhd) {
+                    font-size: 14px;
                 }
             }
             label {
@@ -347,6 +366,10 @@ ul {
     #barra {
         @include container(1200px);
         @include breakpoint($breakpoint-mobile) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+        @include breakpoint($breakpoint-bigwebhd) {
             padding-left: 0.625rem;
             padding-right: 0.625rem;
         }
