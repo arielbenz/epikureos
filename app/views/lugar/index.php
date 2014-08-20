@@ -22,86 +22,82 @@
 			<span><a href="/">Tu Salida en <?php echo $ciudad; ?></a> >> <a href="<?php echo $url; ?>/busqueda/<?php echo $categoria->slug; ?>"><?php echo $categoria->descripcion; ?></a> >> <strong><?php echo $lugar->nombre ?></strong></span>
 		</div>
 
-		<div id="info-lugar-left">
-			<div id="lugar-title">
+		<div class="info-lugar">
 
-				<div class="lugar-ratings">
-					<span class="lugar-ratings-stars">
-	                	<?php for ($i = 1; $i <= 5; $i++) { ?>
-	    					<span class="glyphicon glyphicon-star<?php if($i <= $lugar->rating_cache) { echo ""; } else { echo "-empty"; } ?>"></span>
-	    				<?php }	?>
-						<?php echo number_format($lugar->rating_cache, 1); echo "  estrellas"; ?>
-    				</span>
+			<div id="info-lugar-left">
+				<div id="lugar-title">
 
-    				<span class="lugar-ratings-reviews"><?php echo $lugar->comentarios()->count(); echo " reseñas"; ?></span>	
-              	</div>
+					<div class="lugar-ratings">
+						<span class="lugar-ratings-stars">
+		                	<?php for ($i = 1; $i <= 5; $i++) { ?>
+		    					<span class="glyphicon glyphicon-star<?php if($i <= $lugar->rating_cache) { echo ""; } else { echo "-empty"; } ?>"></span>
+		    				<?php }	?>
+							<?php echo number_format($lugar->rating_cache, 1); echo "  estrellas"; ?>
+	    				</span>
+	    				<span class="lugar-ratings-reviews"><?php echo $lugar->comentarios()->count(); echo " reseñas"; ?></span>	
+	              	</div>
 
-				<div id="lugar-title-left">
-					<div id="lugar-nombre">
-						<h1><?php echo $lugar->nombre; ?></h1>
-					</div>
-				</div>
-
-				<div id="lugar-title-contact">
-					<div id="lugar-direccion" class="lugar-title-comun">
-						<?php echo $lugar->direccion; ?>
+					<div id="lugar-title-left">
+						<div id="lugar-nombre">
+							<h1><?php echo $lugar->nombre; ?></h1>
+						</div>
 					</div>
 
-					<div id="lugar-tel" class="lugar-title-comun">
-						<?php echo $lugar->telefono; ?>
+					<div id="lugar-title-contact">
+						<div id="lugar-direccion" class="lugar-title-comun">
+							<?php echo $lugar->direccion; ?>
+						</div>
+
+						<div id="lugar-tel" class="lugar-title-comun">
+							<?php echo $lugar->telefono; ?>
+						</div>
+
+						<div id="lugar-web" class="lugar-title-comun">
+							<?php echo $lugar->web; ?>
+						</div>
 					</div>
 
-					<div id="lugar-web" class="lugar-title-comun">
-						<?php echo $lugar->web; ?>
-					</div>
-				</div>
+					<div id="lugar-title-right">
+						<ul>
+							<?php
+								if ($lugar->facebook != "")
+									echo "<li><a href='$lugar->facebook'><img src='$url/img/face-lugar.png'></a></li>";
 
-				<div id="lugar-title-right">
-					<ul>
-						<?php
-							if ($lugar->facebook != "")
-								echo "<li><a href='$lugar->facebook'><img src='$url/img/face-lugar.png'></a></li>";
-
-							if ($lugar->twitter != "")
-								echo "<li><a href='$lugar->twitter'><img src='$url/img/twitter-lugar.png'></a></li>";
-						?>
-					</ul>
-				</div>
-
-			</div>
-
-			<div id="lugar-descripcion">
-				<p><?php echo $lugar->descripcion; ?></p>
-			</div>
-
-			<!-- <div id="lugar-utiles">
-				
-			</div> -->
-
-		</div>
-
-		<div id="info-lugar-middle">
-			<div id="lugar-mapa">
-
-			</div>
-		</div>
-
-		<div id="info-lugar-right">
-			<div id="lugar-fotos">
-				<div id="owl-demo" class="owl-carousel owl-theme">
-					<?php 
-						for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
+								if ($lugar->twitter != "")
+									echo "<li><a href='$lugar->twitter'><img src='$url/img/twitter-lugar.png'></a></li>";
 							?>
-							<div class="item"><img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
-							<?php	
-						}
-					?>
+						</ul>
+					</div>
+
+				</div>
+
+				<div id="lugar-descripcion">
+					<p><?php echo $lugar->descripcion; ?></p>
 				</div>
 			</div>
 
-			<div id="lugar-links">
-				<h4>COMPARTÍ TU LUGAR</h4>
-				<ul><li><a href="http://www.facebook.com/sharer.php?u=<?php echo URL::current();?>" target="_blank" class="contacto-face"></a></li><li><a href="https://twitter.com/intent/tweet?text=<?php echo $lugar->nombre; ?>&url=<?php echo URL::current();?>&via=tusalidaok" target="_blank" class="contacto-twitter"></a></li><li><a href="https://plus.google.com/share?url=<?php echo URL::current();?>" target="_blank" class="contacto-plus"></a></li></ul>
+			<div id="info-lugar-middle">
+				<div id="lugar-mapa">
+
+				</div>
+			</div>
+
+			<div id="info-lugar-right">
+				<div id="lugar-fotos">
+					<div id="owl-demo" class="owl-carousel owl-theme">
+						<?php 
+							for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
+								?>
+								<div class="item"><img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
+								<?php	
+							}
+						?>
+					</div>
+				</div>
+				<div id="lugar-links">
+					<h4>COMPARTÍ TU LUGAR</h4>
+					<ul><li><a href="http://www.facebook.com/sharer.php?u=<?php echo URL::current();?>" target="_blank" class="contacto-face"></a></li><li><a href="https://twitter.com/intent/tweet?text=<?php echo $lugar->nombre; ?>&url=<?php echo URL::current();?>&via=tusalidaok" target="_blank" class="contacto-twitter"></a></li><li><a href="https://plus.google.com/share?url=<?php echo URL::current();?>" target="_blank" class="contacto-plus"></a></li></ul>
+				</div>
 			</div>
 
 		</div>
@@ -163,9 +159,9 @@
 
 	                	echo "<div class='lugar-rating-star'>
 								<div class='text-right'>
-								<span class='lugar-rating-vote'>Tu voto</span>
-								<div class='stars stars-user starrr' data-rating='$rate'>
-								</div>
+									<span class='lugar-rating-vote'>Tu voto</span>
+									<div class='stars stars-user starrr' data-rating='$rate'>
+									</div>
 			             		</div>
 							</div>";
 					}

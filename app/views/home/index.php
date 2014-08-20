@@ -10,21 +10,19 @@
 	<section id="home-search">
 
 		<article id="search">
-
-			<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input>
-				<button type="submit">Buscar</button>
-			</form>
-
-			<nav id="nav-search">
-				<ul>
-					<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
-					<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
-					<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
-					<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
-				</ul>
-			</nav>
-
+			<div class="search-section">
+				<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
+					<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input><button type="submit">Buscar</button>
+				</form>
+				<nav id="nav-search">
+					<ul>
+						<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
+						<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
+						<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
+						<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
+					</ul>
+				</nav>
+			</div>
 		</article>
 		
 	</section>
@@ -75,8 +73,6 @@
 
 				<?php while (have_posts()) : the_post(); ?>
 					<div class="posta">
-
-						<!--Imagen la posta-->
 						<div class="imagen-laposta">
 							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
 								if ($postaimagen) { ?>
@@ -92,8 +88,7 @@
 			<?php else : ?>
 				<h1>Lo que buscas no se encuentra</h1>			
 			<?php endif; ?>
-
-			<!--titulo laposta-->
+			
 	 		<div class="title-laposta">
 	 			<div class="calendar">
 	 				<div class="icon-calendar">
@@ -115,9 +110,9 @@
 		
 		<section id="noticias">
 			
-			<article id="ultimasnoticias">
+			<!-- <article id="ultimasnoticias">
 				<h3>ÚLTIMAS NOVEDADES</h3>
-			</article>
+			</article> -->
 
 			<?php query_posts('category_name=novedades&showposts=2'); ?>
 
@@ -150,22 +145,14 @@
 			<?php endif; ?>
 			<!--fin loop-->
 
-			<a href="<?php echo $url?>/novedades">
+			<!-- <a href="<?php echo $url?>/novedades">
 				<article id="masnoticias">
 					<h4>MÁS NOVEDADES</h4>
 				</article>
-			</a>
+			</a> -->
 		</section>
 		
 	</section>
-
-	<section id="home-publicidad">
-		<!-- <article id="publicidad1" class="class-publi"></article>
-		<article id="publicidad2" class="class-publi"></article>
-		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article> -->
-	</section>
-
 
 	<!-- FOOTER -->
 

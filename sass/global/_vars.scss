@@ -53,6 +53,14 @@ $z-underneath: -5;
 // Media Queries
 // =============
 
+$breakpoint-mobile: max-width 380px;
+$breakpoint-landscape: 381px 640px;
+$breakpoint-landscape-max: max-width 640px;
+$breakpoint-portrait: 641px 768px;
+$breakpoint-bigweb: 769px 920px;
+$breakpoint-bigweb-max: max-width 920px;
+$breakpoint-bigwebhd: 921px 1200px;
+
 $breakpoint-default-media: screen;
 $breakpoint-to-ems: true;
 
@@ -84,12 +92,12 @@ $bp-ad-until-small: max-width $bp-ad-small - 0.01;
 // =============
 // Susy
 // =============
-// $susy: (
-//   columns: 16,
-//   gutters: 1/4,
-//   math: fluid,
-//   output: float,
-//   gutter-position: inside,
-//   global-box-sizing: border-box,
-//   gutter-override: 1.25rem
-// );
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+  global-box-sizing: border-box,
+  gutter-override: 1.25rem
+);
