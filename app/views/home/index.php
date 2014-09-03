@@ -11,9 +11,11 @@
 
 		<article id="search">
 			<div class="search-section">
-				<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
-					<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input><button type="submit">Buscar</button>
-				</form>
+				<div class="search-home">
+					<form id="form-search" action="<?php echo $url?>/busqueda" method="POST">
+						<input type="text" name="lugar" placeholder="Ingresá tu lugar, comida o bebida favorita..." required></input><button type="submit">Buscar</button>
+					</form>
+				</div>
 				<nav id="nav-search">
 					<ul>
 						<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
@@ -61,96 +63,88 @@
 			</a>
 		</div>
 
-		<section id="laposta">
+		<div class="seccion-novedades">
+			<section id="laposta">
 
-			<div id="etiqueta-laposta">
-				<img src="<?php echo $url?>/img/laposta.png">
-			</div>
+				<div id="etiqueta-laposta">
+					<img src="<?php echo $url?>/img/laposta.png">
+				</div>
 
-			<?php query_posts('category_name=laposta&showposts=1'); ?>
+				<?php query_posts('category_name=laposta&showposts=1'); ?>
 
-			<?php if (have_posts()) : ?>
+				<?php if (have_posts()) : ?>
 
-				<?php while (have_posts()) : the_post(); ?>
-					<div class="posta">
-						<div class="imagen-laposta">
-							<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
-								if ($postaimagen) { ?>
-								<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
-								<?php } else { ?> 
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-							<?php } ?>
+					<?php while (have_posts()) : the_post(); ?>
+						<div class="posta">
+							<div class="imagen-laposta">
+								<?php $postaimagen = get_post_meta(get_the_ID(), 'thumb', true);
+									if ($postaimagen) { ?>
+									<img src="<?php echo $postaimagen; ?>" alt="alt"/> 
+									<?php } else { ?> 
+									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+								<?php } ?>
+							</div>
+
 						</div>
+					<?php endwhile; ?>
 
-					</div>
-				<?php endwhile; ?>
+				<?php else : ?>
+					<h1>Lo que buscas no se encuentra</h1>			
+				<?php endif; ?>
+				
+		 		<div class="title-laposta">
+		 			<div class="calendar">
+		 				<div class="icon-calendar">
 
-			<?php else : ?>
-				<h1>Lo que buscas no se encuentra</h1>			
-			<?php endif; ?>
-			
-	 		<div class="title-laposta">
-	 			<div class="calendar">
-	 				<div class="icon-calendar">
-
-					</div>
-	 				<div class="post-fecha">
-						<?php the_time('j M') ?>
-					</div>
-	 			</div>
-	 			<div class="bottom-info">
-	 				<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-					<div class="extract">
-						<?php the_excerpt()?>
-					</div>
-	 			</div>
-	 		</div>
-
-		</section>
-		
-		<section id="noticias">
-			
-			<!-- <article id="ultimasnoticias">
-				<h3>ÚLTIMAS NOVEDADES</h3>
-			</article> -->
-
-			<?php query_posts('category_name=novedades&showposts=2'); ?>
-
-			<?php if (have_posts()) : ?>
-
-				<?php while (have_posts()) : the_post(); ?>
-					<div class="noticia">
-
-						<!--imagen noticia-->
-						<div class="imagen-noticia">
-							<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
-								if ($postimageurl) { ?>
-								<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
-								<?php } else { ?> 
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
-							<?php } ?>
 						</div>
+		 				<div class="post-fecha">
+							<?php the_time('j M') ?>
+						</div>
+		 			</div>
+		 			<div class="bottom-info">
+		 				<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+						<div class="extract">
+							<?php the_excerpt()?>
+						</div>
+		 			</div>
+		 		</div>
 
-						<!--titulo noticia-->
-				 		<div class="title-noticia">
-							<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				 		</div>
+			</section>
+			
+			<section id="noticias">
+				
+				<?php query_posts('category_name=novedades&showposts=2'); ?>
 
-						<!-- <h3><?php the_time('j F Y') ?></h3> -->
-					</div>
-				<?php endwhile; ?>
+				<?php if (have_posts()) : ?>
 
-			<?php else : ?>
-				<h1>Lo que buscas no se encuentra</h1>			
-			<?php endif; ?>
-			<!--fin loop-->
+					<?php while (have_posts()) : the_post(); ?>
+						<div class="noticia">
 
-			<!-- <a href="<?php echo $url?>/novedades">
-				<article id="masnoticias">
-					<h4>MÁS NOVEDADES</h4>
-				</article>
-			</a> -->
-		</section>
+							<!--imagen noticia-->
+							<div class="imagen-noticia">
+								<?php $postimageurl = get_post_meta(get_the_ID(), 'thumb', true);
+									if ($postimageurl) { ?>
+									<a href="<?php the_permalink(); ?>"><img src="<?php echo $postimageurl; ?>" alt="alt"/> </a>
+									<?php } else { ?> 
+									<img src="<?php bloginfo('template_url'); ?>/images/thumb.jpg" alt="alt"/> 
+								<?php } ?>
+							</div>
+
+							<!--titulo noticia-->
+					 		<div class="title-noticia">
+								<h2><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+					 		</div>
+
+							<!-- <h3><?php the_time('j F Y') ?></h3> -->
+						</div>
+					<?php endwhile; ?>
+
+				<?php else : ?>
+					<h1>Lo que buscas no se encuentra</h1>			
+				<?php endif; ?>
+				<!--fin loop-->
+			</section>
+		</div>
 		
 	</section>
 

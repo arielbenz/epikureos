@@ -36,8 +36,6 @@
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
 
 	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
-	<script src="<?php echo $url?>/js/modernizr.min.js"></script>
-	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
 
 	<script>
 		var city = "<?php echo $city; ?>";
