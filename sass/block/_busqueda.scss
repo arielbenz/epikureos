@@ -1,7 +1,5 @@
 #barra-busqueda {
     background: #fbb714;
-    height: 60px;
-    width: 100%;
 }
 
 #mapa {
@@ -9,6 +7,7 @@
     overflow: inherit !important;
     top: 0;
     width: 100%;
+    z-index: -1;
     .info-window {
         font-size: 16px;
         height: auto;
@@ -20,81 +19,168 @@
     }
 }
 
-#content-busqueda {
-    margin: 0 auto;
+.content-busqueda {
     margin-top: 15px;
-    width: 1200px;
+    @include container(1200px);
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
     h3 {
         color: #474747;
         margin: 0;
         font-size: 28px;
         font-weight: normal;
-    }
-    #search-header {
-        display: inline-block;
-        height: 90px;
-        text-align: left;
-        width: 738px;
-        h3 {
-            color: $gray-middle;
-            font-family: $titillium-regular;
-            margin-top: 10px;
-        }
-        h4 {
-            color: #474747;
-            font-size: 20px;
-            font-weight: normal;
-            margin: 0;
-        }
-    }
-    .comida-select {
-        width: 250px;
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 22px;
-        position: relative;
-        label {
-            position: relative;
-            &:after {
-                font-family: 'icomoon';
-                content: '\e005';
-                position: absolute;
-                top: 5px;
-                right: 13px;
-                color: #807e7f;
-                pointer-events: none;
-            }
-        }
-        .cs-select {
-            display: inline-block;
-            vertical-align: middle;
-            text-align: left;
-            width: 200px;
+        @include breakpoint($breakpoint-mobile) {
             font-size: 16px;
-            color: #807e7f;
-            border: 1px solid #ddd;
-            padding: 13px;
-            @include appearance(none);
+        }
+        @include breakpoint($breakpoint-landscape) {
+            font-size: 24px;
         }
     }
-    #search-combo {
-        display: inline-block;
-        vertical-align: top;
-        .form-search {
-            margin: 0 auto;
-            margin-top: 22px;
-            input {
-                border: 1px solid $gray-middle-four;
-                font-size: 16px;
-                padding: 14px;
-                position: relative;
-                width: 180px;
+    .search-resultnav {
+        height: 90px;
+        @include breakpoint($breakpoint-mobile) {
+            height: auto;
+        }
+        @include breakpoint($breakpoint-landscape) {
+            height: auto;
+        }
+        @include breakpoint($breakpoint-portrait) {
+            height: auto;
+            margin-bottom: 20px;
+        }
+        @include breakpoint($breakpoint-bigweb) {
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .search-headernav__info {
+            display: inline-block;
+            text-align: left;
+            @include span(6);
+            padding: 0;
+            @include breakpoint($breakpoint-mobile) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-landscape) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-portrait) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-bigweb) {
+                width: 100%;
+            }
+            h3 {
+                color: $gray-middle;
+                font-family: $titillium-regular;
+                margin-top: 10px;
+            }
+            h4 {
+                color: #474747;
+                font-size: 20px;
+                font-weight: normal;
+                margin: 0;
+            }
+        }
+        .search-headernav__advance {
+            display: inline-block;
+            @include span(6);
+            padding: 0;
+            float: none;
+            @include breakpoint($breakpoint-mobile) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-landscape) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-portrait) {
+                width: 100%;
+            }
+            @include breakpoint($breakpoint-bigweb) {
+                width: 100%;
+            }
+            .search-headernav__advance__food {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 22px;
+                @include breakpoint($breakpoint-mobile) {
+                    float: left;
+                    text-align: left;
+                    width: 100%;
+                }
+                @include breakpoint($breakpoint-landscape) {
+                    text-align: left;
+                    width: 50%;
+                }
+                @include breakpoint($breakpoint-portrait) {
+                    text-align: left;
+                }
+                label {
+                    position: relative;
+                    &:after {
+                        font-family: 'icomoon';
+                        content: '\e005';
+                        position: absolute;
+                        top: 5px;
+                        right: 13px;
+                        color: #807e7f;
+                        pointer-events: none;
+                    }
+                }
+                .cs-select {
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: left;
+                    width: 200px;
+                    font-size: 16px;
+                    color: #807e7f;
+                    border: 1px solid #ddd;
+                    padding: 13px;
+                    @include appearance(none);
+                    @include breakpoint($breakpoint-mobile) {
+                        padding: 6px;
+                        width: 100%;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .search-headernav__advance__search {
+                display: inline-block;
+                float: right;
+                vertical-align: top;
+                @include breakpoint($breakpoint-mobile) {
+                    width: 100%;
+                    float: none;
+                }
+                @include breakpoint($breakpoint-landscape) {
+                    width: 50%;
+                }
+
+                .form-search {
+                    margin: 0 auto;
+                    margin-top: 22px;
+                    @include breakpoint($breakpoint-landscape) {
+                        float: right;
+                    }
+                    input {
+                        border: 1px solid $gray-middle-four;
+                        font-size: 16px;
+                        padding: 14px;
+                        @include breakpoint($breakpoint-mobile) {
+                            font-size: 14px;
+                            padding: 7px;
+                            width: 95%;
+                        }
+                    }
+                }
             }
         }
     }
-    #results {
+    .search-results {
         background-color: #f9f9f9;
         padding-top: 20px;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        max-width: 100%;
         #result-bar {
             background-color: #cbc9ca;
             height: 40px;
@@ -117,40 +203,133 @@
             background-color: white;
             border: 1.7px solid #cbc9ca;
             display: inline-block;
-            height: 150px;
+            height: auto;
             margin-bottom: 20px;
-            margin-left: 10px;
-            margin-right: 10px;
-            width: 570px;
+            width: 46%;
+            padding: 0.625rem;
+            vertical-align: top;
+            &:nth-child(odd) {  
+                margin-right: 10px;
+            }
+            &:nth-child(even) {
+                margin-left: 10px;
+            }
+            @include breakpoint($breakpoint-mobile) {
+                padding: 0;
+                width: 90%;
+                padding: 5px;
+                height: auto;
+                &:nth-child(odd) {  
+                    margin-right: 0;
+                }
+                &:nth-child(even) {
+                    margin-left: 0;
+                }
+            }
+            @include breakpoint($breakpoint-landscape) {
+                height: 250px;
+                width: 38%;
+                &:nth-child(odd) {  
+                    margin-right: 10px;
+                }
+                &:nth-child(even) {
+                    margin-left: 10px;
+                }
+            }
+            @include breakpoint($breakpoint-portrait) {
+                width: 27%;
+                &:nth-child(odd) {  
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+                &:nth-child(even) {
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+            }
+            @include breakpoint($breakpoint-bigweb) {
+                height: 290px;
+                width: 20%;
+                &:nth-child(odd) {  
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+                &:nth-child(even) {
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+            }
             &:hover {
                 @include box-shadow(0px 4px 5px 0px rgba(0, 0, 0, 0.2));
             }
             .box-result-image {
-                display: inline-block;
-                margin-top: 12.5px;
-                width: 227px;
+                margin-right: 10px;
+                float: left;
+                @include breakpoint($breakpoint-mobile) {
+                    margin-top: 0px;
+                    width: 40%;
+                }
+                @include breakpoint($breakpoint-landscape) {
+                    margin-right: 0;
+                    float: none;
+                }
+                @include breakpoint($breakpoint-portrait) {
+                    float: none;
+                    margin-right: 0;
+                }
+                @include breakpoint($breakpoint-bigweb) {
+                    float: none;
+                    margin-right: 0;
+                }
+                a {
+                    img {
+                        width: 100%;
+                    }
+                }
             }
             .box-result-data {
-                display: inline-block;
+                display: block;
                 vertical-align: top;
-                width: 338px;
-                margin-top: 12px;
                 text-align: left;
-                .lugar-ratings-stars {
-                    font-family: $openSans-light;
-                    margin-top: 11px;
-                    margin-bottom: 10px;
-                    float: none;
+                @include breakpoint($breakpoint-mobile) {
+                    text-align: right;
+                    margin-top: -5px;
+                }
+                .box-result-rating {
+                    .lugar-ratings-stars {
+                        font-family: $openSans-light;
+                        margin-top: 11px;
+                        margin-bottom: 10px;
+                        float: none;
+                        @include breakpoint($breakpoint-mobile) {
+                            font-size: 13px;
+                        }
+                        @include breakpoint($breakpoint-landscape) {
+                            font-size: 13px;
+                        }
+                        @include breakpoint($breakpoint-portrait) {
+                            font-size: 13px;
+                        }
+                        @include breakpoint($breakpoint-bigweb) {
+                            font-size: 13px;
+                        }
+                    }
                 }
                 .box-result-title {
                     font-size: 19px;
                     font-family: $openSans-bold;
                     margin-top: 7px;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 16px;
+                    }
                 }
                 .box-result-address {
                     font-size: 15px;
                     font-family: $openSans-light;
                     margin-top: 7px;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 13px;
+                    }
                 }
             }
         }
@@ -160,7 +339,6 @@
         margin: 0 auto;
         margin-bottom: 50px;
         margin-top: 30px;
-        width: 1186px;
     }
 }
 

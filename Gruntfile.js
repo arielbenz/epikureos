@@ -10,7 +10,7 @@ grunt.initConfig({
             options: {
                /* Either use your config.rb for settings, or state them here */
                //config: 'config.rb'
-               // require:['susy'],
+               require:['susy', 'breakpoint'],
                httpPath:"/",
                sassDir:"sass",
                cssDir:"css",
@@ -44,7 +44,6 @@ grunt.initConfig({
 // Load plugins here
 grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-devtools');
 grunt.loadNpmTasks('grunt-contrib-uglify');
  
 // Default task(s).

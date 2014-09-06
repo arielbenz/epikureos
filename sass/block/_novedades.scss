@@ -1,66 +1,85 @@
-
-.post-novedades
-{
+.post-novedades {
     height: 200px;
     border-top: 1px solid #c4c4c4;
-    width: 880px;
+    width: 860px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:hover {
+        background: $gray-middle-two;
+    }
+    @include breakpoint($breakpoint-landscape-max) {
+        height: auto;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
+        float: left;
+    }
+    @include breakpoint($breakpoint-portrait) {
+        height: 220px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    @include breakpoint($breakpoint-bigweb) {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
-.post-novedades:hover {
-    background: $gray-middle-two;
-}
-
-.imagen-novedades
-{
+.imagen-novedades {
     display: inline-block;
     float: left;
     margin-top: 20px;
     vertical-align: top;
+    @include breakpoint($breakpoint-mobile) {
+        width: 100%;
+    }
 }
 
-.info-novedades
-{
+.info-novedades {
     display: inline-block;
     float: right;
     margin-top: 15px;
-    width: 640px;
-}
-
-.info-novedades .post-title h2
-{
-    font-family: $openSans-bold;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-
-.info-novedades .post-title a
-{
-    color: $gray-dark;
-    text-decoration: none;
-    @include transition(color 0.3s ease);
-}
-
-.info-novedades .post-title a:hover
-{
-    color: $red-dark;
-}
-
-.info-novedades .post-fecha
-{
-    color: #959595;
-    font-family: $openSans-regular;
-    font-size: 15px;
-    font-weight: bold;
-    font-style: oblique;
-    text-align: left;
-}
-
-.info-novedades .post-info
-{
-    margin-top: 15px;
-    text-align: justify;
+    width: 620px;
+    @include breakpoint($breakpoint-landscape-max) {
+        width: 100%;
+    }
+    @include breakpoint($breakpoint-portrait) {
+        width: 60%;
+    }
+    @include breakpoint($breakpoint-bigweb) {
+        width: 70%;
+    }
+    .post-title {
+        h2 {
+            font-family: $openSans-bold;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        a {
+            color: $gray-dark;
+            text-decoration: none;
+            @include transition(color 0.3s ease);
+            &:hover {
+                color: $red-dark;
+            }
+        }
+    }
+    .post-fecha {
+        color: #959595;
+        font-family: $openSans-regular;
+        font-size: 15px;
+        text-align: left;
+    }
+    .post-info {
+        margin-top: 15px;
+        text-align: justify;
+    }
 }
 
 .page-numbers.current {

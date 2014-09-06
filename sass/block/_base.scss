@@ -53,19 +53,78 @@ ul {
 .header {
     background: $gray-dark;
     height: 70px;
-    width: 100%;
+    z-index: 2;
+    position: relative;
     #header-nav {
-        margin: 0 auto;
-        width: 1200px;
+        @include container(1200px);
+        height: inherit;
         #logo {
             display: inline-block;
             float: left;
             margin-top: 5px;
+            padding: 0;
+            text-align: left;
+            @include breakpoint($breakpoint-mobile) {
+                margin-top: 12px;
+                margin-left: 10px;
+            }
+
+            @include breakpoint($breakpoint-landscape) {
+                margin-left: 10px;
+            }
+
+            @include breakpoint($breakpoint-portrait) {
+                margin-left: 10px;
+            }
+
+            @include breakpoint($breakpoint-bigweb) {
+                margin-left: 10px;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                margin-left: 10px;
+            }
+
+            a {
+                img {
+                    width: 100%;
+                    @include breakpoint($breakpoint-mobile) {
+                        width: 80%;
+                    }
+                }
+            }
         }
         #menu {
+            @include span(8);
             display: inline-block;
-            margin-right: 40px;
-            padding-top: 0;
+            padding: 0;
+            @include breakpoint($breakpoint-bigweb-max) {
+                width: 100%;
+                float: none;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: 60%;
+            }
+
+            #nav-mobile {
+                display: none;
+                background: url("../img/nav.png") no-repeat center center;
+                float: right;
+                width: 60px;
+                height: 70px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                opacity: .6;
+                @include breakpoint($breakpoint-bigweb-max) {
+                    display: block;
+                }
+
+                &.nav-active {
+                    opacity: 1;
+                }
+            }
             .menu-login, .menu-logout {
                 cursor: pointer;
                 margin-left: 50px;
@@ -79,6 +138,17 @@ ul {
                 &:hover {
                     background: #343031;
                 }
+                @include breakpoint($breakpoint-bigweb-max) {
+                    width: 100%;
+                    margin: 0;
+                    &:hover {
+                        background: #2a2d33;
+                    }
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    margin-left: 10px;
+                }
             }
             .tooltip {
                 position: relative;
@@ -86,12 +156,15 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Iniciá sesión con Facebook";
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
                     z-index: 98;
                     width: 210px;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        display: none;
+                    }
                 }
                 &:hover:before {
                     border: solid;
@@ -102,10 +175,36 @@ ul {
                     left: 45px;
                     position: absolute;
                     z-index: 99;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        display: none;
+                    }
                 }
             }
             ul {
+                @include breakpoint($breakpoint-bigweb-max) {
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+                    max-height: 0;
+                    overflow: hidden;
+                    &.open-menu {
+                        max-height: 400px;
+                        transition: max-height .4s;
+                        @include breakpoint($breakpoint-mobile) {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+
                 li {
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        background: #252525;
+                        border-bottom: 1px solid #282b30;
+                        float: none;
+                        width: 100%;
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+
                     display: inline-block;
                     a {
                         border-top: 5px solid $gray-dark;
@@ -119,6 +218,21 @@ ul {
                         @include transition(all 0.5s ease);
                         &:hover {
                             background: #343031;
+                        }
+                        @include breakpoint($breakpoint-bigweb-max) {
+                            border-top: 0;
+                            padding: 8px 0;
+                            height: auto;
+                            line-height: normal;
+                            width: 100%;
+                            &:hover {
+                                background: #2a2d33;
+                            }
+                        }
+
+                        @include breakpoint($breakpoint-bigwebhd) {
+                            font-size: 14px;
+                            width: 80px;
                         }
                     }
                 }
@@ -150,12 +264,22 @@ ul {
             }
         }
         #ciudad {
-            display: inline-block;
+            @include span(2);
             float: right;
             font-family: $titillium-regular;
-            height: 70px;
-            position: relative;
             vertical-align: top;
+            text-align: right;
+            padding: 0;
+            @include breakpoint($breakpoint-bigweb-max) {
+                position: absolute;
+                top: -3px;
+                right: 115px;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: auto;
+            }
+
             .select-city {
                 background: transparent;
                 border: 0;
@@ -171,6 +295,9 @@ ul {
                 @include appearance(none);
                 option {
                     background-color: $gray-dark;
+                }
+                @include breakpoint($breakpoint-bigwebhd) {
+                    font-size: 14px;
                 }
             }
             label {
@@ -191,28 +318,65 @@ ul {
                 display: inline-block;
                 position: relative;
                 top: 10px;
+                @include breakpoint($breakpoint-bigweb-max) {
+                    display: none;
+                }
             }
         }
     }
 }
 
 .barra-content {
+    height: 60px;
+    @include breakpoint($breakpoint-mobile) {
+        height: 40px;
+    }
+
     #barra {
-        height: 60px;
-        margin: 0 auto;
-        width: 1200px;
+        @include container(1200px);
+        @include breakpoint($breakpoint-mobile) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+
+        @include breakpoint($breakpoint-bigwebhd) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+
         #barra-titulo {
-            color: white;
-            font-size: 40px;
             float: left;
             position: relative;
             text-rendering: optimizeSpeed;
+            @include breakpoint($breakpoint-mobile) {
+                float: none;
+                padding-top: 10px;
+            }
+
             h2 {
                 color: white;
                 display: inline-block;
                 font-size: 40px;
                 right: 10px;
                 padding: 0;
+                @include breakpoint($breakpoint-mobile) {
+                    font-size: 25px;
+                }
+
+                @include breakpoint($breakpoint-landscape) {
+                    font-size: 34px;
+                    padding-left: 0.625rem;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    font-size: 40px;
+                    padding-left: 0.625rem;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    font-size: 40px;
+                    padding-left: 0.625rem;
+                }
             }
         }
     }
@@ -237,6 +401,9 @@ ul {
     display: inline-block;
     font-family: $titillium-bold;
     margin: 0 3px;
+    @include breakpoint($breakpoint-mobile) {
+        margin: 0;
+    }
 }
 
 .font-normal {
@@ -247,96 +414,132 @@ ul {
 #home-search {
     background: url("../img/header-noche.jpg") no-repeat;
     height: 300px;
-    width: 100%;
+    @include breakpoint($breakpoint-mobile) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+
     #search {
-        height: 60px;
-        margin: 0 auto;
-        @include rem-fallback(padding-top, 6.25);
-        width: 560px;
-        #form-search {
-            margin: 0 auto;
-            height: 100%;
+        padding-top: 6.25rem;
+        @include container(1200px);
+        @include breakpoint($breakpoint-landscape) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
         }
-        #nav-search {
-            font-family: $titillium-regular;
+
+        .search-section {
             margin: 0 auto;
-            padding: 4px;
-            background-color: rgba(210, 210, 210, 0.5);
-            ul {
-                li {
-                    display: inline-block;
-                    a {
-                        background-color: #474747;
-                        color: white;
-                        display: inline-block;
-                        font-size: 16px;
-                        padding: 7px 0;
-                        width: 135px;
-                        @include text-shadow(#cccccc -0.5px -0.5px 1px);
-                        @include transition(background-color 0.3s ease-out);
-                        &:hover {
-                            background-color: $orange-dark;
+            width: 560px;
+            @include breakpoint($breakpoint-landscape-max) {
+                @include span(12);
+                padding: 0;
+            }
+
+            #form-search {
+                button {
+                    background-color: $orange-dark;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    float: right;
+                    font-family: $openSans-regular;
+                    font-size: 16px;
+                    font-weight: bold;
+                    height: 50px;
+                    overflow: visible;
+                    padding: 0;
+                    position: relative;
+                    text-transform: uppercase;
+                    width: 110px;
+                    @include text-shadow(rgba(0, 0, 0, 0.3) 0 -1px 0);
+                    @include breakpoint($breakpoint-landscape-max) {
+                        width: 30%;
+                    }
+
+                    &:hover {
+                        background: $red-dark;
+                        &:before {
+                            border-right-color: $red-dark;
                         }
+                    }
+                    &:active, &:focus {
+                        background: $red-dark;
+                    }
+                    &:before {
+                        content: "";
+                        border-color: transparent $orange-middle;
+                        border-style: solid solid solid none;
+                        border-width: 8px 8px 8px 0;
+                        left: -6px;
+                        position: absolute;
+                        top: 17px;
+                    }
+                    &:focus:before {
+                        border-right-color: $red-dark;
+                    }
+                }
+                input {
+                    border: none;
+                    color: #888;
+                    float: left;
+                    font-family: $titillium-thin;
+                    font-style: normal;
+                    font-size: 20px;
+                    height: 30px;
+                    padding: 10px 5px;
+                    width: 440px;
+                    @include breakpoint($breakpoint-landscape-max) {
+                        font-size: 13px;
+                        height: 50px;
+                        padding: 0;
+                        width: 70%;
+                    }
+
+                    &:focus {
+                        outline: 0;
+                        background: white;
+                        @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.8));
+                    }
+                    &:required {
+                        box-shadow: 0px 0px 3px #cccccc, 0 10px 15px $gray-middle-two inset;
                     }
                 }
             }
-        }
-        button {
-            background-color: $orange-dark;
-            border: none;
-            color: white;
-            cursor: pointer;
-            float: right;
-            font-family: $openSans-regular;
-            font-size: 16px;
-            font-weight: bold;
-            height: 50px;
-            overflow: visible;
-            padding: 0;
-            position: relative;
-            text-transform: uppercase;
-            width: 110px;
-            @include text-shadow(rgba(0, 0, 0, 0.3) 0 -1px 0);
-            &:hover {
-                background: $red-dark;
-                &:before {
-                    border-right-color: $red-dark;
+            #nav-search {
+                clear: both;
+                font-family: $titillium-regular;
+                margin: 0 auto;
+                padding: 4px;
+                background-color: rgba(210, 210, 210, 0.5);
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: left;
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 100%;
                 }
-            }
-            &:active, &:focus {
-                background: $red-dark;
-            }
-            &:before {
-                content: "";
-                border-color: transparent $orange-middle;
-                border-style: solid solid solid none;
-                border-width: 8px 8px 8px 0;
-                left: -6px;
-                position: absolute;
-                top: 17px;
-            }
-            &:focus:before {
-                border-right-color: $red-dark;
-            }
-        }
-        input {
-            @include box-shadow(0px 0px 5px #5cd053);
-            border: none;
-            color: #888;
-            float: left;
-            font-family: $titillium-thin;
-            font-style: normal;
-            font-size: 20px;
-            height: 30px;
-            padding: 10px 5px;
-            width: 440px;
-            &:focus {
-                outline: 0;
-                background: white;
-                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.8));
-            }
-            &:required {
-                box-shadow: 0px 0px 3px #cccccc, 0 10px 15px $gray-middle-two inset;
+
+                ul {
+                    li {
+                        display: inline-block;
+                        a {
+                            background-color: #474747;
+                            color: white;
+                            display: inline-block;
+                            font-size: 16px;
+                            padding: 7px 0;
+                            width: 135px;
+                            @include text-shadow(#cccccc -0.5px -0.5px 1px);
+                            @include transition(background-color 0.3s ease-out);
+                            &:hover {
+                                background-color: $orange-dark;
+                            }
+                            @include breakpoint($breakpoint-landscape-max) {
+                                font-size: 14px;
+                                margin: 4px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -347,19 +550,20 @@ ul {
 
 .bar-blog {
     height: 50px;
-    width: 1200px;
     padding: 0;
     margin: 0 auto;
 }
 
 #container-post {
+    @include container(1200px);
     background: white;
     height: 100%;
     margin: 0 auto;
     margin-bottom: 40px;
     padding: 0;
     padding-bottom: 20px;
-    width: 1200px;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
 }
 
 .container-laposta, .container-novedades {
@@ -370,6 +574,18 @@ ul {
         margin-right: 22px;
         position: relative;
         width: 880px;
+        @include breakpoint($breakpoint-landscape-max) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-portrait) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-bigweb) {
+            width: 100%;
+            margin-right: 0;
+        }
     }
     #secondary {
         display: inline-block;
@@ -377,15 +593,16 @@ ul {
         position: relative;
         vertical-align: top;
         width: 286px;
+        @include breakpoint($breakpoint-bigwebhd-max) {
+            display: none;
+        }
     }
 }
 
-#nav-below .nav-previous {
-    display: inline-block;
-}
-
-#nav-below .nav-next {
-    display: inline-block;
+#nav-below {
+    .nav-previous, .nav-next {
+        display: inline-block;
+    }
 }
 
 /* ----------------  PROMOS ----------------*/
@@ -418,169 +635,441 @@ ul {
 /*----------------------------------------*/
 
 #home-info {
-    margin: 0 auto;
     padding-top: 50px;
-    width: 1200px;
-    #laposta {
-        display: inline-block;
-        float: left;
-        height: 475px;
-        margin-top: 5px;
-        position: relative;
-        width: 752px;
-        #etiqueta-laposta {
-            position: absolute;
-            top: 20px;
+    @include container(1200px);
+    @include breakpoint($breakpoint-bigwebhd-max) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+
+    .home-recomended {
+        height: 300px;
+        @include breakpoint($breakpoint-bigwebhd-max) {
+            height: auto;
+            display: none;
         }
-        .title-laposta {
-            background: rgba(37, 37, 37, 0.7);
-            color: white;
-            height: 130px;
-            line-height: 200%;
-            margin-left: 11px;
-            position: absolute;
-            top: 345px;
-            width: 730px;
-            .bottom-info {
-                display: inline-block;
-                margin-top: 16px;
-                width: 650px;
-                a {
-                    color: white;
-                }
-                h2 {
-                    color: white;
-                    font-family: $titillium-semiBold;
-                    font-size: 30px;
-                    padding-left: 20px;
-                    text-align: left;
-                    text-transform: uppercase;
-                }
-                .extract {
-                    font-family: $openSans-light;
-                    font-size: 16px;
-                    padding-left: 20px;
-                    text-align: left;
-                    line-height: normal;
+
+        a {
+            &:last-child {
+                figure {
+                    margin-right: 0;
                 }
             }
-            .calendar {
+            figure {
+                position: relative;
                 display: inline-block;
-                margin-top: 20px;
-                vertical-align: top;
-                width: 50px;
-                .icon-calendar {
-                    background: url("../img/calendar.png") no-repeat;
-                    height: 20px;
-                    margin: 0 auto;
-                    width: 20px;
+                overflow: hidden;
+                height: 250px;
+                text-align: center;
+                cursor: pointer;
+                margin-right: 46px;
+                @include breakpoint($breakpoint-mobile) {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding: 0;
+                    height: auto;
+                    overflow: hidden;
                 }
-                .post-fecha {
-                    font-size: 10px;
+
+                figcaption {
+                    background: rgba(20, 20, 20, 0.4);
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-size: 1.25em;
+                    &::before, &::after {
+                        pointer-events: none;
+                    }
+                }
+                figcaption, a {
+                    position: absolute;
+                    top: 0;
+                    width: 366px;
+                    height: 250px;
+                    @include breakpoint($breakpoint-mobile) {
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                a {
+                    z-index: 1000;
+                    text-indent: 200%;
+                    white-space: nowrap;
+                    font-size: 0;
+                    opacity: 0;
+                }
+                h2 {
+                    word-spacing: -0.15em;
+                    font-weight: 300;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 26px;
+                    }
+
+                    span {
+                        font-weight: 800;
+                    }
+                }
+                p {
+                    letter-spacing: 1px;
+                    font-size: 17px;
+                    margin-top: 65px;
+                }
+                &.effect-oscar {
+                    img {
+                        opacity: 0.7;
+                        @include transition(opacity 0.35s);
+                        @include breakpoint($breakpoint-mobile) {
+                            width: 100%;
+                        }
+                    }
+                    figcaption {
+                        &::before {
+                            border: 1px solid #fff;
+                            bottom: 30px;
+                            content: '';
+                            left: 30px;
+                            position: absolute;
+                            right: 30px;
+                            top: 30px;
+                        }
+                    }
+                    h2 {
+                        display: block;
+                        margin: 25px 0 0 0;
+                        @include transition(transform 0.35s);
+                        -webkit-transform: translate3d(0, 100%, 0);
+                        transform: translate3d(0, 100%, 0);
+                    }
+                    figcaption::before, p {
+                        opacity: 0;
+                        @include transition(opacity 0.35s);
+                        -webkit-transform: scale(0);
+                        transform: scale(0);
+                    }
+                    &:hover {
+                        h2 {
+                            -webkit-transform: translate3d(0, 0, 0);
+                            transform: translate3d(0, 0, 0);
+                        }
+                        img {
+                            opacity: 1;
+                        }
+                    }
+                    &:hover figcaption::before, &:hover p {
+                        opacity: 1;
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                    }
                 }
             }
         }
     }
-}
-
-/*NUEVO*/
-
-#home-info {
-    #noticias {
-        display: inline-block;
-        float: right;
-        height: 500px;
-        #ultimasnoticias {
-            height: 40px;
-            margin: 0 0 5px 0;
-            h3 {
-                border: 0;
-                color: #7a7675;
-                font-family: $titillium-semiBold;
-                font-size: 26px;
-                padding-top: 0;
-                text-align: left;
-                top: 0;
+    .seccion-novedades {
+        #laposta {
+            float: left;
+            position: relative;
+            @include breakpoint($breakpoint-landscape-max) {
+                height: auto;
+                @include span(12);
+                padding: 0;
             }
-        }
-        .noticia {
-            margin: 0 0 0 0;
-            width: 430px;
-        }
-        .imagen-noticia {
-            height: 125px;
-            overflow: hidden;
-            img {
-                @include filter(grayscale(100%));
-                filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-                /* Firefox 10+, Firefox on Android */
-                filter: gray;
-                /* IE 6-9 */
-                @include transition(all 0.3s ease);
-                &:hover {
-                    @include filter(grayscale(0%));
-                    filter: none;
+
+            @include breakpoint($breakpoint-portrait) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            @include breakpoint($breakpoint-bigweb) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            #etiqueta-laposta {
+                position: absolute;
+                top: 20px;
+                @include breakpoint($breakpoint-mobile) {
+                    left: -38px;
+                }
+
+                @include breakpoint($breakpoint-landscape) {
+                    left: -20px;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    left: -9px;
+                    width: 50%;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    left: -9px;
+                    width: 50%;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    left: -11px;
+                    width: 40%;
+                }
+
+                img {
+                    width: 100%;
+                    @include breakpoint($breakpoint-mobile) {
+                        width: 70%;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        width: 90%;
+                    }
+                }
+            }
+            .posta {
+                .imagen-laposta {
+                    width: 650px;
+                    margin-left: 11px;
+                    @include breakpoint($breakpoint-bigwebhd-max) {
+                        width: 100%;
+                        margin-left: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .title-laposta {
+                background: rgba(37, 37, 37, 0.7);
+                color: white;
+                height: 130px;
+                line-height: 200%;
+                margin-left: 11px;
+                position: absolute;
+                bottom: 5px;
+                width: 650px;
+                @include breakpoint($breakpoint-landscape) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 100px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 60px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 60px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 90px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                .bottom-info {
+                    display: inline-block;
+                    margin-top: 8px;
+                    width: 524px;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        width: 100%;
+                        margin: 0;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        width: 80%;
+                    }
+
+                    a {
+                        color: white;
+                    }
+                    h2 {
+                        color: white;
+                        font-family: $titillium-semiBold;
+                        font-size: 26px;
+                        padding-left: 20px;
+                        text-align: left;
+                        text-transform: uppercase;
+                        line-height: inherit;
+                        @include breakpoint($breakpoint-bigweb-max) {
+                            font-size: 16px;
+                            line-height: initial;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                    }
+                    .extract {
+                        font-family: $openSans-light;
+                        font-size: 16px;
+                        height: 50px;
+                        line-height: normal;
+                        overflow: hidden;
+                        padding-left: 20px;
+                        text-align: left;
+                        @include breakpoint($breakpoint-bigweb-max) {
+                            font-size: 12px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+                .calendar {
+                    display: inline-block;
+                    margin-top: 20px;
+                    vertical-align: top;
+                    width: 50px;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        display: none;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        width: 10%;
+                    }
+
+                    .icon-calendar {
+                        background: url("../img/calendar.png") no-repeat;
+                        height: 20px;
+                        margin: 0 auto;
+                        width: 20px;
+                    }
+                    .post-fecha {
+                        font-size: 10px;
+                    }
                 }
             }
         }
-        .title-noticia {
-            height: 75px;
-            line-height: 180%;
-            text-align: left;
-            h2 {
-                line-height: inherit;
-                a {
+        #noticias {
+            float: right;
+            @include breakpoint($breakpoint-landscape-max) {
+                width: 100%;
+            }
+
+            @include breakpoint($breakpoint-portrait) {
+                width: 42%;
+            }
+
+            @include breakpoint($breakpoint-bigweb) {
+                width: 42%;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: 42%;
+            }
+
+            #ultimasnoticias {
+                height: 40px;
+                margin: 0 0 5px 0;
+                h3 {
+                    border: 0;
+                    color: #7a7675;
+                    font-family: $titillium-semiBold;
+                    font-size: 26px;
+                    padding-top: 0;
+                    text-align: left;
+                    top: 0;
+                }
+            }
+            .noticia {
+                margin: 0 0 0 0;
+                width: 500px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    margin-top: 20px;
+                    width: 100%;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    width: 100%;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    width: 100%;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    width: 100%;
+                }
+            }
+            .imagen-noticia {
+                height: 160px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    @include filter(grayscale(100%));
+                    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+                    /* Firefox 10+, Firefox on Android */
+                    filter: gray;
+                    /* IE 6-9 */
+                    @include transition(all 0.3s ease);
+                    &:hover {
+                        @include filter(grayscale(0%));
+                        filter: none;
+                    }
+                }
+                @include breakpoint($breakpoint-bigweb-max) {
+                    height: 100%;
+                }
+            }
+            .title-noticia {
+                line-height: 180%;
+                text-align: left;
+                margin-top: 25px;
+                @include breakpoint($breakpoint-portrait) {
+                    margin-top: 0;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    margin-top: 0;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    margin-top: 2%;
+                }
+
+                h2 {
+                    line-height: inherit;
                     color: #3d3d3d;
                     font-family: $openSans-light;
                     font-size: 20px;
                     margin: 0;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        font-size: 16px;
+                    }
+                }
+            }
+            #masnoticias {
+                background: #9ea9ad;
+                color: #eff0f0;
+                height: 35px;
+                h4 {
+                    color: white;
+                    font-family: $openSans-light;
+                    font-size: 24px;
+                    margin-left: 10px;
+                    position: relative;
+                    text-align: left;
+                }
+                a {
+                    color: white;
                 }
             }
         }
-        #masnoticias {
-            background: #9ea9ad;
-            color: #eff0f0;
-            height: 35px;
-            h4 {
-                color: white;
-                font-family: $openSans-light;
-                font-size: 24px;
-                margin-left: 10px;
-                position: relative;
-                text-align: left;
-            }
-            a {
-                color: white;
-            }
-        }
-    }
-}
-
-/* ----------------  PUBLICIDAD ----------------*/
-/*----------------------------------------------*/
-
-#home-publicidad {
-    display: inline-block;
-    height: 50px;
-    margin: 0 auto;
-    width: 1200px;
-    .class-publi {
-        background: $gray-middle-three;
-        display: inline-block;
-        height: 190px;
-        position: relative;
-        top: 50px;
-        width: 280px;
-    }
-    #publicidad1 {
-        margin-right: 11px;
-    }
-    #publicidad4 {
-        margin-left: 11px;
-    }
-    #publicidad2, #publicidad3 {
-        margin-left: 11px;
-        margin-right: 11px;
     }
 }
 
@@ -611,27 +1100,56 @@ footer {
     background: $gray-dark;
     color: white;
     font-family: $openSans-regular;
-    max-width: 100%;
     #home-footer {
         background: $gray-dark;
         height: 225px;
-        margin: 0 auto;
         margin-top: 30px;
-        width: 1200px;
+        @include container(1200px);
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        @include breakpoint($breakpoint-landscape-max) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+            height: 100%;
+        }
+
+        @include breakpoint($breakpoint-bigweb-max) {
+            height: 100%;
+            padding-bottom: 20px;
+        }
+
         .footer-info {
             display: inline-block;
-            height: 140px;
-            position: relative;
-            top: 30px;
+            margin-top: 30px;
             vertical-align: top;
-            width: 396px;
-        }
-        #footer-links {
             h3 {
                 color: white;
                 font-size: 26px;
                 margin: 10px 0 10px 0;
+                @include breakpoint($breakpoint-landscape-max) {
+                    font-size: 22px;
+                    text-align: center;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    font-size: 22px;
+                }
+            }
+        }
+        #footer-links {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 100%;
+            }
+
+            h3 {
                 text-align: left;
+                @include breakpoint($breakpoint-landscape-max) {
+                    text-align: center;
+                }
             }
             ul {
                 li {
@@ -648,6 +1166,10 @@ footer {
                 display: inline-block;
                 float: left;
                 font-size: 14px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: none;
+                    width: 50%;
+                }
             }
             #contact {
                 display: inline-block;
@@ -656,10 +1178,16 @@ footer {
             }
         }
         #footer-redes {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 100%;
+            }
+
             h3 {
-                font-size: 26px;
-                margin: 0 auto;
-                margin-top: 10px;
+                text-align: center;
             }
             ul {
                 list-style: none;
@@ -679,36 +1207,74 @@ footer {
             }
             .link-face {
                 background: url("../img/facebookoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/facebookon.png") no-repeat;
                 }
             }
             .link-twitter {
                 background: url("../img/twitteroff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/twitteron.png") no-repeat;
                 }
             }
             .link-rss {
                 background: url("../img/rssoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/rsson.png") no-repeat;
                 }
             }
             .link-plus {
                 background: url("../img/googleoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/googleon.png") no-repeat;
                 }
             }
         }
         #footer-news {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 260px;
+            }
+
             h3 {
-                font-size: 26px;
-                margin: 10px 0 10px 0;
                 text-align: right;
+                @include breakpoint($breakpoint-landscape-max) {
+                    text-align: center;
+                }
             }
             .input {
+                position: relative;
+                float: right;
+                .form-icon {
+                    position: absolute;
+                    left: 0;
+                    .icon.mail {
+                        margin: 11px 5px;
+                        height: 19px;
+                        width: 26px;
+                        float: left;
+                        background: transparent url("../img/icon_mail.png") no-repeat left top;
+                    }
+                    @include breakpoint($breakpoint-landscape-max) {
+                        left: 10px;
+                    }
+                }
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: none;
+                    margin: 0 auto;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    text-align: right;
+                }
+
                 input {
                     background-color: $gray-dark;
                     border: 1px solid white;
@@ -724,53 +1290,54 @@ footer {
                     &:hover {
                         background-color: $orange-dark;
                     }
+                    @include breakpoint($breakpoint-portrait) {
+                        width: 200px;
+                    }
                 }
             }
         }
-        #footer-terminos {
-            display: inline-block;
-            float: left;
-            font-size: 14px;
-            height: 20px;
-            position: relative;
-            top: 40px;
-            a {
-                color: white;
+        .footer-copy {
+            @include breakpoint($breakpoint-landscape-max) {
+                margin-bottom: 20px;
+            }
+
+            .footer-terminos {
+                float: left;
+                font-size: 14px;
+                margin-top: 20px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    top: 15px;
+                    float: none;
+                }
+
+                a {
+                    color: white;
+                }
+            }
+            .footer-design {
+                float: right;
+                font-size: 14px;
+                margin-top: 20px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    top: 25px;
+                    float: none;
+                }
             }
         }
-        #footer-design {
-            display: inline-block;
-            float: right;
-            font-size: 14px;
-            height: 20px;
-            position: relative;
-            top: 40px;
-        }
     }
-}
-
-.form-icon {
-    position: absolute;
-    left: 0;
-}
-
-.icon.mail {
-    margin: 11px 5px;
-    height: 19px;
-    width: 26px;
-    float: left;
-    background: transparent url("../img/icon_mail.png") no-repeat left top;
-}
-
-.input {
-    position: relative;
-    float: right;
 }
 
 .email {
     float: right;
     padding: 0 0 0 40px;
     width: 205px;
+    @include breakpoint($breakpoint-landscape-max) {
+        float: none;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        width: 158px;
+    }
 }
 
 /* BARRA SIDEBAR */
@@ -808,6 +1375,10 @@ footer {
     margin: 0 auto;
     width: 290px;
     margin-bottom: 25px;
+    @include breakpoint($breakpoint-mobile) {
+        display: none;
+    }
+
     h3 {
         color: white;
         font-family: $openSans-bold;
@@ -885,6 +1456,10 @@ img.alignright,
         margin-bottom: 1.2em;
     }
     .wp-caption {
+        @include breakpoint($breakpoint-mobile) {
+            width: auto;
+        }
+
         .alignleft, .alignright {
             margin-bottom: 0;
         }
@@ -913,113 +1488,11 @@ img.alignright,
     text-transform: uppercase;
 }
 
-.home-recomended {
-    margin: 0 auto;
-    padding-bottom: 40px;
-    width: 1200px;
-    a {
-        margin-right: 46px;
-        &:last-child {
-            margin-right: 0;
-        }
-        figure {
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            overflow: hidden;
-            width: 366px;
-            height: 250px;
-            text-align: center;
-            cursor: pointer;
-            
-            figcaption {
-                padding: 2em;
-                color: #fff;
-                text-transform: uppercase;
-                font-size: 1.25em;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                &::before, &::after {
-                    pointer-events: none;
-                }
-            }
-            figcaption, a {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 286px;
-                height: 170px;
-            }
-            a {
-                z-index: 1000;
-                text-indent: 200%;
-                white-space: nowrap;
-                font-size: 0;
-                opacity: 0;
-            }
-            h2 {
-                word-spacing: -0.15em;
-                font-weight: 300;
-                span {
-                    font-weight: 800;
-                }
-            }
-            p {
-                letter-spacing: 1px;
-                font-size: 17px;
-                margin-top: 50px;
-            }
-        }
-    }
-}
-
-figure.effect-oscar {
-    img {
-        opacity: 0.9;
-        -webkit-transition: opacity 0.35s;
-        transition: opacity 0.35s;
-    }
-    figcaption {
-        padding: 3em;
-        background-color: rgba(120, 120, 120, 0.4);
-        -webkit-transition: background-color 0.35s;
-        transition: background-color 0.35s;
-        &::before {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            bottom: 30px;
-            left: 30px;
-            border: 1px solid #fff;
-            content: '';
-        }
-    }
-    h2 {
-        margin: 10px 0 0 0;
-        -webkit-transition: -webkit-transform 0.35s;
-        transition: transform 0.35s;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-    figcaption::before, p {
-        opacity: 0;
-        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-        transition: opacity 0.35s, transform 0.35s;
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    &:hover {
-        h2 {
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-        }
-        img {
-            opacity: 1;
-        }
-    }
-    &:hover figcaption::before, &:hover p {
-        opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
+.wp-caption-text {
+    font-size: 0.85em;
+    padding-top: 0.5em;
+    color: #888;
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }

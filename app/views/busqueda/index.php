@@ -25,28 +25,36 @@
 
 	</section>
 
-	<section id="content-busqueda">
+	<section class="content-busqueda">
 
-		<div id="search-header">
-			<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
-		</div><div class="comida-select">
-		<label>
-			<select class="cs-select">
-				<option value="" disabled selected>Tipo de Comida</option>
-				 <?php foreach ($comidas as $comida): ?>
-					<option value="<?php echo $comida->slug ?>"><?php echo $comida->descripcion ?></option>
-				<?php endforeach; ?>
-			</select>
-		</label>
-		</div><div id="search-combo">
-			<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
-				<input id="input-search" type="text" name="lugar" placeholder="Buscá otro lugar..." required></input>
-			</form>
+		<div class="search-resultnav">
+
+			<div class="search-headernav__info">
+				<h3><b class="font-normal"><?php echo $lugares->getTotal();?> RESULTADOS PARA  </b><b class="font-bold">"<?php echo strtoupper($busqueda);?>"</b><b class="font-normal uppertext"> EN <?php echo $ciudad; ?></b></h3>	
+			</div>
+
+			<div class="search-headernav__advance">
+				<div class="search-headernav__advance__food">
+					<label>
+						<select class="cs-select">
+							<option value="" disabled selected>Tipo de Comida</option>
+							 <?php foreach ($comidas as $comida): ?>
+								<option value="<?php echo $comida->slug ?>"><?php echo $comida->descripcion ?></option>
+							<?php endforeach; ?>
+						</select>
+					</label>
+				</div>
+				
+				<div class="search-headernav__advance__search">
+					<form class="form-search" action="<?php echo $url?>/busqueda" method="POST">
+						<input id="input-search" type="text" name="lugar" placeholder="Buscá otro lugar..." required></input>
+					</form>
+				</div>
+			</div>
+
 		</div>
-		
-
-		<div id="results">
-		    
+	
+		<div class="search-results">
 		    <?php foreach ($lugares as $lugar): ?>
 		        
 		        <div class="box-result">
@@ -56,7 +64,7 @@
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">
-	 					<div>
+	 					<div class="box-result-rating">
 	 						<span class="lugar-ratings-stars">
 			                	<?php	
 								for ($star = 1; $star <= 5; $star++) { ?>
@@ -92,8 +100,6 @@
 
 		    <?php endforeach; ?>
 
-		    
-
 		</div>
 
 		<div id="result-footer">
@@ -111,13 +117,8 @@
     	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
     	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
     	setLugares(nombres, latitudes, longitudes);
-	</script>
 
-	
-
-	<script>
 		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
-
 		$(document).on("ready", function() {
 			var comida = "<?php echo $comidaBusqueda->slug; ?>";
 			$(".cs-select option").each(function() {

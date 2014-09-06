@@ -6,10 +6,10 @@
 
 $gray-dark: #252525;
 $gray-middle: #807e7f;
-$gray-middle-two: #F6F6F6;
-$gray-middle-three: #BBB;
-$gray-middle-four: #DDD;
-$gray-middle-five: #D6D6D6;
+$gray-middle-two: #f6f6f6;
+$gray-middle-three: #bbbbbb;
+$gray-middle-four: #dddddd;
+$gray-middle-five: #d6d6d6;
 $orange-dark: #f08421;
 $orange-middle: #f28422;
 $orange-light: #f1a165;
@@ -23,19 +23,16 @@ $blue-light: #55c6f2;
  * ===========================================
  */
 
-
-$openSans-light: 		"Open Sans Light";
-$openSans-regular: 		"Open Sans Regular";
-$openSans-bold: 		"Open Sans Bold";
-$titillium-bold: 		"TitilliumWeb-Bold";
-$titillium-semiBold: 	"TitilliumWeb-SemiBold";
-$titillium-light: 		"TitilliumWeb-Light";
-$titillium-thin: 		"TitilliumWeb-Thin";
-$titillium-regular: 	"TitilliumWeb-Regular";
-$titillium-semiBold: 	"TitilliumWeb-SemiBold";
-$glyphicons-halflings: 	"Glyphicons Halflings";
-
-$default-line-height: 1.5rem;
+$openSans-light: "Open Sans Light";
+$openSans-regular: "Open Sans Regular";
+$openSans-bold: "Open Sans Bold";
+$titillium-bold: "TitilliumWeb-Bold";
+$titillium-semiBold: "TitilliumWeb-SemiBold";
+$titillium-light: "TitilliumWeb-Light";
+$titillium-thin: "TitilliumWeb-Thin";
+$titillium-regular: "TitilliumWeb-Regular";
+$titillium-semiBold: "TitilliumWeb-SemiBold";
+$glyphicons-halflings: "Glyphicons Halflings";
 
 // =======
 // z-index
@@ -53,43 +50,19 @@ $z-underneath: -5;
 // Media Queries
 // =============
 
+$breakpoint-mobile: max-width 380px;
+$breakpoint-landscape: 381px 640px;
+$breakpoint-landscape-max: max-width 640px;
+$breakpoint-portrait: 641px 768px;
+$breakpoint-bigweb: 769px 920px;
+$breakpoint-bigweb-max: max-width 920px;
+$breakpoint-bigwebhd: 921px 1200px;
+$breakpoint-bigwebhd-max: max-width 1200px;
+
 $breakpoint-default-media: screen;
 $breakpoint-to-ems: true;
-
-$max-w: 320px;
-
-//portrait
-$min-dw: min-device-width $max-w;
-$max-dw: max-device-width 480px;
-$minmax-dw: $min-dw $max-dw;
-
-$bp-sm: 320px;
-$bp-small: 640px;
-$bp-smed: 768px;
-$bp-until-small: max-width $bp-small - 0.01;
-$bp-until-smed: max-width $bp-smed - 0.01;
-$bp-med: 800px;
-$bp-until-med: max-width $bp-med - 0.01;
-$bp-mlrg: 1000px;
-$bp-until-mlrg: max-width $bp-mlrg - 0.01;
-$bp-lrg: 1300px;
-$bp-x-lrg: 1600px;
-$bp-xx-lrg: 2000px;
-
-$bp-ad-med: 1219px;
-$bp-ad-until-med: max-width $bp-ad-med - 0.01;
-$bp-ad-small: 896px;
-$bp-ad-until-small: max-width $bp-ad-small - 0.01;
 
 // =============
 // Susy
 // =============
-// $susy: (
-//   columns: 16,
-//   gutters: 1/4,
-//   math: fluid,
-//   output: float,
-//   gutter-position: inside,
-//   global-box-sizing: border-box,
-//   gutter-override: 1.25rem
-// );
+$susy: (columns: 12, gutters: 1 / 4, math: fluid, output: float, gutter-position: inside, global-box-sizing: border-box, gutter-override: 1.25rem);

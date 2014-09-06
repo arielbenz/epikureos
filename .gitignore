@@ -2,10 +2,9 @@
 /bootstrap/autoload.php
 /bootstrap/paths.php
 /bootstrap/start.php
-/blog/wp-content/plugins
-/blog/wp-content/languages
 /vendor
 /.sass-cache
 composer.phar
 composer.lock
 .DS_Store
+blog/
