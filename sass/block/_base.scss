@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Iniciá sesión con Facebook";
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -550,7 +550,6 @@ ul {
 
 .bar-blog {
     height: 50px;
-    width: 1200px;
     padding: 0;
     margin: 0 auto;
 }
@@ -565,7 +564,6 @@ ul {
     padding-bottom: 20px;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
-    @include breakpoint($breakpoint-mobile) {}
 }
 
 .container-laposta, .container-novedades {
@@ -576,6 +574,18 @@ ul {
         margin-right: 22px;
         position: relative;
         width: 880px;
+        @include breakpoint($breakpoint-landscape-max) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-portrait) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-bigweb) {
+            width: 100%;
+            margin-right: 0;
+        }
     }
     #secondary {
         display: inline-block;
@@ -583,7 +593,7 @@ ul {
         position: relative;
         vertical-align: top;
         width: 286px;
-        @include breakpoint($breakpoint-mobile) {
+        @include breakpoint($breakpoint-bigwebhd-max) {
             display: none;
         }
     }
@@ -594,7 +604,6 @@ ul {
         display: inline-block;
     }
 }
-
 
 /* ----------------  PROMOS ----------------*/
 /*------------------------------------------*/
@@ -764,16 +773,19 @@ ul {
                 @include span(12);
                 padding: 0;
             }
+
             @include breakpoint($breakpoint-portrait) {
                 height: auto;
                 width: 55%;
                 padding: 0;
             }
+
             @include breakpoint($breakpoint-bigweb) {
                 height: auto;
                 width: 55%;
                 padding: 0;
             }
+
             @include breakpoint($breakpoint-bigwebhd) {
                 height: auto;
                 width: 55%;
@@ -790,14 +802,17 @@ ul {
                 @include breakpoint($breakpoint-landscape) {
                     left: -20px;
                 }
+
                 @include breakpoint($breakpoint-portrait) {
                     left: -9px;
                     width: 50%;
                 }
+
                 @include breakpoint($breakpoint-bigweb) {
                     left: -9px;
                     width: 50%;
                 }
+
                 @include breakpoint($breakpoint-bigwebhd) {
                     left: -11px;
                     width: 40%;
@@ -844,6 +859,7 @@ ul {
                     margin: 0;
                     padding-top: 10px;
                 }
+
                 @include breakpoint($breakpoint-portrait) {
                     bottom: 5px;
                     width: 100%;
@@ -851,6 +867,7 @@ ul {
                     margin: 0;
                     padding-top: 10px;
                 }
+
                 @include breakpoint($breakpoint-bigweb) {
                     bottom: 5px;
                     width: 100%;
@@ -858,6 +875,7 @@ ul {
                     margin: 0;
                     padding-top: 10px;
                 }
+
                 @include breakpoint($breakpoint-bigwebhd) {
                     bottom: 5px;
                     width: 100%;
@@ -874,6 +892,7 @@ ul {
                         width: 100%;
                         margin: 0;
                     }
+
                     @include breakpoint($breakpoint-bigwebhd) {
                         width: 80%;
                     }
@@ -919,6 +938,7 @@ ul {
                     @include breakpoint($breakpoint-bigweb-max) {
                         display: none;
                     }
+
                     @include breakpoint($breakpoint-bigwebhd) {
                         width: 10%;
                     }
@@ -940,12 +960,15 @@ ul {
             @include breakpoint($breakpoint-landscape-max) {
                 width: 100%;
             }
+
             @include breakpoint($breakpoint-portrait) {
                 width: 42%;
             }
+
             @include breakpoint($breakpoint-bigweb) {
                 width: 42%;
             }
+
             @include breakpoint($breakpoint-bigwebhd) {
                 width: 42%;
             }
@@ -970,16 +993,18 @@ ul {
                     margin-top: 20px;
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-portrait) {
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-bigweb) {
                     width: 100%;
                 }
+
                 @include breakpoint($breakpoint-bigwebhd) {
                     width: 100%;
                 }
-                
             }
             .imagen-noticia {
                 height: 160px;
@@ -1008,12 +1033,15 @@ ul {
                 @include breakpoint($breakpoint-portrait) {
                     margin-top: 0;
                 }
+
                 @include breakpoint($breakpoint-bigweb) {
                     margin-top: 0;
                 }
+
                 @include breakpoint($breakpoint-bigwebhd) {
                     margin-top: 2%;
                 }
+
                 h2 {
                     line-height: inherit;
                     color: #3d3d3d;

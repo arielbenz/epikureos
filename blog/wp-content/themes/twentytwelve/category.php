@@ -8,7 +8,7 @@
 			<section id="barra-novedades" class="barra-content">
 				<div id="barra">
 					<div id="barra-titulo">
-						<div class="font-bold">NOVEDADES</div>
+						<h2><b class="font-bold">NOVEDADES</b></h2>
 					</div>
 				</div>
 			</section>
@@ -20,7 +20,7 @@
 			<section id="barra-laposta" class="barra-content">
 				<div id="barra">
 					<div id="barra-titulo">
-						<div class="font-normal">LA</div><div class="font-bold">POSTA</div>
+						<h2><b class="font-normal">LA</b><b class="font-bold">POSTA</b></h2>
 					</div>
 				</div>
 			</section>
