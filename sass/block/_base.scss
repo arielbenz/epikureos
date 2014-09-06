@@ -1,7 +1,5 @@
 @import "../global/mixins";
 
-@charset "UTF-8";
-
 * {
     border: 0;
     margin: 0;
@@ -158,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Inici├ö├Â┬úÔö£┬í sesi├ö├Â┬ú├ö├Â├®n con Facebook";
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -272,25 +270,7 @@ ul {
             vertical-align: top;
             text-align: right;
             padding: 0;
-            @include breakpoint($breakpoint-mobile) {
-                position: absolute;
-                top: -3px;
-                right: 115px;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                position: absolute;
-                top: -3px;
-                right: 115px;
-            }
-
-            @include breakpoint($breakpoint-portrait) {
-                position: absolute;
-                top: -3px;
-                right: 115px;
-            }
-
-            @include breakpoint($breakpoint-bigweb) {
+            @include breakpoint($breakpoint-bigweb-max) {
                 position: absolute;
                 top: -3px;
                 right: 115px;
@@ -442,10 +422,15 @@ ul {
     #search {
         padding-top: 6.25rem;
         @include container(1200px);
+        @include breakpoint($breakpoint-landscape) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+
         .search-section {
             margin: 0 auto;
             width: 560px;
-            @include breakpoint($breakpoint-mobile) {
+            @include breakpoint($breakpoint-landscape-max) {
                 @include span(12);
                 padding: 0;
             }
@@ -467,9 +452,8 @@ ul {
                     text-transform: uppercase;
                     width: 110px;
                     @include text-shadow(rgba(0, 0, 0, 0.3) 0 -1px 0);
-                    @include breakpoint($breakpoint-mobile) {
-                        float: none;
-                        width: 26%;
+                    @include breakpoint($breakpoint-landscape-max) {
+                        width: 30%;
                     }
 
                     &:hover {
@@ -495,7 +479,6 @@ ul {
                     }
                 }
                 input {
-                    @include box-shadow(0px 0px 5px #5cd053);
                     border: none;
                     color: #888;
                     float: left;
@@ -505,10 +488,11 @@ ul {
                     height: 30px;
                     padding: 10px 5px;
                     width: 440px;
-                    @include breakpoint($breakpoint-mobile) {
-                        width: 70%;
-                        margin: 0 auto;
+                    @include breakpoint($breakpoint-landscape-max) {
                         font-size: 13px;
+                        height: 50px;
+                        padding: 0;
+                        width: 70%;
                     }
 
                     &:focus {
@@ -522,13 +506,16 @@ ul {
                 }
             }
             #nav-search {
+                clear: both;
                 font-family: $titillium-regular;
                 margin: 0 auto;
                 padding: 4px;
                 background-color: rgba(210, 210, 210, 0.5);
-                @include breakpoint($breakpoint-mobile) {
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: left;
                     padding-left: 0;
                     padding-right: 0;
+                    width: 100%;
                 }
 
                 ul {
@@ -541,11 +528,14 @@ ul {
                             font-size: 16px;
                             padding: 7px 0;
                             width: 135px;
-                            margin-top: 4px;
                             @include text-shadow(#cccccc -0.5px -0.5px 1px);
                             @include transition(background-color 0.3s ease-out);
                             &:hover {
                                 background-color: $orange-dark;
+                            }
+                            @include breakpoint($breakpoint-landscape-max) {
+                                font-size: 14px;
+                                margin: 4px;
                             }
                         }
                     }
@@ -560,7 +550,6 @@ ul {
 
 .bar-blog {
     height: 50px;
-    width: 1200px;
     padding: 0;
     margin: 0 auto;
 }
@@ -575,7 +564,6 @@ ul {
     padding-bottom: 20px;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
-    @include breakpoint($breakpoint-mobile) {}
 }
 
 .container-laposta, .container-novedades {
@@ -586,6 +574,18 @@ ul {
         margin-right: 22px;
         position: relative;
         width: 880px;
+        @include breakpoint($breakpoint-landscape-max) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-portrait) {
+            width: 100%;
+            margin-right: 0;
+        }
+        @include breakpoint($breakpoint-bigweb) {
+            width: 100%;
+            margin-right: 0;
+        }
     }
     #secondary {
         display: inline-block;
@@ -593,18 +593,16 @@ ul {
         position: relative;
         vertical-align: top;
         width: 286px;
-        @include breakpoint($breakpoint-mobile) {
+        @include breakpoint($breakpoint-bigwebhd-max) {
             display: none;
         }
     }
 }
 
-#nav-below .nav-previous {
-    display: inline-block;
-}
-
-#nav-below .nav-next {
-    display: inline-block;
+#nav-below {
+    .nav-previous, .nav-next {
+        display: inline-block;
+    }
 }
 
 /* ----------------  PROMOS ----------------*/
@@ -639,14 +637,14 @@ ul {
 #home-info {
     padding-top: 50px;
     @include container(1200px);
-    @include breakpoint($breakpoint-mobile) {
+    @include breakpoint($breakpoint-bigwebhd-max) {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
     }
 
     .home-recomended {
         height: 300px;
-        @include breakpoint($breakpoint-mobile) {
+        @include breakpoint($breakpoint-bigwebhd-max) {
             height: auto;
             display: none;
         }
@@ -766,196 +764,310 @@ ul {
             }
         }
     }
-    #laposta {
-        float: left;
-        position: relative;
-        @include breakpoint($breakpoint-mobile) {
-            height: auto;
-            @include span(12);
-            padding: 0;
-        }
-
-        #etiqueta-laposta {
-            position: absolute;
-            top: 20px;
-            @include breakpoint($breakpoint-mobile) {
-                left: -38px;
+    .seccion-novedades {
+        #laposta {
+            float: left;
+            position: relative;
+            @include breakpoint($breakpoint-landscape-max) {
+                height: auto;
+                @include span(12);
+                padding: 0;
             }
 
-            img {
-                width: 100%;
+            @include breakpoint($breakpoint-portrait) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            @include breakpoint($breakpoint-bigweb) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                height: auto;
+                width: 55%;
+                padding: 0;
+            }
+
+            #etiqueta-laposta {
+                position: absolute;
+                top: 20px;
                 @include breakpoint($breakpoint-mobile) {
-                    width: 70%;
+                    left: -38px;
                 }
-            }
-        }
-        .posta {
-            .imagen-laposta {
-                width: 650px;
-                margin-left: 11px;
-                @include breakpoint($breakpoint-mobile) {
-                    width: 100%;
-                    margin-left: 0;
+
+                @include breakpoint($breakpoint-landscape) {
+                    left: -20px;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    left: -9px;
+                    width: 50%;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    left: -9px;
+                    width: 50%;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    left: -11px;
+                    width: 40%;
                 }
 
                 img {
                     width: 100%;
+                    @include breakpoint($breakpoint-mobile) {
+                        width: 70%;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        width: 90%;
+                    }
+                }
+            }
+            .posta {
+                .imagen-laposta {
+                    width: 650px;
+                    margin-left: 11px;
+                    @include breakpoint($breakpoint-bigwebhd-max) {
+                        width: 100%;
+                        margin-left: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .title-laposta {
+                background: rgba(37, 37, 37, 0.7);
+                color: white;
+                height: 130px;
+                line-height: 200%;
+                margin-left: 11px;
+                position: absolute;
+                bottom: 5px;
+                width: 650px;
+                @include breakpoint($breakpoint-landscape) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 100px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 60px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 60px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 90px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
+                .bottom-info {
+                    display: inline-block;
+                    margin-top: 8px;
+                    width: 524px;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        width: 100%;
+                        margin: 0;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        width: 80%;
+                    }
+
+                    a {
+                        color: white;
+                    }
+                    h2 {
+                        color: white;
+                        font-family: $titillium-semiBold;
+                        font-size: 26px;
+                        padding-left: 20px;
+                        text-align: left;
+                        text-transform: uppercase;
+                        line-height: inherit;
+                        @include breakpoint($breakpoint-bigweb-max) {
+                            font-size: 16px;
+                            line-height: initial;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                    }
+                    .extract {
+                        font-family: $openSans-light;
+                        font-size: 16px;
+                        height: 50px;
+                        line-height: normal;
+                        overflow: hidden;
+                        padding-left: 20px;
+                        text-align: left;
+                        @include breakpoint($breakpoint-bigweb-max) {
+                            font-size: 12px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+                .calendar {
+                    display: inline-block;
+                    margin-top: 20px;
+                    vertical-align: top;
+                    width: 50px;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        display: none;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        width: 10%;
+                    }
+
+                    .icon-calendar {
+                        background: url("../img/calendar.png") no-repeat;
+                        height: 20px;
+                        margin: 0 auto;
+                        width: 20px;
+                    }
+                    .post-fecha {
+                        font-size: 10px;
+                    }
                 }
             }
         }
-        .title-laposta {
-            background: rgba(37, 37, 37, 0.7);
-            color: white;
-            height: 130px;
-            line-height: 200%;
-            margin-left: 11px;
-            position: absolute;
-            bottom: 5px;
-            width: 650px;
-            @include breakpoint($breakpoint-mobile) {
-                bottom: 5px;
+        #noticias {
+            float: right;
+            @include breakpoint($breakpoint-landscape-max) {
                 width: 100%;
-                height: 100px;
-                margin: 0;
-                padding-top: 10px;
             }
 
-            .bottom-info {
-                display: inline-block;
-                margin-top: 8px;
-                width: 524px;
-                @include breakpoint($breakpoint-mobile) {
+            @include breakpoint($breakpoint-portrait) {
+                width: 42%;
+            }
+
+            @include breakpoint($breakpoint-bigweb) {
+                width: 42%;
+            }
+
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: 42%;
+            }
+
+            #ultimasnoticias {
+                height: 40px;
+                margin: 0 0 5px 0;
+                h3 {
+                    border: 0;
+                    color: #7a7675;
+                    font-family: $titillium-semiBold;
+                    font-size: 26px;
+                    padding-top: 0;
+                    text-align: left;
+                    top: 0;
+                }
+            }
+            .noticia {
+                margin: 0 0 0 0;
+                width: 500px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    margin-top: 20px;
                     width: 100%;
-                    margin: 0;
                 }
 
+                @include breakpoint($breakpoint-portrait) {
+                    width: 100%;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    width: 100%;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    width: 100%;
+                }
+            }
+            .imagen-noticia {
+                height: 160px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    @include filter(grayscale(100%));
+                    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+                    /* Firefox 10+, Firefox on Android */
+                    filter: gray;
+                    /* IE 6-9 */
+                    @include transition(all 0.3s ease);
+                    &:hover {
+                        @include filter(grayscale(0%));
+                        filter: none;
+                    }
+                }
+                @include breakpoint($breakpoint-bigweb-max) {
+                    height: 100%;
+                }
+            }
+            .title-noticia {
+                line-height: 180%;
+                text-align: left;
+                margin-top: 25px;
+                @include breakpoint($breakpoint-portrait) {
+                    margin-top: 0;
+                }
+
+                @include breakpoint($breakpoint-bigweb) {
+                    margin-top: 0;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    margin-top: 2%;
+                }
+
+                h2 {
+                    line-height: inherit;
+                    color: #3d3d3d;
+                    font-family: $openSans-light;
+                    font-size: 20px;
+                    margin: 0;
+                    @include breakpoint($breakpoint-bigweb-max) {
+                        font-size: 16px;
+                    }
+                }
+            }
+            #masnoticias {
+                background: #9ea9ad;
+                color: #eff0f0;
+                height: 35px;
+                h4 {
+                    color: white;
+                    font-family: $openSans-light;
+                    font-size: 24px;
+                    margin-left: 10px;
+                    position: relative;
+                    text-align: left;
+                }
                 a {
                     color: white;
                 }
-                h2 {
-                    color: white;
-                    font-family: $titillium-semiBold;
-                    font-size: 26px;
-                    padding-left: 20px;
-                    text-align: left;
-                    text-transform: uppercase;
-                    line-height: inherit;
-                    @include breakpoint($breakpoint-mobile) {
-                        font-size: 16px;
-                        line-height: initial;
-                        padding-left: 10px;
-                        padding-right: 10px;
-                    }
-                }
-                .extract {
-                    font-family: $openSans-light;
-                    font-size: 16px;
-                    height: 50px;
-                    line-height: normal;
-                    overflow: hidden;
-                    padding-left: 20px;
-                    text-align: left;
-                    @include breakpoint($breakpoint-mobile) {
-                        font-size: 12px;
-                        padding-left: 10px;
-                        padding-right: 10px;
-                    }
-                }
-            }
-            .calendar {
-                display: inline-block;
-                margin-top: 20px;
-                vertical-align: top;
-                width: 50px;
-                @include breakpoint($breakpoint-mobile) {
-                    display: none;
-                }
-
-                .icon-calendar {
-                    background: url("../img/calendar.png") no-repeat;
-                    height: 20px;
-                    margin: 0 auto;
-                    width: 20px;
-                }
-                .post-fecha {
-                    font-size: 10px;
-                }
-            }
-        }
-    }
-    #noticias {
-        float: right;
-        @include breakpoint($breakpoint-mobile) {
-            width: 100%;
-        }
-
-        #ultimasnoticias {
-            height: 40px;
-            margin: 0 0 5px 0;
-            h3 {
-                border: 0;
-                color: #7a7675;
-                font-family: $titillium-semiBold;
-                font-size: 26px;
-                padding-top: 0;
-                text-align: left;
-                top: 0;
-            }
-        }
-        .noticia {
-            margin: 0 0 0 0;
-            width: 500px;
-            @include breakpoint($breakpoint-mobile) {
-                margin-top: 20px;
-                width: 100%;
-            }
-        }
-        .imagen-noticia {
-            height: 175px;
-            overflow: hidden;
-            img {
-                width: 100%;
-                @include filter(grayscale(100%));
-                filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-                /* Firefox 10+, Firefox on Android */
-                filter: gray;
-                /* IE 6-9 */
-                @include transition(all 0.3s ease);
-                &:hover {
-                    @include filter(grayscale(0%));
-                    filter: none;
-                }
-            }
-        }
-        .title-noticia {
-            height: 35px;
-            line-height: 180%;
-            text-align: left;
-            h2 {
-                line-height: inherit;
-                color: #3d3d3d;
-                font-family: $openSans-light;
-                font-size: 20px;
-                margin: 0;
-                @include breakpoint($breakpoint-mobile) {
-                    font-size: 16px;
-                }
-            }
-        }
-        #masnoticias {
-            background: #9ea9ad;
-            color: #eff0f0;
-            height: 35px;
-            h4 {
-                color: white;
-                font-family: $openSans-light;
-                font-size: 24px;
-                margin-left: 10px;
-                position: relative;
-                text-align: left;
-            }
-            a {
-                color: white;
             }
         }
     }
@@ -1095,24 +1207,28 @@ footer {
             }
             .link-face {
                 background: url("../img/facebookoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/facebookon.png") no-repeat;
                 }
             }
             .link-twitter {
                 background: url("../img/twitteroff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/twitteron.png") no-repeat;
                 }
             }
             .link-rss {
                 background: url("../img/rssoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/rsson.png") no-repeat;
                 }
             }
             .link-plus {
                 background: url("../img/googleoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/googleon.png") no-repeat;
                 }
