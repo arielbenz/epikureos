@@ -56,6 +56,12 @@ class Lugar extends Eloquent {
 		return $ciudad->descripcion;
 	}
 
+	public static function enEvento($id)
+	{
+		$evento = Evento::where('id', '=', $id)->first();
+		return $evento->descripcion;
+	}
+
 	public function fotos()
 	{
 		return $this->hasMany('Foto', 'id_lugar');

@@ -34,6 +34,10 @@ class HomeController extends BaseController {
 		return View::make('terminos.index');
 	}
 
+	public function get_santafe() {
+		return View::make('santafealacarta.index');
+	}
+
 	public function get_busqueda($city, $busqueda) {
 
 		$lugares = null;

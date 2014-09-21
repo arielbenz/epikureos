@@ -16,6 +16,22 @@ Route::group(array('domain' => 'epikureos.com'), function() {
     Route::get('/', 'HomeController@get_index');
 });
 
+Route::get('/novedades', 'HomeController@get_novedades');
+Route::get('/laposta', 'HomeController@get_posta');
+Route::get('/promos', 'HomeController@get_promos');
+Route::get('/quees', 'HomeController@get_quees');
+Route::get('/contacto', 'HomeController@get_contacto');
+Route::get('/terminos', 'HomeController@get_terminos');
+
+// Rutas Login Facebook
+
+Route::get('/loginfb', 'LoginController@loginfb');
+Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
+Route::get('/logout', 'LoginController@logoutfb');
+
+//Evento
+Route::get('/santafealacarta', 'HomeController@get_santafe');
+
 Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
     Route::get('/', 'HomeController@get_index_city');
@@ -25,6 +41,9 @@ Route::group(array('domain' => '{city}.epikureos.com'), function(){
     Route::get('/quees', 'HomeController@get_quees');
     Route::get('/contacto', 'HomeController@get_contacto');
     Route::get('/terminos', 'HomeController@get_terminos');
+
+    //Evento
+    Route::get('/santafealacarta', 'HomeController@get_santafe');
 
     //Rutas búsqueda
 

@@ -95,6 +95,11 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Evento')}}
+					{{Form::select('evento', $eventos, $lugar->evento, array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, Lugar::enCategorias($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
@@ -207,6 +212,11 @@
 				<div class="form-group">
 					{{Form::label('Zona')}}
 					{{Form::select('zona', $zonas, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Evento')}}
+					{{Form::select('evento', $eventos, array(1), array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
