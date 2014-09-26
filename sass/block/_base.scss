@@ -635,11 +635,43 @@ ul {
 /*----------------------------------------*/
 
 #home-info {
-    padding-top: 50px;
+    padding-top: 25px;
     @include container(1200px);
     @include breakpoint($breakpoint-bigwebhd-max) {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
+    }
+
+    .partner-section {
+        height: 80px;
+        background-color: #f6f6f6;
+        .partner-section-logos {
+            margin: 0 auto;
+            ul {
+                li {
+                    display: inline-block;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    vertical-align: top;
+                    a {
+                        img {
+                            width: auto;
+                        }
+                    }
+                }
+                .logo-campari {
+                    padding-top: 20px;
+                }
+                .logo-sol {
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+
+    .evento-section {
+        margin-top: 25px;
+        padding-bottom: 25px;
     }
 
     .home-recomended {

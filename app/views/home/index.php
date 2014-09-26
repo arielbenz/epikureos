@@ -31,6 +31,19 @@
 
 	<section id="home-info">
 
+		<div class="partner-section">
+			<div class="partner-section-logos">
+				<ul>
+					<li class="logo-sol"><a href="http://www.institutosol.edu.ar"><img src="<?php echo $url?>/img/logo_sol.png"></a></li>
+					<li class="logo-campari"><a href="http://www.campari.com/ar/es/"><img src="<?php echo $url?>/img/lg_campari.png"></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="evento-section">
+			<a href="http://santafealacarta2014.com.ar"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
+		</div>
+
 		<div class="home-recomended">
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">
 				<figure class="effect-oscar">
