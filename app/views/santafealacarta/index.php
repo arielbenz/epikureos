@@ -7,6 +7,8 @@
 		$nombres = array();
 	 	$latitudes = array();
 	 	$longitudes = array();
+	 	$tipos = array();
+	 	$slugs = array();
 
 	 	$i = 0;
 	?>
@@ -16,7 +18,7 @@
 	<section id="barra-terminos" class="barra-content">
 		<div id="barra">
 			<div id="barra-titulo">
-				<h2><b class="font-bold">SANTA FE A LA CARTA</b></h2>
+				<h2><b class="font-normal">SANTAFE</b><b class="font-bold">ALACARTA</b></h2>
 			</div>
 		</div>
 	</section>
@@ -70,8 +72,10 @@
 
 	 			<?php
 					$nombres[$i] = $lugar->nombre;
+					$slugs[$i] = $lugar->slug;
 					$latitudes[$i] = $lugar->latitud;
 					$longitudes[$i] = $lugar->longitud;
+					$tipos[$i] = $lugar->enMapa($lugar->mapa_id);
 					$i = $i + 1;
 				?>
 
@@ -91,9 +95,11 @@
 
 	<script>
     	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
+    	var slugs = $.parseJSON('<?php echo json_encode($slugs)?>');
     	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
     	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
-    	setLugares(nombres, latitudes, longitudes);
+    	var tipos = $.parseJSON('<?php echo json_encode($tipos)?>');
+    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, tipos, slugs);
 
 		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
 		$(document).on("ready", function() {

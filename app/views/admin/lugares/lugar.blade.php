@@ -91,7 +91,7 @@
 
 				<div class="form-group">
 					{{Form::label('Mapa')}}
-					{{Form::select('mapa', $mapas, $lugar->mapa, array('single' => 'single', 'class' => 'form-control'))}}
+					{{Form::select('mapa', $mapas, $lugar->mapa_id, array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
@@ -101,7 +101,7 @@
 
 				<div class="form-group">
 					{{Form::label('Evento')}}
-					{{Form::select('evento', $eventos, $lugar->evento, array('single' => 'single', 'class' => 'form-control'))}}
+					{{Form::select('evento', $eventos, $lugar->evento_id, array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="evento-section">
-			<a href="http://santafealacarta2014.com.ar"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
+			<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
 		</div>
 
 		<!-- <div class="home-recomended">

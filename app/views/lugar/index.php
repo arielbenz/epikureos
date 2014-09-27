@@ -53,7 +53,7 @@
 						</div>
 
 						<div id="lugar-web" class="lugar-title-comun">
-							<?php echo $lugar->web; ?>
+							<a href="<?php echo $lugar->web; ?>"><?php echo $lugar->web; ?></a>
 						</div>
 					</div>
 

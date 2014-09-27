@@ -350,7 +350,7 @@ ul {
             text-rendering: optimizeSpeed;
             @include breakpoint($breakpoint-mobile) {
                 float: none;
-                padding-top: 10px;
+                padding-top: 0px;
             }
 
             h2 {
