@@ -90,6 +90,11 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Mapa')}}
+					{{Form::select('mapa', $mapas, $lugar->mapa, array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Zona')}}
 					{{Form::select('zona', $zonas, $lugar->zona, array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
@@ -207,6 +212,11 @@
 				<div class="form-group">
 					{{Form::label('Ciudad')}}
 					{{Form::select('ciudad', $ciudades, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Mapa')}}
+					{{Form::select('mapa', $mapas, array(1), array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">

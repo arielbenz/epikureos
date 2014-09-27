@@ -1,6 +1,6 @@
 var popup;
 
-function setLugares(nombres, latitudes, longitudes) {
+function setLugares(url, nombres, latitudes, longitudes, tipos, slugs) {
 	var latlon = null;
 	if(city == "santafe") {
 		latlon = new google.maps.LatLng(-31.632389, -60.699459);
@@ -18,9 +18,25 @@ function setLugares(nombres, latitudes, longitudes) {
     var map = new google.maps.Map($("#mapa").get(0), myOptions);
     var bounds = new google.maps.LatLngBounds();
 
+    var imageBase = "/img/map-icons/";
+    var icons = {
+        cafe: {
+            icon: imageBase + "pinmap-coffee.png"
+        },
+        trago: {
+            icon: imageBase + "pinmap-drink.png"
+        },
+        resto: {
+            icon: imageBase + "pinmap-resto.png"
+        },
+        heladeria: {
+            icon: imageBase + "pinmap-icecream.png"
+        }
+    };
+
 	for(i = 0; i < nombres.length; i++) {
 		var marker = new google.maps.LatLng(latitudes[i], longitudes[i]);
-		addMark(map, marker, nombres[i], bounds);
+		addMark(url, map, marker, nombres[i], bounds, tipos[i], icons, slugs[i]);
 	}
 
 	if(nombres.length > 1) {
@@ -29,11 +45,12 @@ function setLugares(nombres, latitudes, longitudes) {
 	}
 }
 
-function addMark(map, location, title, bounds) {
+function addMark(url, map, location, title, bounds, tipoLugar, icons, slug) {
     var marcador = new google.maps.Marker({
         position: location,
         map: map,
-        title: title
+        title: title,
+        icon: icons[tipoLugar].icon
     });
 
     bounds.extend(marcador.position);
@@ -46,4 +63,8 @@ function addMark(map, location, title, bounds) {
         popup.setContent(note);
         popup.open(map, this);
 	});
+
+    google.maps.event.addListener(marcador, "click", function() {
+        window.location = url + "/lugares/" + slug;
+    });
 }

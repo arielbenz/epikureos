@@ -56,6 +56,12 @@ class Lugar extends Eloquent {
 		return $ciudad->descripcion;
 	}
 
+	public static function enMapa($id)
+	{
+		$mapa = Mapa::where('id', '=', $id)->first();
+		return $mapa->slug;
+	}
+
 	public static function enEvento($id)
 	{
 		$evento = Evento::where('id', '=', $id)->first();
