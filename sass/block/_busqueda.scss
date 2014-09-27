@@ -318,6 +318,12 @@
                     font-size: 19px;
                     font-family: $openSans-bold;
                     margin-top: 7px;
+                    color: $gray-dark;
+                    a {
+                        &:hover {
+                            color: $orange-dark;
+                        }
+                    }                   
                     @include breakpoint($breakpoint-mobile) {
                         font-size: 16px;
                     }

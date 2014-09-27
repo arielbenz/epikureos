@@ -44,7 +44,7 @@
 			<a href="http://santafealacarta2014.com.ar"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
 		</div>
 
-		<div class="home-recomended">
+		<!-- <div class="home-recomended">
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">
 				<figure class="effect-oscar">
 					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
@@ -74,7 +74,7 @@
 					</figcaption>			
 				</figure>
 			</a>
-		</div>
+		</div> -->
 
 		<div class="seccion-novedades">
 			<section id="laposta">

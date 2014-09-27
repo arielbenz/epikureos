@@ -29,9 +29,6 @@ Route::get('/loginfb', 'LoginController@loginfb');
 Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
 Route::get('/logout', 'LoginController@logoutfb');
 
-//Evento
-Route::get('/santafealacarta', 'HomeController@get_santafe');
-
 Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
     Route::get('/', 'HomeController@get_index_city');

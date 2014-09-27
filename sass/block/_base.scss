@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Inici├í sesi├│n con Facebook";
+                    content: "Iniciá sesión con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -653,9 +653,23 @@ ul {
                     padding-left: 25px;
                     padding-right: 25px;
                     vertical-align: top;
+                    @include breakpoint($breakpoint-mobile) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+                    @include breakpoint($breakpoint-landscape) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
                     a {
                         img {
                             width: auto;
+                            @include breakpoint($breakpoint-mobile) {
+                                width: 70%;
+                            }
+                            @include breakpoint($breakpoint-landscape) {
+                                width: 80%;
+                            }
                         }
                     }
                 }
@@ -884,6 +898,13 @@ ul {
                 position: absolute;
                 bottom: 5px;
                 width: 650px;
+                @include breakpoint($breakpoint-mobile) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 100px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
                 @include breakpoint($breakpoint-landscape) {
                     bottom: 5px;
                     width: 100%;
@@ -1061,13 +1082,16 @@ ul {
             .title-noticia {
                 line-height: 180%;
                 text-align: left;
-                margin-top: 25px;
+                margin-top: 14px;
+                margin-bottom: 26px;
                 @include breakpoint($breakpoint-portrait) {
                     margin-top: 0;
+                    margin-bottom: 0;
                 }
 
                 @include breakpoint($breakpoint-bigweb) {
                     margin-top: 0;
+                    margin-bottom: 0;
                 }
 
                 @include breakpoint($breakpoint-bigwebhd) {
