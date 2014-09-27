@@ -7,6 +7,8 @@
 		$nombres = array();
 	 	$latitudes = array();
 	 	$longitudes = array();
+	 	$tipos = array();
+	 	$slugs = array();
 
 	 	$i = 0;
 	?>
@@ -93,8 +95,10 @@
 
 	 			<?php
 					$nombres[$i] = $lugar->nombre;
+					$slugs[$i] = $lugar->slug;
 					$latitudes[$i] = $lugar->latitud;
 					$longitudes[$i] = $lugar->longitud;
+					$tipos[$i] = $lugar->enMapa($lugar->mapa_id);
 					$i = $i + 1;
 				?>
 
@@ -114,9 +118,11 @@
 
 	<script>
     	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
+    	var slugs = $.parseJSON('<?php echo json_encode($slugs)?>');
     	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
     	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
-    	setLugares(nombres, latitudes, longitudes);
+    	var tipos = $.parseJSON('<?php echo json_encode($tipos)?>');
+    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, tipos, slugs);
 
 		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
 		$(document).on("ready", function() {
