@@ -20,6 +20,7 @@ class AdminController extends BaseController {
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$mapas = Mapa::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$eventos = Evento::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$niveles = Nivel::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$comidas = Comida::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
@@ -32,7 +33,7 @@ class AdminController extends BaseController {
 			$slides = $slides->cantidad;
 		}
 
-		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('thumb', $thumb)->with('slides', $slides)->with('comidas', $comidas)->with('eventos', $eventos)->with('mapas', $mapas);
+		return View::make('admin.lugares.lugar')->with('lugar', $lugar)->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('thumb', $thumb)->with('slides', $slides)->with('comidas', $comidas)->with('eventos', $eventos)->with('mapas', $mapas)->with('niveles', $niveles);
 	}
 
 	public function get_add() {
@@ -41,11 +42,12 @@ class AdminController extends BaseController {
 		$ciudades = Ciudad::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$mapas = Mapa::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$eventos = Evento::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
+		$niveles = Nivel::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$zonas = Zona::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$ocasiones = Ocasion::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 		$comidas = Comida::orderBy('descripcion', 'ASC')->lists('descripcion', 'id');
 
-		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('comidas', $comidas)->with('eventos', $eventos)->with('mapas', $mapas);
+		return View::make('admin.lugares.lugar')->with('categorias', $categorias)->with('etiquetas', $etiquetas)->with('ciudades', $ciudades)->with('zonas', $zonas)->with('ocasiones', $ocasiones)->with('comidas', $comidas)->with('eventos', $eventos)->with('mapas', $mapas)->with('niveles', $niveles);
 	}
 
 	public function post_add() {
@@ -80,8 +82,10 @@ class AdminController extends BaseController {
 				$lugar->ciudad = Input::get('ciudad');
 				$lugar->mapa_id = Input::get('mapa');
 				$lugar->evento_id = Input::get('evento');
+				$lugar->nivel_id = Input::get('nivel');
 				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
+				$lugar->menu = Input::get('menu');
 			$lugar->save();
 
 			$thumb = Input::get('thumb');
@@ -172,8 +176,10 @@ class AdminController extends BaseController {
 				$lugar->ciudad = Input::get('ciudad');
 				$lugar->mapa_id = Input::get('mapa');
 				$lugar->evento_id = Input::get('evento');
+				$lugar->nivel_id = Input::get('nivel');
 				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
+				$lugar->menu = Input::get('menu');
 			$lugar->save();
 
 			$thumb = Input::get('thumb');

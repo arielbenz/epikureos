@@ -387,6 +387,34 @@
             width: 100%;
         }
 
+
+        .menu-lugar {
+            background-color: #F6F6F6;
+            display: inline-block;
+            margin: 0 auto;
+            width: 80%;
+            padding: 20px 0px;
+            border-bottom: 1px solid #CCC;
+            .menu-lugar-logo {
+                width: 130px;
+                float: left;
+            }
+            .menu-lugar-info   {
+                display: inline-block;
+                margin-left: 10px;
+                width: 61%;
+                float: right;
+                text-align: right;
+                h3 {
+                    font-size: 16px;
+                    font-family: "Open Sans Bold";
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+
         .comentarios-lugar-alert {
             text-align: left;
             margin-left: 20px;

@@ -105,6 +105,17 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Nivel')}}
+					{{Form::select('nivel', $niveles, $lugar->nivel_id, array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Menú')}}
+					{{Form::textarea('menu', $lugar->menu, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('menu') }}</span>
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, Lugar::enCategorias($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
@@ -227,6 +238,17 @@
 				<div class="form-group">
 					{{Form::label('Evento')}}
 					{{Form::select('evento', $eventos, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Nivel')}}
+					{{Form::select('nivel', $niveles, array(1), array('single' => 'single', 'class' => 'form-control'))}}
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Menú')}}
+					{{Form::textarea('menu', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('menu') }}</span>
 				</div>
 
 				<div class="form-group">

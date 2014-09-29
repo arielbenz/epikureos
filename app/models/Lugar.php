@@ -62,10 +62,16 @@ class Lugar extends Eloquent {
 		return $mapa->slug;
 	}
 
+	public static function enNivel($id)
+	{
+		$nivel = Nivel::where('id', '=', $id)->first();
+		return $nivel->slug;
+	}
+
 	public static function enEvento($id)
 	{
 		$evento = Evento::where('id', '=', $id)->first();
-		return $evento->descripcion;
+		return $evento->slug;
 	}
 
 	public function fotos()

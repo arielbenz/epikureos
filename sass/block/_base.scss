@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Iniciá sesión con Facebook";
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -578,10 +578,12 @@ ul {
             width: 100%;
             margin-right: 0;
         }
+
         @include breakpoint($breakpoint-portrait) {
             width: 100%;
             margin-right: 0;
         }
+
         @include breakpoint($breakpoint-bigweb) {
             width: 100%;
             margin-right: 0;
@@ -657,16 +659,19 @@ ul {
                         padding-left: 5px;
                         padding-right: 5px;
                     }
+
                     @include breakpoint($breakpoint-landscape) {
                         padding-left: 5px;
                         padding-right: 5px;
                     }
+
                     a {
                         img {
                             width: auto;
                             @include breakpoint($breakpoint-mobile) {
                                 width: 70%;
                             }
+
                             @include breakpoint($breakpoint-landscape) {
                                 width: 80%;
                             }
@@ -682,12 +687,10 @@ ul {
             }
         }
     }
-
     .evento-section {
         margin-top: 25px;
         padding-bottom: 25px;
     }
-
     .home-recomended {
         height: 300px;
         @include breakpoint($breakpoint-bigwebhd-max) {
@@ -905,6 +908,7 @@ ul {
                     margin: 0;
                     padding-top: 10px;
                 }
+
                 @include breakpoint($breakpoint-landscape) {
                     bottom: 5px;
                     width: 100%;

@@ -7,7 +7,7 @@
 		$nombres = array();
 	 	$latitudes = array();
 	 	$longitudes = array();
-	 	$tipos = array();
+	 	$niveles = array();
 	 	$slugs = array();
 
 	 	$i = 0;
@@ -28,11 +28,24 @@
 	</section>
 
 	<section class="content-busqueda">
-
-		<div class="evento-section">
-			<a href="http://santafealacarta2014.com.ar"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
+		<div class="evento-info">
+			<ul>
+				<li class="evento-info-data">
+					<img src="<?php echo $url ?>/img/map-icons/pinmap-alta.png">
+					<p>Alta Cocina ($140)</p>
+				</li>
+				
+				<li class="evento-info-data">
+					<img src="<?php echo $url ?>/img/map-icons/pinmap-regional.png">
+					<p>Regional ($120)</p>
+				</li>
+				<li class="evento-info-data">
+					<img src="<?php echo $url ?>/img/map-icons/pinmap-tabla.png">
+					<p>A la tabla ($90)</p>
+				</li>
+			</ul>
 		</div>
-	
+
 		<div class="search-results">
 		    <?php foreach ($lugares as $lugar): ?>
 		        
@@ -75,7 +88,7 @@
 					$slugs[$i] = $lugar->slug;
 					$latitudes[$i] = $lugar->latitud;
 					$longitudes[$i] = $lugar->longitud;
-					$tipos[$i] = $lugar->enMapa($lugar->mapa_id);
+					$niveles[$i] = $lugar->enNivel($lugar->nivel_id);
 					$i = $i + 1;
 				?>
 
@@ -91,15 +104,15 @@
 
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	
-	<script src="<?php echo $url?>/js/busqueda.min.js"></script>
+	<script src="<?php echo $url?>/js/busqueda-santa.min.js"></script>
 
 	<script>
     	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
     	var slugs = $.parseJSON('<?php echo json_encode($slugs)?>');
     	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
     	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
-    	var tipos = $.parseJSON('<?php echo json_encode($tipos)?>');
-    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, tipos, slugs);
+    	var niveles = $.parseJSON('<?php echo json_encode($niveles)?>');
+    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, niveles, slugs);
 
 		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
 		$(document).on("ready", function() {

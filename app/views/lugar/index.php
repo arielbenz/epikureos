@@ -103,6 +103,20 @@
 		</div>
 
 		<div class="comentarios-lugar">
+
+			<?php if($lugar->enEvento($lugar->evento_id) == "santafealacarta") { ?>
+
+				<div class="menu-lugar">
+					<div class="menu-lugar-logo">
+						<img src="<?php echo $url ?>/img/santafecarta.jpg">
+					</div>
+					<div class="menu-lugar-info">
+						<?php echo $lugar->menu ?>
+					</div>
+				</div>
+
+			<?php } ?>
+
 			<div class="comentarios-lugar-alert">
 			   	<?php if(Session::get('errors')) { ?>
                 	<div class="alert alert-danger">
