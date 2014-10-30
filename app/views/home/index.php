@@ -40,9 +40,9 @@
 			</div>
 		</div>
 
-		<div class="evento-section">
+		<!-- <div class="evento-section">
 			<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
-		</div>
+		</div> -->
 
 		<!-- <div class="home-recomended">
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">

@@ -26,8 +26,7 @@
 					<ul>
 						<li><a href="http://facebook.com/TuSalidaBar" class="link-face"></a></li>
 	      				<li><a href="http://twitter.com/tusalidaok" class="link-twitter"></a></li>
-	       				<!-- <li><a href="#" class="link-rss"></a></li>
-	       				<li><a href="#" class="link-plus"></a></li> -->
+	       				<li><a href="https://plus.google.com/u/0/106453338753507424328" class="link-plus"></a></li>
 					</ul>
 				</article>
 
@@ -66,15 +65,6 @@
 
 	<script src="<?php echo $url?>/js/bootstrap.min.js"></script>
 	<script src="<?php echo $url?>/js/bootbox.min.js"></script>
-
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-50343708-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
 
 	<script>
 		$(".menu-login").click(function(event){

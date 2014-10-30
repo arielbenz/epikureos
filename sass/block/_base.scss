@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Inici├í sesi├│n con Facebook";
+                    content: "Iniciá sesión con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -265,7 +265,6 @@ ul {
         }
         #ciudad {
             @include span(2);
-            float: right;
             font-family: $titillium-regular;
             vertical-align: top;
             text-align: right;
@@ -292,6 +291,9 @@ ul {
                 margin-top: 23px;
                 text-indent: 0.01px;
                 width: 120px;
+                height: 33px !important;
+                display: inline-flex !important;
+                vertical-align: top;
                 @include appearance(none);
                 option {
                     background-color: $gray-dark;
@@ -307,7 +309,7 @@ ul {
                     font: 22px "Consolas", monospace;
                     color: #dfdfdf;
                     right: 8px;
-                    top: 0px;
+                    top: 26px;
                     position: absolute;
                     pointer-events: none;
                     @include transform(rotate(90deg));
@@ -316,8 +318,8 @@ ul {
             #logo-dia {
                 margin-left: 10px;
                 display: inline-block;
-                position: relative;
-                top: 10px;
+                position: absolute;
+                top: 25px;
                 @include breakpoint($breakpoint-bigweb-max) {
                     display: none;
                 }
@@ -647,6 +649,7 @@ ul {
     .partner-section {
         height: 80px;
         background-color: #f6f6f6;
+        margin-bottom: 20px;
         .partner-section-logos {
             margin: 0 auto;
             ul {
@@ -1261,7 +1264,7 @@ footer {
                         margin: 0;
                         width: 30px;
                         display: block;
-                        @include transition(background 0.3s ease-out);
+                        // @include transition(background 0.3s ease-out);
                     }
                 }
             }
@@ -1277,13 +1280,6 @@ footer {
                 @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/twitteron.png") no-repeat;
-                }
-            }
-            .link-rss {
-                background: url("../img/rssoff.png") no-repeat;
-                @include transition(background 0.3s ease-out);
-                &:hover {
-                    background: url("../img/rsson.png") no-repeat;
                 }
             }
             .link-plus {

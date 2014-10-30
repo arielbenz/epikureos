@@ -40,7 +40,7 @@ Route::group(array('domain' => '{city}.epikureos.com'), function(){
     Route::get('/terminos', 'HomeController@get_terminos');
 
     //Evento
-    Route::get('/santafealacarta', 'HomeController@get_santafe');
+    // Route::get('/santafealacarta', 'HomeController@get_santafe');
 
     //Rutas búsqueda
 
