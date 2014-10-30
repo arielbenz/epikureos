@@ -21,7 +21,7 @@
 						<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
 						<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
 						<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
-						<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
+						<li><a href="<?php echo $url?>/busqueda/hoteles" title="Hoteles">HOTELES</a></li>
 					</ul>
 				</nav>
 			</div>
