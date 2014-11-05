@@ -116,6 +116,12 @@
 				</div>
 
 				<div class="form-group">
+					{{Form::label('Promo')}}
+					{{Form::text('promo', $lugar->promo, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('promo') }}</span>
+				</div>
+
+				<div class="form-group">
 					{{Form::label('Categorías')}}
 					{{Form::select('categorias[]', $categorias, Lugar::enCategorias($lugar->id), array('multiple' => 'multiple', 'class' => 'form-control'))}}
 				</div>
@@ -249,6 +255,12 @@
 					{{Form::label('Menú')}}
 					{{Form::textarea('menu', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('menu') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Promo')}}
+					{{Form::text('promo', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('promo') }}</span>
 				</div>
 
 				<div class="form-group">

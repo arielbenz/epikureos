@@ -102,134 +102,148 @@
 
 		</div>
 
-		<div class="comentarios-lugar">
+		<div class="info-left">
 
-			<?php if($lugar->enEvento($lugar->evento_id) == "santafealacarta") { ?>
+			<?php if($lugar->promo_id != null) { ?>
 
-				<div class="menu-lugar">
-					<div class="menu-lugar-logo">
-						<img src="<?php echo $url ?>/img/santafecarta.jpg">
-					</div>
-					<div class="menu-lugar-info">
-						<?php echo $lugar->menu ?>
-					</div>
+				<div class="promo">
+					<a href="<?php echo Promo::find($lugar->promo_id)->url; ?>">
+						<img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/promos/<?php echo $lugar->promo_id ?>.jpg">
+					</a>
 				</div>
 
 			<?php } ?>
 
-			<div class="comentarios-lugar-alert">
-			   	<?php if(Session::get('errors')) { ?>
-                	<div class="alert alert-danger">
-                		<button type="button" class="close" style="float: right; background: transparent;" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  		<h5>Han ocurrido estos errores:</h5>
-                   		<?php
-                   			foreach($errors->all('<p style="color: #fbb714;">:message</p>') as $message) {
-                      		echo $message;
-                   		}
-                   		?>
-                	</div>
-              	<?php } ?>
+			<div class="comentarios-lugar">
 
-              	<?php if(Session::has('review_posted')) { ?>
-                	<div class="alert alert-success">
-                  		<h5>Se ha enviado tu comentario.</h5>
-                	</div>
-              	<?php } ?>
-			</div>
-            
-            <div id="post-review-box">
-				<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
-					<div class="form-comment-rating">
-						<div class="form-comment">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+				<?php if($lugar->enEvento($lugar->evento_id) == "santafealacarta") { ?>
 
-							<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
-
-								if (Auth::check()) {
-									$userReview = Review::where('user_id', Auth::user()->id)->where('lugar_id', $lugar->id)->first();
-									if ($userReview != null) {
-										echo $userReview->rating; 	
-									}
-								}
-
-							?>">
-							<textarea id="new-review" class="form-control animated" placeholder="Dejá tu opinión... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
+					<div class="menu-lugar">
+						<div class="menu-lugar-logo">
+							<img src="<?php echo $url ?>/img/santafecarta.jpg">
 						</div>
-	                </div>
+						<div class="menu-lugar-info">
+							<?php echo $lugar->menu ?>
+						</div>
+					</div>
 
-					<div class="form-buttons">
-						
-						<?php if (!Auth::check()) { echo "<span class='form-buttons-login'><a href='/loginfb'>Iniciá sesión para dejar tu opinión</a></span>"; } else { echo "<button class='button button-comment button-comment-user type='submit'>Comentar</button>"; } ?>
-						
-	                </div>
-	                <?php if (Auth::check()) {
+				<?php } ?>
 
-	                	$rate = 0;
-	                	if ($ratingUser != null) { 
-	                		$rate = $ratingUser;	
-	                	} else { 
-	                		$rate = Input::old('rating',0); 
-	                	}
+				<div class="comentarios-lugar-alert">
+				   	<?php if(Session::get('errors')) { ?>
+	                	<div class="alert alert-danger">
+	                		<button type="button" class="close" style="float: right; background: transparent;" data-dismiss="alert" aria-hidden="true">&times;</button>
+	                  		<h5>Han ocurrido estos errores:</h5>
+	                   		<?php
+	                   			foreach($errors->all('<p style="color: #fbb714;">:message</p>') as $message) {
+	                      		echo $message;
+	                   		}
+	                   		?>
+	                	</div>
+	              	<?php } ?>
 
-	                	echo "<div class='lugar-rating-star'>
-								<div class='text-right'>
-									<span class='lugar-rating-vote'>Tu voto</span>
-									<div class='stars stars-user starrr' data-rating='$rate'>
-									</div>
-			             		</div>
-							</div>";
-					}
-					?>
-                </form>
-            </div>
+	              	<?php if(Session::has('review_posted')) { ?>
+	                	<div class="alert alert-success">
+	                  		<h5>Se ha enviado tu comentario.</h5>
+	                	</div>
+	              	<?php } ?>
+				</div>
+	            
+	            <div id="post-review-box">
+					<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
+						<div class="form-comment-rating">
+							<div class="form-comment">
+								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-				<?php
-					if($comentarios != null) {
-						foreach($comentarios as $comentario) {
+								<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
 
-						?>
-							<div class="review">
-								<div class="review-comment-photo">
-			    					<img src="<?php echo $comentario->user->photo; ?>" alt="">
-			    				</div>
-								
-								<div class="review-data">
-									<div class="review-comment-rating">
-									<?php
-									for ($i = 1; $i <= 5; $i++) { ?>
-				    					<span class="glyphicon glyphicon-star<?php
-				    						if($i <= Review::where('user_id', $comentario->user->id)->where('lugar_id', $lugar->id)->first()->rating) {
-				    							echo "";
-						    				} else {
-						    					echo "-empty";
-						    				}
-										?>"></span>
-				    				<?php
-				    				} ?>
-				    				</div>
-				    				<span class="review-comment-username"><?php echo $comentario->user->name; ?></span>
-								</div>
+									if (Auth::check()) {
+										$userReview = Review::where('user_id', Auth::user()->id)->where('lugar_id', $lugar->id)->first();
+										if ($userReview != null) {
+											echo $userReview->rating; 	
+										}
+									}
 
-								<span class="review-comment-date"><?php 
-									$time_ago =strtotime($comentario->created_at); 
-									echo time_stamp($time_ago); 
-
-								 ?></span>
-
-								<div class="review-comment">
-									<?php echo $comentario->comment; ?>
-								</div> 
+								?>">
+								<textarea id="new-review" class="form-control animated" placeholder="Dejá tu opinión... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
 							</div>
+		                </div>
 
-						<?php
+						<div class="form-buttons">
+							
+							<?php if (!Auth::check()) { echo "<span class='form-buttons-login'><a href='/loginfb'>Iniciá sesión para dejar tu opinión</a></span>"; } else { echo "<button class='button button-comment button-comment-user type='submit'>Comentar</button>"; } ?>
+							
+		                </div>
+		                <?php if (Auth::check()) {
+
+		                	$rate = 0;
+		                	if ($ratingUser != null) { 
+		                		$rate = $ratingUser;	
+		                	} else { 
+		                		$rate = Input::old('rating',0); 
+		                	}
+
+		                	echo "<div class='lugar-rating-star'>
+									<div class='text-right'>
+										<span class='lugar-rating-vote'>Tu voto</span>
+										<div class='stars stars-user starrr' data-rating='$rate'>
+										</div>
+				             		</div>
+								</div>";
 						}
 						?>
-						<div id="comentarios-links">
-							<?php echo $comentarios->links(); ?>
-						</div>
-						<?php
-					}
-				?>
+	                </form>
+	            </div>
+
+					<?php
+						if($comentarios != null) {
+							foreach($comentarios as $comentario) {
+
+							?>
+								<div class="review">
+									<div class="review-comment-photo">
+				    					<img src="<?php echo $comentario->user->photo; ?>" alt="">
+				    				</div>
+									
+									<div class="review-data">
+										<div class="review-comment-rating">
+										<?php
+										for ($i = 1; $i <= 5; $i++) { ?>
+					    					<span class="glyphicon glyphicon-star<?php
+					    						if($i <= Review::where('user_id', $comentario->user->id)->where('lugar_id', $lugar->id)->first()->rating) {
+					    							echo "";
+							    				} else {
+							    					echo "-empty";
+							    				}
+											?>"></span>
+					    				<?php
+					    				} ?>
+					    				</div>
+					    				<span class="review-comment-username"><?php echo $comentario->user->name; ?></span>
+									</div>
+
+									<span class="review-comment-date"><?php 
+										$time_ago =strtotime($comentario->created_at); 
+										echo time_stamp($time_ago); 
+
+									 ?></span>
+
+									<div class="review-comment">
+										<?php echo $comentario->comment; ?>
+									</div> 
+								</div>
+
+							<?php
+							}
+							?>
+							<div id="comentarios-links">
+								<?php echo $comentarios->links(); ?>
+							</div>
+							<?php
+						}
+					?>
+			</div>
+
 		</div>
 
 		<div class="lugar-rating-right">

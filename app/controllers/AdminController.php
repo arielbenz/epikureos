@@ -86,6 +86,7 @@ class AdminController extends BaseController {
 				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
 				$lugar->menu = Input::get('menu');
+				$lugar->promo_id = Input::get('promo');
 			$lugar->save();
 
 			$thumb = Input::get('thumb');
@@ -180,6 +181,7 @@ class AdminController extends BaseController {
 				$lugar->estado = Input::get('estado');
 				$lugar->zona = Input::get('zona');
 				$lugar->menu = Input::get('menu');
+				$lugar->promo_id = Input::get('promo');
 			$lugar->save();
 
 			$thumb = Input::get('thumb');

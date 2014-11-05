@@ -365,13 +365,13 @@
             }
         }
     }
-    .comentarios-lugar {
-        background-color: $gray-middle-two;
-        display: inline-block;
-        margin: 30px 0;
-        height: auto;
+
+    .info-left {
+
         width: 740px;
-        padding: 0;
+        float: left;
+        margin-top: 30px;
+
         @include breakpoint($breakpoint-mobile) {
             margin-bottom: 0;
             width: 100%;
@@ -387,211 +387,245 @@
             width: 100%;
         }
 
+        .promo {
+            opacity: 0.7;
+            //@include transition(color 0.3s ease);
+            &:hover {
+                opacity: 1;
+            }
+            .promo-more {
 
-        .menu-lugar {
-            background-color: #F6F6F6;
+            }
+        }
+
+        .comentarios-lugar {
+            background-color: $gray-middle-two;
             display: inline-block;
-            margin: 0 auto;
-            width: 80%;
-            padding: 20px 0px;
-            border-bottom: 1px solid #CCC;
-            .menu-lugar-logo {
-                width: 130px;
-                float: left;
+            margin: 30px 0;
+            height: auto;
+            width: 740px;
+            padding: 0;
+            @include breakpoint($breakpoint-mobile) {
+                margin-bottom: 0;
+                width: 100%;
             }
-            .menu-lugar-info   {
-                display: inline-block;
-                margin-left: 10px;
-                width: 61%;
-                float: right;
-                text-align: right;
-                h3 {
-                    font-size: 16px;
-                    font-family: "Open Sans Bold";
-                }
-                p {
-                    font-size: 14px;
-                }
-            }
-        }
 
-        .comentarios-lugar-alert {
-            text-align: left;
-            margin-left: 20px;
-            margin-top: 20px;
-            .alert-danger, .alert-success {
-                width: 670px !important;
+            @include breakpoint($breakpoint-landscape) {
+                margin-bottom: 0;
+                width: 100%;
             }
-        }
-        #post-review-box {
-            form {
-                .form-comment-rating {
-                    height: 155px;
-                    .form-comment {
+
+            @include breakpoint($breakpoint-portrait) {
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+
+            .menu-lugar {
+                background-color: #F6F6F6;
+                display: inline-block;
+                margin: 0 auto;
+                width: 80%;
+                padding: 20px 0px;
+                border-bottom: 1px solid #CCC;
+                .menu-lugar-logo {
+                    width: 130px;
+                    float: left;
+                }
+                .menu-lugar-info   {
+                    display: inline-block;
+                    margin-left: 10px;
+                    width: 61%;
+                    float: right;
+                    text-align: right;
+                    h3 {
+                        font-size: 16px;
+                        font-family: "Open Sans Bold";
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .comentarios-lugar-alert {
+                text-align: left;
+                margin-left: 20px;
+                margin-top: 20px;
+                .alert-danger, .alert-success {
+                    width: 670px !important;
+                }
+            }
+            #post-review-box {
+                form {
+                    .form-comment-rating {
+                        height: 155px;
+                        .form-comment {
+                            display: inline-block;
+                            vertical-align: top;
+                            float: left;
+                            margin-left: 20px;
+                            .form-control {
+                                font-size: 16px;
+                                height: 130px !important;
+                                width: 680px;
+                                padding: 10px;
+                                resize: none !important;
+                                @include breakpoint($breakpoint-mobile) {
+                                    font-size: 13px;
+                                    width: 100%;
+                                }
+
+                                @include breakpoint($breakpoint-landscape) {
+                                    font-size: 13px;
+                                    width: 100%;
+                                }
+
+                                @include breakpoint($breakpoint-portrait) {
+                                    font-size: 16px;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                    .form-buttons {
+                        margin-top: 10px;
+                        height: 60px;
+                        text-align: left;
+                        width: 60%;
                         display: inline-block;
-                        vertical-align: top;
                         float: left;
                         margin-left: 20px;
-                        .form-control {
+                        @include breakpoint($breakpoint-mobile) {
+                            width: auto;
+                        }
+
+                        .form-buttons-login {
+                            font-size: 13px;
+                            font-style: italic;
+                            a {
+                                color: $orange-middle;
+                                @include transition(color 0.3s ease);
+                                &:hover {
+                                    color: $orange-light;
+                                }
+                            }
+                        }
+                        .button {
+                            padding: 5px 0px;
                             font-size: 16px;
-                            height: 130px !important;
-                            width: 680px;
-                            padding: 10px;
-                            resize: none !important;
-                            @include breakpoint($breakpoint-mobile) {
-                                font-size: 13px;
-                                width: 100%;
+                            line-height: 1.33;
+                            width: 90px;
+                        }
+                        .button-comment {
+                            color: white;
+                            background-color: $gray-middle-three;
+                            border-color: $gray-middle-three;
+                            border-color: $gray-middle-three;
+                        }
+                        .button-comment-user {
+                            background-color: $green-dark;
+                            border-color: $green-dark;
+                            &:hover {
+                                @include box-shadow(0px 0px 4px black);
                             }
-
-                            @include breakpoint($breakpoint-landscape) {
+                        }
+                    }
+                    .lugar-rating-star {
+                        width: 33%;
+                        vertical-align: top;
+                        margin-top: 10px;
+                        display: inline-block;
+                        .text-right {
+                            text-align: right;
+                            position: relative;
+                            .lugar-rating-vote {
                                 font-size: 13px;
-                                width: 100%;
+                                font-style: italic;
+                                position: absolute;
+                                left: 60px;
+                                top: 5px;
                             }
-
-                            @include breakpoint($breakpoint-portrait) {
-                                font-size: 16px;
-                                width: 100%;
+                            .stars {
+                                font-size: 24px;
+                                color: $gray-middle-three;
+                                float: right;
+                                margin-left: 20px;
+                            }
+                            .stars-user {
+                                color: #fbb714;
                             }
                         }
                     }
                 }
-                .form-buttons {
-                    margin-top: 10px;
-                    height: 60px;
-                    text-align: left;
-                    width: 60%;
-                    display: inline-block;
+            }
+            .review {
+                border-top: 1px solid $gray-middle-four;
+                padding: 20px;
+                margin: 0 20px;
+                clear: both;
+                @include breakpoint($breakpoint-mobile) {
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin: 0 10px;
+                }
+
+                @include breakpoint($breakpoint-landscape) {
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin: 0 10px;
+                }
+
+                .review-comment-photo {
                     float: left;
-                    margin-left: 20px;
+                    width: 50px;
+                    height: 50px;
+                    display: inline-block;
+                }
+                .review-data {
+                    display: inline-block;
+                    width: 300px;
+                    margin: 0;
+                    text-align: left;
+                    vertical-align: top;
+                    float: left;
                     @include breakpoint($breakpoint-mobile) {
                         width: auto;
                     }
 
-                    .form-buttons-login {
-                        font-size: 13px;
-                        font-style: italic;
-                        a {
-                            color: $orange-middle;
-                            @include transition(color 0.3s ease);
-                            &:hover {
-                                color: $orange-light;
-                            }
-                        }
+                    @include breakpoint($breakpoint-landscape) {
+                        width: auto;
                     }
-                    .button {
-                        padding: 5px 0px;
-                        font-size: 16px;
-                        line-height: 1.33;
-                        width: 90px;
-                    }
-                    .button-comment {
-                        color: white;
-                        background-color: $gray-middle-three;
-                        border-color: $gray-middle-three;
-                        border-color: $gray-middle-three;
-                    }
-                    .button-comment-user {
-                        background-color: $green-dark;
-                        border-color: $green-dark;
-                        &:hover {
-                            @include box-shadow(0px 0px 4px black);
-                        }
-                    }
-                }
-                .lugar-rating-star {
-                    width: 33%;
-                    vertical-align: top;
-                    margin-top: 10px;
-                    display: inline-block;
-                    .text-right {
-                        text-align: right;
-                        position: relative;
-                        .lugar-rating-vote {
-                            font-size: 13px;
-                            font-style: italic;
-                            position: absolute;
-                            left: 60px;
-                            top: 5px;
-                        }
-                        .stars {
-                            font-size: 24px;
-                            color: $gray-middle-three;
-                            float: right;
-                            margin-left: 20px;
-                        }
-                        .stars-user {
+
+                    .review-comment-rating {
+                        margin-left: 25px;
+                        margin-bottom: 11px;
+                        .glyphicon {
                             color: #fbb714;
                         }
+                        .glyphicon-star-empty {
+                            color: #ccc;
+                        }
+                    }
+                    .review-comment-username {
+                        margin-left: 25px;
                     }
                 }
-            }
-        }
-        .review {
-            border-top: 1px solid $gray-middle-four;
-            padding: 20px;
-            margin: 0 20px;
-            clear: both;
-            @include breakpoint($breakpoint-mobile) {
-                padding-left: 0;
-                padding-right: 0;
-                margin: 0 10px;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                padding-left: 0;
-                padding-right: 0;
-                margin: 0 10px;
-            }
-
-            .review-comment-photo {
-                float: left;
-                width: 50px;
-                height: 50px;
-                display: inline-block;
-            }
-            .review-data {
-                display: inline-block;
-                width: 300px;
-                margin: 0;
-                text-align: left;
-                vertical-align: top;
-                float: left;
-                @include breakpoint($breakpoint-mobile) {
-                    width: auto;
+                .review-comment-date {
+                    float: right;
                 }
-
-                @include breakpoint($breakpoint-landscape) {
-                    width: auto;
-                }
-
-                .review-comment-rating {
-                    margin-left: 25px;
-                    margin-bottom: 11px;
-                    .glyphicon {
-                        color: #fbb714;
-                    }
-                    .glyphicon-star-empty {
-                        color: #ccc;
-                    }
-                }
-                .review-comment-username {
-                    margin-left: 25px;
+                .review-comment {
+                    clear: both;
+                    text-align: left;
+                    padding-top: 20px;
+                    padding-left: 75px;
                 }
             }
-            .review-comment-date {
-                float: right;
+            #comentarios-links {
+                padding: 20px;
+                border-top: 1px solid $gray-middle-four;
+                margin: 0 20px;
             }
-            .review-comment {
-                clear: both;
-                text-align: left;
-                padding-top: 20px;
-                padding-left: 75px;
-            }
-        }
-        #comentarios-links {
-            padding: 20px;
-            border-top: 1px solid $gray-middle-four;
-            margin: 0 20px;
         }
     }
     .lugar-rating-right {
