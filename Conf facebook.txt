@@ -1,0 +1,35 @@
+https://graph.facebook.com/712702858812309
+
+
+*****************************************************************************************
+
+
+
+//Agregamos Open Graph en los Language Attributes
+function add_opengraph_doctype( $output ) {
+        return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+    }
+add_filter('language_attributes', 'add_opengraph_doctype');
+ 
+//Añadimos la información Open Graph
+function insert_fb_in_head() {
+    global $post;
+    if ( !is_singular()) //Si no es un post o página
+        return;
+        echo '<meta property="fb:admins" content="712702858812309"/>';
+        echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+        echo '<meta property="og:type" content="article"/>';
+        echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+        echo '<meta property="og:site_name" content="Tu Salida"/>';
+    if(!has_post_thumbnail( $post->ID )) { //La entrada no tiene imagen destacada, utiliza una imagen predeterminada
+        $default_image="http://santafe.tusalida.net/img/logo_open.jpg"; //Aquí tienes que poner la ruta de la imagen prefeterminada que se mostrará.
+        echo '<meta property="og:image" content="' . $default_image . '"/>';
+    }
+    else{
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    }
+    echo "
+";
+}
+add_action( 'wp_head', 'insert_fb_in_head', 5 );
