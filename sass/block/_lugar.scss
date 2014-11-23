@@ -78,7 +78,7 @@
 
             #lugar-title {
                 background-color: $gray-middle-two;
-                height: 260px;
+                height: 300px;
                 @include breakpoint($breakpoint-mobile) {
                     height: auto;
                     padding: 10px;
@@ -125,7 +125,7 @@
                         h1 {
                             color: #656565;
                             font-family: $openSans-bold;
-                            font-size: 35px;
+                            font-size: 32px;
                             line-height: 1.2;
                             @include breakpoint($breakpoint-mobile) {
                                 font-size: 26px;
@@ -145,16 +145,22 @@
                         margin-left: 0;
                     }
 
-                    #lugar-direccion {
+                    .lugar-title-comun {
                         color: $gray-middle;
+                        height: auto;
+                        padding-top: 0px;
+                        padding-bottom: 10px;
+                    }
+                    .lugar-direccion {
                         font-family: $openSans-bold;
                     }
-                    #lugar-tel {
+                    .lugar-tel {
                         color: $gray-middle;
                     }
-                    #lugar-web {
+                    .lugar-web {
                         a {
                             color: #f18932;
+                            font-size: 15px;
                         }
                     }
                 }
@@ -168,6 +174,7 @@
                 margin-top: 25px;
                 text-align: initial;
                 overflow: hidden;
+                font-size: 15px;
                 @include breakpoint($breakpoint-mobile) {
                     font-size: 13px;
                     height: auto;
@@ -365,13 +372,10 @@
             }
         }
     }
-
     .info-left {
-
         width: 740px;
         float: left;
-        margin-top: 30px;
-
+        // margin-top: 30px;
         @include breakpoint($breakpoint-mobile) {
             margin-bottom: 0;
             width: 100%;
@@ -389,15 +393,12 @@
 
         .promo {
             opacity: 0.7;
-            //@include transition(color 0.3s ease);
+            margin-top: 20px;
             &:hover {
                 opacity: 1;
             }
-            .promo-more {
-
-            }
+            .promo-more {}
         }
-
         .comentarios-lugar {
             background-color: $gray-middle-two;
             display: inline-block;
@@ -420,7 +421,6 @@
                 width: 100%;
             }
 
-
             .menu-lugar {
                 background-color: #F6F6F6;
                 display: inline-block;
@@ -432,7 +432,7 @@
                     width: 130px;
                     float: left;
                 }
-                .menu-lugar-info   {
+                .menu-lugar-info {
                     display: inline-block;
                     margin-left: 10px;
                     width: 61%;
@@ -447,7 +447,6 @@
                     }
                 }
             }
-
             .comentarios-lugar-alert {
                 text-align: left;
                 margin-left: 20px;

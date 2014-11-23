@@ -44,16 +44,20 @@
 					</div>
 
 					<div id="lugar-title-contact">
-						<div id="lugar-direccion" class="lugar-title-comun">
+						<div class="lugar-title-comun lugar-direccion">
 							<?php echo $lugar->direccion; ?>
 						</div>
 
-						<div id="lugar-tel" class="lugar-title-comun">
+						<div class="lugar-title-comun lugar-tel">
 							<?php echo $lugar->telefono; ?>
 						</div>
 
-						<div id="lugar-web" class="lugar-title-comun">
+						<div class="lugar-title-comun lugar-web">
 							<a href="<?php echo $lugar->web; ?>"><?php echo $lugar->web; ?></a>
+						</div>
+
+						<div class="lugar-title-comun lugar-horarios">
+							<?php echo $lugar->horario; ?>
 						</div>
 					</div>
 
@@ -104,7 +108,7 @@
 
 		<div class="info-left">
 
-			<?php if($lugar->promo_id != null) { ?>
+			<?php if($lugar->getPromo($lugar->promo_id) != "None") { ?>
 
 				<div class="promo">
 					<a href="<?php echo Promo::find($lugar->promo_id)->url; ?>">

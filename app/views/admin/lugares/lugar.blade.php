@@ -26,55 +26,61 @@
 				</div>
 
 				<div class="form-group">
-					{{Form::label('longitud')}}
+					{{Form::label('Horarios')}}
+					{{Form::textarea('horario', $lugar->horario, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('horario') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Longitud')}}
 					{{Form::text('longitud', $lugar->longitud, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('longitud') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('latitud')}}
+					{{Form::label('Latitud')}}
 					{{Form::text('latitud', $lugar->latitud, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('latitud') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('dirección')}}
+					{{Form::label('Dirección')}}
 					{{Form::text('direccion', $lugar->direccion, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('direccion') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('teléfono')}}
+					{{Form::label('Teléfono')}}
 					{{Form::text('telefono', $lugar->telefono, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('telefono') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('web')}}
+					{{Form::label('Web')}}
 					{{Form::text('web', $lugar->web, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('web') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('twitter')}}
+					{{Form::label('Twitter')}}
 					{{Form::text('twitter', $lugar->twitter, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('twitter') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('facebook')}}
+					{{Form::label('Facebook')}}
 					{{Form::text('facebook', $lugar->facebook, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('facebook') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('thumb')}}
+					{{Form::label('Thumb')}}
 					{{Form::text('thumb', $thumb->cantidad, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('thumb') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('slides')}}
+					{{Form::label('Slides')}}
 					{{Form::text('slides', $slides, array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('slides') }}</span>
 				</div>
@@ -110,15 +116,14 @@
 				</div>
 
 				<div class="form-group">
-					{{Form::label('Menú')}}
-					{{Form::textarea('menu', $lugar->menu, array('class' => 'form-control'))}}
-					<span class="help-block">{{ $errors->first('menu') }}</span>
+					{{Form::label('Promo')}}
+					{{Form::select('promo', $promos, $lugar->promo_id, array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
-					{{Form::label('Promo')}}
-					{{Form::text('promo', $lugar->promo, array('class' => 'form-control'))}}
-					<span class="help-block">{{ $errors->first('promo') }}</span>
+					{{Form::label('Menú')}}
+					{{Form::textarea('menu', $lugar->menu, array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('menu') }}</span>
 				</div>
 
 				<div class="form-group">
@@ -162,61 +167,67 @@
 				</div>
 
 				<div class="form-group">
-					{{Form::label('descripción')}}
+					{{Form::label('Descripción')}}
 					{{Form::textarea('descripcion', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('descripcion') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('longitud')}}
+					{{Form::label('Horarios')}}
+					{{Form::textarea('horario', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('horario') }}</span>
+				</div>
+
+				<div class="form-group">
+					{{Form::label('Longitud')}}
 					{{Form::text('longitud', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('longitud') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('latitud')}}
+					{{Form::label('Latitud')}}
 					{{Form::text('latitud', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('latitud') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('dirección')}}
+					{{Form::label('Dirección')}}
 					{{Form::text('direccion', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('direccion') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('teléfono')}}
+					{{Form::label('Teléfono')}}
 					{{Form::text('telefono', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('telefono') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('web')}}
+					{{Form::label('Web')}}
 					{{Form::text('web', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('web') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('twitter')}}
+					{{Form::label('Twitter')}}
 					{{Form::text('twitter', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('twitter') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('facebook')}}
+					{{Form::label('Facebook')}}
 					{{Form::text('facebook', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('facebook') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('thumb')}}
+					{{Form::label('Thumb')}}
 					{{Form::text('thumb', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('thumb') }}</span>
 				</div>
 
 				<div class="form-group">
-					{{Form::label('slides')}}
+					{{Form::label('Slides')}}
 					{{Form::text('slides', '', array('class' => 'form-control'))}}
 					<span class="help-block">{{ $errors->first('slides') }}</span>
 				</div>
@@ -252,15 +263,14 @@
 				</div>
 
 				<div class="form-group">
-					{{Form::label('Menú')}}
-					{{Form::textarea('menu', '', array('class' => 'form-control'))}}
-					<span class="help-block">{{ $errors->first('menu') }}</span>
+					{{Form::label('Promo')}}
+					{{Form::select('promo', $promos, array(1), array('single' => 'single', 'class' => 'form-control'))}}
 				</div>
 
 				<div class="form-group">
-					{{Form::label('Promo')}}
-					{{Form::text('promo', '', array('class' => 'form-control'))}}
-					<span class="help-block">{{ $errors->first('promo') }}</span>
+					{{Form::label('Menú')}}
+					{{Form::textarea('menu', '', array('class' => 'form-control'))}}
+					<span class="help-block">{{ $errors->first('menu') }}</span>
 				</div>
 
 				<div class="form-group">

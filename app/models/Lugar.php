@@ -85,6 +85,12 @@ class Lugar extends Eloquent {
 		return $foto;
 	}
 
+	public static function getPromo($id)
+	{
+		$promo = Promo::where('id','=', $id)->first();
+		return $promo->descripcion;
+	}
+
 	public function reviews()
 	{
 		return $this->hasMany('Review');
