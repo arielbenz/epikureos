@@ -26,8 +26,8 @@ grunt.initConfig({
     },
     uglify: {
         build: {
-            src:  'js/busqueda.js',
-            dest: 'js/busqueda.min.js'
+            src:  'js/busqueda-santa.js',
+            dest: 'js/busqueda-santa.min.js'
         }
     },
     watch: {

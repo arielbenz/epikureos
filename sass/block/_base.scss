@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Inici├í sesi├│n con Facebook";
+                    content: "Iniciá sesión con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -265,7 +265,6 @@ ul {
         }
         #ciudad {
             @include span(2);
-            float: right;
             font-family: $titillium-regular;
             vertical-align: top;
             text-align: right;
@@ -292,6 +291,9 @@ ul {
                 margin-top: 23px;
                 text-indent: 0.01px;
                 width: 120px;
+                height: 33px !important;
+                display: inline-flex !important;
+                vertical-align: top;
                 @include appearance(none);
                 option {
                     background-color: $gray-dark;
@@ -307,7 +309,7 @@ ul {
                     font: 22px "Consolas", monospace;
                     color: #dfdfdf;
                     right: 8px;
-                    top: 0px;
+                    top: 26px;
                     position: absolute;
                     pointer-events: none;
                     @include transform(rotate(90deg));
@@ -316,8 +318,8 @@ ul {
             #logo-dia {
                 margin-left: 10px;
                 display: inline-block;
-                position: relative;
-                top: 10px;
+                position: absolute;
+                top: 25px;
                 @include breakpoint($breakpoint-bigweb-max) {
                     display: none;
                 }
@@ -350,7 +352,7 @@ ul {
             text-rendering: optimizeSpeed;
             @include breakpoint($breakpoint-mobile) {
                 float: none;
-                padding-top: 10px;
+                padding-top: 0px;
             }
 
             h2 {
@@ -578,10 +580,12 @@ ul {
             width: 100%;
             margin-right: 0;
         }
+
         @include breakpoint($breakpoint-portrait) {
             width: 100%;
             margin-right: 0;
         }
+
         @include breakpoint($breakpoint-bigweb) {
             width: 100%;
             margin-right: 0;
@@ -635,13 +639,61 @@ ul {
 /*----------------------------------------*/
 
 #home-info {
-    padding-top: 50px;
+    padding-top: 25px;
     @include container(1200px);
     @include breakpoint($breakpoint-bigwebhd-max) {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
     }
 
+    .partner-section {
+        height: 80px;
+        background-color: #f6f6f6;
+        margin-bottom: 20px;
+        .partner-section-logos {
+            margin: 0 auto;
+            ul {
+                li {
+                    display: inline-block;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    vertical-align: top;
+                    @include breakpoint($breakpoint-mobile) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+
+                    a {
+                        img {
+                            width: auto;
+                            @include breakpoint($breakpoint-mobile) {
+                                width: 70%;
+                            }
+
+                            @include breakpoint($breakpoint-landscape) {
+                                width: 80%;
+                            }
+                        }
+                    }
+                }
+                .logo-campari {
+                    padding-top: 20px;
+                }
+                .logo-sol {
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+    .evento-section {
+        margin-top: 25px;
+        padding-bottom: 25px;
+    }
     .home-recomended {
         height: 300px;
         @include breakpoint($breakpoint-bigwebhd-max) {
@@ -852,6 +904,14 @@ ul {
                 position: absolute;
                 bottom: 5px;
                 width: 650px;
+                @include breakpoint($breakpoint-mobile) {
+                    bottom: 5px;
+                    width: 100%;
+                    height: 100px;
+                    margin: 0;
+                    padding-top: 10px;
+                }
+
                 @include breakpoint($breakpoint-landscape) {
                     bottom: 5px;
                     width: 100%;
@@ -1029,13 +1089,16 @@ ul {
             .title-noticia {
                 line-height: 180%;
                 text-align: left;
-                margin-top: 25px;
+                margin-top: 14px;
+                margin-bottom: 26px;
                 @include breakpoint($breakpoint-portrait) {
                     margin-top: 0;
+                    margin-bottom: 0;
                 }
 
                 @include breakpoint($breakpoint-bigweb) {
                     margin-top: 0;
+                    margin-bottom: 0;
                 }
 
                 @include breakpoint($breakpoint-bigwebhd) {
@@ -1201,7 +1264,7 @@ footer {
                         margin: 0;
                         width: 30px;
                         display: block;
-                        @include transition(background 0.3s ease-out);
+                        // @include transition(background 0.3s ease-out);
                     }
                 }
             }
@@ -1217,13 +1280,6 @@ footer {
                 @include transition(background 0.3s ease-out);
                 &:hover {
                     background: url("../img/twitteron.png") no-repeat;
-                }
-            }
-            .link-rss {
-                background: url("../img/rssoff.png") no-repeat;
-                @include transition(background 0.3s ease-out);
-                &:hover {
-                    background: url("../img/rsson.png") no-repeat;
                 }
             }
             .link-plus {

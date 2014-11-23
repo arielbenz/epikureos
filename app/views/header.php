@@ -24,10 +24,24 @@
 ?>
 
 <head>
-	<title>Tu Salida - Tus salidas en un solo lugar</title>
+	<title>
+		<?php
+			if(is_single()) {
+				echo wp_title(" | ", false, right);
+			} else {
+				echo "Tu Salida | Tus Salidas en un solo lugar";
+			} 
+		?>
+	</title>
 
 	<meta charset="utf-8" />
-	<meta description = "Tu Salida - Tus salidas en un solo lugar"/>
+	<meta description = <?php
+			if(is_single()) {
+				echo wp_title(" | ", false, right);
+			} else {
+				echo "Tu Salida | Tus Salidas en un solo lugar";
+			} 
+		?>/>
 
 	<meta name="keywords" content="Salidas, Comidas, Bebidas, Comer, Tomar, Cerveza, Santa Fe, Gastronomía, Bares, Resto, Restaurant, Café, Heladerías, Postres, Pizzas, Gourmet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -83,7 +97,7 @@
 				}
 			?>
 			<div id="logo">
-				<a href="<?php echo $url?>/"><img title="Tu Salida - Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/"><img title="Tu Salida | Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
 			</div>
 
 			<nav id="menu"><a class="nav-mobile" id="nav-mobile" href="#"></a>

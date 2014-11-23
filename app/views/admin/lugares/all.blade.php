@@ -9,6 +9,7 @@
 				<th>Dirección</th>
 				<th>Teléfono</th>
 				<th>Facebook</th>
+				<th>Horario</th>
 				<th>Estado</th>
 				<th>Ciudad</th>
 				<th>Action</th>
@@ -26,6 +27,11 @@
 				<td>{{$lugar->direccion}}</td>
 				<td>{{$lugar->telefono}}</td>
 				<td>{{$lugar->facebook}}</td>
+				@if($lugar->horario == null)
+					<td><span></span></td>
+				@else
+					<td><span class="glyphicon glyphicon-ok"></span></td>
+				@endif
 				@if($lugar->estado == 0)
 					<td><span></span></td>
 				@else

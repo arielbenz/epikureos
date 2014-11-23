@@ -56,6 +56,24 @@ class Lugar extends Eloquent {
 		return $ciudad->descripcion;
 	}
 
+	public static function enMapa($id)
+	{
+		$mapa = Mapa::where('id', '=', $id)->first();
+		return $mapa->slug;
+	}
+
+	public static function enNivel($id)
+	{
+		$nivel = Nivel::where('id', '=', $id)->first();
+		return $nivel->slug;
+	}
+
+	public static function enEvento($id)
+	{
+		$evento = Evento::where('id', '=', $id)->first();
+		return $evento->slug;
+	}
+
 	public function fotos()
 	{
 		return $this->hasMany('Foto', 'id_lugar');
@@ -65,6 +83,12 @@ class Lugar extends Eloquent {
 	{
 		$foto = Foto::where('id_lugar','=', $id)->first();
 		return $foto;
+	}
+
+	public static function getPromo($id)
+	{
+		$promo = Promo::where('id','=', $id)->first();
+		return $promo->descripcion;
 	}
 
 	public function reviews()

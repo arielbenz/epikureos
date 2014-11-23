@@ -34,6 +34,17 @@ class HomeController extends BaseController {
 		return View::make('terminos.index');
 	}
 
+	public function get_santafe($city) {
+
+		$evento = Evento::where('slug', '=', "santafealacarta")->first();
+		$ciudad = Ciudad::where('slug', '=', $city)->first();
+		$comidas = Comida::orderBy('descripcion', 'ASC')->get();
+		$lugares = $evento->lugares()->paginate(8);
+		$comidaBusqueda = null;
+
+		return View::make('santafealacarta.index')->with('lugares', $lugares)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda);
+	}
+
 	public function get_busqueda($city, $busqueda) {
 
 		$lugares = null;
@@ -42,7 +53,6 @@ class HomeController extends BaseController {
 		$comidaBusqueda = null;
 
 		$etiqueta = Etiqueta::where('slug', 'LIKE', '%'.$busqueda.'%')->first();
-		
 
  		if ($etiqueta == null) {
 			$lugares = Lugar::where('nombre', 'LIKE', '%'.$busqueda.'%')->where('estado', '=', 1)->where('ciudad', '=', $ciudad->id)->paginate(8);

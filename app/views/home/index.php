@@ -21,7 +21,7 @@
 						<li><a href="<?php echo $url?>/busqueda/restobar" title="Bares y Restos">BAR/RESTO</a></li>
 						<li><a href="<?php echo $url?>/busqueda/restaurante" title="Restaurantes">RESTAURANTES</a></li>
 						<li><a href="<?php echo $url?>/busqueda/cafe" title="Cafeterías">CAFETERÍAS</a></li>
-						<li><a href="<?php echo $url?>/busqueda/heladerias" title="Heladerías">HELADERÍAS</a></li>
+						<li><a href="<?php echo $url?>/busqueda/hoteles" title="Hoteles">HOTELES</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -31,7 +31,20 @@
 
 	<section id="home-info">
 
-		<div class="home-recomended">
+		<div class="partner-section">
+			<div class="partner-section-logos">
+				<ul>
+					<li class="logo-sol"><a href="http://www.institutosol.edu.ar"><img src="<?php echo $url?>/img/logo_sol.png"></a></li>
+					<li class="logo-campari"><a href="http://www.campari.com/ar/es/"><img src="<?php echo $url?>/img/lg_campari.png"></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- <div class="evento-section">
+			<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
+		</div> -->
+
+		<!-- <div class="home-recomended">
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">
 				<figure class="effect-oscar">
 					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
@@ -61,7 +74,7 @@
 					</figcaption>			
 				</figure>
 			</a>
-		</div>
+		</div> -->
 
 		<div class="seccion-novedades">
 			<section id="laposta">
