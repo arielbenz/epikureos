@@ -26,9 +26,18 @@ grunt.initConfig({
     },
     uglify: {
         build: {
-            src:  'js/busqueda-santa.js',
-            dest: 'js/busqueda-santa.min.js'
+            src:  'js/analytics.js',
+            dest: 'js/analytics.min.js'
         }
+    },
+    concat: {
+    	options: {
+        	separator: "\n\n", 
+      	},
+        js: {
+            src: ["js/modernizr.min.js", "js/bootstrap.min.js", "js/bootbox.min.js", "js/facebook.min.js"],
+        	  dest: "js/all.js"
+      	}
     },
     watch: {
         styles: {
@@ -45,9 +54,11 @@ grunt.initConfig({
 grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-concat');
+grunt.loadNpmTasks('grunt-contrib-imagemin');
  
 // Default task(s).
-grunt.registerTask('default', ['compass', 'uglify']);
+grunt.registerTask('default', ['compass', 'uglify', 'concat']);
 grunt.registerTask('dev', ['watch']);
  
 };

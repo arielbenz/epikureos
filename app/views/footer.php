@@ -63,9 +63,7 @@
 		</section>
 	</footer>
 
-	<script async src="<?php echo $url?>/js/modernizr.min.js"></script>
-	<script async src="<?php echo $url?>/js/bootstrap.min.js"></script>
-	<script async src="<?php echo $url?>/js/bootbox.min.js"></script>
+	<div id="fb-root"></div>
 
 	<script>
 		$(document).on("ready", function() {
@@ -78,18 +76,7 @@
 				window.location = "http://" + $(this).val() + ".epikureos.com";
 			});
 		});
-	</script>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=1493433700874584&version=v2.0";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
-	<script>
 		$(".menu-login").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
 			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/loginfb";
@@ -98,6 +85,17 @@
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
 			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/logout";
 		});
+
+	    $(function() {
+	        var btn_movil = $('#nav-mobile'),
+	           	menu = $('#menu').find('ul');
+	        btn_movil.on('click', function (e) {
+	            e.preventDefault();
+	            var el = $(this);
+	            el.toggleClass('nav-active');
+	            menu.toggleClass('open-menu');
+	        })
+	    });
 	</script>
 
 	<?php
@@ -121,6 +119,8 @@
 		}
 	}
 	?>
+
+	<script src="<?php echo $url?>/js/all.js"></script>
 
 </body>
 </html>
