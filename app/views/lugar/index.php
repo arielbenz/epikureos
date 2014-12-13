@@ -298,36 +298,6 @@
 
 	</section>
 
-	<script src="<?php echo $url?>/js/starrr.min.js"></script>
-	<script src="<?php echo $url?>/js/owl.carousel.min.js"></script>
-
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-	<script>
-
-		var votesUserAjax, ratingUser = null;
-		var lugar = $.parseJSON('<?php echo $lugar?>');
-		var urlLike = "<?php echo $lugar->slug; ?>/votelike";
-
-		function getVotesUserAjax() {
-			return $.parseJSON('<?php echo json_encode($votesUser)?>');
-		}
-		function getRatingUser() {
-			return "<?php echo $ratingUser ?>";
-		}
-		function getUserStatus() {
-			return "<?php echo Auth::check(); ?>";
-		}
-		function callbackLogin() {
-			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-			window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
-		}
-
-	</script>
-
-	<script src="<?php echo $url?>/js/lugar.min.js"></script>
-
-
 <!-- FOOTER -->
 
 <?php include "app/views/footer.php";?>

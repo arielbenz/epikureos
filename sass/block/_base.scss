@@ -573,9 +573,7 @@ ul {
         background: white;
         display: inline-block;
         height: 100%;
-        margin-right: 22px;
         position: relative;
-        width: 880px;
         @include breakpoint($breakpoint-landscape-max) {
             width: 100%;
             margin-right: 0;
@@ -600,6 +598,13 @@ ul {
         @include breakpoint($breakpoint-bigwebhd-max) {
             display: none;
         }
+    }
+}
+
+.container-novedades {
+    #content-post {
+        margin-right: 22px;
+        width: 880px;
     }
 }
 
@@ -1163,6 +1168,7 @@ footer {
     background: $gray-dark;
     color: white;
     font-family: $openSans-regular;
+    width: 100%;
     #home-footer {
         background: $gray-dark;
         height: 225px;

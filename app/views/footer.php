@@ -65,6 +65,8 @@
 
 	<div id="fb-root"></div>
 
+	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
+
 	<script>
 		$(document).on("ready", function() {
 			$("select option").each(function() {
@@ -74,6 +76,14 @@
 			});
 			$(".select-city").change(function(){
 				window.location = "http://" + $(this).val() + ".epikureos.com";
+			});
+			//CONTACTO
+			$('#form-contacto').submit(function() {
+				$.post("enviar.php", $("#form-contacto").serialize(),  function(response) {			
+					$('#respuesta').css("display","block");
+					$('#respuesta').html(response);
+				});
+				return false;
 			});
 		});
 
@@ -118,6 +128,66 @@
 			<?php
 		}
 	}
+	?>
+
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+	<?php
+		if(null != $busqueda) {
+			?>
+			<script src="<?php echo $url?>/js/busqueda.min.js"></script>
+
+			<script>
+		    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
+		    	var slugs = $.parseJSON('<?php echo json_encode($slugs)?>');
+		    	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
+		    	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
+		    	var tipos = $.parseJSON('<?php echo json_encode($tipos)?>');
+		    	var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
+		    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, tipos, slugs);
+
+				$(document).on("ready", function() {
+					var comida = "<?php echo $comidaBusqueda->slug; ?>";
+					$(".cs-select option").each(function() {
+						if ($(this).val() == comida) {
+							$(this).attr("selected", "selected");
+						}
+					});
+					$(".cs-select").change(function(){
+						window.location = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>/" + $(this).val();
+					});
+				});
+			</script>
+
+			<?php
+		}
+	?>
+
+	<?php
+		if (in_array("lugares", $current)) {
+    	?>
+    	<script>
+			var votesUserAjax, ratingUser = null;
+			var lugar = $.parseJSON('<?php echo $lugar?>');
+			var urlLike = "<?php echo $lugar->slug; ?>/votelike";
+
+			function getVotesUserAjax() {
+				return $.parseJSON('<?php echo json_encode($votesUser)?>');
+			}
+			function getRatingUser() {
+				return "<?php echo $ratingUser ?>";
+			}
+			function getUserStatus() {
+				return "<?php echo Auth::check(); ?>";
+			}
+			function callbackLogin() {
+				<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+				window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
+			}
+		</script>
+    	<script src="<?php echo $url?>/js/all.lugar.js"></script>
+    	<?php
+    	}
 	?>
 
 	<script src="<?php echo $url?>/js/all.js"></script>

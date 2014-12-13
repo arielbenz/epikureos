@@ -6,6 +6,20 @@ class AdminController extends BaseController {
 		return View::make('admin.index');
 	}
 
+	/*==========  USUARIOS  ==========*/
+
+	public function usuarios_all() {
+		$usuarios = User::orderBy('id', 'ASC')->paginate(20);
+		return View::make('admin.usuarios.all')->with('usuarios', $usuarios);
+	}
+
+	/*==========  COMENTARIOS  ==========*/
+
+	public function comentarios_all() {
+		$comentarios = Comentario::orderBy('id', 'ASC')->paginate(20);
+		return View::make('admin.comentarios.all')->with('comentarios', $comentarios);
+	}
+
 	/*==========  LUGARES  ==========*/
 
 	public function lugares_all() {

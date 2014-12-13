@@ -35,8 +35,8 @@ grunt.initConfig({
         	separator: "\n\n", 
       	},
         js: {
-            src: ["js/modernizr.min.js", "js/bootstrap.min.js", "js/bootbox.min.js", "js/facebook.min.js"],
-        	  dest: "js/all.js"
+            src: ["js/starrr.min.js", "js/owl.carousel.min.js", "js/lugar.min.js"],
+        	  dest: "js/all.lugar.js"
       	}
     },
     watch: {

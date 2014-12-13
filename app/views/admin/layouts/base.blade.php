@@ -32,11 +32,13 @@
 				</ul>
 				<h3>Artículos</h3>
 				<ul>
-					<li><a href="{{URL::to('/admin/lugares')}}">Lista de lugares</a></li>
+					<li><a href="{{URL::to('/admin/lugares')}}">Lugares</a></li>
 					<li><a href="{{URL::to('/admin/lugares/add')}}">Añadir Lugar</a></li>
 					<li><a href="{{URL::to('/admin/categorias')}}">Categorías</a></li>
 					<li><a href="{{URL::to('/admin/etiquetas')}}">Etiquetas</a></li>
 					<li><a href="{{URL::to('/admin/comidas')}}">Comidas</a></li>
+					<li><a href="{{URL::to('/admin/usuarios')}}">Usuarios</a></li>
+					<li><a href="{{URL::to('/admin/comentarios')}}">Comentarios</a></li>
 				</ul>
 			</div>
 

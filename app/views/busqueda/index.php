@@ -112,32 +112,6 @@
 		
 	</section>
 
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	
-	<script src="<?php echo $url?>/js/busqueda.min.js"></script>
-
-	<script>
-    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
-    	var slugs = $.parseJSON('<?php echo json_encode($slugs)?>');
-    	var latitudes = $.parseJSON('<?php echo json_encode($latitudes)?>');
-    	var longitudes = $.parseJSON('<?php echo json_encode($longitudes)?>');
-    	var tipos = $.parseJSON('<?php echo json_encode($tipos)?>');
-    	setLugares("<?php echo $url ?>", nombres, latitudes, longitudes, tipos, slugs);
-
-		var urlBusqueda = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>";
-		$(document).on("ready", function() {
-			var comida = "<?php echo $comidaBusqueda->slug; ?>";
-			$(".cs-select option").each(function() {
-				if ($(this).val() == comida) {
-					$(this).attr("selected", "selected");
-				}
-			});
-			$(".cs-select").change(function(){
-				window.location = "<?php echo $url ?>" + "/busqueda/" + "<?php echo $busqueda ?>/" + $(this).val();
-			});
-		});
-	</script>
-
 	<!-- FOOTER -->
 
 	<?php include "app/views/footer.php";?>

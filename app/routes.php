@@ -114,6 +114,10 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::group(array('before' => 'admin'), function() {
         Route::get('/', 'AdminController@index');
 
+        Route::get('/usuarios', 'AdminController@usuarios_all');
+
+        Route::get('/comentarios', 'AdminController@comentarios_all');
+
         Route::get('/lugares', 'AdminController@lugares_all');
         Route::get('/lugares/add', 'AdminController@get_add');
         Route::post('/lugares/add', 'AdminController@post_add');

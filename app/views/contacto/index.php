@@ -56,24 +56,6 @@
 
 	</section>
 
-	<!-- JAVASCRIPT -->
-
-	<script>
-
-		$(document).on("ready", function(){
- 
-			$('#form-contacto').submit(function() {
-		 
-				$.post("enviar.php", $("#form-contacto").serialize(),  function(response) {			
-					$('#respuesta').css("display","block");
-					$('#respuesta').html(response);
-				});
-				return false;
-			});
-		});
-
-	</script>
-
 	<!-- FOOTER -->
 
 	<?php include "app/views/footer.php";?>

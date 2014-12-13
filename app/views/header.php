@@ -48,7 +48,6 @@
 
 	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
 	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
-	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
 
 	<script>
 		var city = "<?php echo $city; ?>";
