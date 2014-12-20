@@ -1,12 +1,25 @@
-/bootstrap/compiled.php
-/bootstrap/autoload.php
-/bootstrap/paths.php
-/bootstrap/start.php
+/node_modules
+/bower_components
 /vendor
-/.sass-cache
+/blog
 composer.phar
 composer.lock
+.env.local.php
+.env.php
 .DS_Store
-blog/
-/node_modules
-*.log
+Thumbs.db
+
+### Mac Related Ignores
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
