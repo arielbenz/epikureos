@@ -2,6 +2,7 @@
 /bower_components
 /vendor
 /blog
+/sass-cache
 composer.phar
 composer.lock
 .env.local.php
