@@ -410,6 +410,7 @@ ul {
 
 .font-normal {
     display: inline-block;
+    text-transform: uppercase;
     font-family: $titillium-thin;
 }
 
@@ -574,6 +575,8 @@ ul {
         display: inline-block;
         height: 100%;
         position: relative;
+        width: 885px;
+        margin-right: 20px;
         @include breakpoint($breakpoint-landscape-max) {
             width: 100%;
             margin-right: 0;
@@ -594,7 +597,7 @@ ul {
         margin: 0;
         position: relative;
         vertical-align: top;
-        width: 286px;
+        width: 290px;
         @include breakpoint($breakpoint-bigwebhd-max) {
             display: none;
         }
@@ -1405,20 +1408,31 @@ footer {
 /* BARRA SIDEBAR */
 
 #search-2 {
-    background-color: #a09a9a;
+    background-color: $gray-dark;
     height: 125px;
     margin: 0 auto;
-    width: 275px;
+    margin-bottom: 20px;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+#searchsubmit {
+    width: 100px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: $gray-dark;
+    border: 1px solid white;
+    color: white;
+    @include transition(background 0.3s ease-out);
+    &:hover {
+        background-color: $orange-dark;
+    }
 }
 
 #searchform {
     padding-top: 15px;
-    label {
-        color: white;
-        display: block;
-        font-family: $openSans-bold;
-        font-size: 25px;
-    }
     #s {
         display: block;
         height: 40px;
@@ -1466,6 +1480,7 @@ footer {
 
 #pagination {
     background-color: white;
+    float: left;
     margin-top: 20px;
     height: 100%;
     width: 100%;

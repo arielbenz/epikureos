@@ -15,6 +15,8 @@
 		$actual = "quees";
 	} else if (in_array("contacto", $current)) {
 		$actual = "contacto";
+	} else if (in_array("blog", $current)) {
+		$actual = "blog";
 	}
 
 	$url = "http://".$_SERVER['HTTP_HOST'];
@@ -94,7 +96,7 @@
 					<li <?php if ($actual == "quees") echo 'class="menu-actual" id="menu-quees">'; else echo '>'?> <a href="/quees">¿QUÉ ES?</a></li>
 					<li <?php if ($actual == "contacto") echo 'class="menu-actual" id="menu-contacto">'; else echo '>'?> <a href="/contacto">CONTACTO</a></li>
 					<?php
-					if($actual != "novedades" && $actual != "laposta") {
+					if($actual != "novedades" && $actual != "laposta" && $actual != "blog") {
 						if (Auth::check()) {
 						?>
 								<li>

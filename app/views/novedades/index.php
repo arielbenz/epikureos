@@ -128,9 +128,7 @@
 		</div>
 
 		<?php
-			if ($actual == 'novedades') { 
-				get_sidebar();
-			}
+			get_sidebar();
 		?>
 
 	</div>

@@ -14,8 +14,21 @@
     color: white;
     height: 55px;
     position: absolute;
-    top: 211px;
+    bottom: 5px;
     width: 380px;
+
+    @include breakpoint($breakpoint-mobile) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        width: 100%;
+    }
+
     h2 {
         font-family: $openSans-light;
         font-size: 18px;
@@ -29,18 +42,82 @@
     }
 }
 
+.imagen-laposta {
+    position: relative;
+}
+
+.posta-info {
+    font-size: 14px;
+    text-align: left;
+    width: 380px;
+
+    @include breakpoint($breakpoint-mobile) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        width: 100%;
+    }
+}
+
 .post-laposta {
     display: inline-block;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-top: 22px;
+    margin-bottom: 22px;
     position: relative;
     vertical-align: top;
+    float: left;
+    &:nth-child(odd) {
+        margin-right: 80px;
+    }
+    
+    @include breakpoint($breakpoint-mobile) {
+        width: 100%;
+        &:nth-child(odd) {
+            margin-right: 0;
+        }
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        &:nth-child(odd) {
+            margin-right: 0;
+        }
+        float: none;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        &:nth-child(odd) {
+            margin-right: 20px;
+        }
+        float: none;
+        width: 47%;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        &:nth-child(odd) {
+            margin-right: 20px;
+        }
+        float: none;
+        width: 47%;
+    }
+
     .post-fecha {
         background: rgba(37, 37, 37, 0.9);
         color: white;
         font-family: $openSans-regular;
         width: 380px;
+        @include breakpoint($breakpoint-mobile) {
+            width: 100%;
+        }
+        @include breakpoint($breakpoint-portrait) {
+            width: 100%;
+        }
+        @include breakpoint($breakpoint-bigweb) {
+            width: 100%;
+        }
         p {
             text-align: right;
             padding-right: 10px;

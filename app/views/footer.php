@@ -109,7 +109,7 @@
 	</script>
 
 	<?php
-	if($actual != "novedades" && $actual != "laposta") {
+	if($actual != "novedades" && $actual != "laposta" && $actual != "blog") {
 		if(Session::has('message')) {
 			?>
 			<script>

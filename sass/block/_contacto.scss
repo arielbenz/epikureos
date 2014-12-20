@@ -34,7 +34,7 @@
     }
     #info-contacto {
         display: inline-block;
-        height: 260px;
+        height: 270px;
         margin-top: 50px;
         vertical-align: top;
         width: 445px;
@@ -53,7 +53,7 @@
             }
         }
         #links-contacto {
-            margin-top: 95px;
+            margin-top: 103px;
             @include breakpoint($breakpoint-mobile) {
                 margin-top: 30px;
             }
@@ -85,7 +85,7 @@
     #mensaje-contacto {
         background: #dcdcdc;
         display: inline-block;
-        height: 260px;
+        height: 270px;
         margin-top: 50px;
         vertical-align: top;
         width: 750px;
