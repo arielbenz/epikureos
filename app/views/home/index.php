@@ -7,7 +7,7 @@
 
 	<!-- HOME -->	
 	
-	<section id="home-search">
+	<section id="home-search" class="<?php echo $class_hora_dia; ?>">
 
 		<article id="search">
 			<div class="search-section">
@@ -34,20 +34,20 @@
 		<div class="partner-section">
 			<div class="partner-section-logos">
 				<ul>
-					<li class="logo-sol"><a href="http://www.institutosol.edu.ar"><img src="<?php echo $url?>/img/logo_sol.png"></a></li>
-					<li class="logo-campari"><a href="http://www.campari.com/ar/es/"><img src="<?php echo $url?>/img/lg_campari.png"></a></li>
+					<li class="logo-sol"><a href="http://www.institutosol.edu.ar"><img src="<?php echo $url?>/assets/img/logo_sol.png"></a></li>
+					<li class="logo-campari"><a href="http://www.campari.com/ar/es/"><img src="<?php echo $url?>/assets/img/lg_campari.png"></a></li>
 				</ul>
 			</div>
 		</div>
 
 		<!-- <div class="evento-section">
-			<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/img/santafealacarta.jpg"></a>
+			<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/assets/img/santafealacarta.jpg"></a>
 		</div> -->
 
 		<!-- <div class="home-recomended">
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/cafe/reuniontrabajo">
 				<figure class="effect-oscar">
-					<img src="<?php echo $url?>/img/recomend1.jpg" alt="img08"/>
+					<img src="<?php echo $url?>/assets/img/recomend1.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Bares para una</p>
 						<h2 class="font-normal">Reunión de<span class="font-bold">Trabajo</span></h2>
@@ -57,7 +57,7 @@
 
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/bar/afteroffice">
 				<figure class="effect-oscar">
-					<img src="<?php echo $url?>/img/recomend2.jpg" alt="img08"/>
+					<img src="<?php echo $url?>/assets/img/recomend2.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Bares para</p>
 						<h2 class="font-normal"><span class="font-bold">after </span>office</h2>
@@ -67,7 +67,7 @@
 
 			<a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/busqueda/restaurante/pareja">
 				<figure class="effect-oscar">
-					<img src="<?php echo $url?>/img/recomend3.jpg" alt="img08"/>
+					<img src="<?php echo $url?>/assets/img/recomend3.jpg" alt="img08"/>
 					<figcaption>
 						<p class="font-normal">Restaurantes para</p>
 						<h2 class="font-normal">ir en <span class="font-bold">pareja</span></h2>
@@ -80,7 +80,7 @@
 			<section id="laposta">
 
 				<div id="etiqueta-laposta">
-					<img src="<?php echo $url?>/img/laposta.png">
+					<img src="<?php echo $url?>/assets/img/laposta.png">
 				</div>
 
 				<?php query_posts('category_name=laposta&showposts=1'); ?>

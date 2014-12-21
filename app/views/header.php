@@ -2,8 +2,37 @@
 <html lang="es">
 
 <?php
+
+	$hora = date("H") - 3;
+	
+	if ($hora >= 0 && $hora < 6) {
+		$dia = "noche.png";	
+		$class_hora_dia = "nightlife_fondo";
+	}
+	else if ($hora >= 6 && $hora < 12) {
+		$dia = "amanecer.png";
+		$class_hora_dia = "breakfast_fondo";
+	}
+	else if ($hora >= 12 && $hora < 15) {
+		$dia = "dia.png";
+		$class_hora_dia = "lunch_fondo";
+	}
+	else if ($hora >= 15 && $hora < 18) {
+		$dia = "dia.png";
+		$class_hora_dia = "cake_fondo";
+	}
+	else if ($hora >= 18 && $hora < 20) {
+		$dia = "atardecer.png";
+		$class_hora_dia = "after_fondo";
+	}
+	else {
+		$dia = "noche.png";
+		$class_hora_dia = "dinner_fondo";
+	}
+
 	$cad = $_SERVER['REQUEST_URI'];
 	$current = explode("/", $cad);
+	$actual = "";
 
 	if (in_array("novedades", $current)) {
     	$actual = "novedades";
@@ -20,6 +49,7 @@
 	}
 
 	$url = "http://".$_SERVER['HTTP_HOST'];
+	
 	require_once($_SERVER ['DOCUMENT_ROOT'].'/blog/wp-config.php');
 		
 	$uid = 0;
@@ -48,8 +78,8 @@
 	<meta name="keywords" content="Salidas, Comidas, Bebidas, Comer, Tomar, Cerveza, Santa Fe, Gastronomía, Bares, Resto, Restaurant, Café, Heladerías, Postres, Pizzas, Gourmet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/img/favicon.ico" />
-	<link rel="stylesheet" href="<?php echo $url;?>/css/style.css" />
+	<link rel="shorcut icon" type="image/x-icon" href="<?php echo $url;?>/assets/img/favicon.ico" />
+	<link rel="stylesheet" href="<?php echo $url;?>/assets/css/style.css" />
 
 	<script>
 		var city = "<?php echo $city; ?>";
@@ -60,32 +90,8 @@
 
 	<header class="header">
 		<div id="header-nav">
-			<?php
-				$hora = date("H") - 3;
-				
-				if ($hora >= 0 && $hora < 6) {
-					$dia = "noche.png";	
-					$fondo = "header-noche.jpg";
-				}
-				else if ($hora >= 6 && $hora < 12) {
-					$dia = "amanecer.png";
-					$fondo = "header-tarde.jpg";
-				}	
-				else if ($hora >= 12 && $hora < 17) {
-					$dia = "dia.png";
-					$fondo = "header-tarde.jpg";
-				}	
-				else if ($hora >= 17 && $hora < 20) {
-					$dia = "atardecer.png";
-					$fondo = "header-tarde.jpg";
-				}	
-				else {
-					$dia = "noche.png";
-					$fondo = "home-patricio2.png";
-				}
-			?>
 			<div id="logo">
-				<a href="<?php echo $url?>/"><img title="Tu Salida | Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/img/logo.png"></a>
+				<a href="<?php echo $url?>/"><img title="Tu Salida | Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/assets/img/logo.png"></a>
 			</div>
 
 			<nav id="menu"><a class="nav-mobile" id="nav-mobile" href="#"></a>
@@ -123,7 +129,7 @@
 					</select>
 				</label>
 				<div id="logo-dia">
-					<img alt="Hora día" src="<?php echo $url?>/img/<?php echo $dia?>">
+					<img alt="Hora día" src="<?php echo $url?>/assets/img/<?php echo $dia?>">
 				</div>
 			</div>
 			

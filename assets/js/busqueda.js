@@ -18,7 +18,7 @@ function setLugares(url, nombres, latitudes, longitudes, tipos, slugs) {
     var map = new google.maps.Map($("#mapa").get(0), myOptions);
     var bounds = new google.maps.LatLngBounds();
 
-    var imageBase = "/img/map-icons/";
+    var imageBase = "/assets/img/map-icons/";
     var icons = {
         cafe: {
             icon: imageBase + "pinmap-coffee.png"

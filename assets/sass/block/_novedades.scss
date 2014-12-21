@@ -15,6 +15,7 @@
         margin-bottom: 20px;
         float: left;
     }
+
     @include breakpoint($breakpoint-portrait) {
         height: 220px;
         width: 100%;
@@ -22,6 +23,7 @@
         padding-right: 0;
         margin-bottom: 20px;
     }
+
     @include breakpoint($breakpoint-bigweb) {
         width: 100%;
         padding-left: 0;
@@ -47,12 +49,15 @@
     @include breakpoint($breakpoint-landscape-max) {
         width: 100%;
     }
+
     @include breakpoint($breakpoint-portrait) {
         width: 60%;
     }
+
     @include breakpoint($breakpoint-bigweb) {
         width: 70%;
     }
+
     .post-title {
         h2 {
             font-family: $openSans-bold;

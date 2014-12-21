@@ -156,7 +156,7 @@ ul {
                     background: #3b5998;
                     bottom: -45px;
                     color: white;
-                    content: "Iniciá sesión con Facebook";
+                    content: "Inici├í sesi├│n con Facebook";
                     left: -64px;
                     padding: 5px 10px;
                     position: absolute;
@@ -284,16 +284,14 @@ ul {
                 border: 0;
                 color: #dfdfdf;
                 cursor: pointer;
-                display: inline-block;
+                display: inline-flex !important;
                 font-size: 16px;
-                height: 29px;
+                height: 33px !important;
                 line-height: 1;
                 margin-top: 23px;
                 text-indent: 0.01px;
-                width: 120px;
-                height: 33px !important;
-                display: inline-flex !important;
                 vertical-align: top;
+                width: 120px;
                 @include appearance(none);
                 option {
                     background-color: $gray-dark;
@@ -305,13 +303,13 @@ ul {
             label {
                 position: relative;
                 &:after {
+                    color: #dfdfdf;
                     content: '>';
                     font: 22px "Consolas", monospace;
-                    color: #dfdfdf;
+                    pointer-events: none;
+                    position: absolute;
                     right: 8px;
                     top: 26px;
-                    position: absolute;
-                    pointer-events: none;
                     @include transform(rotate(90deg));
                 }
             }
@@ -414,16 +412,41 @@ ul {
     font-family: $titillium-thin;
 }
 
+.nightlife_fondo {
+    background: url("../img/header-nightlife.jpg") no-repeat;
+}
+
+.breakfast_fondo {
+    background: url("../img/header-breakfast.jpg") no-repeat;
+}
+
+.lunch_fondo {
+    background: url("../img/header-lunch.jpg") no-repeat;
+}
+
+.cake_fondo {
+    background: url("../img/header-cake.jpg") no-repeat;
+}
+
+.after_fondo {
+    background: url("../img/header-after.jpg") no-repeat;
+}
+
+.dinner_fondo {
+    background: url("../img/header-dinner.jpg") no-repeat;
+}
+
+
 #home-search {
-    background: url("../img/header-noche.jpg") no-repeat;
-    height: 300px;
+    background-position: 50%;
+    height: 350px;
     @include breakpoint($breakpoint-mobile) {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
     }
 
     #search {
-        padding-top: 6.25rem;
+        padding-top: 8.25rem;
         @include container(1200px);
         @include breakpoint($breakpoint-landscape) {
             padding-left: 0.625rem;
@@ -502,9 +525,6 @@ ul {
                         outline: 0;
                         background: white;
                         @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0.8));
-                    }
-                    &:required {
-                        box-shadow: 0px 0px 3px #cccccc, 0 10px 15px $gray-middle-two inset;
                     }
                 }
             }
@@ -1081,9 +1101,7 @@ ul {
                     width: 100%;
                     @include filter(grayscale(100%));
                     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-                    /* Firefox 10+, Firefox on Android */
                     filter: gray;
-                    /* IE 6-9 */
                     @include transition(all 0.3s ease);
                     &:hover {
                         @include filter(grayscale(0%));
@@ -1273,7 +1291,6 @@ footer {
                         margin: 0;
                         width: 30px;
                         display: block;
-                        // @include transition(background 0.3s ease-out);
                     }
                 }
             }

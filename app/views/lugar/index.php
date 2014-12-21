@@ -65,10 +65,10 @@
 						<ul>
 							<?php
 								if ($lugar->facebook != "")
-									echo "<li><a href='$lugar->facebook'><img src='$url/img/face-lugar.png'></a></li>";
+									echo "<li><a href='$lugar->facebook'><img src='$url/assets/img/face-lugar.png'></a></li>";
 
 								if ($lugar->twitter != "")
-									echo "<li><a href='$lugar->twitter'><img src='$url/img/twitter-lugar.png'></a></li>";
+									echo "<li><a href='$lugar->twitter'><img src='$url/assets/img/twitter-lugar.png'></a></li>";
 							?>
 						</ul>
 					</div>
@@ -92,7 +92,7 @@
 						<?php 
 							for ($idslide = 1; $idslide <= $cantSlides; $idslide++) { 
 								?>
-								<div class="item"><img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
+								<div class="item"><img src="<?php echo $url ?>/assets/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/slide<?php echo $idslide ?>.jpg"></div>
 								<?php	
 							}
 						?>
@@ -112,7 +112,7 @@
 
 				<div class="promo">
 					<a href="<?php echo Promo::find($lugar->promo_id)->url; ?>">
-						<img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/promos/<?php echo $lugar->promo_id ?>.jpg">
+						<img src="<?php echo $url ?>/assets/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/promos/<?php echo $lugar->promo_id ?>.jpg">
 					</a>
 				</div>
 
@@ -124,7 +124,7 @@
 
 					<div class="menu-lugar">
 						<div class="menu-lugar-logo">
-							<img src="<?php echo $url ?>/img/santafecarta.jpg">
+							<img src="<?php echo $url ?>/assets/img/santafecarta.jpg">
 						</div>
 						<div class="menu-lugar-info">
 							<?php echo $lugar->menu ?>

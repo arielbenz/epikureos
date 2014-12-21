@@ -31,16 +31,16 @@
 		<div class="evento-info">
 			<ul>
 				<li class="evento-info-data">
-					<img src="<?php echo $url ?>/img/map-icons/pinmap-alta.png">
+					<img src="<?php echo $url ?>/assets/img/map-icons/pinmap-alta.png">
 					<p>Alta Cocina ($140)</p>
 				</li>
 				
 				<li class="evento-info-data">
-					<img src="<?php echo $url ?>/img/map-icons/pinmap-regional.png">
+					<img src="<?php echo $url ?>/assets/img/map-icons/pinmap-regional.png">
 					<p>Regional ($120)</p>
 				</li>
 				<li class="evento-info-data">
-					<img src="<?php echo $url ?>/img/map-icons/pinmap-tabla.png">
+					<img src="<?php echo $url ?>/assets/img/map-icons/pinmap-tabla.png">
 					<p>A la tabla ($90)</p>
 				</li>
 			</ul>
@@ -52,7 +52,7 @@
 		        <div class="box-result">
 	 				<div class="box-result-image">
 	 					<a href="<?php echo $url?>/lugares/<?php echo $lugar->slug?>">
-	 						<img src="<?php echo $url ?>/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/thumb.jpg">
+	 						<img src="<?php echo $url ?>/assets/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/thumb.jpg">
 	 					</a>
 	 				</div>
 	 				<div class="box-result-data">
@@ -561,7 +561,7 @@
 
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	
-	<script src="<?php echo $url?>/js/busqueda-santa.min.js"></script>
+	<script src="<?php echo $url?>/assets/js/busqueda-santa.min.js"></script>
 
 	<script>
     	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');

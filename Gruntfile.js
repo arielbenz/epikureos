@@ -12,9 +12,9 @@ grunt.initConfig({
                //config: 'config.rb'
                require:['susy', 'breakpoint'],
                httpPath:"/",
-               sassDir:"sass",
-               cssDir:"css",
-               imagesDir:"img",
+               sassDir:"assets/sass",
+               cssDir:"assets/css",
+               imagesDir:"assets/img",
                // javascriptsDir:"site/assets/js",
                // fontsDir:"site/assets/fonts",
                outputStyle:"compressed",
@@ -26,8 +26,8 @@ grunt.initConfig({
     },
     uglify: {
         build: {
-            src:  'js/analytics.js',
-            dest: 'js/analytics.min.js'
+            src:  'assets/js/busqueda.js',
+            dest: 'assets/js/busqueda.min.js'
         }
     },
     concat: {
@@ -35,13 +35,13 @@ grunt.initConfig({
         	separator: "\n\n", 
       	},
         js: {
-            src: ["js/starrr.min.js", "js/owl.carousel.min.js", "js/lugar.min.js"],
-        	  dest: "js/all.lugar.js"
+            src: ["assets/js/starrr.min.js", "assets/js/owl.carousel.min.js", "assets/js/lugar.min.js"],
+        	  dest: "assets/js/all.lugar.js"
       	}
     },
     watch: {
         styles: {
-            files: ['sass/**/*.scss',],
+            files: ['assets/sass/**/*.scss',],
             tasks: ['compass'],
             options: {
                 spawn: false,

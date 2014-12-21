@@ -16,7 +16,6 @@
     position: absolute;
     bottom: 5px;
     width: 380px;
-
     @include breakpoint($breakpoint-mobile) {
         width: 100%;
     }
@@ -42,7 +41,7 @@
     }
 }
 
-.imagen-laposta {
+.post-imagen-laposta {
     position: relative;
 }
 
@@ -50,7 +49,6 @@
     font-size: 14px;
     text-align: left;
     width: 380px;
-
     @include breakpoint($breakpoint-mobile) {
         width: 100%;
     }
@@ -73,7 +71,6 @@
     &:nth-child(odd) {
         margin-right: 80px;
     }
-    
     @include breakpoint($breakpoint-mobile) {
         width: 100%;
         &:nth-child(odd) {
@@ -112,12 +109,15 @@
         @include breakpoint($breakpoint-mobile) {
             width: 100%;
         }
+
         @include breakpoint($breakpoint-portrait) {
             width: 100%;
         }
+
         @include breakpoint($breakpoint-bigweb) {
             width: 100%;
         }
+
         p {
             text-align: right;
             padding-right: 10px;

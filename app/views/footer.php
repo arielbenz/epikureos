@@ -65,7 +65,7 @@
 
 	<div id="fb-root"></div>
 
-	<script src="<?php echo $url?>/js/jquery-1.11.1.min.js"></script>
+	<script src="<?php echo $url?>/assets/js/jquery-1.11.1.min.js"></script>
 
 	<script>
 		$(document).on("ready", function() {
@@ -135,7 +135,7 @@
 	<?php
 		if(null != $busqueda) {
 			?>
-			<script src="<?php echo $url?>/js/busqueda.min.js"></script>
+			<script src="<?php echo $url?>/assets/js/busqueda.min.js"></script>
 
 			<script>
 		    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
@@ -164,33 +164,31 @@
 	?>
 
 	<?php
-		if (in_array("lugares", $current)) {
-    	?>
-    	<script>
-			var votesUserAjax, ratingUser = null;
-			var lugar = $.parseJSON('<?php echo $lugar?>');
-			var urlLike = "<?php echo $lugar->slug; ?>/votelike";
+		if (in_array("lugares", $current)) { ?>
+	    	<script>
+				var votesUserAjax, ratingUser = null;
+				var lugar = $.parseJSON('<?php echo $lugar?>');
+				var urlLike = "<?php echo $lugar->slug; ?>/votelike";
 
-			function getVotesUserAjax() {
-				return $.parseJSON('<?php echo json_encode($votesUser)?>');
-			}
-			function getRatingUser() {
-				return "<?php echo $ratingUser ?>";
-			}
-			function getUserStatus() {
-				return "<?php echo Auth::check(); ?>";
-			}
-			function callbackLogin() {
-				<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
-				window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
-			}
-		</script>
-    	<script src="<?php echo $url?>/js/all.lugar.js"></script>
+				function getVotesUserAjax() {
+					return $.parseJSON('<?php echo json_encode($votesUser)?>');
+				}
+				function getRatingUser() {
+					return "<?php echo $ratingUser ?>";
+				}
+				function getUserStatus() {
+					return "<?php echo Auth::check(); ?>";
+				}
+				function callbackLogin() {
+					<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
+					window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
+				}
+			</script>
+	    	<script src="<?php echo $url?>/assets/js/all.lugar.js"></script>
     	<?php
-    	}
-	?>
+    	} ?>
 
-	<script src="<?php echo $url?>/js/all.js"></script>
+	<script src="<?php echo $url?>/assets/js/all.js"></script>
 
 </body>
 </html>
