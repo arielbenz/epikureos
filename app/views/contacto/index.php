@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="http://facebook.com/TuSalidaBar" class="contacto-face"></a></li>
       				<li><a href="http://twitter.com/tusalidaok" class="contacto-twitter"></a></li>
-       				<li><a href="#" class="contacto-plus"></a></li>
+       				<li><a href="https://plus.google.com/u/0/106453338753507424328/" class="contacto-plus"></a></li>
 				</ul>
 			</div>
 		</article>
