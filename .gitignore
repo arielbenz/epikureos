@@ -1,14 +1,15 @@
 /node_modules
 /bower_components
 /vendor
+/.sass-cache
+
 /blog/wp-admin
 /blog/wp-includes
-/blog/wp-content/languajes
+/blog/wp-content/languages
 /blog/wp-content/plugins
 /blog/wp-content/upgrade
 /blog/wp-content/uploads
 /blog/wp-content/index.php
-
 /blog/.htaccess
 /blog/index.php
 /blog/licencia.txt
@@ -30,12 +31,10 @@
 /blog/xmlrpc.php
 
 
-/.sass-cache
 composer.phar
 composer.lock
 .env.local.php
 .env.php
-.DS_Store
 Thumbs.db
 
 ### Mac Related Ignores
