@@ -55,7 +55,7 @@ ul {
 }
 
 select {
-    overflow:hidden;
+    overflow: hidden;
     width: 120%;
     @include appearance(none);
     &::-ms-expand {
@@ -96,4 +96,23 @@ select {
     b, a {
         color: $orange-middle;
     }
+}
+
+.ssba {
+    background: none;
+    border-top: 2px solid #CCC;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-top: 15px;
+}
+
+.ssba img {
+    padding: 5px;
+    border: 0;
+    box-shadow: none !important;
+    display: inline !important;
+    margin-top: 0;
+    vertical-align: middle;
+    width: 45px !important;
 }
