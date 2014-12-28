@@ -1,0 +1,78 @@
+.barra-content {
+    height: 60px;
+    @include breakpoint($breakpoint-mobile) {
+        height: 40px;
+    }
+}
+
+.barra {
+    @include container(1200px);
+    @include breakpoint($breakpoint-bigwebhd-max) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+}
+
+.barra-titulo {
+    float: left;
+    position: relative;
+    text-rendering: optimizeSpeed;
+    @include breakpoint($breakpoint-mobile) {
+        float: none;
+        padding-top: 0px;
+    }
+
+    h2 {
+        color: white;
+        display: inline-block;
+        font-size: 40px;
+        right: 10px;
+        padding: 0;
+        @include breakpoint($breakpoint-mobile) {
+            font-size: 25px;
+        }
+
+        @include breakpoint($breakpoint-landscape) {
+            font-size: 34px;
+            padding-left: 0.625rem;
+        }
+
+        @include breakpoint($breakpoint-portrait) {
+            font-size: 40px;
+            padding-left: 0.625rem;
+        }
+
+        @include breakpoint($breakpoint-bigweb) {
+            font-size: 40px;
+            padding-left: 0.625rem;
+        }
+    }
+}
+
+.barra-content--contacto {
+    background: $blue-light;
+}
+
+.barra-content--busqueda {
+    background: $orange-midlight;
+}
+
+.barra-content--lugar {
+    background: $green-dark;
+}
+
+.barra-content--novedades {
+    background: $red-dark;
+}
+
+.barra-content--laposta {
+    background: $green-dark;
+}
+
+.barra-content--quees {
+    background: $orange-middle;
+}
+
+.barra-content--terminos {
+    background: $orange-middle;
+}

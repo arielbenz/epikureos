@@ -10,7 +10,7 @@
 	<meta charset="utf-8" />
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.complete.css') }}" />
+	<link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.complete.css') }}" />
 </head>
 <body>
 
@@ -43,7 +43,7 @@
 	</div>
 
 	<!-- JS -->
-	<script src="{{ URL::asset('js/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,235 @@
+footer {
+    background: $gray-dark;
+    color: white;
+    font-family: $openSans-regular;
+    width: 100%;
+    .home-footer {
+        background: $gray-dark;
+        height: 225px;
+        margin-top: 30px;
+        @include container(1200px);
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        @include breakpoint($breakpoint-landscape-max) {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+            height: 100%;
+        }
+
+        @include breakpoint($breakpoint-bigweb-max) {
+            height: 100%;
+            padding-bottom: 20px;
+        }
+
+        .footer-info {
+            display: inline-block;
+            margin-top: 30px;
+            vertical-align: top;
+            h3 {
+                color: white;
+                font-size: 26px;
+                margin: 10px 0 10px 0;
+                @include breakpoint($breakpoint-landscape-max) {
+                    font-size: 22px;
+                    text-align: center;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    font-size: 22px;
+                }
+            }
+        }
+        .footer-links {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 100%;
+            }
+
+            h3 {
+                text-align: left;
+                @include breakpoint($breakpoint-landscape-max) {
+                    text-align: center;
+                }
+            }
+            ul {
+                li {
+                    text-align: left;
+                    a {
+                        color: white;
+                        &:hover {
+                            color: $orange-dark;
+                        }
+                    }
+                }
+            }
+            .about {
+                display: inline-block;
+                float: left;
+                font-size: 14px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: none;
+                    width: 50%;
+                }
+            }
+            .contact {
+                display: inline-block;
+                font-size: 14px;
+                vertical-align: top;
+            }
+        }
+        .footer-redes {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 100%;
+            }
+
+            h3 {
+                text-align: center;
+            }
+            ul {
+                margin-top: 16px;
+                li {
+                    display: inline-block;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    a {
+                        height: 30px;
+                        margin: 0;
+                        width: 30px;
+                        display: block;
+                    }
+                }
+            }
+            .link-face {
+                background: url("../img/facebookoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
+                &:hover {
+                    background: url("../img/facebookon.png") no-repeat;
+                }
+            }
+            .link-twitter {
+                background: url("../img/twitteroff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
+                &:hover {
+                    background: url("../img/twitteron.png") no-repeat;
+                }
+            }
+            .link-plus {
+                background: url("../img/googleoff.png") no-repeat;
+                @include transition(background 0.3s ease-out);
+                &:hover {
+                    background: url("../img/googleon.png") no-repeat;
+                }
+            }
+        }
+        .footer-news {
+            @include span(4);
+            padding: 0;
+            @include breakpoint($breakpoint-landscape-max) {
+                float: none;
+                padding: 0;
+                width: 260px;
+            }
+
+            h3 {
+                text-align: right;
+                @include breakpoint($breakpoint-landscape-max) {
+                    text-align: center;
+                }
+            }
+            .input {
+                position: relative;
+                float: right;
+                .form-icon {
+                    position: absolute;
+                    left: 0;
+                    .icon.mail {
+                        margin: 11px 5px;
+                        height: 19px;
+                        width: 26px;
+                        float: left;
+                        background: transparent url("../img/icon_mail.png") no-repeat left top;
+                    }
+                    @include breakpoint($breakpoint-landscape-max) {
+                        left: 10px;
+                    }
+                }
+                @include breakpoint($breakpoint-landscape-max) {
+                    float: none;
+                    margin: 0 auto;
+                }
+
+                @include breakpoint($breakpoint-portrait) {
+                    text-align: right;
+                }
+
+                input {
+                    background-color: $gray-dark;
+                    border: 1px solid white;
+                    color: white;
+                    font-size: 100%;
+                    font-family: inherit;
+                    height: 30px;
+                    margin-top: 5px;
+                }
+                .button {
+                    width: 247px;
+                    @include transition(background 0.3s ease-out);
+                    &:hover {
+                        background-color: $orange-dark;
+                    }
+                    @include breakpoint($breakpoint-portrait) {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+        .footer-copy {
+            @include breakpoint($breakpoint-landscape-max) {
+                margin-bottom: 20px;
+            }
+
+            .footer-terminos {
+                float: left;
+                font-size: 14px;
+                margin-top: 20px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    top: 15px;
+                    float: none;
+                }
+
+                a {
+                    color: white;
+                }
+            }
+            .footer-design {
+                float: right;
+                font-size: 14px;
+                margin-top: 20px;
+                @include breakpoint($breakpoint-landscape-max) {
+                    top: 25px;
+                    float: none;
+                }
+            }
+        }
+    }
+}
+
+.email {
+    float: right;
+    padding: 0 0 0 40px;
+    width: 205px;
+    @include breakpoint($breakpoint-landscape-max) {
+        float: none;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        width: 158px;
+    }
+}

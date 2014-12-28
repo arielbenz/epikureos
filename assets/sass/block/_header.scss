@@ -1,0 +1,225 @@
+.header {
+    background: $gray-dark;
+    height: 70px;
+    z-index: 2;
+    position: relative;
+}
+
+.header-nav {
+    @include container(1200px);
+    height: inherit;
+    .menu {
+        @include span(8);
+        padding: 0;
+        @include breakpoint($breakpoint-bigweb-max) {
+            width: 100%;
+            float: none;
+        }
+
+        @include breakpoint($breakpoint-bigwebhd) {
+            width: auto;
+        }
+    }
+}
+
+.menu-nav {
+    @include breakpoint($breakpoint-bigweb-max) {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        max-height: 0;
+        overflow: hidden;
+        &.open-menu {
+            max-height: 400px;
+            transition: max-height .4s;
+            width: 100%;
+            @include breakpoint($breakpoint-mobile) {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+.nav-mobile {
+    display: none;
+    background: url("../img/nav.png") no-repeat center center;
+    float: right;
+    width: 60px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: .6;
+    @include breakpoint($breakpoint-bigweb-max) {
+        display: block;
+    }
+
+    &.nav-active {
+        opacity: 1;
+    }
+}
+
+.logo {
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    padding: 0;
+    text-align: left;
+    @include breakpoint($breakpoint-mobile) {
+        margin-top: 12px;
+        margin-left: 10px;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        margin-left: 10px;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        margin-left: 10px;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        margin-left: 10px;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        margin-left: 10px;
+    }
+
+    a {
+        img {
+            @include breakpoint($breakpoint-mobile) {
+                width: 80%;
+            }
+        }
+    }
+}
+
+.menu-item {
+    border-top: 5px solid $gray-dark;
+    display: inline-block;
+    &.menu-actual {
+        background: $gray-dark;
+    }
+    &.menu-novedades {
+        border-top: 5px solid $red-dark;
+    }
+    &.menu-laposta {
+        border-top: 5px solid $green-dark;
+    }
+    &.menu-contacto {
+        border-top: 5px solid $blue-light;
+    }
+    &.menu-quees {
+        border-top: 5px solid $orange-middle;
+    }
+    @include breakpoint($breakpoint-bigweb-max) {
+        background: #252525;
+        border-bottom: 1px solid #282b30;
+        float: none;
+        width: 100%;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}
+
+.menu-item-link {
+    color: $gray-middle-five;
+    display: inline-block;
+    font-family: $titillium-regular;
+    padding: 20.5px 0;
+    width: 120px;
+    @include transition(all 0.5s ease);
+    &:hover {
+        background: #343031;
+    }
+    @include breakpoint($breakpoint-bigweb-max) {
+        border-top: 0;
+        padding: 8px 0;
+        height: auto;
+        line-height: normal;
+        width: 100%;
+        &:hover {
+            background: #2a2d33;
+        }
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        font-size: 14px;
+        width: 90px;
+    }
+}
+
+.menu-login, .menu-logout {
+    cursor: pointer;
+    font-family: $titillium-bold;
+    padding: 5px;
+    @include transition(all 0.5s ease);
+    &:hover {
+        background: #343031;
+    }
+    img {
+        height: 30px;
+        float: right;
+        width: 30px;
+    }
+    @include breakpoint($breakpoint-bigweb-max) {
+        width: 100%;
+        margin: 0;
+        &:hover {
+            background: #3b5998;
+        }
+    }
+}
+
+.menu-logout {
+    border: 0;
+    padding-bottom: 0;
+}
+
+.ciudad {
+    float: right;
+    font-family: $titillium-regular;
+    padding: 0;
+    position: relative;
+    @include breakpoint($breakpoint-bigweb-max) {
+        position: absolute;
+        top: -3px;
+        right: 45px;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+
+    .select-city {
+        background: transparent;
+        border: 0;
+        color: $gray-middle-five;
+        cursor: pointer;
+        display: inline-flex !important;
+        font-size: 16px;
+        height: 33px !important;
+        line-height: 1;
+        margin-top: 21px;
+        text-indent: 0.01px;
+        vertical-align: top;
+        width: 120px;
+        option {
+            background-color: $gray-dark;
+        }
+        @include breakpoint($breakpoint-bigwebhd) {
+            font-size: 14px;
+        }
+    }
+    &:after {
+        color: $gray-middle-five;
+        content: '>';
+        font: 22px "Consolas", monospace;
+        pointer-events: none;
+        position: absolute;
+        right: 15px;
+        top: 25px;
+        @include transform(rotate(90deg));
+    }
+}

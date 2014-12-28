@@ -15,9 +15,9 @@
 
 	<!-- CONTENT -->
 
-	<section id="barra-terminos" class="barra-content">
-		<div id="barra">
-			<div id="barra-titulo">
+	<section class="barra-content barra-content--terminos">
+		<div class="barra">
+			<div class="barra-titulo">
 				<h2><b class="font-normal">SANTAFE</b><b class="font-bold">ALACARTA</b></h2>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 
 		</div>
 
-		<div id="result-footer">
+		<div class="result-footer">
 			<?php echo $lugares->links(); ?>
 		</div>
 		

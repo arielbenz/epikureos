@@ -5,6 +5,7 @@
  */
 
 $gray-dark: #252525;
+$gray-middle-zero: #4a4a4a;
 $gray-middle: #807e7f;
 $gray-middle-two: #f6f6f6;
 $gray-middle-three: #bbbbbb;
@@ -12,6 +13,7 @@ $gray-middle-four: #dddddd;
 $gray-middle-five: #d6d6d6;
 $orange-dark: #f08421;
 $orange-middle: #f28422;
+$orange-midlight: #fbb714;
 $orange-light: #f1a165;
 $red-dark: #df3726;
 $green-dark: #58ba48;
@@ -39,10 +41,17 @@ $glyphicons-halflings: "Glyphicons Halflings";
 // Media Queries
 // =============
 
+$mobile: 380px;
+$landscape: 640px;
+$portrait: 768px;
+$bigweb: 920px;
+$bigwebhd: 1200px;
+
 $breakpoint-mobile: max-width 380px;
 $breakpoint-landscape: 381px 640px;
 $breakpoint-landscape-max: max-width 640px;
 $breakpoint-portrait: 641px 768px;
+$breakpoint-portrait-max: max-width 768px;
 $breakpoint-bigweb: 769px 920px;
 $breakpoint-bigweb-max: max-width 920px;
 $breakpoint-bigwebhd: 921px 1200px;

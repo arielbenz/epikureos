@@ -5,24 +5,28 @@
 
 	<!-- CONTENT -->
 
-	<section id="barra-promos" class="barra-content">
-		<div id="barra">
-			<div id="barra-titulo">
-				<h2><b class="font-bold">PROMOS</b></h2>
+	<div class="page-section">
+
+		<section class="barra-content barra-content--promos">
+			<div class="barra">
+				<div class="barra-titulo">
+					<h2><b class="font-bold">PROMOS</b></h2>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="content-promos">
+		<section id="content-promos">
 
-	</section>
+		</section>
 
-	<section id="home-publicidad">
-		<article id="publicidad1" class="class-publi"></article>
-		<article id="publicidad2" class="class-publi"></article>
-		<article id="publicidad3" class="class-publi"></article>
-		<article id="publicidad4" class="class-publi"></article>
-	</section>
+		<section id="home-publicidad">
+			<article id="publicidad1" class="class-publi"></article>
+			<article id="publicidad2" class="class-publi"></article>
+			<article id="publicidad3" class="class-publi"></article>
+			<article id="publicidad4" class="class-publi"></article>
+		</section>
+
+	</div>
 
 	<!-- FOOTER -->
 

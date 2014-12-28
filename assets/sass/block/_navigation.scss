@@ -1,0 +1,44 @@
+.pagination {
+    background-color: white;
+    float: left;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-pages {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.page-numbers {
+    color: $gray-dark;
+    background: $gray-middle-five;
+    display: block;
+    float: left;
+    padding: 0.3em 0.5em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    @include transition(background 0.3s ease);
+}
+
+.container-laposta {
+    .page-numbers.current {
+        background: $red-dark;
+        color: white;
+    }
+    .page-numbers:hover {
+        background: $red-dark;
+    }
+}
+
+.container-novedades {
+    .page-numbers.current {
+        background: $green-dark;
+        color: white;
+    }
+    .page-numbers:hover {
+        background: $green-dark;
+    }
+}

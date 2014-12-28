@@ -1,0 +1,235 @@
+.crono-section {
+    margin-top: 15px;
+    @include container(1200px);
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    .crono-section-title {
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: #252525;
+        color: white;
+    }
+    .crono-section-dia {
+        float: left;
+        .dia-title {
+            background-color: $gray-dark;
+            color: white;
+            font-family: $openSans-bold;
+            width: 200px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            float: left;
+            @include breakpoint($breakpoint-bigwebhd-max) {
+                width: 100%;
+            }
+        }
+        .dia-actividades {
+            float: left;
+            li {
+                float: left;
+                width: 100%;
+                .crono-dia {
+                    background-color: #FF8561;
+                    width: 200px;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include breakpoint($breakpoint-portrait) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 26%;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 25%;
+                    }
+
+                    @include breakpoint(769px 1200px) {
+                        text-align: center;
+                        width: 21%;
+                    }
+
+                    &--hoy {
+                        background-color: #FF8561;
+                    }
+                }
+                .crono-actividad {
+                    background-color: #FF9F61;
+                    width: 600px;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include breakpoint($breakpoint-portrait) {
+                        font-size: 15px;
+                        text-align: left;
+                        width: 74%;
+                    }
+
+                    @include breakpoint($breakpoint-bigwebhd) {
+                        font-size: 15px;
+                        text-align: left;
+                        width: 75%;
+                    }
+
+                    @include breakpoint(769px 1200px) {
+                        text-align: left;
+                        width: 79%;
+                    }
+
+                    &--hoy {
+                        background-color: #FF9F61;
+                    }
+                    &--pre {
+                        background-color: #444;
+                    }
+                }
+                .crono-lugar {
+                    background-color: #FFB961;
+                    width: 400px;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 15px;
+                        text-align: center;
+                    }
+
+                    @include breakpoint($breakpoint-landscape) {
+                        font-size: 15px;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include breakpoint($breakpoint-portrait) {
+                        font-size: 15px;
+                        text-align: left;
+                        width: 100%;
+                    }
+
+                    @include breakpoint(769px 1200px) {
+                        text-align: left;
+                        width: 100%;
+                    }
+
+                    &--hoy {
+                        background-color: #FFB961;
+                    }
+                    p {
+                        @include breakpoint($breakpoint-portrait) {
+                            padding-left: 27.5% !important;
+                        }
+
+                        @include breakpoint(769px 1200px) {
+                            padding-left: 21.5% !important;
+                        }
+                    }
+                }
+                .crono {
+                    float: left;
+                    height: 100%;
+                    p {
+                        color: white;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .crono-section-info {
+        background-color: #252525;
+        margin-top: 20px;
+        color: white;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: left;
+    }
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    &:before, &:after {
+        visibility: hidden;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        pointer-events: none;
+    }
+    &:before {
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        margin-bottom: 5px;
+        margin-left: -80px;
+        padding: 7px;
+        width: 160px;
+        border-radius: 3px;
+        background-color: #FFF;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #000;
+        content: attr(data-tooltip);
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+    &:after {
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        margin-left: -5px;
+        width: 0;
+        border-top: 5px solid #000;
+        border-top: 5px solid rgba(255, 255, 255, 0.9);
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        content: " ";
+        font-size: 0;
+        line-height: 0;
+    }
+    &:hover:before, &:hover:after {
+        visibility: visible;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+}
+
+.evento-info {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    ul {
+        .evento-info-data {
+            display: inline-block;
+            img {
+                display: inline-block;
+                width: 64px;
+            }
+            p {
+                display: inline-block;
+                position: relative;
+                top: -30px;
+            }
+        }
+    }
+}

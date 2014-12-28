@@ -1,0 +1,22 @@
+#home-promo {
+    height: 250px;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 1200px;
+    #promo {
+        background: url("../img/imagen-left.png") repeat 100% center;
+        border: 8px solid $gray-middle-two;
+        display: inline-block;
+        float: left;
+        height: 234px;
+        width: 564px;
+    }
+    #lugar {
+        background: url("../img/imagen-right.jpg") repeat 100% center;
+        border: 8px solid $gray-middle-two;
+        display: inline-block;
+        float: right;
+        height: 234px;
+        width: 564px;
+    }
+}

@@ -1,0 +1,122 @@
+.home-recomended {
+    height: 300px;
+    @include breakpoint($breakpoint-bigwebhd-max) {
+        height: auto;
+        display: none;
+    }
+
+    a {
+        &:last-child {
+            figure {
+                margin-right: 0;
+            }
+        }
+        figure {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            height: 250px;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 46px;
+            @include breakpoint($breakpoint-mobile) {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0;
+                height: auto;
+                overflow: hidden;
+            }
+
+            figcaption {
+                background: rgba(20, 20, 20, 0.4);
+                color: white;
+                text-transform: uppercase;
+                font-size: 1.25em;
+                &::before, &::after {
+                    pointer-events: none;
+                }
+            }
+            figcaption, a {
+                position: absolute;
+                top: 0;
+                width: 366px;
+                height: 250px;
+                @include breakpoint($breakpoint-mobile) {
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            a {
+                z-index: 1000;
+                text-indent: 200%;
+                white-space: nowrap;
+                font-size: 0;
+                opacity: 0;
+            }
+            h2 {
+                word-spacing: -0.15em;
+                font-weight: 300;
+                @include breakpoint($breakpoint-mobile) {
+                    font-size: 26px;
+                }
+
+                span {
+                    font-weight: 800;
+                }
+            }
+            p {
+                letter-spacing: 1px;
+                font-size: 17px;
+                margin-top: 65px;
+            }
+            &.effect-oscar {
+                img {
+                    opacity: 0.7;
+                    @include transition(opacity 0.35s);
+                    @include breakpoint($breakpoint-mobile) {
+                        width: 100%;
+                    }
+                }
+                figcaption {
+                    &::before {
+                        border: 1px solid white;
+                        bottom: 30px;
+                        content: '';
+                        left: 30px;
+                        position: absolute;
+                        right: 30px;
+                        top: 30px;
+                    }
+                }
+                h2 {
+                    display: block;
+                    margin: 25px 0 0 0;
+                    @include transition(transform 0.35s);
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                }
+                figcaption::before, p {
+                    opacity: 0;
+                    @include transition(opacity 0.35s);
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                }
+                &:hover {
+                    h2 {
+                        -webkit-transform: translate3d(0, 0, 0);
+                        transform: translate3d(0, 0, 0);
+                    }
+                    img {
+                        opacity: 1;
+                    }
+                }
+                &:hover figcaption::before, &:hover p {
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}

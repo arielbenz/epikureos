@@ -1,0 +1,44 @@
+.partner-section {
+    height: 80px;
+    background-color: $gray-middle-two;
+    margin-bottom: 20px;
+    .partner-section-logos {
+        margin: 0 auto;
+        ul {
+            li {
+                display: inline-block;
+                padding-left: 25px;
+                padding-right: 25px;
+                vertical-align: top;
+                @include breakpoint($breakpoint-mobile) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                @include breakpoint($breakpoint-landscape) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                a {
+                    img {
+                        width: auto;
+                        @include breakpoint($breakpoint-mobile) {
+                            width: 70%;
+                        }
+
+                        @include breakpoint($breakpoint-landscape) {
+                            width: 80%;
+                        }
+                    }
+                }
+            }
+            .logo-campari {
+                padding-top: 20px;
+            }
+            .logo-sol {
+                padding-top: 5px;
+            }
+        }
+    }
+}

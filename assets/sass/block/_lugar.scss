@@ -1,41 +1,10 @@
-#barra-lugar {
-    background: $green-dark;
-    height: 60px;
-    width: 100%;
-}
-
-.glyphicon {
-    color: #fbb714;
-    display: inline-block;
-    position: relative;
-    top: 1px;
-    font-family: $glyphicons-halflings;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.glyphicon-star-empty {
-    color: #ccc;
-}
-
-.glyphicon-star:before {
-    content: "\e006";
-}
-
-.glyphicon-star-empty:before {
-    content: "\e007";
-}
-
-#content-lugar {
+.content-lugar {
     @include container(1200px);
     margin: 0 auto;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
-    #info-barra {
-        border-bottom: 1.5px solid #CCC;
+    .bar-breadcrumb {
+        border-bottom: 1.5px solid $gray-middle-five;
         font-size: 14px;
         font-family: $titillium-light;
         height: 30px;
@@ -54,341 +23,16 @@
             text-decoration: underline;
         }
     }
-    .info-lugar {
-        #info-lugar-left {
-            height: 500px;
-            vertical-align: top;
-            width: 430px;
-            float: left;
-            @include breakpoint($breakpoint-mobile) {
-                height: auto;
-                margin-bottom: 20px;
-                margin-right: 0;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                height: auto;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-portrait) {
-                width: 58%;
-            }
-
-            #lugar-title {
-                background-color: $gray-middle-two;
-                height: 300px;
-                @include breakpoint($breakpoint-mobile) {
-                    height: auto;
-                    padding: 10px;
-                }
-
-                .lugar-ratings {
-                    padding: 15px;
-                    @include breakpoint($breakpoint-mobile) {
-                        padding: 0;
-                    }
-
-                    .lugar-ratings-stars {
-                        float: left;
-                        @include breakpoint($breakpoint-mobile) {
-                            font-size: 12px;
-                        }
-
-                        & .glyphicon {
-                            color: #fbb714;
-                        }
-                        & .glyphicon-star-empty {
-                            color: #ccc;
-                        }
-                    }
-                    .lugar-ratings-reviews {
-                        float: right;
-                        @include breakpoint($breakpoint-mobile) {
-                            font-size: 12px;
-                        }
-                    }
-                }
-                #lugar-title-left {
-                    #lugar-nombre {
-                        height: 100px;
-                        text-align: left;
-                        margin-left: 13px;
-                        margin-top: 20px;
-                        @include breakpoint($breakpoint-mobile) {
-                            height: 50px;
-                            margin-left: 0;
-                            margin-top: 25px;
-                        }
-
-                        h1 {
-                            color: #656565;
-                            font-family: $openSans-bold;
-                            font-size: 32px;
-                            line-height: 1.2;
-                            @include breakpoint($breakpoint-mobile) {
-                                font-size: 26px;
-                            }
-                        }
-                    }
-                }
-                #lugar-title-contact {
-                    width: 83%;
-                    display: inline-block;
-                    vertical-align: top;
-                    text-align: left;
-                    float: left;
-                    margin-left: 15px;
-                    @include breakpoint($breakpoint-mobile) {
-                        font-size: 13px;
-                        margin-left: 0;
-                    }
-
-                    .lugar-title-comun {
-                        color: $gray-middle;
-                        height: auto;
-                        padding-top: 0px;
-                        padding-bottom: 10px;
-                    }
-                    .lugar-direccion {
-                        font-family: $openSans-bold;
-                    }
-                    .lugar-tel {
-                        color: $gray-middle;
-                    }
-                    .lugar-web {
-                        a {
-                            color: #f18932;
-                            font-size: 15px;
-                        }
-                    }
-                }
-                #lugar-title-right {
-                    display: inline-block;
-                    width: auto;
-                }
-            }
-            #lugar-descripcion {
-                height: 195px;
-                margin-top: 25px;
-                text-align: initial;
-                overflow: hidden;
-                font-size: 15px;
-                @include breakpoint($breakpoint-mobile) {
-                    font-size: 13px;
-                    height: auto;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    margin-bottom: 25px;
-                    height: auto;
-                }
-            }
-        }
-        #info-lugar-middle {
-            height: 500px;
-            width: 280px;
-            float: left;
-            margin-left: 30px;
-            margin-right: 30px;
-            @include breakpoint($breakpoint-mobile) {
-                height: auto;
-                margin-left: 0;
-                margin-right: 0;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                height: auto;
-                margin-left: 0;
-                margin-right: 0;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-portrait) {
-                width: 40%;
-                height: 200px;
-                float: right;
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            #lugar-mapa {
-                height: 500px;
-                overflow: inherit !important;
-                top: 0;
-                width: 280px;
-                @include breakpoint($breakpoint-mobile) {
-                    height: 250px;
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    height: 250px;
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-portrait) {
-                    width: 100%;
-                    height: 200px;
-                }
-            }
-        }
-        #info-lugar-right {
-            height: 500px;
-            vertical-align: top;
-            width: 430px;
-            float: left;
-            @include breakpoint($breakpoint-mobile) {
-                height: auto;
-                margin-left: 0;
-                margin-top: 20px;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                height: auto;
-                margin-left: 0;
-                margin-top: 20px;
-                width: 100%;
-            }
-
-            @include breakpoint($breakpoint-portrait) {
-                height: 250px;
-                width: 40%;
-                float: right;
-                margin-top: 10px;
-            }
-
-            #lugar-fotos {
-                height: 435px;
-                width: 430px;
-                @include breakpoint($breakpoint-mobile) {
-                    height: 100%;
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    height: 100%;
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-portrait) {
-                    height: 250px;
-                    width: 100%;
-                }
-
-                #owl-demo {
-                    .owl-wrapper-outer {
-                        .owl-wrapper {
-                            @include breakpoint($breakpoint-mobile) {
-                                width: 100%;
-                            }
-
-                            .owl-item {
-                                @include breakpoint($breakpoint-mobile) {
-                                    width: 100%;
-                                }
-
-                                .item {
-                                    @include breakpoint($breakpoint-portrait) {
-                                        width: 100%;
-                                        height: 100%;
-                                    }
-
-                                    img {
-                                        display: block;
-                                        width: 100%;
-                                        height: auto;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            #lugar-links {
-                background-color: $gray-middle-three;
-                height: 40px;
-                margin-top: 25px;
-                width: 430px;
-                @include breakpoint($breakpoint-mobile) {
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    width: 100%;
-                }
-
-                @include breakpoint($breakpoint-portrait) {
-                    display: none;
-                }
-
-                h4 {
-                    color: white;
-                    float: left;
-                    font-size: 25px;
-                    margin-left: 15px;
-                    margin-top: 1px;
-                    @include breakpoint($breakpoint-mobile) {
-                        font-size: 16px;
-                        margin-left: 10px;
-                        margin-top: 7px;
-                    }
-
-                    @include breakpoint($breakpoint-landscape) {
-                        font-size: 20px;
-                        margin-left: 10px;
-                        margin-top: 4px;
-                    }
-                }
-                ul {
-                    list-style: none;
-                    text-align: right;
-                    width: 100%;
-                    li {
-                        display: inline-block;
-                        margin: 0;
-                        padding: 0;
-                        a {
-                            height: 40px;
-                            margin: 0;
-                            padding: 0;
-                            width: 40px;
-                            display: block;
-                        }
-                        .contacto-face {
-                            background: url("../img/contacto-facebook.png") no-repeat !important;
-                        }
-                        .contacto-twitter {
-                            background: url("../img/contacto-twitter.png") no-repeat !important;
-                        }
-                        .contacto-plus {
-                            background: url("../img/contacto-plus.png") no-repeat !important;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .info-left {
+    .section__review {
         width: 740px;
         float: left;
-        // margin-top: 30px;
-        @include breakpoint($breakpoint-mobile) {
+        @include breakpoint($breakpoint-bigweb-max) {
             margin-bottom: 0;
             width: 100%;
         }
 
-        @include breakpoint($breakpoint-landscape) {
-            margin-bottom: 0;
-            width: 100%;
-        }
-
-        @include breakpoint($breakpoint-portrait) {
-            margin-bottom: 0;
-            width: 100%;
+        @include breakpoint($breakpoint-bigwebhd) {
+            width: 60%;
         }
 
         .promo {
@@ -399,26 +43,25 @@
             }
             .promo-more {}
         }
-        .comentarios-lugar {
+        .section__review__comentarios {
             background-color: $gray-middle-two;
             display: inline-block;
             margin: 30px 0;
             height: auto;
-            width: 740px;
-            padding: 0;
-            @include breakpoint($breakpoint-mobile) {
+            width: 720px;
+            padding: 10px;
+            @include breakpoint($breakpoint-portrait-max) {
+                font-size: 13px;
                 margin-bottom: 0;
-                width: 100%;
+                width: 94%;
             }
 
-            @include breakpoint($breakpoint-landscape) {
-                margin-bottom: 0;
-                width: 100%;
+            @include breakpoint($breakpoint-bigweb) {
+                width: 94%;
             }
 
-            @include breakpoint($breakpoint-portrait) {
-                margin-bottom: 0;
-                width: 100%;
+            @include breakpoint($breakpoint-bigwebhd) {
+                width: 96%;
             }
 
             .menu-lugar {
@@ -427,7 +70,7 @@
                 margin: 0 auto;
                 width: 80%;
                 padding: 20px 0px;
-                border-bottom: 1px solid #CCC;
+                border-bottom: 1px solid $gray-middle-five;
                 .menu-lugar-logo {
                     width: 130px;
                     float: left;
@@ -455,113 +98,103 @@
                     width: 670px !important;
                 }
             }
-            #post-review-box {
+            .section__review-box {
                 form {
                     .form-comment-rating {
                         height: 155px;
                         .form-comment {
                             display: inline-block;
-                            vertical-align: top;
-                            float: left;
-                            margin-left: 20px;
+                            height: 100%;
+                            width: 100%;
                             .form-control {
                                 font-size: 16px;
                                 height: 130px !important;
                                 width: 680px;
                                 padding: 10px;
                                 resize: none !important;
-                                @include breakpoint($breakpoint-mobile) {
+                                @include breakpoint($breakpoint-portrait-max) {
                                     font-size: 13px;
-                                    width: 100%;
-                                }
-
-                                @include breakpoint($breakpoint-landscape) {
-                                    font-size: 13px;
-                                    width: 100%;
-                                }
-
-                                @include breakpoint($breakpoint-portrait) {
-                                    font-size: 16px;
                                     width: 100%;
                                 }
                             }
+                            .new-review {
+                                height: 100%;
+                                width: 100%;
+                            }
                         }
                     }
-                    .form-buttons {
-                        margin-top: 10px;
-                        height: 60px;
-                        text-align: left;
-                        width: 60%;
-                        display: inline-block;
+                    .form-buttons-review {
                         float: left;
-                        margin-left: 20px;
-                        @include breakpoint($breakpoint-mobile) {
-                            width: auto;
-                        }
+                        width: 100%;
+                        padding-top: 10px;
+                        .form-buttons {
+                            float: left;
+                            height: 60px;
+                            @include breakpoint($breakpoint-mobile) {
+                                width: auto;
+                            }
 
-                        .form-buttons-login {
-                            font-size: 13px;
-                            font-style: italic;
-                            a {
-                                color: $orange-middle;
-                                @include transition(color 0.3s ease);
-                                &:hover {
-                                    color: $orange-light;
-                                }
-                            }
-                        }
-                        .button {
-                            padding: 5px 0px;
-                            font-size: 16px;
-                            line-height: 1.33;
-                            width: 90px;
-                        }
-                        .button-comment {
-                            color: white;
-                            background-color: $gray-middle-three;
-                            border-color: $gray-middle-three;
-                            border-color: $gray-middle-three;
-                        }
-                        .button-comment-user {
-                            background-color: $green-dark;
-                            border-color: $green-dark;
-                            &:hover {
-                                @include box-shadow(0px 0px 4px black);
-                            }
-                        }
-                    }
-                    .lugar-rating-star {
-                        width: 33%;
-                        vertical-align: top;
-                        margin-top: 10px;
-                        display: inline-block;
-                        .text-right {
-                            text-align: right;
-                            position: relative;
-                            .lugar-rating-vote {
+                            .form-buttons-login {
                                 font-size: 13px;
                                 font-style: italic;
-                                position: absolute;
-                                left: 60px;
-                                top: 5px;
+                                a {
+                                    color: $orange-middle;
+                                    @include transition(color 0.3s ease);
+                                    &:hover {
+                                        color: $orange-light;
+                                    }
+                                }
                             }
-                            .stars {
-                                font-size: 24px;
-                                color: $gray-middle-three;
-                                float: right;
-                                margin-left: 20px;
+                            .button {
+                                padding: 5px 0px;
+                                font-size: 16px;
+                                line-height: 1.33;
+                                width: 90px;
                             }
-                            .stars-user {
-                                color: #fbb714;
+                            .button-comment {
+                                color: white;
+                                background-color: $gray-middle-three;
+                                border-color: $gray-middle-three;
+                                border-color: $gray-middle-three;
+                            }
+                            .button-comment-user {
+                                background-color: $green-dark;
+                                border-color: $green-dark;
+                                &:hover {
+                                    @include box-shadow(0px 0px 4px black);
+                                }
+                            }
+                        }
+                        .lugar-rating-star {
+                            width: 33%;
+                            float: right;
+                            .text-right {
+                                text-align: right;
+                                position: relative;
+                                .lugar-rating-vote {
+                                    font-size: 13px;
+                                    font-style: italic;
+                                    position: absolute;
+                                    left: 60px;
+                                    top: 5px;
+                                }
+                                .stars {
+                                    font-size: 24px;
+                                    color: $gray-middle-three;
+                                    float: right;
+                                    margin-left: 20px;
+                                }
+                                .stars-user {
+                                    color: $orange-midlight;
+                                }
                             }
                         }
                     }
                 }
             }
-            .review {
+            .section__review-comment {
                 border-top: 1px solid $gray-middle-four;
                 padding: 20px;
-                margin: 0 20px;
                 clear: both;
                 @include breakpoint($breakpoint-mobile) {
                     padding-left: 0;
@@ -575,13 +208,13 @@
                     margin: 0 10px;
                 }
 
-                .review-comment-photo {
+                .section__review-photo {
                     float: left;
                     width: 50px;
                     height: 50px;
                     display: inline-block;
                 }
-                .review-data {
+                .section__review-votes {
                     display: inline-block;
                     width: 300px;
                     margin: 0;
@@ -596,208 +229,517 @@
                         width: auto;
                     }
 
-                    .review-comment-rating {
+                    .section__review-votesrating {
                         margin-left: 25px;
                         margin-bottom: 11px;
-                        .glyphicon {
-                            color: #fbb714;
-                        }
-                        .glyphicon-star-empty {
-                            color: #ccc;
-                        }
                     }
-                    .review-comment-username {
+                    .section__review-username {
                         margin-left: 25px;
                     }
                 }
-                .review-comment-date {
+                .section__review-commentdate {
                     float: right;
                 }
-                .review-comment {
+                .section__review-commentuser {
                     clear: both;
                     text-align: left;
                     padding-top: 20px;
                     padding-left: 75px;
                 }
             }
-            #comentarios-links {
+            .section__review-navigation {
                 padding: 20px;
                 border-top: 1px solid $gray-middle-four;
-                margin: 0 20px;
             }
         }
     }
-    .lugar-rating-right {
-        width: 430px;
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 25px;
+}
+
+.lugar-info {
+    @include breakpoint($breakpoint-bigwebhd) {
+        height: 500px;
+        float: left;
+        overflow: hidden;
+    }
+}
+
+.lugar-info__mapa {
+    height: 500px;
+    width: 280px;
+    float: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    @include breakpoint($breakpoint-mobile) {
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        float: right;
+        height: 200px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        width: 38%;
+        float: right;
+        margin: 0;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        float: right;
+        height: 30%;
+        margin: 0;
+        width: 35%;
+    }
+
+    #lugar-mapa {
+        height: 500px;
+        overflow: inherit !important;
+        top: 0;
+        width: 280px;
         @include breakpoint($breakpoint-mobile) {
-            margin-left: 0;
+            height: 250px;
             width: 100%;
         }
 
         @include breakpoint($breakpoint-landscape) {
-            margin-left: 0;
+            height: 250px;
             width: 100%;
         }
 
-        .lugar-votos {
-            display: inline-block;
-            width: 349px;
-            vertical-align: top;
-            margin-top: 30px;
+        @include breakpoint($breakpoint-portrait) {
+            height: 200px;
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint-bigweb) {
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint-bigwebhd) {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.lugar-info__desc {
+    height: 500px;
+    vertical-align: top;
+    width: 430px;
+    float: left;
+    @include breakpoint($breakpoint-mobile) {
+        height: auto;
+        margin-bottom: 20px;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        height: auto;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        height: auto;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        width: 60%;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        width: 60%;
+    }
+
+    .lugar-info__desc-title {
+        background-color: $gray-middle-two;
+        height: 300px;
+        @include breakpoint($breakpoint-mobile) {
+            padding: 10px;
+        }
+
+        .lugar-info__desc-ratings {
+            padding: 15px;
             @include breakpoint($breakpoint-mobile) {
-                width: 80%;
+                padding: 0;
             }
 
-            @include breakpoint($breakpoint-landscape) {
+            .lugar-info__desc-ratings-stars {
                 float: left;
-                width: 80%;
+                font-family: $openSans-light;
+                @include breakpoint($breakpoint-mobile) {
+                    font-size: 12px;
+                }
             }
-
-            h3 {
-                color: #656565;
+            .lugar-info__desc-ratings-reviews {
+                float: right;
+                @include breakpoint($breakpoint-mobile) {
+                    font-size: 12px;
+                }
+            }
+        }
+        .lugar-title-left {
+            .lugar-nombre {
+                height: 100px;
                 text-align: left;
-                font-size: 24px;
-                margin-bottom: 25px;
-                margin-top: 0 !important;
-            }
-            .lugar-ocasion-votos {
-                .lugar-votos-ocasion {
-                    margin-bottom: 15px;
+                margin-left: 13px;
+                margin-top: 20px;
+                @include breakpoint($breakpoint-mobile) {
+                    height: 50px;
+                    margin-left: 0;
+                    margin-top: 25px;
+                }
+
+                h1 {
                     color: #656565;
-                    .lugar-votos-desc {
-                        display: inline-block;
-                        text-align: left;
-                        width: 50%;
-                        font-family: $openSans-bold;
-                        @include breakpoint($breakpoint-mobile) {
-                            width: 75%;
-                            font-size: 14px;
-                        }
-
-                        @include breakpoint($breakpoint-landscape) {
-                            width: 80%;
-                        }
-                    }
-                    .lugar-votos-voto {
-                        display: inline-block;
-                        font-family: $openSans-light;
-                        text-align: right;
-                        width: 50%;
-                        @include breakpoint($breakpoint-mobile) {
-                            width: 25%;
-                            font-size: 14px;
-                        }
-
-                        @include breakpoint($breakpoint-landscape) {
-                            width: 20%;
-                        }
-                    }
-                    .meter {
-                        height: 12px;
-                        position: relative;
-                        background: #E6E6E6;
-                        padding: 6px;
-                        margin-top: 6px;
-                        @include box-shadow(inset 0 -1px 1px rgba(255, 255, 255, 0.3));
-                        & > span {
-                            display: block;
-                            height: 100%;
-                            background-color: $orange-light;
-                            @include background-image(linear-gradient($orange-light, #f36d0a));
-                            position: relative;
-                            overflow: hidden;
-                        }
-                    }
-                    .meter > span:after, .animate > span > span {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        bottom: 0;
-                        right: 0;
-                        background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
-                        background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-                        z-index: 1;
-                        -webkit-background-size: 50px 50px;
-                        -moz-background-size: 50px 50px;
-                        -webkit-animation: move 2s linear infinite;
-                        -webkit-border-top-right-radius: 8px;
-                        -webkit-border-bottom-right-radius: 8px;
-                        -moz-border-radius-topright: 8px;
-                        -moz-border-radius-bottomright: 8px;
-                        border-top-right-radius: 8px;
-                        border-bottom-right-radius: 8px;
-                        -webkit-border-top-left-radius: 20px;
-                        -webkit-border-bottom-left-radius: 20px;
-                        -moz-border-radius-topleft: 20px;
-                        -moz-border-radius-bottomleft: 20px;
-                        border-top-left-radius: 20px;
-                        border-bottom-left-radius: 20px;
-                        overflow: hidden;
-                    }
-                    @-webkit-keyframes move {
-                        0% {
-                            background-position: 0 0;
-                        }
-                        100% {
-                            background-position: 50px 50px;
-                        }
-                    }
-
-                    .orange > span {
-                        background-color: $orange-light;
-                        @include background-image(linear-gradient($orange-light, #f36d0a));
-                    }
-                    .nostripes > span > span, .nostripes > span:after {
-                        -webkit-animation: none;
-                        background-image: none;
+                    font-family: $openSans-bold;
+                    font-size: 32px;
+                    line-height: 1.2;
+                    @include breakpoint($breakpoint-mobile) {
+                        font-size: 26px;
                     }
                 }
             }
         }
-        .lugar-votos-right {
+        .lugar-title-contact {
+            width: 83%;
             display: inline-block;
-            width: 76px;
             vertical-align: top;
-            margin-top: 111px;
-            text-align: right;
+            text-align: left;
+            float: left;
+            margin-left: 15px;
             @include breakpoint($breakpoint-mobile) {
-                width: 20%;
+                font-size: 13px;
+                margin-left: 0;
+            }
+
+            .lugar-title-comun {
+                color: $gray-middle;
+                height: auto;
+                padding-top: 0px;
+                padding-bottom: 10px;
+            }
+            .lugar-direccion {
+                font-family: $openSans-bold;
+            }
+            .lugar-tel {
+                color: $gray-middle;
+            }
+            .lugar-web {
+                a {
+                    color: #f18932;
+                    font-size: 15px;
+                }
+            }
+        }
+        .lugar-info__desc-social {
+            display: inline-block;
+            width: auto;
+        }
+    }
+    .lugar-info__desc-desc {
+        height: 195px;
+        margin-top: 25px;
+        text-align: initial;
+        overflow: hidden;
+        font-size: 15px;
+        @include breakpoint($breakpoint-mobile) {
+            font-size: 13px;
+            height: auto;
+        }
+
+        @include breakpoint($breakpoint-landscape) {
+            margin-bottom: 25px;
+            height: auto;
+        }
+
+        @include breakpoint($breakpoint-portrait) {
+            height: auto;
+        }
+    }
+}
+
+.lugar-info__slide {
+    height: 500px;
+    vertical-align: top;
+    width: 430px;
+    float: left;
+    @include breakpoint($breakpoint-landscape-max) {
+        height: auto;
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        height: auto;
+        margin: 0 auto;
+        width: 50%;
+        float: none;
+    }
+
+    @include breakpoint($breakpoint-bigweb) {
+        clear: both;
+        float: none;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        float: right;
+        height: 63%;
+        margin-top: 20px;
+        width: 35%;
+    }
+
+    .lugar-info__slide-fotos {
+        height: 435px;
+        width: 430px;
+        @include breakpoint($breakpoint-landscape-max) {
+            height: 100%;
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint-portrait) {
+            height: auto;
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint-bigwebhd) {
+            height: 100%;
+            width: 100%;
+        }
+
+        #owl-demo {
+            .owl-wrapper-outer {
+                .owl-wrapper {
+                    @include breakpoint($breakpoint-mobile) {
+                        width: 100%;
+                    }
+
+                    .owl-item {
+                        @include breakpoint($breakpoint-mobile) {
+                            width: 100%;
+                        }
+
+                        .item {
+                            @include breakpoint($breakpoint-portrait) {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            img {
+                                display: block;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .lugar-info__slide-share {
+        background-color: $gray-middle-three;
+        height: 40px;
+        margin-top: 25px;
+        width: 430px;
+        @include breakpoint($breakpoint-landscape-max) {
+            width: 100%;
+        }
+
+        @include breakpoint($breakpoint-portrait) {
+            display: none;
+        }
+
+        h4 {
+            color: white;
+            float: left;
+            font-size: 25px;
+            margin-left: 15px;
+            margin-top: 1px;
+            @include breakpoint($breakpoint-mobile) {
+                font-size: 16px;
+                margin-left: 10px;
+                margin-top: 7px;
             }
 
             @include breakpoint($breakpoint-landscape) {
-                width: 42px;
-                float: right;
+                font-size: 20px;
+                margin-left: 10px;
+                margin-top: 4px;
             }
+        }
+        ul {
+            text-align: right;
+            width: 100%;
+            li {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                a {
+                    height: 40px;
+                    margin: 0;
+                    padding: 0;
+                    width: 40px;
+                    display: block;
+                }
+                .contacto-face {
+                    background: url("../img/contacto-facebook.png") no-repeat !important;
+                }
+                .contacto-twitter {
+                    background: url("../img/contacto-twitter.png") no-repeat !important;
+                }
+                .contacto-plus {
+                    background: url("../img/contacto-plus.png") no-repeat !important;
+                }
+            }
+        }
+    }
+}
 
-            .lugar-votos-button {
-                height: 23px;
-                margin-bottom: 44px;
-                float: right;
-                width: 42px;
-                .voteocasion {
-                    color: white;
-                    @include transition(all 0.3s ease);
+.lugar-contentrating {
+    width: 430px;
+    margin-left: 0;
+    float: right;
+    @include breakpoint($breakpoint-mobile) {
+        float: left;
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        float: right;
+        width: 38%;
+    }
+}
+
+.lugar-contentrating-votos {
+    display: inline-block;
+    width: 349px;
+    vertical-align: top;
+    margin-top: 30px;
+    @include breakpoint($breakpoint-mobile) {
+        width: 75%;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        float: left;
+        width: 85%;
+    }
+
+    @include breakpoint($breakpoint-bigwebhd) {
+        float: left;
+        width: 80%;
+    }
+
+    h3 {
+        color: #656565;
+        text-align: left;
+        font-size: 24px;
+        margin-bottom: 25px;
+        margin-top: 0 !important;
+    }
+    .lugar-contentrating-ocasion {
+        .lugar-votos-ocasion {
+            margin-bottom: 15px;
+            color: #656565;
+            .lugar-votos-desc {
+                display: inline-block;
+                text-align: left;
+                width: 50%;
+                font-family: $openSans-bold;
+                @include breakpoint($breakpoint-mobile) {
+                    width: 75%;
+                    font-size: 14px;
                 }
-                .voteocasion-up {
-                    background-color: #EEE;
-                    padding: 10px 12px;
-                    &:hover {
-                        background-color: #58ba48;
-                        border-radius: 50%;
-                    }
+
+                @include breakpoint($breakpoint-landscape) {
+                    width: 80%;
                 }
-                .voteocasion-down {
-                    background-color: #EEE;
-                    padding: 10px 14px;
-                    &:hover {
-                        background-color: $red-dark;
-                        border-radius: 50%;
-                    }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    width: 80%;
                 }
+            }
+            .lugar-votos-voto {
+                display: inline-block;
+                font-family: $openSans-light;
+                text-align: right;
+                width: 50%;
+                @include breakpoint($breakpoint-mobile) {
+                    width: 25%;
+                    font-size: 14px;
+                }
+
+                @include breakpoint($breakpoint-landscape) {
+                    width: 20%;
+                }
+
+                @include breakpoint($breakpoint-bigwebhd) {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+.lugar-contentrating-buttons {
+    display: inline-block;
+    width: 76px;
+    vertical-align: top;
+    margin-top: 111px;
+    text-align: right;
+    @include breakpoint($breakpoint-mobile) {
+        width: 25%;
+    }
+
+    @include breakpoint($landscape + 1 $bigweb) {
+        float: right;
+        width: 10%;
+    }
+
+    .lugar-votos-button {
+        height: 23px;
+        margin-bottom: 44px;
+        float: right;
+        width: 42px;
+        .voteocasion {
+            color: white;
+            @include transition(all 0.3s ease);
+        }
+        .voteocasion-up {
+            background-color: #EEE;
+            padding: 10px 12px;
+            &:hover {
+                background-color: #58ba48;
+                border-radius: 50%;
+            }
+        }
+        .voteocasion-down {
+            background-color: #EEE;
+            padding: 10px 14px;
+            &:hover {
+                background-color: $red-dark;
+                border-radius: 50%;
             }
         }
     }

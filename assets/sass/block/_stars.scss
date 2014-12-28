@@ -1,0 +1,24 @@
+.glyphicon {
+    color: $orange-midlight;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    font-family: $glyphicons-halflings;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-star-empty {
+    color: $gray-middle-five;
+}
+
+.glyphicon-star:before {
+    content: "\e006";
+}
+
+.glyphicon-star-empty:before {
+    content: "\e007";
+}

@@ -1,7 +1,3 @@
-#barra-contacto {
-    background: $blue-light;
-}
-
 .content-contacto {
     @include container(1200px);
     border-top: 2px solid $gray-middle-four;
@@ -21,147 +17,152 @@
         }
     }
     p {
-        margin: 0;
         text-align: left;
         @include breakpoint($breakpoint-mobile) {
             font-size: 14px;
             margin-top: 10px;
         }
     }
-    #header-contacto {
-        color: $gray-dark;
-        margin-top: 10px;
+}
+
+#header-contacto {
+    margin-top: 10px;
+}
+
+#info-contacto {
+    display: inline-block;
+    height: 270px;
+    margin-top: 50px;
+    vertical-align: top;
+    width: 445px;
+    @include breakpoint($breakpoint-mobile) {
+        height: auto;
+        width: 100%;
     }
-    #info-contacto {
-        display: inline-block;
-        height: 270px;
-        margin-top: 50px;
-        vertical-align: top;
-        width: 445px;
+
+    #info-data {
+        font-size: 18px;
+        margin-top: 8px;
+        #info-mail {
+            color: $orange-middle;
+            strong {
+                color: $gray-dark;
+            }
+        }
+    }
+}
+
+#links-contacto {
+    margin-top: 103px;
+    @include breakpoint($breakpoint-mobile) {
+        margin-top: 30px;
+    }
+
+    ul {
+        text-align: left;
+        li {
+            display: inline-block;
+            margin-right: 1px;
+            a {
+                display: block;
+                height: 40px;
+                margin: 0;
+                padding: 0;
+                width: 40px;
+            }
+        }
+    }
+}
+
+.contacto-face {
+    background: url("../img/contacto-facebook.png") no-repeat;
+}
+
+.contacto-twitter {
+    background: url("../img/contacto-twitter.png") no-repeat;
+}
+
+.contacto-plus {
+    background: url("../img/contacto-plus.png") no-repeat;
+}
+
+#mensaje-contacto {
+    background: $gray-middle-four;
+    display: inline-block;
+    height: 270px;
+    margin-top: 50px;
+    vertical-align: top;
+    width: 750px;
+    @include breakpoint($breakpoint-mobile) {
+        width: 100%;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        margin-top: 2px;
+        margin-left: 15px;
         @include breakpoint($breakpoint-mobile) {
-            height: auto;
-            width: 100%;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    }
+    #form-contacto {
+        margin-top: 15px;
+        @include breakpoint($breakpoint-mobile) {
+            padding: 10px;
         }
 
-        #info-data {
-            font-size: 18px;
+        input {
+            font-family: $titillium-light;
+            font-style: oblique;
+        }
+        #form-enviar {
+            background: $blue-light;
+            @include border-radius(3px);
+            color: white;
+            float: right;
+            font-family: $titillium-bold;
+            font-style: normal;
+            font-size: 23px;
+            height: 40px;
             margin-top: 8px;
-            #info-mail {
-                color: #f38a2f;
-                strong {
-                    color: $gray-dark;
-                }
+            margin-right: 15px;
+            width: 150px;
+            @include breakpoint($breakpoint-mobile) {
+                margin-right: 0;
             }
         }
-        #links-contacto {
-            margin-top: 103px;
+        #form-nombre, #form-mail {
+            @include border-radius(3px);
+            font-size: 16px;
+            height: 40px;
+            margin-left: 7px;
+            margin-right: 7px;
+            width: 350px;
             @include breakpoint($breakpoint-mobile) {
-                margin-top: 30px;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
             }
-
-            ul {
-                text-align: left;
-                li {
-                    display: inline-block;
-                    margin-right: 1px;
-                    a {
-                        display: block;
-                        height: 40px;
-                        margin: 0;
-                        padding: 0;
-                        width: 40px;
-                    }
-                }
-            }
-            .contacto-face {
-                background: url("../img/contacto-facebook.png") no-repeat;
-            }
-            .contacto-twitter {
-                background: url("../img/contacto-twitter.png") no-repeat;
-            }
-            .contacto-plus {
-                background: url("../img/contacto-plus.png") no-repeat;
+        }
+        #form-mail {
+            margin-top: 10px;
+        }
+        #form-comentario {
+            @include border-radius(3px);
+            font-family: $titillium-light;
+            font-style: oblique;
+            font-size: 16px;
+            height: 90px;
+            margin-top: 10px;
+            width: 720px;
+            @include breakpoint($breakpoint-mobile) {
+                width: 100%;
             }
         }
     }
-    #mensaje-contacto {
-        background: #dcdcdc;
-        display: inline-block;
-        height: 270px;
-        margin-top: 50px;
-        vertical-align: top;
-        width: 750px;
-        @include breakpoint($breakpoint-mobile) {
-            width: 100%;
-            height: auto;
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            margin-top: 2px;
-            margin-left: 15px;
-            @include breakpoint($breakpoint-mobile) {
-                margin-top: 10px;
-                margin-left: 10px;
-            }
-        }
-        #form-contacto {
-            margin-top: 15px;
-            @include breakpoint($breakpoint-mobile) {
-                padding: 10px;
-            }
-
-            input {
-                font-family: $titillium-light;
-                font-style: oblique;
-            }
-            #form-enviar {
-                background: $blue-light;
-                @include border-radius(3px);
-                color: white;
-                float: right;
-                font-family: $titillium-bold;
-                font-style: normal;
-                font-size: 23px;
-                height: 40px;
-                margin-top: 8px;
-                margin-right: 15px;
-                width: 150px;
-                @include breakpoint($breakpoint-mobile) {
-                    margin-right: 0;
-                }
-            }
-            #form-nombre, #form-mail {
-                @include border-radius(3px);
-                font-size: 16px;
-                height: 40px;
-                margin-left: 7px;
-                margin-right: 7px;
-                width: 350px;
-                @include breakpoint($breakpoint-mobile) {
-                    margin-left: 0;
-                    margin-right: 0;
-                    width: 100%;
-                }
-            }
-            #form-mail {
-                margin-top: 10px;
-            }
-            #form-comentario {
-                @include border-radius(3px);
-                font-family: $titillium-light;
-                font-style: oblique;
-                font-size: 16px;
-                height: 90px;
-                margin-top: 10px;
-                width: 720px;
-                @include breakpoint($breakpoint-mobile) {
-                    width: 100%;
-                }
-            }
-        }
-        #respuesta {
-            display: none;
-        }
+    #respuesta {
+        display: none;
     }
 }

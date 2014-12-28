@@ -1,19 +1,19 @@
 
 	<footer>
-		<section id="home-footer">
+		<section class="home-footer">
 
 			<div class="footer-block">
 
-				<nav id="footer-links" class="footer-info">
+				<nav class="footer-links footer-info">
 					<h3>TU SALIDA</h3>
-					<div id="about">
+					<div class="about">
 						<ul>
 							<li><a href="<?php echo $url?>/novedades">Novedades</a></li>
 							<li><a href="<?php echo $url?>/laposta">La Posta</a></li>
 						</ul>
 					</div>
 
-					<div id="contact">
+					<div class="contact">
 						<ul>
 							<li><a href="<?php echo $url?>/quees">¿Qué es?</a></li>
 							<li><a href="<?php echo $url?>/contacto">Contacto</a></li>
@@ -21,7 +21,7 @@
 					</div>
 				</nav>
 
-				<article id="footer-redes" class="footer-info">
+				<article class="footer-redes footer-info">
 					<h3>SEGUINOS EN</h3>
 					<ul>
 						<li><a href="http://facebook.com/TuSalidaBar" class="link-face"></a></li>
@@ -30,7 +30,7 @@
 					</ul>
 				</article>
 
-				<article id="footer-news" class="footer-info">
+				<article class="footer-news footer-info">
 					<h3>MANTENTE INFORMADO</h3>
 
 					<div class="input">
@@ -77,7 +77,6 @@
 			$(".select-city").change(function(){
 				window.location = "http://" + $(this).val() + ".epikureos.com";
 			});
-			//CONTACTO
 			$('#form-contacto').submit(function() {
 				$.post("enviar.php", $("#form-contacto").serialize(),  function(response) {			
 					$('#respuesta').css("display","block");
@@ -97,8 +96,8 @@
 		});
 
 	    $(function() {
-	        var btn_movil = $('#nav-mobile'),
-	           	menu = $('#menu').find('ul');
+	        var btn_movil = $('.nav-mobile'),
+	           	menu = $('.menu').find('ul');
 	        btn_movil.on('click', function (e) {
 	            e.preventDefault();
 	            var el = $(this);

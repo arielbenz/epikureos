@@ -1,0 +1,79 @@
+#secondary {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: top;
+    width: 290px;
+    @include breakpoint($breakpoint-bigwebhd-max) {
+        display: none;
+    }
+}
+
+#search-2 {
+    background-color: $gray-dark;
+    height: 125px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+#searchsubmit {
+    width: 100px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: $gray-dark;
+    border: 1px solid white;
+    color: white;
+    @include transition(background 0.3s ease-out);
+    &:hover {
+        background-color: $orange-dark;
+    }
+}
+
+#searchform {
+    padding-top: 15px;
+    #s {
+        display: block;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 250px;
+    }
+    .submit {
+        display: none;
+    }
+}
+
+#categories-2 {
+    background-color: $gray-dark;
+    height: 125px;
+    margin: 0 auto;
+    width: 290px;
+    margin-bottom: 25px;
+    @include breakpoint($breakpoint-mobile) {
+        display: none;
+    }
+
+    h3 {
+        color: white;
+        font-family: $openSans-bold;
+        font-size: 25px;
+        padding-top: 10px;
+    }
+    .postform {
+        height: 40px;
+        margin-top: 15px;
+        width: 250px;
+    }
+}
+
+.next-pages {
+    background-color: $gray-middle-four;
+    margin: 0 auto;
+    height: 15px;
+    padding-top: 2px;
+    width: 100px;
+}
