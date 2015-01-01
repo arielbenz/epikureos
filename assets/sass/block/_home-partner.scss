@@ -1,9 +1,12 @@
 .partner-section {
-    height: 80px;
+    height: 100px;
     background-color: $gray-middle-two;
     margin-bottom: 20px;
+    @include container(1200px);
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
     .partner-section-logos {
-        margin: 0 auto;
+        padding-top: 10px;
         ul {
             li {
                 display: inline-block;

@@ -472,4 +472,73 @@ class AdminController extends BaseController {
 		return Redirect::to('/admin/comidas');
 	}
 
+	/*==========  OCASION  ==========*/
+
+	public function ocasiones() {
+		$ocasiones = Ocasion::all();
+		return View::make('admin.ocasiones.ocasiones')->with('ocasiones', $ocasiones);
+	}
+
+	public function ocasiones_add()	{
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$ocasion = new Ocasion;
+				$ocasion->slug = Input::get('slug');
+				$ocasion->descripcion = Input::get('descripcion');
+			$ocasion->save();
+
+			return Redirect::to('/admin/ocasiones');
+		}
+	}
+
+	public function ocasiones_get_edit($id)	{
+		$ocasiones = Ocasion::all();
+		$ocasion = Ocasion::find($id);
+		return View::make('admin.ocasiones.ocasiones')->with('ocasiones', $ocasiones)->with('ocasion', $ocasion);
+	}
+
+	public function ocasiones_post_edit($id) {
+		$input = Input::all();
+
+		$rules = array(
+			'slug' => 'required',
+			'descripcion' => 'required',
+		);
+
+		$validator = Validator::make($input, $rules);
+
+		if($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator);
+		}
+		else
+		{
+			$ocasion = Ocasion::find($id);
+				$ocasion->slug = Input::get('slug');
+				$ocasion->descripcion = Input::get('descripcion');
+			$ocasion->save();
+
+			return Redirect::to('/admin/ocasiones');
+		}
+	}
+
+	public function ocasiones_delete($id) {
+		$ocasion = Ocasion::find($id);
+		$ocasion->delete();
+		return Redirect::to('/admin/ocasiones');
+	}
+
 }

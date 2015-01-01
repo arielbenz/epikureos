@@ -31,15 +31,6 @@
 
 		<section class="home-tiles">
 
-			<div class="partner-section">
-				<div class="partner-section-logos">
-					<ul>
-						<li class="logo-sol"><a href="http://www.institutosol.edu.ar"><img src="<?php echo $url?>/assets/img/logo_sol.png"></a></li>
-						<li class="logo-campari"><a href="http://www.campari.com/ar/es/"><img src="<?php echo $url?>/assets/img/lg_campari.png"></a></li>
-					</ul>
-				</div>
-			</div>
-
 			<!-- <div class="evento-section">
 				<a href="http://santafe.tusalida.net/santafealacarta"><img src="<?php echo $url?>/assets/img/santafealacarta.jpg"></a>
 			</div> -->

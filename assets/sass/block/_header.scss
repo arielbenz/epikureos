@@ -1,6 +1,6 @@
 .header {
     background: $gray-dark;
-    height: 70px;
+    height: 75px;
     z-index: 2;
     position: relative;
 }
@@ -9,8 +9,7 @@
     @include container(1200px);
     height: inherit;
     .menu {
-        @include span(8);
-        padding: 0;
+        @include span(7);
         @include breakpoint($breakpoint-bigweb-max) {
             width: 100%;
             float: none;
@@ -47,7 +46,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    opacity: .6;
+    opacity: 0.8;
+    @include breakpoint($breakpoint-mobile) {
+        width: 35px;
+    }
+
     @include breakpoint($breakpoint-bigweb-max) {
         display: block;
     }
@@ -58,18 +61,19 @@
 }
 
 .logo {
-    display: inline-block;
+    display: block;
     float: left;
     margin-top: 5px;
     padding: 0;
     text-align: left;
     @include breakpoint($breakpoint-mobile) {
-        margin-top: 12px;
         margin-left: 10px;
+        margin-top: 12px;
     }
 
     @include breakpoint($breakpoint-landscape) {
         margin-left: 10px;
+        margin-top: 12px;
     }
 
     @include breakpoint($breakpoint-portrait) {
@@ -84,21 +88,23 @@
         margin-left: 10px;
     }
 
-    a {
-        img {
-            @include breakpoint($breakpoint-mobile) {
-                width: 80%;
-            }
+    .logo-img {
+        @include breakpoint($breakpoint-mobile) {
+            width: 60%;
+        }
+
+        @include breakpoint($breakpoint-landscape) {
+            width: 80%;
+        }
+
+        @include breakpoint($breakpoint-portrait) {
+            width: 80%;
         }
     }
 }
 
-.menu-item {
-    border-top: 5px solid $gray-dark;
-    display: inline-block;
-    &.menu-actual {
-        background: $gray-dark;
-    }
+.menu-actual {
+    background: $gray-dark;
     &.menu-novedades {
         border-top: 5px solid $red-dark;
     }
@@ -111,6 +117,24 @@
     &.menu-quees {
         border-top: 5px solid $orange-middle;
     }
+}
+
+.menu-item {
+    border-top: 5px solid $gray-dark;
+    display: inline-block;
+    &.menu-novedades:hover {
+        border-top: 5px solid $red-dark;
+    }
+    &.menu-laposta:hover {
+        border-top: 5px solid $green-dark;
+    }
+    &.menu-contacto:hover {
+        border-top: 5px solid $blue-light;
+    }
+    &.menu-quees:hover {
+        border-top: 5px solid $orange-middle;
+    }
+        
     @include breakpoint($breakpoint-bigweb-max) {
         background: #252525;
         border-bottom: 1px solid #282b30;
@@ -149,13 +173,20 @@
     }
 }
 
-.menu-login, .menu-logout {
+.menu-login {
+    background-color: #597ac7;
+    border-bottom: 3px solid #808080;
+    border-color: #3c5aa0;
+    border-radius: 3px;
+    color: white;
     cursor: pointer;
+    float: right;
     font-family: $titillium-bold;
-    padding: 5px;
-    @include transition(all 0.5s ease);
+    margin: 16px 20px 0 20px;
+    padding: 6px 14px 6px 14px;
     &:hover {
-        background: #343031;
+        background-color: #3c5aa0;
+        border-color: #597ac7;
     }
     img {
         height: 30px;
@@ -163,33 +194,18 @@
         width: 30px;
     }
     @include breakpoint($breakpoint-bigweb-max) {
-        width: 100%;
-        margin: 0;
-        &:hover {
-            background: #3b5998;
-        }
+        margin-right: 210px;
     }
-}
-
-.menu-logout {
-    border: 0;
-    padding-bottom: 0;
 }
 
 .ciudad {
     float: right;
     font-family: $titillium-regular;
+    margin-top: 20px;
     padding: 0;
     position: relative;
-    @include breakpoint($breakpoint-bigweb-max) {
-        position: absolute;
-        top: -3px;
-        right: 45px;
-    }
-
-    @include breakpoint($breakpoint-bigwebhd) {
-        padding-left: 0.625rem;
-        padding-right: 0.625rem;
+    @include breakpoint($breakpoint-mobile) {
+        margin-right: 35px;
     }
 
     .select-city {
@@ -198,16 +214,19 @@
         color: $gray-middle-five;
         cursor: pointer;
         display: inline-flex !important;
-        font-size: 16px;
         height: 33px !important;
         line-height: 1;
-        margin-top: 21px;
         text-indent: 0.01px;
-        vertical-align: top;
+        //vertical-align: top;
         width: 120px;
         option {
             background-color: $gray-dark;
         }
+        @include breakpoint($breakpoint-mobile) {
+            font-size: 14px;
+            width: 90px;
+        }
+
         @include breakpoint($breakpoint-bigwebhd) {
             font-size: 14px;
         }
@@ -218,8 +237,8 @@
         font: 22px "Consolas", monospace;
         pointer-events: none;
         position: absolute;
-        right: 15px;
-        top: 25px;
+        right: 5px;
+        top: 5px;
         @include transform(rotate(90deg));
     }
 }

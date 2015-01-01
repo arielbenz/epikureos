@@ -141,5 +141,11 @@ Route::group(array('prefix' => 'admin'), function() {
         Route::get('/comidas/edit/{id}', 'AdminController@comidas_get_edit');
         Route::post('/comidas/edit/{id}', 'AdminController@comidas_post_edit');
         Route::get('/comidas/delete/{id}', 'AdminController@comidas_delete');
+
+        Route::get('/ocasiones', 'AdminController@ocasiones');
+        Route::post('/ocasiones/add', 'AdminController@ocasiones_add');
+        Route::get('/ocasiones/edit/{id}', 'AdminController@ocasiones_get_edit');
+        Route::post('/ocasiones/edit/{id}', 'AdminController@ocasiones_post_edit');
+        Route::get('/ocasiones/delete/{id}', 'AdminController@ocasiones_delete');
     });
 });

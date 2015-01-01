@@ -85,32 +85,17 @@
 	<header class="header">
 		<div class="header-nav">
 			<div class="logo">
-				<a href="<?php echo $url?>/"><img title="Tu Salida | Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/assets/img/logo.png"></a>
+				<a href="<?php echo $url?>/"><img class="logo-img" title="Tu Salida | Tus salidas en un solo lugar" alt="Tu Salida" src="<?php echo $url?>/assets/img/logo.png"></a>
 			</div>
 
 			<nav class="menu"><a class="nav-mobile" href="#"></a>
 				<ul class="menu-nav">
 					<li class="menu-inicio menu-item"><a class="menu-item-link" href="<?php echo $url?>">INICIO</a></li>
-					<li class="menu-item <?php if ($actual == "novedades") echo 'menu-actual menu-novedades">'; else echo '">'?><a class="menu-item-link" href="/novedades">NOVEDADES</a></li>
-					<li class="menu-item <?php if ($actual == "laposta") echo 'menu-actual menu-laposta">'; else echo '">'?> <a class="menu-item-link" href="/laposta">LA POSTA</a></li>
-					<li class="menu-item <?php if ($actual == "quees") echo 'menu-actual menu-quees">'; else echo '">'?> <a class="menu-item-link" href="/quees">¿QUÉ ES?</a></li>
-					<li class="menu-item <?php if ($actual == "contacto") echo 'menu-actual menu-contacto">'; else echo '">'?> <a class="menu-item-link" href="/contacto">CONTACTO</a></li>
-					<?php
-					if($actual != "novedades" && $actual != "laposta" && $actual != "blog") {
-						if (Auth::check()) { ?>
-							<li class="menu-item">
-								<a class="menu-item-link menu-logout">SALIR<img src="<?php echo Auth::user()->photo; ?>" style="width: 30px; position: relative; top: -2px; left: 0;"></a>
-							</li>
-		    			<?php } else { ?>
-	    					<li class="menu-item">
-	    						<a class="menu-item-link menu-login">INGRESAR</a>
-	    					</li>
-		    			<?php
-		    			}
-		    		}
-					?>
+					<li class="menu-item menu-novedades <?php if ($actual == "novedades") echo 'menu-actual">'; else echo '">'?><a class="menu-item-link" href="/novedades">NOVEDADES</a></li>
+					<li class="menu-item menu-laposta <?php if ($actual == "laposta") echo 'menu-actual">'; else echo '">'?> <a class="menu-item-link" href="/laposta">LA POSTA</a></li>
+					<li class="menu-item menu-quees <?php if ($actual == "quees") echo 'menu-actual">'; else echo '">'?> <a class="menu-item-link" href="/quees">¿QUÉ ES?</a></li>
+					<li class="menu-item menu-contacto <?php if ($actual == "contacto") echo 'menu-actual">'; else echo '">'?> <a class="menu-item-link" href="/contacto">CONTACTO</a></li>
 				</ul>
-				
 			</nav>
 
 			<div class="ciudad">
@@ -119,6 +104,18 @@
 					<option value ="parana">PARANÁ</option>
 				</select>
 			</div>
+
+			<?php
+			if($actual != "novedades" && $actual != "laposta" && $actual != "blog") { ?>
+				<div class="menu-login">
+					<?php if (Auth::check()) { ?>
+						<a class="logout-button">SALIR<img src="<?php echo Auth::user()->photo; ?>" style="width: 30px; position: relative; top: -1px; left: 7px;"></a>
+	    			<?php } else { ?>
+						<a class="login-button">INGRESAR</a>		
+	    			<?php
+	    			} ?>
+    			</div>
+    		<?php } ?>
 			
 		</div>
 		
