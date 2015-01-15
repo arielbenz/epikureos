@@ -22,6 +22,10 @@
         padding-top: 0px;
     }
 
+    .font-normal {
+        font-size: 38px;
+    }
+
     h2 {
         color: white;
         display: inline-block;
@@ -75,4 +79,8 @@
 
 .barra-content--terminos {
     background: $orange-middle;
+}
+
+.barra-content--perfil {
+    background: $green-dark;
 }

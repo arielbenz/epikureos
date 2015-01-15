@@ -1,8 +1,13 @@
-<?php include "../app/views/header.php";?>
+<?php 
+	$category = get_the_category(); 
+	$seccion = $category[0]->slug;
+
+	include "../app/views/header.php";
+?>
 
 	<?php
 
-		if ($actual == 'novedades') { ?>
+		if ($seccion == 'novedades') { ?>
 			
 			<section class="barra-content barra-content--novedades">
 				<div class="barra">
@@ -14,7 +19,7 @@
 
 		<?php
 
-		} else if($actual == 'laposta') { ?>
+		} else if($seccion == 'laposta') { ?>
 
 			<section class="barra-content barra-content--laposta">
 				<div class="barra">
@@ -27,7 +32,7 @@
 		}
 	?>
 
-	<div class="container-post container-<?php echo $actual; ?>">
+	<div class="container-post container-<?php echo $seccion; ?>">
 
 		<div class="content-post" >
 
@@ -39,7 +44,7 @@
 					</div>
 
 					<?php
-						if ($actual == 'laposta') { ?>
+						if ($seccion == 'laposta') { ?>
 
 							<!--imagen novedades-->
 							<div class="imagen">

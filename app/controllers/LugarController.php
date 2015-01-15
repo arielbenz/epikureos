@@ -34,7 +34,7 @@ class LugarController extends BaseController {
 				$i = $i + 1;
 			}
 
-			$comments = $lugar->comentarios()->orderBy('created_at','desc')->paginate(4);
+			$comments = $lugar->comentarios()->orderBy('created_at','desc')->paginate(10);
 
 			if (Auth::check()) {
 	        	$user_id = Auth::user()->id;
@@ -55,13 +55,8 @@ class LugarController extends BaseController {
 				$ratingUser = $review_user->rating;
 				$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
 				$index = 1;
-				foreach(Ocasion::all() as $ocasion) {
-					$ocasionVotosUser[$index] = 0;
-					foreach($reviewOcasionUser as $voteUser) {
-						if($index == $voteUser->ocasion_id) {
-							$ocasionVotosUser[$index] = 1;
-						}	
-					}
+				foreach($reviewOcasionUser as $voteUser) {
+					$ocasionVotosUser[$index] = $voteUser->ocasion_id;
 					$index = $index + 1;
 				}
 			}
@@ -73,7 +68,7 @@ class LugarController extends BaseController {
 		$categoria = Categoria::where('id', '=', $idcategoria)->first();
 		$ciudad = Ciudad::where('slug', '=', $city)->first()->descripcion;
 
-		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('city', $city)->with('categoria', $categoria)->with('ciudad', $ciudad);
+		return View::make('lugar.index')->with('lugar', $lugar)->with('reviews', $reviews)->with('ratingUser', $ratingUser)->with('comentarios', $comments)->with('votosLugar', $votos_ocasiones)->with('totalVotos', $total_votos)->with('totalOcasiones', $ocasiones)->with('votesUser', $ocasionVotosUser)->with('cantSlides', $cantSlides)->with('city', $city)->with('categoria', $categoria)->with('ciudad', $ciudad)->with('seccion', 'lugar');
 	}
 
 	public function vote_lugar() {
@@ -146,13 +141,8 @@ class LugarController extends BaseController {
 							$ratingUser = $review_user->rating;
 							$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
 							$index = 1;
-							foreach(Ocasion::all() as $ocasion) {
-								$ocasionVotosUser[$index] = 0;
-								foreach($reviewOcasionUser as $voteUser) {
-									if($index == $voteUser->ocasion_id) {
-										$ocasionVotosUser[$index] = 1;
-									}	
-								}
+							foreach($reviewOcasionUser as $voteUser) {
+								$ocasionVotosUser[$index] = $voteUser->ocasion_id;
 								$index = $index + 1;
 							}
 						}
@@ -197,13 +187,8 @@ class LugarController extends BaseController {
 							$ratingUser = $review_user->rating;
 							$reviewOcasionUser = ReviewOcasion::where('review_id', $review_user->id)->get();
 							$index = 1;
-							foreach(Ocasion::all() as $ocasion) {
-								$ocasionVotosUser[$index] = 0;
-								foreach($reviewOcasionUser as $voteUser) {
-									if($index == $voteUser->ocasion_id) {
-										$ocasionVotosUser[$index] = 1;
-									}	
-								}
+							foreach($reviewOcasionUser as $voteUser) {
+								$ocasionVotosUser[$index] = $voteUser->ocasion_id;
 								$index = $index + 1;
 							}
 						}

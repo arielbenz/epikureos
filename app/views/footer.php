@@ -73,9 +73,12 @@
 		</section>
 	</footer>
 
-	<div id="fb-root"></div>
+	<!-- LIBS -->
 
-	<script src="<?php echo $url?>/assets/js/jquery-1.11.1.min.js"></script>
+		<div id="fb-root"></div>
+
+	<script src="<?php echo $url?>/assets/js/dist/baselib.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<script>
 		$(document).on("ready", function() {
@@ -96,11 +99,11 @@
 			});
 		});
 
-		$(".menu-login").click(function(event){
+		$(".login-button").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
 			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/loginfb";
 		});
-		$(".menu-logout").click(function(event){
+		$(".logout-button").click(function(event){
 			<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
 			window.location = "http://<?php echo $_SERVER['HTTP_HOST'] ?>/logout";
 		});
@@ -118,33 +121,9 @@
 	</script>
 
 	<?php
-	if($actual != "novedades" && $actual != "laposta" && $actual != "blog") {
-		if(Session::has('message')) {
-			?>
-			<script>
-				bootbox.dialog({
-					message: "<?php echo Session::get('message'); ?>",
-				  	title: "Error",
-				  	buttons: {
-					    danger: {
-				      	label: "Aceptar",
-				      	className: "btn-primary",
-				      	callback: function() {}
-				    }
-				  }
-				});
-			</script>
-			<?php
-		}
-	}
-	?>
-
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-	<?php
 		if(null != $busqueda) {
 			?>
-			<script src="<?php echo $url?>/assets/js/busqueda.min.js"></script>
+			<script src="<?php echo $url?>/assets/js/dist/baselib-busqueda.min.js"></script>
 
 			<script>
 		    	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');
@@ -173,7 +152,7 @@
 	?>
 
 	<?php
-		if (in_array("lugares", $current)) { ?>
+		if ($seccion == "lugar") { ?>
 	    	<script>
 				var votesUserAjax, ratingUser = null;
 				var lugar = $.parseJSON('<?php echo $lugar?>');
@@ -181,6 +160,9 @@
 
 				function getVotesUserAjax() {
 					return $.parseJSON('<?php echo json_encode($votesUser)?>');
+				}
+				function getOcasiones() {
+					return $.parseJSON('<?php echo json_encode($totalOcasiones)?>');
 				}
 				function getRatingUser() {
 					return "<?php echo $ratingUser ?>";
@@ -192,12 +174,27 @@
 					<?php $_SESSION['lastpage'] = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>
 					window.location = "http://<?php echo $_SERVER['HTTP_HOST']; ?>/loginfb";
 				}
+				function getTotalOcasiones(id) {
+					var i = id-1;
+					var value = $.parseJSON('<?php echo json_encode($totalOcasiones)?>');
+					return value[i];
+				}
 			</script>
-	    	<script src="<?php echo $url?>/assets/js/all.lugar.js"></script>
+	    	<script src="<?php echo $url?>/assets/js/dist/baselib-lugar.min.js"></script>
     	<?php
     	} ?>
 
-	<script src="<?php echo $url?>/assets/js/all.js"></script>
+	<?php
+	if($seccion != "blog" && $seccion != "novedades" && $seccion != "laposta") {
+		if(Session::has('message')) {
+			?>
+			<script>
+				swal("Error", "<?php echo Session::get('message'); ?>", "error");
+			</script>
+			<?php
+		}
+	}
+	?>
 
 </body>
 </html>

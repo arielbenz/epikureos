@@ -1,6 +1,7 @@
 .home-search {
     background-position: 50%;
     height: 350px;
+    position: relative;
     @include breakpoint($breakpoint-mobile) {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
@@ -9,6 +10,11 @@
     .search {
         padding-top: 8.25rem;
         @include container(1200px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
         @include breakpoint($breakpoint-landscape) {
             padding-left: 0.625rem;
             padding-right: 0.625rem;

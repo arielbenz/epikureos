@@ -1,5 +1,6 @@
 var __slice=[].slice;!function(a){var b;return b=function(){function b(b,c){var d,e,f,g=this;this.options=a.extend({},this.defaults,c),this.$el=b,f=this.defaults;for(d in f)e=f[d],null!=this.$el.data(d)&&(this.options[d]=this.$el.data(d));this.createStars(),this.syncRating(),this.$el.on("mouseover.starrr","span",function(a){return g.syncRating(g.$el.find("span").index(a.currentTarget)+1)}),this.$el.on("mouseout.starrr",function(){return g.syncRating()}),this.$el.on("click.starrr","span",function(a){return g.setRating(g.$el.find("span").index(a.currentTarget)+1)}),this.$el.on("starrr:change",this.options.change)}return b.prototype.defaults={rating:void 0,numStars:5,change:function(){}},b.prototype.createStars=function(){var a,b,c;for(c=[],a=1,b=this.options.numStars;b>=1?b>=a:a>=b;b>=1?a++:a--)c.push(this.$el.append("<span class='glyphicon glyphicon-star-empty'></span>"));return c},b.prototype.setRating=function(a){return this.options.rating===a&&(a=void 0),this.options.rating=a,this.syncRating(),this.$el.trigger("starrr:change",a)},b.prototype.syncRating=function(a){var b,c,d,e;if(a||(a=this.options.rating),a)for(b=c=0,e=a-1;e>=0?e>=c:c>=e;b=e>=0?++c:--c)this.$el.find("span").eq(b).removeClass("glyphicon-star-empty").addClass("glyphicon-star");if(a&&5>a)for(b=d=a;4>=a?4>=d:d>=4;b=4>=a?++d:--d)this.$el.find("span").eq(b).removeClass("glyphicon-star").addClass("glyphicon-star-empty");return a?void 0:this.$el.find("span").removeClass("glyphicon-star").addClass("glyphicon-star-empty")},b}(),a.fn.extend({starrr:function(){var c,d;return d=arguments[0],c=2<=arguments.length?__slice.call(arguments,1):[],this.each(function(){var e;return e=a(this).data("star-rating"),e||a(this).data("star-rating",e=new b(a(this),d)),"string"==typeof d?e[d].apply(e,c):void 0})}})}(window.jQuery,window),$(function(){return $(".starrr").starrr()});
 
+
 "function"!==typeof Object.create&&(Object.create=function(f){function g(){}g.prototype=f;return new g});
 (function(f,g,k){var l={init:function(a,b){this.$elem=f(b);this.options=f.extend({},f.fn.owlCarousel.options,this.$elem.data(),a);this.userOptions=a;this.loadContent()},loadContent:function(){function a(a){var d,e="";if("function"===typeof b.options.jsonSuccess)b.options.jsonSuccess.apply(this,[a]);else{for(d in a.owl)a.owl.hasOwnProperty(d)&&(e+=a.owl[d].item);b.$elem.html(e)}b.logIn()}var b=this,e;"function"===typeof b.options.beforeInit&&b.options.beforeInit.apply(this,[b.$elem]);"string"===typeof b.options.jsonPath?
 (e=b.options.jsonPath,f.getJSON(e,a)):b.logIn()},logIn:function(){this.$elem.data("owl-originalStyles",this.$elem.attr("style"));this.$elem.data("owl-originalClasses",this.$elem.attr("class"));this.$elem.css({opacity:0});this.orignalItems=this.options.items;this.checkBrowser();this.wrapperWidth=0;this.checkVisible=null;this.setVars()},setVars:function(){if(0===this.$elem.children().length)return!1;this.baseClass();this.eventTypes();this.$userItems=this.$elem.children();this.itemsAmount=this.$userItems.length;
@@ -48,4 +49,231 @@ a);this.unWrap();this.init(a,this.$elem)},addItem:function(a,b){var e;if(!a)retu
 f(this).data("owl-init"))return!1;f(this).data("owl-init",!0);var b=Object.create(l);b.init(a,this);f.data(this,"owlCarousel",b)})};f.fn.owlCarousel.options={items:5,itemsCustom:!1,itemsDesktop:[1199,4],itemsDesktopSmall:[979,3],itemsTablet:[768,2],itemsTabletSmall:!1,itemsMobile:[479,1],singleItem:!1,itemsScaleUp:!1,slideSpeed:200,paginationSpeed:800,rewindSpeed:1E3,autoPlay:!1,stopOnHover:!1,navigation:!1,navigationText:["prev","next"],rewindNav:!0,scrollPerPage:!1,pagination:!0,paginationNumbers:!1,
 responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-carousel",theme:"owl-theme",lazyLoad:!1,lazyFollow:!0,lazyEffect:"fade",autoHeight:!1,jsonPath:!1,jsonSuccess:!1,dragBeforeAnimFinish:!0,mouseDrag:!0,touchDrag:!0,addClassActive:!1,transitionStyle:!1,beforeUpdate:!1,afterUpdate:!1,beforeInit:!1,afterInit:!1,beforeMove:!1,afterMove:!1,afterAction:!1,startDragging:!1,afterLazyLoad:!1}})(jQuery,window,document);
 
-function inicio(){{var a=new google.maps.LatLng(lugar.latitud,lugar.longitud),b={zoom:16,center:a,scrollwheel:!1,mapTypeId:google.maps.MapTypeId.ROADMAP},c=new google.maps.Map($("#lugar-mapa").get(0),b);new google.maps.Marker({position:a,map:c})}$(".vote").click(function(a){var b=getUserStatus();if(b){var c=$(this).attr("id"),d=$(this).attr("name"),e={lugarid:lugar.id,ocasionid:c,name:d};$.ajax({type:"POST",url:urlLike,data:e,cache:!1,success:function(a){if(""==a.message){{var b=a.votosLugar;a.totalOcasiones}votesUserAjax=a.votesUser,ratingUser=a.ratingUser;var c="",d=0,e=1;for(var f in b)d=0,b[f]>0&&(d=100*b[f]/a.totalVotos),c=c.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>"+f+"</span><span class='lugar-votos-voto'>"+b[f]+" Votos</span><div class='meter orange nostripes'><span style='width:"+d+"%'></span></div></div>"),e+=1;$(".lugar-contentrating-ocasion").html(c),$(".meter > span").each(function(){$(this)}),meterAnimate()}else console.log(a.message)},error:function(){console.log("Error al votar")}}),a.preventDefault()}else bootbox.dialog({message:"Debe iniciar sesión para poder votar",title:"Votación",buttons:{danger:{label:"Cancelar",className:"btn-danger",callback:function(){}},main:{label:"Iniciar Sesión",className:"btn-primary",callback:function(){callbackLogin()}}}}),a.preventDefault()}),$(function(){var a=($(".section__review-box"),$(".new-review"),$("#ratings-hidden"));$(".glyphicon").click(function(){console.log($("#ratings-hidden").val())}),$(".starrr").on("starrr:change",function(b,c){a.val(c)}),meterAnimate(),$("#owl-demo").owlCarousel({autoPlay:4e3,navigation:!1,slideSpeed:300,paginationSpeed:400,singleItem:!0})})}function meterAnimate(){var a=1;console.log(votesUserAjax),null==votesUserAjax&&(votesUserAjax=getVotesUserAjax()),null==ratingUser&&(ratingUser=getRatingUser()),$(".meter > span").each(function(){{var b=getUserStatus();getRatingUser()}b?-1!=ratingUser?0==votesUserAjax[a]?($(".voteocasion-up"+a).css("display","initial"),$(".voteocasion-up"+a).css("background-color","#58ba48"),$(".voteocasion-down"+a).css("display","none")):($(".voteocasion-up"+a).css("display","none"),$(".voteocasion-down"+a).css("display","initial")):($(".voteocasion-up"+a).css("display","initial"),$(".voteocasion-up"+a).css("background-color","#58ba48"),$(".voteocasion-down"+a).css("display","none")):($(".voteocasion-up"+a).css("display","initial"),$(".voteocasion-down"+a).css("display","none")),$(this).data("origWidth",$(this).width()).width(0).animate({width:$(this).data("origWidth")},1200),a+=1})}$(document).on("ready",inicio),Share={facebook:function(a,b,c,d){url="http://www.facebook.com/sharer.php?s=100",url+="&p[title]="+encodeURIComponent(b),url+="&p[summary]="+encodeURIComponent(d),url+="&p[url]="+encodeURIComponent(a),url+="&p[images][0]="+encodeURIComponent(c),Share.popup(url)},twitter:function(a,b){url="http://twitter.com/share?",url+="text="+encodeURIComponent(b),url+="&url="+encodeURIComponent(a),url+="&counturl="+encodeURIComponent(a),Share.popup(url)},popup:function(a){window.open(a,"","toolbar=0,status=0,width=626, height=436")}};
+
+$(document).on("ready", inicio);
+
+function inicio() {
+    var latlon = new google.maps.LatLng(lugar.latitud, lugar.longitud);
+    var myOptions = {
+        zoom: 16,
+        center: latlon,
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+	var map = new google.maps.Map($("#lugar-mapa").get(0), myOptions);
+
+	var marcador = new google.maps.Marker({
+        position: latlon,
+        map: map
+    });
+
+	$(".vote").click(function(event) {
+
+		var user = getUserStatus();
+		
+		if(user) {
+			var ocasionid = $(this).attr("id");
+			var name = $(this).attr("name");
+
+			console.log(ocasionid);
+
+			var params = {  'lugarid' : lugar.id, 'ocasionid' : ocasionid, 'name' : name };
+
+		   	$.ajax({
+                type: "POST",
+	            url: urlLike,
+	            data: params,
+	            cache: false,
+	            success: function (data) {
+	            	if(data.message == "") {
+	            		var votos = data.votosLugar;
+		            	var ocasiones = data.totalOcasiones;
+		            	votesUserAjax = data.votesUser;
+		            	ratingUser = data.ratingUser;
+		            	var html = "";
+		            	var voto = 0;
+		            	var j = 1;
+
+						for(var i in votos) {
+							voto = 0;
+							if(votos[i] > 0) {
+								voto = (votos[i]*100)/(data.totalVotos);
+							}
+							html = html.concat("<div class='lugar-votos-ocasion'><span class='lugar-votos-desc'>" + i + "</span><span class='lugar-votos-voto'>" + votos[i] + " Votos</span><div class='meter orange nostripes'><span style='width:" + voto + "%'></span></div></div>");
+							j = j + 1;
+						}
+
+						$(".lugar-contentrating-ocasion").html(html);
+
+						$(".meter > span").each(function() {
+							$(this)
+						});
+						
+						meterAnimate();
+	            	} else {
+	            		console.log(data.message);
+	            	}
+	            },
+	            error: function(data) {
+	                console.log("Error al votar");
+	            }  
+	        });
+			event.preventDefault();
+		} else {
+			swal({
+				title: "Recomendá " + lugar.nombre,
+				text: "Debes iniciar sesión para poder votar",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#597AC7",
+				confirmButtonText: "Iniciar Sesión",
+				closeOnConfirm: false
+				},
+			function() {
+				callbackLogin();
+			});
+			event.preventDefault();
+		}
+ 	});
+
+	$(function(){
+		var reviewBox = $('.section__review-box');
+		var newReview = $('.new-review');
+		var ratingsField = $('#ratings-hidden');
+
+		$(".glyphicon").click(function() {
+			console.log($("#ratings-hidden").val());
+		});
+
+		$('.starrr').on('starrr:change', function(e, value){
+        	ratingsField.val(value);
+      	});
+
+      	meterAnimate();
+
+      	$("#owl-demo").owlCarousel({
+      		autoPlay: 4000,
+			navigation : false,
+				slideSpeed : 300,
+				paginationSpeed : 400,
+				singleItem: true
+		});
+
+		$(".button-comment").click(function(event) {
+			var userStatus = getUserStatus();
+
+			if (userStatus) {
+				if($(".new-review").val().trim() == "") {
+					event.preventDefault();
+					swal({
+						title: "Opinión de " + lugar.nombre,
+						text: "Debes completar tu opinión",
+						type: "warning",
+						showCancelButton: false,
+						confirmButtonColor: "#597AC7",
+						confirmButtonText: "Completar ahora",
+						closeOnConfirm: true
+						},
+					function() {});
+				}
+			} else if($(".nombre-sesion-user").val().trim() == "") {
+				swal({
+					title: "Opinión de " + lugar.nombre,
+					text: "Completa el nombre o iniciá sesión",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#597AC7",
+					confirmButtonText: "Iniciar Sesión",
+					closeOnConfirm: false
+					},
+				function() {
+					callbackLogin();
+				});
+			} else if($(".new-review").val().trim() == "") {
+				event.preventDefault();
+				swal({
+					title: "Opinión de " + lugar.nombre,
+					text: "Debes completar tu opinión",
+					type: "warning",
+					showCancelButton: false,
+					confirmButtonColor: "#597AC7",
+					confirmButtonText: "Completar ahora",
+					closeOnConfirm: true
+					},
+				function() {});
+			}
+		});
+
+		$(".close").click(function(event) {
+			$(".alert-danger").css("display", "none");
+		});
+    });    
+}
+
+Share = {
+	facebook: function(purl, ptitle, pimg, text) {
+	url = 'http://www.facebook.com/sharer.php?s=100';
+	url += '&p[title]=' + encodeURIComponent(ptitle);
+	url += '&p[summary]=' + encodeURIComponent(text);
+	url += '&p[url]=' + encodeURIComponent(purl);
+	url += '&p[images][0]=' + encodeURIComponent(pimg);
+	Share.popup(url);
+	},
+	twitter: function(purl, ptitle) {
+	url = 'http://twitter.com/share?';
+	url += 'text=' + encodeURIComponent(ptitle);
+	url += '&url=' + encodeURIComponent(purl);
+	url += '&counturl=' + encodeURIComponent(purl);
+	Share.popup(url);
+	},
+	popup: function(url) {
+	window.open(url,'','toolbar=0,status=0,width=626, height=436');
+	}
+};
+
+function meterAnimate() {
+	var meterid = 0;
+	var totalOcaciones = getOcasiones();
+	if(votesUserAjax == null) {
+		votesUserAjax = getVotesUserAjax();
+	}
+	if(ratingUser == null) {
+		ratingUser = getRatingUser();
+	}
+
+  	$(".meter > span").each(function() {
+  		
+  		var user = getUserStatus();
+  		var rateg = getRatingUser();
+  		var idOcasion = totalOcaciones[meterid];
+  		if(user) {
+  			if(ratingUser != -1) {
+  				var idOcasionUser = null;
+  				$.each(votesUserAjax, function(index, value) {
+       				if(idOcasion == value) {
+       					idOcasionUser = idOcasion;
+       				}
+   				});
+
+  				if (idOcasionUser == null) {
+      				$(".voteocasion-up"+idOcasion).css("display", "initial");
+      				$(".voteocasion-up"+idOcasion).css("background-color", "#58ba48");
+	      			$(".voteocasion-down"+idOcasion).css("display", "none");
+      			} else {
+      				$(".voteocasion-up"+idOcasion).css("display", "none");
+	      			$(".voteocasion-down"+idOcasion).css("display", "initial");
+      			}
+  			} else {
+  				$(".voteocasion-up"+idOcasion).css("display", "initial");
+  				$(".voteocasion-up"+idOcasion).css("background-color", "#58ba48");
+	      		$(".voteocasion-down"+idOcasion).css("display", "none");
+  			}
+      	} else {
+      		$(".voteocasion-up"+idOcasion).css("display", "initial");
+      		$(".voteocasion-down"+idOcasion).css("display", "none");
+      	}
+
+		$(this).data("origWidth", $(this).width()).width(0).animate({ width: $(this).data("origWidth") }, 1200);
+		meterid = meterid + 1;
+	});
+}

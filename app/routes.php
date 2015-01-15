@@ -29,6 +29,10 @@ Route::get('/loginfb', 'LoginController@loginfb');
 Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
 Route::get('/logout', 'LoginController@logoutfb');
 
+// Rutas Usuarios
+
+Route::get('/perfil/{useraname}', 'PerfilController@get_perfil');
+
 Route::group(array('domain' => '{city}.epikureos.com'), function(){
 
     Route::get('/', 'HomeController@get_index_city');
@@ -58,6 +62,11 @@ Route::group(array('domain' => '{city}.epikureos.com'), function(){
     Route::get('/loginfb', 'LoginController@loginfb');
     Route::get('/loginfb/callback', 'LoginController@callback_loginfb');
     Route::get('/logout', 'LoginController@logoutfb');
+
+    // Rutas Usuarios
+
+    Route::get('/perfil/{useraname}', 'PerfilController@get_perfil');
+
 });
 
 // Ruta que envia comentario
@@ -68,6 +77,7 @@ Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
         $input = array(
             'comentario' => Input::get('comment'),
             'voto' => Input::get('rating'),
+            'nombre' => Input::get('nombre'),
         );
 
         $validacion = array(
@@ -94,8 +104,41 @@ Route::post('/lugares/{lugar}', array('before'=>'csrf', function($slug) {
 
     } else {
 
-        return Redirect::to('lugares/'.$slug)->withErrors(array('login' => "No se encuentra logueado para poder comentar."))->withInput();
+        $input = array(
+            'comentario' => Input::get('comment'),
+            'voto' => Input::get('rating'),
+            'nombre' => Input::get('nombre'),
+        );
 
+        $validacion = array(
+            'comentario'=> 'required|min:10',
+            'voto' => 'required|integer|between:1,5',
+            'nombre'=> 'required|min:1',
+        );
+
+        $lugar = Lugar::where('slug', '=', $slug)->first();
+
+        $validator = Validator::make($input, $validacion);
+
+        if ($validator->passes()) {
+            $userAnonymus = new User;
+            $userAnonymus->name = $input['nombre'];
+            $userAnonymus->email = User::all()->count()+1;
+            $userAnonymus->photo = "http://epikureos.com" . "/assets/img/anon_user.jpg";
+            $userAnonymus->save();
+
+            Auth::login($userAnonymus);
+
+            $review = new Review;
+            $review->storeReviewForLugar($review, $lugar, $input['comentario'], $input['voto']);
+
+            Auth::logout();
+
+            return Redirect::to('lugares/'.$slug)->with('review_posted',true);
+        }
+
+        return Redirect::to('lugares/'.$slug)->withErrors($validator)->withInput();
+        //return Redirect::to('lugares/'.$slug)->withErrors(array('login' => "No se encuentra logueado para poder comentar."))->withInput();
     }
 
 }));

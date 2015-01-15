@@ -43,7 +43,7 @@
 	</div>
 
 	<!-- JS -->
-	<script src="{{ URL::asset('assets/js/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/lib/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/lib/bootstrap.min.js') }}"></script>
 </body>
 </html>

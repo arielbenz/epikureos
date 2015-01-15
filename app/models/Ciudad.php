@@ -6,8 +6,7 @@ class Ciudad extends Eloquent {
 
 	public $timestamps = false;
 
-	public function lugares()
-	{
+	public function lugares() {
 		return $this->hasMany('Lugar');
 	}
 }

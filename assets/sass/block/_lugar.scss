@@ -23,6 +23,11 @@
             text-decoration: underline;
         }
     }
+    .section__user-recomend {
+        float: left;
+        margin-top: 70px;
+        width: 100%;
+    }
     .section__review {
         width: 740px;
         float: left;
@@ -46,7 +51,6 @@
         .section__review__comentarios {
             background-color: $gray-middle-two;
             display: inline-block;
-            margin: 30px 0;
             height: auto;
             width: 720px;
             padding: 10px;
@@ -64,32 +68,6 @@
                 width: 96%;
             }
 
-            .menu-lugar {
-                background-color: #F6F6F6;
-                display: inline-block;
-                margin: 0 auto;
-                width: 80%;
-                padding: 20px 0px;
-                border-bottom: 1px solid $gray-middle-five;
-                .menu-lugar-logo {
-                    width: 130px;
-                    float: left;
-                }
-                .menu-lugar-info {
-                    display: inline-block;
-                    margin-left: 10px;
-                    width: 61%;
-                    float: right;
-                    text-align: right;
-                    h3 {
-                        font-size: 16px;
-                        font-family: "Open Sans Bold";
-                    }
-                    p {
-                        font-size: 14px;
-                    }
-                }
-            }
             .comentarios-lugar-alert {
                 text-align: left;
                 margin-left: 20px;
@@ -98,164 +76,179 @@
                     width: 670px !important;
                 }
             }
-            .section__review-box {
-                form {
-                    .form-comment-rating {
-                        height: 155px;
-                        .form-comment {
-                            display: inline-block;
-                            height: 100%;
-                            width: 100%;
-                            .form-control {
-                                font-size: 16px;
-                                height: 130px !important;
-                                width: 680px;
-                                padding: 10px;
-                                resize: none !important;
-                                @include breakpoint($breakpoint-portrait-max) {
-                                    font-size: 13px;
-                                    width: 100%;
-                                }
-                            }
-                            .new-review {
-                                height: 100%;
-                                width: 100%;
-                            }
-                        }
-                    }
-                    .form-buttons-review {
-                        float: left;
+        }
+    }
+}
+
+.section__review-box {
+    float: left;
+    width: 100%;
+    form {
+        .form-comment-rating {
+            float: left;
+            width: 100%;
+            .form-comment {
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                .form-control {
+                    font-size: 16px;
+                    height: 130px !important;
+                    width: 680px;
+                    padding: 10px;
+                    resize: none !important;
+                    @include breakpoint($breakpoint-portrait-max) {
+                        font-size: 13px;
                         width: 100%;
-                        padding-top: 10px;
-                        .form-buttons {
-                            float: left;
-                            height: 60px;
-                            @include breakpoint($breakpoint-mobile) {
-                                width: auto;
-                            }
-
-                            .form-buttons-login {
-                                font-size: 13px;
-                                font-style: italic;
-                                a {
-                                    color: $orange-middle;
-                                    @include transition(color 0.3s ease);
-                                    &:hover {
-                                        color: $orange-light;
-                                    }
-                                }
-                            }
-                            .button {
-                                padding: 5px 0px;
-                                font-size: 16px;
-                                line-height: 1.33;
-                                width: 90px;
-                            }
-                            .button-comment {
-                                color: white;
-                                background-color: $gray-middle-three;
-                                border-color: $gray-middle-three;
-                                border-color: $gray-middle-three;
-                            }
-                            .button-comment-user {
-                                background-color: $green-dark;
-                                border-color: $green-dark;
-                                &:hover {
-                                    @include box-shadow(0px 0px 4px black);
-                                }
-                            }
-                        }
-                        .lugar-rating-star {
-                            width: 33%;
-                            float: right;
-                            .text-right {
-                                text-align: right;
-                                position: relative;
-                                .lugar-rating-vote {
-                                    font-size: 13px;
-                                    font-style: italic;
-                                    position: absolute;
-                                    left: 60px;
-                                    top: 5px;
-                                }
-                                .stars {
-                                    font-size: 24px;
-                                    color: $gray-middle-three;
-                                    float: right;
-                                    margin-left: 20px;
-                                }
-                                .stars-user {
-                                    color: $orange-midlight;
-                                }
-                            }
-                        }
                     }
+                }
+                .new-review {
+                    height: 150px;
+                    width: 100%;
                 }
             }
-            .section__review-comment {
-                border-top: 1px solid $gray-middle-four;
-                padding: 20px;
-                clear: both;
-                @include breakpoint($breakpoint-mobile) {
-                    padding-left: 0;
-                    padding-right: 0;
-                    margin: 0 10px;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    padding-left: 0;
-                    padding-right: 0;
-                    margin: 0 10px;
-                }
-
-                .section__review-photo {
-                    float: left;
-                    width: 50px;
-                    height: 50px;
-                    display: inline-block;
-                }
-                .section__review-votes {
-                    display: inline-block;
-                    width: 300px;
-                    margin: 0;
-                    text-align: left;
-                    vertical-align: top;
-                    float: left;
-                    @include breakpoint($breakpoint-mobile) {
-                        width: auto;
-                    }
-
-                    @include breakpoint($breakpoint-landscape) {
-                        width: auto;
-                    }
-
-                    .section__review-votesrating {
-                        margin-left: 25px;
-                        margin-bottom: 11px;
-                    }
-                    .section__review-username {
-                        margin-left: 25px;
-                    }
-                }
-                .section__review-commentdate {
-                    float: right;
-                }
-                .section__review-commentuser {
-                    clear: both;
-                    text-align: left;
-                    padding-top: 20px;
-                    padding-left: 75px;
-                }
+        }
+        .nombre-sesion {
+            float: left;
+            margin: 20px 0;
+            text-align: left;
+            width: 100%;
+            span {
+                display: inline-block;
             }
-            .section__review-navigation {
-                padding: 20px;
-                border-top: 1px solid $gray-middle-four;
+            .nombre-sesion-user {
+                margin: 0 15px;
+                padding: 5px;
+            }
+        }
+        .form-buttons-login {
+            background-color: #58ba48;
+            font-size: 16px;
+            margin: 0 15px;
+            padding: 5px;
+            &:hover {
+                opacity: 0.7;
+            }
+            a {
+                color: white;
             }
         }
     }
 }
 
+.form-buttons-review {
+    float: left;
+    margin-bottom: 60px;
+    padding-top: 10px;
+    width: 100%;
+    .form-buttons {
+        float: left;
+        @include breakpoint($breakpoint-mobile) {
+            width: auto;
+        }
+
+        .button {
+            padding: 5px 0px;
+            font-size: 16px;
+            line-height: 1.33;
+            width: 90px;
+        }
+        .button-comment {
+            color: white;
+            background-color: $gray-middle-three;
+            border-color: $gray-middle-three;
+        }
+        .button-comment-user {
+            background-color: $green-dark;
+            border-color: $green-dark;
+            &:hover {
+                @include box-shadow(0px 0px 4px black);
+            }
+        }
+    }
+    .lugar-rating-star {
+        float: right;
+        .lugar-rating-vote {
+            font-size: 13px;
+            font-style: italic;
+        }
+        .stars {
+            font-size: 24px;
+            color: $gray-middle-three;
+            float: right;
+            margin-left: 20px;
+        }
+        .stars-user {
+            color: $orange-midlight;
+        }
+    }
+}
+
+.section__review-comment {
+    border-top: 1px solid $gray-middle-four;
+    padding: 20px;
+    clear: both;
+    @include breakpoint($breakpoint-mobile) {
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 10px;
+    }
+
+    @include breakpoint($breakpoint-landscape) {
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 10px;
+    }
+
+    .section__review-photo {
+        float: left;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+    }
+    .section__review-votes {
+        display: inline-block;
+        width: 300px;
+        margin: 0;
+        text-align: left;
+        vertical-align: top;
+        float: left;
+        @include breakpoint($breakpoint-mobile) {
+            width: auto;
+        }
+
+        @include breakpoint($breakpoint-landscape) {
+            width: auto;
+        }
+
+        .section__review-votesrating {
+            margin-left: 25px;
+            margin-bottom: 11px;
+        }
+        .section__review-username {
+            margin-left: 25px;
+        }
+    }
+    .section__review-commentdate {
+        float: right;
+    }
+    .section__review-commentuser {
+        clear: both;
+        text-align: left;
+        padding-top: 20px;
+        padding-left: 75px;
+    }
+}
+
+.section__review-navigation {
+    padding: 20px 0;
+    border-top: 1px solid $gray-middle-four;
+    float: left;
+    width: 100%;
+}
+
 .lugar-info {
+    float: left;
     @include breakpoint($breakpoint-bigwebhd) {
         height: 500px;
         float: left;
@@ -525,89 +518,90 @@
             height: 100%;
             width: 100%;
         }
+    }
+}
 
-        #owl-demo {
-            .owl-wrapper-outer {
-                .owl-wrapper {
-                    @include breakpoint($breakpoint-mobile) {
+#owl-demo {
+    .owl-wrapper-outer {
+        .owl-wrapper {
+            @include breakpoint($breakpoint-mobile) {
+                width: 100%;
+            }
+
+            .owl-item {
+                @include breakpoint($breakpoint-mobile) {
+                    width: 100%;
+                }
+
+                .item {
+                    @include breakpoint($breakpoint-portrait) {
                         width: 100%;
+                        height: 100%;
                     }
 
-                    .owl-item {
-                        @include breakpoint($breakpoint-mobile) {
-                            width: 100%;
-                        }
-
-                        .item {
-                            @include breakpoint($breakpoint-portrait) {
-                                width: 100%;
-                                height: 100%;
-                            }
-
-                            img {
-                                display: block;
-                                height: auto;
-                            }
-                        }
+                    img {
+                        display: block;
+                        height: auto;
                     }
                 }
             }
         }
     }
-    .lugar-info__slide-share {
-        background-color: $gray-middle-three;
-        height: 40px;
-        margin-top: 25px;
-        width: 430px;
-        @include breakpoint($breakpoint-landscape-max) {
-            width: 100%;
+}
+
+.lugar-info__slide-share {
+    background-color: $gray-middle-three;
+    height: 40px;
+    margin-top: 25px;
+    width: 430px;
+    @include breakpoint($breakpoint-landscape-max) {
+        width: 100%;
+    }
+
+    @include breakpoint($breakpoint-portrait) {
+        display: none;
+    }
+
+    h4 {
+        color: white;
+        float: left;
+        font-size: 25px;
+        margin-left: 15px;
+        margin-top: 1px;
+        @include breakpoint($breakpoint-mobile) {
+            font-size: 16px;
+            margin-left: 10px;
+            margin-top: 7px;
         }
 
-        @include breakpoint($breakpoint-portrait) {
-            display: none;
+        @include breakpoint($breakpoint-landscape) {
+            font-size: 20px;
+            margin-left: 10px;
+            margin-top: 4px;
         }
-
-        h4 {
-            color: white;
-            float: left;
-            font-size: 25px;
-            margin-left: 15px;
-            margin-top: 1px;
-            @include breakpoint($breakpoint-mobile) {
-                font-size: 16px;
-                margin-left: 10px;
-                margin-top: 7px;
-            }
-
-            @include breakpoint($breakpoint-landscape) {
-                font-size: 20px;
-                margin-left: 10px;
-                margin-top: 4px;
-            }
-        }
-        ul {
-            text-align: right;
-            width: 100%;
-            li {
-                display: inline-block;
+    }
+    ul {
+        text-align: right;
+        width: 100%;
+        li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            a {
+                height: 40px;
                 margin: 0;
                 padding: 0;
-                a {
-                    height: 40px;
-                    margin: 0;
-                    padding: 0;
-                    width: 40px;
-                    display: block;
-                }
-                .contacto-face {
-                    background: url("../img/contacto-facebook.png") no-repeat !important;
-                }
-                .contacto-twitter {
-                    background: url("../img/contacto-twitter.png") no-repeat !important;
-                }
-                .contacto-plus {
-                    background: url("../img/contacto-plus.png") no-repeat !important;
-                }
+                width: 40px;
+                display: block;
+            }
+            .contacto-face {
+                background: url("../img/contacto-facebook.png") no-repeat !important;
+            }
+            .contacto-twitter {
+                background: url("../img/contacto-twitter.png") no-repeat !important;
+            }
+            .contacto-plus {
+                background: url("../img/contacto-plus.png") no-repeat !important;
             }
         }
     }
@@ -635,8 +629,6 @@
 .lugar-contentrating-votos {
     display: inline-block;
     width: 349px;
-    vertical-align: top;
-    margin-top: 30px;
     @include breakpoint($breakpoint-mobile) {
         width: 75%;
     }
@@ -658,45 +650,30 @@
         margin-bottom: 25px;
         margin-top: 0 !important;
     }
-    .lugar-contentrating-ocasion {
-        .lugar-votos-ocasion {
-            margin-bottom: 15px;
-            color: #656565;
-            .lugar-votos-desc {
-                display: inline-block;
-                text-align: left;
-                width: 50%;
-                font-family: $openSans-bold;
-                @include breakpoint($breakpoint-mobile) {
-                    width: 75%;
-                    font-size: 14px;
-                }
+}
 
-                @include breakpoint($breakpoint-landscape) {
-                    width: 80%;
-                }
-
-                @include breakpoint($breakpoint-bigwebhd) {
-                    width: 80%;
-                }
+.lugar-contentrating-ocasion {
+    .lugar-votos-ocasion {
+        margin-bottom: 15px;
+        color: #656565;
+        .lugar-votos-desc {
+            display: inline-block;
+            text-align: left;
+            width: 80%;
+            font-family: $openSans-bold;
+            @include breakpoint($breakpoint-mobile) {
+                width: 75%;
+                font-size: 14px;
             }
-            .lugar-votos-voto {
-                display: inline-block;
-                font-family: $openSans-light;
-                text-align: right;
-                width: 50%;
-                @include breakpoint($breakpoint-mobile) {
-                    width: 25%;
-                    font-size: 14px;
-                }
-
-                @include breakpoint($breakpoint-landscape) {
-                    width: 20%;
-                }
-
-                @include breakpoint($breakpoint-bigwebhd) {
-                    width: 20%;
-                }
+        }
+        .lugar-votos-voto {
+            display: inline-block;
+            font-family: $openSans-light;
+            text-align: right;
+            width: 20%;
+            @include breakpoint($breakpoint-mobile) {
+                width: 25%;
+                font-size: 14px;
             }
         }
     }
@@ -706,7 +683,7 @@
     display: inline-block;
     width: 76px;
     vertical-align: top;
-    margin-top: 111px;
+    margin-top: 81px;
     text-align: right;
     @include breakpoint($breakpoint-mobile) {
         width: 25%;
@@ -716,31 +693,31 @@
         float: right;
         width: 10%;
     }
+}
 
-    .lugar-votos-button {
-        height: 23px;
-        margin-bottom: 44px;
-        float: right;
-        width: 42px;
-        .voteocasion {
-            color: white;
-            @include transition(all 0.3s ease);
+.lugar-votos-button {
+    height: 23px;
+    margin-bottom: 44px;
+    float: right;
+    width: 42px;
+    .voteocasion {
+        color: white;
+        @include transition(all 0.3s ease);
+    }
+    .voteocasion-up {
+        background-color: #EEE;
+        padding: 10px 12px;
+        &:hover {
+            background-color: #58ba48;
+            border-radius: 50%;
         }
-        .voteocasion-up {
-            background-color: #EEE;
-            padding: 10px 12px;
-            &:hover {
-                background-color: #58ba48;
-                border-radius: 50%;
-            }
-        }
-        .voteocasion-down {
-            background-color: #EEE;
-            padding: 10px 14px;
-            &:hover {
-                background-color: $red-dark;
-                border-radius: 50%;
-            }
+    }
+    .voteocasion-down {
+        background-color: #EEE;
+        padding: 10px 14px;
+        &:hover {
+            background-color: $red-dark;
+            border-radius: 50%;
         }
     }
 }

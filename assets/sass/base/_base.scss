@@ -23,8 +23,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $titillium-regular;
-    margin: 0;
+    font-weight: 500;
     line-height: normal;
+    margin: 0;
     text-rendering: optimizeLegibility;
 }
 
@@ -38,7 +39,7 @@ p {
 }
 
 a {
-    //color: $gray-dark;
+    color: $gray-dark;
     text-decoration: none;
     text-rendering: optimizeLegibility;
 }

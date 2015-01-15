@@ -1,0 +1,92 @@
+.content-perfil {
+    @include container(1200px);
+    margin: 0 auto;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+}
+
+.perfil-bar {
+    width: 100%;
+    float: left;
+    height: 30px;
+}
+
+.perfil-data {
+    @include span(3);
+    background-color: $gray-middle-two;
+    padding: 0.625rem;
+}
+
+.perfil-data-avatar {
+    float: left;
+    width: 60px;
+}
+
+.perfil-data-name {
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.perfil-right {
+    @include span(2);
+    background-color: $gray-middle-two;
+    float: right;
+}
+
+.section__review {
+    @include span(6);
+}
+
+.section__review__comentarios {
+    background-color: $gray-middle-two;
+    height: auto;
+    padding: 10px;
+}
+
+.section__review-comment {
+    border-top: 1px solid $gray-middle-four;
+    padding: 20px;
+    clear: both;
+    &:first-child {
+        border-top: none;
+    }
+    .section__review-photo {
+        display: inline-block;
+        float: left;
+        width: 100px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .section__review-votes {
+        display: inline-block;
+        width: 300px;
+        margin: 0;
+        text-align: left;
+        vertical-align: top;
+        float: left;
+        .section__review-votesrating {
+            margin-left: 25px;
+            margin-bottom: 11px;
+        }
+        .section__review-username {
+            margin-left: 25px;
+        }
+    }
+    .section__review-commentdate {
+        float: right;
+    }
+    .section__review-commentuser {
+        clear: both;
+        text-align: left;
+        padding: 35px 0 0 125px;
+    }
+}
+
+.section__review-navigation {
+    padding: 20px 0;
+    border-top: 1px solid $gray-middle-four;
+    float: left;
+    width: 100%;
+}

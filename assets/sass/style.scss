@@ -1,31 +1,16 @@
-@import "lib/bootstrap";
-
-@import "global/utils";
-@import "global/fonts";
-@import "block/base";
-@import "block/header";
-@import "block/home-partner";
-@import "block/footer";
-
-@import "block/bars";
-@import "block/stars";
-@import "block/meter";
+@import "base";
+@import "layout/bars";
+@import "layout/sidebar";
+@import "layout/navigation";
+@import "component/stars";
+@import "component/meter";
 @import "block/home-search";
 @import "block/home-info";
-
 @import "block/blog";
 @import "block/single";
 @import "block/laposta";
-@import "block/sidebar";
-@import "block/navigation";
-
-//@import "block/evento";
-//@import "block/promo";
-//@import "block/home-recomended";
-
 @import "block/busqueda";
 @import "block/contacto";
 @import "block/lugar";
-@import "block/404";
 @import "lib/carousel";
 @import "lib/carouseltheme";

@@ -1,5 +1,8 @@
 
-<?php include "../app/views/header.php";?>
+<?php 
+	$seccion = "blog";
+	include "../app/views/header.php";
+?>
 
 	<section class="barra-content barra-content--novedades">
 		<div class="barra">

@@ -8,7 +8,29 @@ class HomeController extends BaseController {
 
 	public function get_index_city($city) {
 		if (in_array($city, Config::get('city.available'))) {
-	        return View::make('home.index')->with('city', $city);
+
+			$hora = date("H") - 3;
+	
+			if ($hora >= 0 && $hora < 6) {
+				$class_hora_dia = "nightlife_fondo";
+			}
+			else if ($hora >= 6 && $hora < 12) {
+				$class_hora_dia = "breakfast_fondo";
+			}
+			else if ($hora >= 12 && $hora < 15) {
+				$class_hora_dia = "lunch_fondo";
+			}
+			else if ($hora >= 15 && $hora < 18) {
+				$class_hora_dia = "cake_fondo";
+			}
+			else if ($hora >= 18 && $hora < 20) {
+				$class_hora_dia = "after_fondo";
+			}
+			else {
+				$class_hora_dia = "dinner_fondo";
+			}
+
+	        return View::make('home.index')->with('city', $city)->with('seccion', 'home')->with('class_hora_dia', $class_hora_dia);
 	    } else {
 	    	return Redirect::to('http://santafe.'.$_SERVER['HTTP_HOST']);
 	    }
@@ -23,27 +45,27 @@ class HomeController extends BaseController {
 	}
 
 	public function get_quees() {
-		return View::make('quees.index');
+		return View::make('quees.index')->with('seccion', 'quees');
 	}
 
 	public function get_contacto() {
-		return View::make('contacto.index');
+		return View::make('contacto.index')->with('seccion', 'contacto');
 	}
 
 	public function get_terminos() {
-		return View::make('terminos.index');
+		return View::make('terminos.index')->with('seccion', 'terminos');
 	}
 
-	public function get_santafe($city) {
+	// public function get_santafe($city) {
 
-		$evento = Evento::where('slug', '=', "santafealacarta")->first();
-		$ciudad = Ciudad::where('slug', '=', $city)->first();
-		$comidas = Comida::orderBy('descripcion', 'ASC')->get();
-		$lugares = $evento->lugares()->paginate(8);
-		$comidaBusqueda = null;
+	// 	$evento = Evento::where('slug', '=', "santafealacarta")->first();
+	// 	$ciudad = Ciudad::where('slug', '=', $city)->first();
+	// 	$comidas = Comida::orderBy('descripcion', 'ASC')->get();
+	// 	$lugares = $evento->lugares()->paginate(8);
+	// 	$comidaBusqueda = null;
 
-		return View::make('santafealacarta.index')->with('lugares', $lugares)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda);
-	}
+	// 	return View::make('santafealacarta.index')->with('lugares', $lugares)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda);
+	// }
 
 	public function get_busqueda($city, $busqueda) {
 
@@ -60,7 +82,7 @@ class HomeController extends BaseController {
 			$lugares = $etiqueta->lugares($ciudad->id)->paginate(8);
 		}
 
-		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda);
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comidaBusqueda)->with('seccion', 'busqueda');
 	}
 
 	public function get_busqueda_ocasion($city, $busqueda, $ocasionComida) {
@@ -108,7 +130,7 @@ class HomeController extends BaseController {
 			}
 		}
 
-		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comida);
+		return View::make('busqueda.index')->with('busqueda', $busqueda)->with('lugares', $lugares)->with('ciudad', $ciudad->descripcion)->with('city', $city)->with('comidas', $comidas)->with('comidaBusqueda', $comida)->with('seccion', 'busqueda');
 	}
 
 	public function post_busqueda() {

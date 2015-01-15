@@ -108,180 +108,179 @@
 
 			</div>
 
-			<div class="section__review">
+			<div class="section__user-recomend">
 
-				<?php if($lugar->getPromo($lugar->promo_id) != "None") { ?>
+				<div class="section__review">
 
-					<!-- <div class="promo">
-						<a href="<?php echo Promo::find($lugar->promo_id)->url; ?>">
-							<img src="<?php echo $url ?>/assets/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/promos/<?php echo $lugar->promo_id ?>.jpg">
-						</a>
-					</div> -->
+					<?php if($lugar->getPromo($lugar->promo_id) != "None") { ?>
 
-				<?php } ?>
+						<!-- <div class="promo">
+							<a href="<?php echo Promo::find($lugar->promo_id)->url; ?>">
+								<img src="<?php echo $url ?>/assets/images/<?php echo $city; ?>/<?php echo $lugar->slug ?>/promos/<?php echo $lugar->promo_id ?>.jpg">
+							</a>
+						</div> -->
 
-				<div class="section__review__comentarios">
+					<?php } ?>
 
-					<div class="comentarios-lugar-alert">
-					   	<?php if(Session::get('errors')) { ?>
-		                	<div class="alert alert-danger">
-		                		<button type="button" class="close" style="float: right; background: transparent;" data-dismiss="alert" aria-hidden="true">&times;</button>
-		                  		<h5>Han ocurrido estos errores:</h5>
-		                   		<?php
-		                   			foreach($errors->all('<p style="color: #fbb714;">:message</p>') as $message) {
-		                      		echo $message;
-		                   		}
-		                   		?>
-		                	</div>
-		              	<?php } ?>
+					<div class="section__review__comentarios">
 
-		              	<?php if(Session::has('review_posted')) { ?>
-		                	<div class="alert alert-success">
-		                  		<h5>Se ha enviado tu comentario.</h5>
-		                	</div>
-		              	<?php } ?>
-					</div>
-		            
-		            <div class="section__review-box">
-						<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
-							<div class="form-comment-rating">
-								<div class="form-comment">
-									<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+						<div class="comentarios-lugar-alert">
+						   	<?php if(Session::get('errors')) { ?>
+			                	<div class="alert alert-danger">
+			                		<button type="button" class="close" style="float: right; background: transparent;" data-dismiss="alert" aria-hidden="true">&times;</button>
+			                  		<h5>Han ocurrido estos errores:</h5>
+			                   		<?php
+			                   			foreach($errors->all('<p style="color: #fbb714;">:message</p>') as $message) {
+			                      		echo $message;
+			                   		}
+			                   		?>
+			                	</div>
+			              	<?php } ?>
 
-									<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
+			              	<?php if(Session::has('review_posted')) { ?>
+			                	<div class="alert alert-success">
+			                  		<h5>Se ha enviado tu comentario.</h5>
+			                	</div>
+			              	<?php } ?>
+						</div>
+			            
+			            <div class="section__review-box">
+							<form method="POST" action="<?php echo URL::current();?>" accept-charset="UTF-8">
+								<div class="form-comment-rating">
+									<div class="form-comment">
+										<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+										<input id="ratings-hidden" name="rating" type="hidden" value="<?php  
 
-										if (Auth::check()) {
-											$userReview = Review::where('user_id', Auth::user()->id)->where('lugar_id', $lugar->id)->first();
-											if ($userReview != null) {
-												echo $userReview->rating; 	
+											if (Auth::check()) {
+												$userReview = Review::where('user_id', Auth::user()->id)->where('lugar_id', $lugar->id)->first();
+												if ($userReview != null) {
+													echo $userReview->rating; 	
+												}
 											}
-										}
 
-									?>">
-									<textarea class="new-review" class="form-control animated" placeholder="Dejá tu opinión... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
-								</div>
-			                </div>
+										?>">
 
-			                <div class="form-buttons-review">
-								<div class="form-buttons">
-									<?php if (!Auth::check()) { echo "<span class='form-buttons-login'><a href='/loginfb'>Iniciá sesión para dejar tu opinión</a></span>"; } 
-											else { echo "<button class='button button-comment button-comment-user type='submit'>Comentar</button>"; } ?>								
+										<?php if (!Auth::check()) { ?>
+											<div class="nombre-sesion">
+												<span>Dejá tu nombre</span>
+												<input class="nombre-sesion-user" type="text" name="nombre" placeholder="Nombre*" required>	
+												<span>ó</span>
+												<span class='form-buttons-login'><a href='/loginfb'>Iniciá sesión</a></span>
+											</div>
+										<?php } ?>
+										
+										<textarea class="new-review" class="form-control animated" placeholder="Dejá tu opinión... ¿Te gustó <?php echo $lugar->nombre; ?>? ¿Qué recomendas?" name="comment"><?php echo Input::old('comment',""); ?></textarea>
+
+									</div>
 				                </div>
 
-				                	<?php if (Auth::check()) {
+				                <div class="form-buttons-review">
+									<div class="form-buttons">
+										<button class='button button-comment button-comment-user' type='submit'>Comentar</button>	
+					                </div>
+				                	<div class='lugar-rating-star'>
+										<span class='lugar-rating-vote'>Tu voto</span>
+										<div class='stars stars-user starrr' data-rating></div>
+									</div>
+								</div>
+			                </form>
+			            </div>
 
-				                	$rate = 0;
-				                	if ($ratingUser != null) { 
-				                		$rate = $ratingUser;	
-				                	} else { 
-				                		$rate = Input::old('rating',0); 
-				                	}
+							<?php
+								if($comentarios != null) {
+									foreach($comentarios as $comentario) {
 
-				                	echo "<div class='lugar-rating-star'>
-											<div class='text-right'>
-												<span class='lugar-rating-vote'>Tu voto</span>
-												<div class='stars stars-user starrr' data-rating='$rate'>
-												</div>
-						             		</div>
-										</div>";
-									} ?>
-							</div>
-		                </form>
-		            </div>
-
-						<?php
-							if($comentarios != null) {
-								foreach($comentarios as $comentario) {
-
-								?>
-									<div class="section__review-comment">
-										<div class="section__review-photo">
-					    					<img src="<?php echo $comentario->user->photo; ?>" alt="">
-					    				</div>
-										
-										<div class="section__review-votes">
-											<div class="section__review-votesrating">
-											<?php
-											for ($i = 1; $i <= 5; $i++) { ?>
-						    					<span class="glyphicon glyphicon-star<?php
-						    						if($i <= Review::where('user_id', $comentario->user->id)->where('lugar_id', $lugar->id)->first()->rating) {
-						    							echo "";
-								    				} else {
-								    					echo "-empty";
-								    				}
-												?>"></span>
-						    				<?php
-						    				} ?>
+									?>
+										<div class="section__review-comment">
+											<div class="section__review-photo">
+						    					<img src="<?php echo $comentario->user->photo; ?>" alt="">
 						    				</div>
-						    				<span class="section__review-username"><?php echo $comentario->user->name; ?></span>
+											
+											<div class="section__review-votes">
+												<div class="section__review-votesrating">
+												<?php
+												for ($i = 1; $i <= 5; $i++) { ?>
+							    					<span class="glyphicon glyphicon-star<?php
+							    						if($i <= $comentario->rating) {
+							    							echo "";
+									    				} else {
+									    					echo "-empty";
+									    				}
+													?>"></span>
+							    				<?php
+							    				} ?>
+							    				</div>
+							    				<span class="section__review-username"><?php echo $comentario->user->name; ?></span>
+											</div>
+
+											<span class="section__review-commentdate"><?php 
+												$time_ago =strtotime($comentario->created_at); 
+												echo time_stamp($time_ago); 
+
+											 ?></span>
+
+											<div class="section__review-commentuser">
+												<?php echo $comentario->comment; ?>
+											</div> 
 										</div>
 
-										<span class="section__review-commentdate"><?php 
-											$time_ago =strtotime($comentario->created_at); 
-											echo time_stamp($time_ago); 
-
-										 ?></span>
-
-										<div class="section__review-commentuser">
-											<?php echo $comentario->comment; ?>
-										</div> 
+									<?php
+									}
+									?>
+									<div class="section__review-navigation">
+										<?php echo $comentarios->links(); ?>
 									</div>
-
-								<?php
+									<?php
 								}
-								?>
-								<div class="section__review-navigation">
-									<?php echo $comentarios->links(); ?>
-								</div>
-								<?php
-							}
-						?>
+							?>
+					</div>
+
 				</div>
 
-			</div>
+				<div class="lugar-contentrating">
 
-			<div class="lugar-contentrating">
-
-				<div class="lugar-contentrating-votos">
-					<h3>Recomendado para:</h3>
-			
-					<div class="lugar-contentrating-ocasion">
-						<?php
-							$indexOcasion = 1;
-							foreach($votosLugar as $ocasion => $voto) {
-						?>
-							<div class="lugar-votos-ocasion">
-								<span class="lugar-votos-desc"><?php echo $ocasion ?></span><span class="lugar-votos-voto"><?php echo $voto ?> Votos</span>
-			    				<div class="meter orange nostripes">
-									<span style="width: <?php 
-										if($voto > 0) {
-											echo ($voto*100)/$totalVotos;
-										} else {
-											echo 0;
-										}?>%">
-									</span>
+					<div class="lugar-contentrating-votos">
+						<h3>Recomendado para:</h3>
+				
+						<div class="lugar-contentrating-ocasion">
+							<?php
+								$indexOcasion = 1;
+								foreach($votosLugar as $ocasion => $voto) {
+							?>
+								<div class="lugar-votos-ocasion">
+									<span class="lugar-votos-desc"><?php echo $ocasion ?></span><span class="lugar-votos-voto"><?php echo $voto ?> Votos</span>
+				    				<div class="meter orange nostripes">
+										<span style="width: <?php 
+											if($voto > 0) {
+												echo ($voto*100)/$totalVotos;
+											} else {
+												echo 0;
+											}?>%">
+										</span>
+									</div>
 								</div>
-							</div>
+							<?php
+								$indexOcasion = $indexOcasion + 1;
+								}
+							?>
+						</div>
+					</div>
+
+					<div class="lugar-contentrating-buttons">
 						<?php
-							$indexOcasion = $indexOcasion + 1;
+							$indexOcasion = 0;
+							foreach($votosLugar as $ocasion => $voto) {
+								?>
+								<div class="lugar-votos-button">
+									<a href class="vote voteocasion voteocasion-up voteocasion-up<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">+1</a>
+									<a href class="vote voteocasion voteocasion-down voteocasion-down<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">-1</a>
+								</div>
+								<?php
+								$indexOcasion = $indexOcasion + 1;
 							}
 						?>
 					</div>
-				</div>
 
-				<div class="lugar-contentrating-buttons">
-					<?php
-						$indexOcasion = 0;
-						foreach($votosLugar as $ocasion => $voto) {
-							?>
-							<div class="lugar-votos-button">
-								<a href class="vote voteocasion voteocasion-up voteocasion-up<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="up">+1</a>
-								<a href class="vote voteocasion voteocasion-down voteocasion-down<?php echo $totalOcasiones[$indexOcasion] ?>" id="<?php echo $totalOcasiones[$indexOcasion] ?>" name="down">-1</a>
-							</div>
-							<?php
-							$indexOcasion = $indexOcasion + 1;
-						}
-					?>
 				</div>
 
 			</div>

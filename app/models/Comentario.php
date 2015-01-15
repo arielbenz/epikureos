@@ -4,18 +4,19 @@ class Comentario extends Eloquent {
 
 	protected $table = 'comentarios';
 
-	public function lugar()
-    {
+	public function lugar() {
         return $this->belongsTo('Lugar');
     }
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo('User');
     }
 
-    public function storeCometarioForReview($review, $lugar, $user_id, $comment)
-    {
+    public function review() {
+        return $this->belongsTo('Review');
+    }
+
+    public function storeCometarioForReview($review, $lugar, $user_id, $comment) {
         $this->user_id = $user_id;
         $this->lugar_id = $lugar->id;
         $this->review_id = $review->id;
@@ -24,8 +25,7 @@ class Comentario extends Eloquent {
     }
 
     // Attribute presenters
-    public function getTimeagoAttribute()
-    {
+    public function getTimeagoAttribute() {
         $date = \Carbon\Carbon::createFromTimeStamp(strtotime($this->created_at))->diffForHumans();
         return $date;
     }

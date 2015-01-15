@@ -1,10 +1,9 @@
 .partner-section {
-    height: 100px;
-    background-color: $gray-middle-two;
-    margin-bottom: 20px;
     @include container(1200px);
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
+    background-color: $gray-middle-two;
+    height: 100px;
+    margin: 35px auto;  
+    padding: 0 0.625rem;
     .partner-section-logos {
         padding-top: 10px;
         ul {

@@ -561,7 +561,7 @@
 
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	
-	<script src="<?php echo $url?>/assets/js/busqueda-santa.min.js"></script>
+	<script src="<?php echo $url?>/assets/js/dist/busqueda-santa.min.js"></script>
 
 	<script>
     	var nombres = $.parseJSON('<?php echo json_encode($nombres)?>');

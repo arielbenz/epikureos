@@ -238,9 +238,9 @@
                 filter: none;
             }
         }
-        @include breakpoint($breakpoint-bigweb-max) {
-            height: 100%;
-        }
+        // @include breakpoint($breakpoint-bigweb-max) {
+        //     height: 100%;
+        // }
     }
     .tile-home__noticia__title {
         line-height: 180%;
